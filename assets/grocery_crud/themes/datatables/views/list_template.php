@@ -95,7 +95,7 @@
 <?php
 	}
 ?>
-<?php if($unset_export && $unset_print){?>
+<?php if(!$unset_export && !$unset_print){?>
 <style type="text/css">
 	.datatables-add-button
 	{
@@ -112,8 +112,8 @@
 <div class="dataTablesContainer block-full">
 	<?php if(!$unset_add){?>
 		<div class="datatables-add-button">
-		<a role="button" class="add_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" href="<?php echo $add_url?>">
-			<span class="ui-button-icon-primary ui-icon ui-icon-circle-plus"></span>
+		<a role="button" class="add_button btn btn-primary" href="<?php echo $add_url?>">
+			<span class="fa fa-plus-circle"></span>
 			<span class="ui-button-text"><?php echo $this->l('list_add'); ?> <?php echo $subject?></span>
 		</a>
 		</div>
