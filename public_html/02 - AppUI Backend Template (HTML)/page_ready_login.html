@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+
+        <title>Brgy. Cagangohan HOMS | Admin Login</title>
+
+        <meta name="description" content="AppUI is a Web App Bootstrap Admin Template created by pixelcave and published on Themeforest">
+        <meta name="author" content="pixelcave">
+        <meta name="robots" content="noindex, nofollow">
+
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+
+        <!-- Icons -->
+        <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+        <link rel="shortcut icon" href="images/Ph_seal_davao_del_norte_panabo_city.png">
+        <link rel="apple-touch-icon" href="images/Ph_seal_davao_del_norte_panabo_city.png" sizes="57x57">
+        <link rel="apple-touch-icon" href="images/Ph_seal_davao_del_norte_panabo_city.png" sizes="72x72">
+        <link rel="apple-touch-icon" href="images/Ph_seal_davao_del_norte_panabo_city.png" sizes="76x76">
+        <link rel="apple-touch-icon" href="images/Ph_seal_davao_del_norte_panabo_city.png" sizes="114x114">
+        <link rel="apple-touch-icon" href="images/Ph_seal_davao_del_norte_panabo_city.png" sizes="120x120">
+        <link rel="apple-touch-icon" href="images/Ph_seal_davao_del_norte_panabo_city.png" sizes="144x144">
+        <link rel="apple-touch-icon" href="images/Ph_seal_davao_del_norte_panabo_city.png" sizes="152x152">
+        <link rel="apple-touch-icon" href="images/Ph_seal_davao_del_norte_panabo_city.png" sizes="180x180">
+        <!-- END Icons -->
+
+        <!-- Stylesheets -->
+        <!-- Bootstrap is included in its original form, unaltered -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+        <!-- Related styles of various icon packs and plugins -->
+        <link rel="stylesheet" href="css/plugins.css">
+
+        <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+        <link rel="stylesheet" href="css/main.css">
+
+        <!-- Include a specific file here from css/themes/ folder to alter the default theme of the template -->
+        <link rel="stylesheet" href="css/animate.min.css">
+
+        <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+        <link rel="stylesheet" href="css/themes.css">
+        <!-- END Stylesheets -->
+
+        <!-- Modernizr (browser feature detection library) -->
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body  id="login-body">
+        <!-- Login Container -->
+        <div id="login-container">
+            <!-- Login Header -->
+            <h1 class="h3 text-light text-center push-top-bottom zoomIn animated">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <img src="images/Ph_seal_davao_del_norte_panabo_city.png" style="width: 95px; height: 80px;"/>
+                    </div>
+                    <div class="col-lg-9">
+                        <strong>Brgy. Cagangohan Housing Online Mapping System</strong>
+                    </div>
+                </div>
+            </h1>
+            <!-- END Login Header -->
+
+            <!-- Login Block -->
+            <div class="block zoomInDown animated">
+                <!-- Login Title -->
+                <div class="block-title">
+                    <div class="block-options pull-right">
+                        <a href="page_ready_reminder.html" class="btn btn-effect-ripple btn-primary" data-toggle="tooltip" data-placement="left" title="Forgot your password?"><i class="fa fa-exclamation-circle"></i></a>
+                    </div>
+                    <h2>Administrator Login</h2>
+                </div>
+                <!-- END Login Title -->
+
+                <!-- Login Form -->
+                <form id="form-login" action="page_comp_maps.html" method="get" class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input type="text" id="login-email" name="login-email" class="form-control" placeholder="Your email..">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
+                        </div>
+                    </div>
+                    <div class="form-group form-actions">
+                        <div class="col-xs-8">
+                            <label class="csscheckbox csscheckbox-primary">
+                                <input type="checkbox" id="login-remember-me" name="login-remember-me">
+                                <span></span>
+                            </label>
+                            Remember Me?
+                        </div>
+                        <div class="col-xs-4 text-right">
+                            <button type="submit" class="btn btn-effect-ripple btn-sm btn-primary"><i class="fa fa-check"></i> Sign In</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- END Login Form -->
+            </div>
+            <!-- END Login Block -->
+
+            <!-- Footer -->
+            <footer class="text-muted text-center animation-pullUp">
+                <small style="color: #FFFFFF;"><span id="year-copy" style="color: #555;"></span> &copy; <a href="http://goo.gl/RcsdAh" target="_blank">AppUI 2.1</a></small>
+            </footer>
+            <!-- END Footer -->
+        </div>
+        <!-- END Login Container -->
+
+        <!-- Include Jquery library from Google's CDN but if something goes wrong get Jquery from local file (Remove 'http:' if you have SSL) -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script>!window.jQuery && document.write(decodeURI('%3Cscript src="js/vendor/jquery-2.1.1.min.js"%3E%3C/script%3E'));</script>
+
+        <!-- Bootstrap.js, Jquery plugins and Custom JS code -->
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/app.js"></script>
+
+        <!-- Load and execute javascript code used only in this page -->
+        <script src="js/pages/readyLogin.js"></script>
+        <script>
+            $(function () {
+                ReadyLogin.init();
+            });
+        </script>
+    </body>
+</html>
