@@ -24,32 +24,32 @@
 
         <!-- Icons -->
         <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-        <link rel="shortcut icon" href="img/favicon.png">
-        <link rel="apple-touch-icon" href="img/icon57.png" sizes="57x57">
-        <link rel="apple-touch-icon" href="img/icon72.png" sizes="72x72">
-        <link rel="apple-touch-icon" href="img/icon76.png" sizes="76x76">
-        <link rel="apple-touch-icon" href="img/icon114.png" sizes="114x114">
-        <link rel="apple-touch-icon" href="img/icon120.png" sizes="120x120">
-        <link rel="apple-touch-icon" href="img/icon144.png" sizes="144x144">
-        <link rel="apple-touch-icon" href="img/icon152.png" sizes="152x152">
-        <link rel="apple-touch-icon" href="img/icon180.png" sizes="180x180">
+        <link rel="shortcut icon" href="assets/Frontend/img/Ph_seal_davao_del_norte_panabo_city.png">
+        <link rel="apple-touch-icon" href="assets/Frontend/img/Ph_seal_davao_del_norte_panabo_city.png" sizes="57x57">
+        <link rel="apple-touch-icon" href="assets/Frontend/img/Ph_seal_davao_del_norte_panabo_city.png" sizes="72x72">
+        <link rel="apple-touch-icon" href="assets/Frontend/img/Ph_seal_davao_del_norte_panabo_city.png" sizes="76x76">
+        <link rel="apple-touch-icon" href="assets/Frontend/img/Ph_seal_davao_del_norte_panabo_city.png" sizes="114x114">
+        <link rel="apple-touch-icon" href="assets/Frontend/img/Ph_seal_davao_del_norte_panabo_city.png" sizes="120x120">
+        <link rel="apple-touch-icon" href="assets/Frontend/img/Ph_seal_davao_del_norte_panabo_city.png" sizes="144x144">
+        <link rel="apple-touch-icon" href="assets/Frontend/img/Ph_seal_davao_del_norte_panabo_city.png" sizes="152x152">
+        <link rel="apple-touch-icon" href="assets/Frontend/img/Ph_seal_davao_del_norte_panabo_city.png" sizes="180x180">
         <!-- END Icons -->
 
         <!-- Stylesheets -->
         <!-- Bootstrap is included in its original form, unaltered -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/Frontend/css/bootstrap.min.css">
 
         <!-- Related styles of various icon packs and plugins -->
-        <link rel="stylesheet" href="css/plugins.css">
+        <link rel="stylesheet" href="assets/Frontend/css/plugins.css">
 
         <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="assets/Frontend/css/main.css">
 
         <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
-        <link rel="stylesheet" href="css/themes.css">
+        <link rel="stylesheet" href="assets/Frontend/css/themes.css">
         <!-- END Stylesheets -->
 
         <!-- Modernizr (browser feature detection library) -->
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="assets/Frontend/js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>

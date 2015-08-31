@@ -14,18 +14,10 @@
             <h2 class="text-muted animation-fadeInQuickInv"><em>We sorry but this page can't be found..</em></h2>
         </div>
         <div class="col-md-4 col-md-offset-4">
-            <form action="page_ready_search_results.php" method="post" class="push">
-                <div class="input-group input-group-lg">
-                    <input type="text" id="search-term" name="search-term" class="form-control" placeholder="Search <?php echo $template['name']; ?>..">
-                    <div class="input-group-btn">
-                        <button type="submit" class="btn btn-effect-ripple btn-primary"><i class="fa fa-search"></i></button>
-                    </div>
-                </div>
-            </form>
             <?php
                 $prev_url = trim(current_url(),'localhost/System');
             ?>
-            <a href="<?=  current_url()?>" class="btn btn-effect-ripple btn-default"><i class="fa fa-arrow-left"></i> Go back</a>
+            <a href="" onclick="window.history.back();" class="btn btn-effect-ripple btn-default"><i class="fa fa-arrow-left"></i> Go back</a>
         </div>
     </div>
 </div>

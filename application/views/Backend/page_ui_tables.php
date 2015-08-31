@@ -39,50 +39,12 @@
         <div class="block-title">
             <h2>Datatables</h2>
         </div>
-    <!--    <div class="table-responsive">
-            <table id="example-datatable" class="table table-striped table-bordered table-vcenter table-hover table-featured">
-                <thead>
-                    <tr>
-                        <th class="text-center" style="width: 50px;">ID</th>
-                        <th>User</th>
-                        <th>Email</th>
-                        <th style="width: 120px;">Status</th>
-                        <th class="text-center" style="width: 75px;"><i class="fa fa-flash"></i></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $labels['0']['class'] = "label-success";
-                    $labels['0']['text'] = "Active";
-                    $labels['1']['class'] = "label-info";
-                    $labels['1']['text'] = "On hold..";
-                    $labels['2']['class'] = "label-danger";
-                    $labels['2']['text'] = "Disabled";
-                    $labels['3']['class'] = "label-warning";
-                    $labels['3']['text'] = "Pending..";
-                    ?>
-                    <?php for($i=1; $i<31; $i++) { ?>
-                    <tr>
-                        <td class="text-center"><?php echo $i; ?></td>
-                        <td><strong>AppUser<?php echo $i; ?></strong></td>
-                        <td>app.user<?php echo $i; ?>@example.com</td>
-                        <?php $rand = rand(0, 3); ?>
-                        <td><span class="label<?php echo ($labels[$rand]['class']) ? " " . $labels[$rand]['class'] : ""; ?>"><?php echo $labels[$rand]['text'] ?></span></td>
-                        <td class="text-center">
-                            <a href="javascript:void(0)" data-toggle="tooltip" title="Edit User" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
-                            <a href="javascript:void(0)" data-toggle="tooltip" title="Delete User" class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-times"></i></a>
-                        </td>
-                    </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
+        <div class="table-responsive">
+            <?php echo $output; ?>
         </div>
         
-    </div>-->
+    </div>
      <!--END Datatables Block--> 
-     
-     
-     <?php echo $output; ?>
      
 </div>
  <!--END Page Content-->

@@ -2,10 +2,10 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Error404 extends CI_Controller {
+class Main extends CI_Controller {
 
     public function index() {
-        $this->load->view('Backend/page_ready_error');
+        $this->load->view('Frontend/index');
     }
 
 }

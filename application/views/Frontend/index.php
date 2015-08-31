@@ -1,6 +1,6 @@
-<?php include 'inc/config.php'; ?>
-<?php include 'inc/template_start.php'; ?>
-<?php include 'inc/page_head.php'; ?>
+<?php include 'assets/Frontend/inc/config.php'; ?>
+<?php include 'assets/Frontend/inc/template_start.php'; ?>
+<?php include 'assets/Frontend/inc/page_head.php'; ?>
 
 <!-- Intro + Action -->
 <section class="site-section site-section-top site-section-light themed-background-dark-default">
@@ -9,10 +9,10 @@
             <h1 class="animation-fadeInQuick2Inv"><strong>A powerful template for your new project.</strong></h1>
             <h2 class="text-light-op animation-fadeInQuickInv push-bit"><strong>Build something amazing.</strong></h2>
             <a href="http://goo.gl/RcsdAh" class="btn btn-lg btn-success push-right-left"><strong>Purchase ($23)</strong></a>
-            <a href="http://pixelcave.com/demo/appui" class="btn btn-lg btn-info push-right-left"><strong>Live Preview</strong></a>
+            <a href="<?=base_url()?>Login" class="btn btn-lg btn-info push-right-left"><strong>Live Preview</strong></a>
         </div>
         <div class="site-promo-img visibility-none" data-toggle="animation-appear" data-animation-class="animation-slideUpQuick" data-element-offset="0">
-            <img src="img/placeholders/screenshots/promo_welcome.png" alt="">
+            <img src="assets/Frontend/img/placeholders/screenshots/promo_welcome.png" alt="">
         </div>
     </div>
 </section>
@@ -62,7 +62,7 @@
                 <p class="feature-text text-muted"><strong>AppUI</strong> will play nice with all modern browsers such as Chrome, Firefox, Safari, Opera and the latest versions of Internet Explorer (IE9 and up).</p>
             </div>
             <div class="col-sm-6 clearfix push">
-                <img src="img/placeholders/screenshots/promo_1.png" alt="" class="img-responsive pull-right visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-200" style="max-width: 450px; margin-right: -130px;">
+                <img src="assets/Frontend/img/placeholders/screenshots/promo_1.png" alt="" class="img-responsive pull-right visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-200" style="max-width: 450px; margin-right: -130px;">
             </div>
         </div>
     </div>
@@ -110,7 +110,7 @@
                 <p class="feature-text text-muted">The User Interface will adjust to any screen size. It will look great on mobile devices and on desktops at the same time. No need to worry about the UI, just stay focused on the development.</p>
             </div>
             <div class="col-sm-6 col-sm-pull-6 clearfix push">
-                <img src="img/placeholders/screenshots/promo_2.png" alt="" class="img-responsive pull-left visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-200" style="max-width: 450px; margin-left: -130px;">
+                <img src="assets/Frontend/img/placeholders/screenshots/promo_2.png" alt="" class="img-responsive pull-left visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-200" style="max-width: 450px; margin-left: -130px;">
             </div>
         </div>
     </div>
@@ -151,7 +151,7 @@
                 <p class="feature-text text-muted">15+ ready to use pages. The UI is ready, create the functionality. Dashboard, Login, Register, Social Net, Email Center, Media Box, Invoice, FAQ, Search Results and even more. Check them all out at the live preview.</p>
             </div>
             <div class="col-sm-6 clearfix push">
-                <img src="img/placeholders/screenshots/promo_3.png" alt="" class="img-responsive pull-right visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-200" style="max-width: 450px; margin-right: -130px;">
+                <img src="assets/Frontend/img/placeholders/screenshots/promo_3.png" alt="" class="img-responsive pull-right visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-200" style="max-width: 450px; margin-right: -130px;">
             </div>
         </div>
     </div>
@@ -165,28 +165,28 @@
             <div class="carousel-inner text-center">
                 <div class="active item">
                     <blockquote>
-                        <p><img src="img/placeholders/avatars/avatar13@2x.jpg" alt="avatar" class="img-circle img-thumbnail img-thumbnail-avatar-2x"></p>
+                        <p><img src="assets/Frontend/img/placeholders/avatars/avatar13@2x.jpg" alt="avatar" class="img-circle img-thumbnail img-thumbnail-avatar-2x"></p>
                         <h3>A big thanks! Our web app looks great!</h3>
                         <footer><em><strong>Maria Clark</strong>, http://example.com/</em></footer>
                     </blockquote>
                 </div>
                 <div class="item">
                     <blockquote>
-                        <p><img src="img/placeholders/avatars/avatar2@2x.jpg" alt="avatar" class="img-circle img-thumbnail img-thumbnail-avatar-2x"></p>
+                        <p><img src="assets/Frontend/img/placeholders/avatars/avatar2@2x.jpg" alt="avatar" class="img-circle img-thumbnail img-thumbnail-avatar-2x"></p>
                         <h3>It just works!</h3>
                         <footer><em><strong>Roger Santos</strong>, http://example.com/</em></footer>
                     </blockquote>
                 </div>
                 <div class="item">
                     <blockquote>
-                        <p><img src="img/placeholders/avatars/avatar1@2x.jpg" alt="avatar" class="img-circle img-thumbnail img-thumbnail-avatar-2x"></p>
+                        <p><img src="assets/Frontend/img/placeholders/avatars/avatar1@2x.jpg" alt="avatar" class="img-circle img-thumbnail img-thumbnail-avatar-2x"></p>
                         <h3>A great product at a great price!</h3>
                         <footer><em><strong>Edward Duncan</strong>, http://example.com/</em></footer>
                     </blockquote>
                 </div>
                 <div class="item">
                     <blockquote>
-                        <p><img src="img/placeholders/avatars/avatar7@2x.jpg" alt="avatar" class="img-circle img-thumbnail img-thumbnail-avatar-2x"></p>
+                        <p><img src="assets/Frontend/img/placeholders/avatars/avatar7@2x.jpg" alt="avatar" class="img-circle img-thumbnail img-thumbnail-avatar-2x"></p>
                         <h3>Awesome purchase, I'm so happy I made it!</h3>
                         <footer><em><strong>Scott Gray</strong>, http://example.com/</em></footer>
                     </blockquote>
@@ -197,6 +197,6 @@
 </section>
 <!-- END Testimonials -->
 
-<?php include 'inc/page_footer.php'; ?>
-<?php include 'inc/template_scripts.php'; ?>
-<?php include 'inc/template_end.php'; ?>
+<?php include 'assets/Frontend/inc/page_footer.php'; ?>
+<?php include 'assets/Frontend/inc/template_scripts.php'; ?>
+<?php include 'assets/Frontend/inc/template_end.php'; ?>

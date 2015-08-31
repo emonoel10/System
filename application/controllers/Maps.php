@@ -3,15 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Maps extends CI_Controller {
-
-//    public function __construct() {
-//        parent::__construct();
-//    }
-//
-//    public function index() {
-//        $this->load->view('Backend/page_comp_maps');
-//    }
-
+    
     public function __construct() {
         parent::__construct();
         $this->load->Model('Login_model');
