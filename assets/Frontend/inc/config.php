@@ -10,11 +10,11 @@
 
 /* Template variables */
 $template = array(
-    'name'          => 'AppUI - Frontend',
-    'author'        => 'pixelcave',
+    'name'          => 'Brgy. Cagangohan Geographical Information System',
+    'author'        => 'CMBTC from DNSC',
     'robots'        => 'noindex, nofollow',
-    'title'         => 'AppUI Frontend - Responsive Bootstrap Site Template',
-    'description'   => 'AppUI Frontend is a Responsive Bootstrap Site Template created by pixelcave and added as a bonus in AppUI Admin Template package',
+    'title'         => 'Brgy. Cagangohan GIS',
+    'description'   => 'Barangay Cagangohan Geographical Information System is a Web App created by CMBTC from DNSC for Residencial Mapping to Brgy.Cagangohan',
     'active_page'   => basename($_SERVER['PHP_SELF'])
 );
 
@@ -22,7 +22,7 @@ $template = array(
 $primary_nav = array(
     array(
         'name'  => 'Welcome',
-        'url'   => 'index.php'
+        'url'   => 'Index'
     ),
     array(
         'name'  => 'Features',
@@ -76,6 +76,6 @@ $primary_nav = array(
     array(
         'name'  => 'Get Started <i class="fa fa-arrow-right"></i>',
         'class' => 'featured',
-        'url'   => 'http://pixelcave.com/demo/appui'
+        'url'   => 'Login'
     )
 );

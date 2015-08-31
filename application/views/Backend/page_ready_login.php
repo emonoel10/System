@@ -24,12 +24,18 @@ $template['page_preloader'] = true;
     <div class="block fadeIn animated">
         <!-- Login Title -->
         <div class="block-title">
-            <h2>Administration Login</h2>
+            <div class="col-xs-10">
+                <h2>Administration Login</h2>
+            </div>
+            <div class="col-xs-2 text-center">
+                <a href="<?=base_url()?>" title="Back to Main Page"><i class="fa fa-arrow-circle-o-left fa-align-center fa-adjust" id="loginBackArrow"></i></a>
+            </div>
         </div>
         <!-- END Login Title -->
 
         <!-- Login Form -->
         <form id="form-login" action="<?= base_url(); ?>Login/login" method="post" class="form-horizontal">
+            <br><br>
             <div class="alert alert-danger" id="response">
                 <center id="responseMsg">Invalid Username or Password.</center>
             </div>

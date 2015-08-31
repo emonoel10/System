@@ -10,13 +10,19 @@
 	$this->set_js_lib($this->default_javascript_path.'/jquery_plugins/jquery.noty.js');
 	$this->set_js_lib($this->default_javascript_path.'/jquery_plugins/config/jquery.noty.config.js');
 ?>
-<div class='ui-widget-content ui-corner-all datatables'>
-	<h3 class="ui-accordion-header ui-helper-reset ui-state-default form-title">
-		<div class='floatL form-title-left'>
-			<a href="#"><?php echo $this->l('form_edit'); ?> <?php echo $subject?></a>
-		</div>
-		<div class='clear'></div>
-	</h3>
+<div class='container-fluid'>
+    <div class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xs-1"></div>
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xs-10">
+            <h3 class="h3">
+                    <div class='text-center'>
+                        <p><i class="fa fa-pencil-square-o"></i>&nbsp<?php echo $this->l('form_edit'); ?> <?php echo $subject?></p>
+                    </div>
+                    <div class='clear'></div>
+            </h3>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xs-1"></div>
+    </div>
 <div class='form-content form-div'>
 	<?php echo form_open( $update_url, 'method="post" id="crudForm" enctype="multipart/form-data"'); ?>
 		<div>

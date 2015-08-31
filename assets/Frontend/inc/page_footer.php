@@ -52,7 +52,7 @@
                         </div>
                     </form>
                     <h4 class="footer-heading"><a href="http://goo.gl/RcsdAh"><?php echo $template['name']; ?></a></h4>
-                    <em><span id="year-copy"></span></em> &copy; Crafted with <i class="fa fa-heart text-danger"></i> by <a href="http://goo.gl/WCS84b">pixelcave</a>
+                    <em><span id="year-copy"></span></em> &copy; Crafted with <i class="fa fa-heart text-danger"></i> by <a href="http://goo.gl/WCS84b">CMBTC from DNSC</a>
                 </div>
             </div>
             <!-- END Footer Links -->

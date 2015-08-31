@@ -16,7 +16,7 @@
         <div class="container">
             <!-- Site Logo -->
             <a href="index.php" class="site-logo">
-                <i class="fa fa-cube"></i> App<strong>UI</strong>
+                <img src="assets/Frontend/img/Ph_seal_davao_del_norte_panabo_city.png" style="height: 60%; margin-top: -1%; width: 10%;"/> Brgy. Cagangohan <strong>GIS</strong>
             </a>
             <!-- END Site Logo -->
 

@@ -988,6 +988,27 @@ a.sidebar-title:focus {
     background: rgba(218, 224, 232, .15);
 }
 
+#loginBackArrow {
+    margin-top: 8px;
+    font-size: 1.5em;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+
+#loginBackArrow:hover {
+    color: #027dc4;
+    -webkit-animation: all .5s ease-in-out;
+    animation: all .5s ease-in-out;
+}
+
+#loginBackArrow:active {
+    -webkit-animation: ripple 1s ease-out;
+    animation: ripple 1s ease-out;
+}
+
 .block-title h1,
 .block-title h2,
 .block-title h3,
