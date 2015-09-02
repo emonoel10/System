@@ -109,14 +109,69 @@ if (!empty($actions)) {
 <div class="dataTablesContainer">
     <?php if (!$unset_add) { ?>
         <div class="datatables-add-button">
-            <a role="button" class="add_button btn btn-small btn-effect-ripple btn-primary" href="<?php echo $add_url ?>">
+            <a role="button" class="add_button btn btn-small btn-effect-ripple btn-primary addBtn" href="#modal-fadeAdd" data-toggle="modal" style="overflow: hidden; position: relative;">
                 <span class="fa fa-plus-circle"></span>
                 <span class="ui-button-text"><?php echo $this->l('list_add'); ?> <?php echo $subject ?></span>
             </a>
+            <!--<a href="#modal-fadeAdd" class="btn btn-effect-ripple btn-primary addBtn" data-toggle="modal" style="overflow: hidden; position: relative;"><span class="btn-ripple animate" style="height: 71px; width: 71px; top: -23.8125px; left: 1.59375px;"></span>Add Button Modal</a>-->
         </div>
-<?php } ?>
+    <?php } ?>
 
     <div style="height:10px;"></div>
 
-<?php echo $list_view ?>
+    <?php echo $list_view ?>
+</div>
+
+<div id="modal-fadeAdd" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <br>
+            </div>
+            <div class="modal-body">
+                <iframe id="addFrame" src="" style="zoom:0" width="99.6%" height="800" frameborder="0"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;">Save</button>
+                <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal" style="overflow: hidden; position: relative;"><span class="btn-ripple animate" style="height: 60px; width: 60px; top: -6px; left: 0.875px;"></span>Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal-fadeEdit" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <br>
+            </div>
+            <div class="modal-body">
+                <iframe id="editFrame" src="" style="zoom:0" width="99.6%" height="800" frameborder="0"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;">Save</button>
+                <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal" style="overflow: hidden; position: relative;"><span class="btn-ripple animate" style="height: 60px; width: 60px; top: -6px; left: 0.875px;"></span>Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal-fadeView" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <br>
+            </div>
+            <div class="modal-body">
+                <iframe id="viewFrame" src="" style="zoom:0" width="99.6%" height="800" frameborder="0"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;">Save</button>
+                <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal" style="overflow: hidden; position: relative;"><span class="btn-ripple animate" style="height: 60px; width: 60px; top: -6px; left: 0.875px;"></span>Close</button>
+            </div>
+        </div>
+    </div>
 </div>

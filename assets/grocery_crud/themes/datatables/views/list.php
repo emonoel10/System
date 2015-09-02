@@ -34,7 +34,7 @@
                 <span class="ui-button-icon-primary ui-icon ui-icon-document"></span>
                 <span class="ui-button-text">&nbsp;<?php // echo $this->l('list_view');     ?></span>
             </a>-->
-                            <a href="<?php echo $row->read_url ?>" class="edit_button btn btn-effect-ripple btn-xs btn-primary" title="View" role="button">
+                            <a href="#modal-fadeView" class="edit_button btn btn-effect-ripple btn-xs btn-primary viewBtn" data-toggle="modal" title="View" role="button" style="overflow: hidden; position: relative;">
                                 <i class="fa fa-info-circle"></i>
                             </a>
                         <?php } ?>
@@ -44,7 +44,7 @@
                                                                                                 <span class="ui-button-icon-primary ui-icon ui-icon-pencil"></span>
                                                                                                 <span class="ui-button-text">&nbsp;<?php // echo $this->l('list_edit');     ?></span>
                                                                                         </a>-->
-                            <a href="<?php echo $row->edit_url ?>" class="edit_button btn btn-effect-ripple btn-xs btn-success" title="Edit" role="button">
+                            <a href="#modal-fadeEdit" class="edit_button btn btn-effect-ripple btn-xs btn-success editBtn" data-toggle="modal" title="Edit" role="button" style="overflow: hidden; position: relative;">
                                 <i class="fa fa-pencil"></i>
                             </a>
                         <?php } ?>
