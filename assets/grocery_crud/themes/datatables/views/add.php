@@ -8,8 +8,6 @@ $this->set_js_lib($this->default_javascript_path . '/jquery_plugins/ui/' . groce
 
 $this->set_js_lib($this->default_javascript_path . '/jquery_plugins/jquery.noty.js');
 $this->set_js_lib($this->default_javascript_path . '/jquery_plugins/config/jquery.noty.config.js');
-$this->set_js_lib('/assets/Backend/js/app.js');
-
 ?>
 <div class='container-fluid'>
     <div class="row">
