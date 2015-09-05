@@ -67,7 +67,7 @@ div.form-button-box {
 }
 .form-field-box.odd
 {
-    background: #fff;	
+    background: #fff;
 }
 .form-field-box.even
 {
@@ -91,6 +91,10 @@ div.form-button-box {
         float:left;
         width: 100%;
     }
+}
+
+.form-input-box read {
+    width: 100%;
 }
 
 .line-1px
