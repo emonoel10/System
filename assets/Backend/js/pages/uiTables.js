@@ -90,14 +90,13 @@ var UiTables = function () {
                 $('#addFrame').attr('src', "/InfoTable/add");
             });
             
-            $(".editBtn").click(function () {
-                $('#editFrame').attr('src',"/InfoTable/edit/"+$(this).data('resident_id'));
-//                $('#editFrame').attr('src',"<?php echo $row->edit_url; ?>");
+            $(".editBtn").click(function (e) {
+                $('#editFrame').attr('src', editUrl);
+                e.preventDefault();
             });
             
-            $(".viewBtn").click(function () {
-                $('#viewFrame').attr('src',"/InfoTable/read/"+$(this).data('resident_id'));
-//                $('#viewFrame').attr('src',"<?php echo $row->read_url; ?>");
+            $(".viewBtn").click(function (e) {
+                $('#viewFrame').attr('src', readUrl);
             });
         }
     };

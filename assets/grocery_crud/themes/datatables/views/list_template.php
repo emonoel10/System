@@ -113,7 +113,6 @@ if (!empty($actions)) {
                 <span class="fa fa-plus-circle"></span>
                 <span class="ui-button-text"><?php echo $this->l('list_add'); ?> <?php echo $subject ?></span>
             </a>
-            <!--<a href="#modal-fadeAdd" class="btn btn-effect-ripple btn-primary addBtn" data-toggle="modal" style="overflow: hidden; position: relative;"><span class="btn-ripple animate" style="height: 71px; width: 71px; top: -23.8125px; left: 1.59375px;"></span>Add Button Modal</a>-->
         </div>
     <?php } ?>
 
@@ -127,10 +126,14 @@ if (!empty($actions)) {
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <br>
+                <h3 class="h3">
+                    <div class="text-center">
+                        <p><i class="fa fa-plus-circle"></i>&nbsp Add Resident</p>
+                    </div>
+                </h3>
             </div>
-            <div class="modal-body">
-                <iframe id="addFrame" src="" style="zoom:0" width="99.6%" height="800" frameborder="0"></iframe>
+            <div class="modal-content">
+                <iframe class="modal-body" id="addFrame" src="" style="zoom:0" width="100%" height="748px" frameborder="0"></iframe>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;">Save</button>
@@ -145,10 +148,16 @@ if (!empty($actions)) {
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="h3">
+                    <div class="text-center">
+                        <p><i class="fa fa-plus-circle"></i>&nbsp Edit Resident</p>
+                    </div>
+                    <div class='clear'></div>
+                </h3>
                 <br>
             </div>
-            <div class="modal-body">
-                <iframe id="editFrame" src="" style="zoom:0" width="99.6%" height="800" frameborder="0"></iframe>
+            <div class="modal-content">
+                <iframe class="modal-body" id="editFrame" src="" style="zoom:0" width="100%" height="748px" frameborder="0"></iframe>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;">Save</button>
@@ -163,10 +172,16 @@ if (!empty($actions)) {
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="h3">
+                    <div class="text-center">
+                        <p><i class="fa fa-plus-circle"></i>&nbsp View Resident</p>
+                    </div>
+                    <div class='clear'></div>
+                </h3>
                 <br>
             </div>
-            <div class="modal-body">
-                <iframe id="viewFrame" src="" style="zoom:0" width="99.6%" height="800" frameborder="0"></iframe>
+            <div class="modal-content">
+                <iframe class="modal-body" id="viewFrame" src="" style="zoom:0" width="100%" height="748px" frameborder="0"></iframe>            
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;">Save</button>
