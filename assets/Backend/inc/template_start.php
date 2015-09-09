@@ -1,13 +1,3 @@
-<?php
-/**
- * template_start.php
- *
- * Author: pixelcave
- *
- * The first block of code used in every page of the template
- *
- */
-?>
 <!DOCTYPE html>
 <!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
 <!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->

@@ -109,14 +109,84 @@ if (!empty($actions)) {
 <div class="dataTablesContainer">
     <?php if (!$unset_add) { ?>
         <div class="datatables-add-button">
-            <a role="button" class="add_button btn btn-small btn-effect-ripple btn-primary" href="<?php echo $add_url ?>">
+            <a role="button" class="add_button btn btn-small btn-effect-ripple btn-primary addBtn" href="#modal-fadeAdd" data-toggle="modal" style="overflow: hidden; position: relative;">
                 <span class="fa fa-plus-circle"></span>
                 <span class="ui-button-text"><?php echo $this->l('list_add'); ?> <?php echo $subject ?></span>
             </a>
         </div>
-<?php } ?>
+    <?php } ?>
 
     <div style="height:10px;"></div>
 
-<?php echo $list_view ?>
+    <?php echo $list_view ?>
+</div>
+
+<div id="modal-fadeAdd" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="h3">
+                    <div class="text-center">
+                        <p><i class="fa fa-plus-circle"></i>&nbsp Add Resident</p>
+                    </div>
+                </h3>
+            </div>
+            <div class="modal-content">
+                <iframe class="modal-body" id="addFrame" src="" style="zoom:0" width="100%" height="748px" frameborder="0"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;">Save</button>
+                <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal" style="overflow: hidden; position: relative;"><span class="btn-ripple animate" style="height: 60px; width: 60px; top: -6px; left: 0.875px;"></span>Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal-fadeEdit" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="h3">
+                    <div class="text-center">
+                        <p><i class="fa fa-plus-circle"></i>&nbsp Edit Resident</p>
+                    </div>
+                    <div class='clear'></div>
+                </h3>
+                <br>
+            </div>
+            <div class="modal-content">
+                <iframe class="modal-body" id="editFrame" src="" style="zoom:0" width="100%" height="748px" frameborder="0"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;">Save</button>
+                <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal" style="overflow: hidden; position: relative;"><span class="btn-ripple animate" style="height: 60px; width: 60px; top: -6px; left: 0.875px;"></span>Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal-fadeView" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="h3">
+                    <div class="text-center">
+                        <p><i class="fa fa-plus-circle"></i>&nbsp View Resident</p>
+                    </div>
+                    <div class='clear'></div>
+                </h3>
+                <br>
+            </div>
+            <div class="modal-content">
+                <iframe class="modal-body" id="viewFrame" src="" style="zoom:0" width="100%" height="748px" frameborder="0"></iframe>            
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;">Save</button>
+                <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal" style="overflow: hidden; position: relative;"><span class="btn-ripple animate" style="height: 60px; width: 60px; top: -6px; left: 0.875px;"></span>Close</button>
+            </div>
+        </div>
+    </div>
 </div>
