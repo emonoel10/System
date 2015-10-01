@@ -1134,11 +1134,11 @@ class grocery_CRUD_Model_Driver extends grocery_CRUD_Field_Types
 		$date_array = preg_split( '/[-\.\/ ]/', $date);
 		if($this->php_date_format == 'd/m/Y')
 		{
-			$sql_date = date('Y-m-d',mktime(0,0,0,$date_array[1],$date_array[0],$date_array[2]));
+			$sql_date = date('F d, Y',mktime(0,0,0,$date_array[1],$date_array[0],$date_array[2]));
 		}
 		elseif($this->php_date_format == 'm/d/Y')
 		{
-			$sql_date = date('Y-m-d',mktime(0,0,0,$date_array[0],$date_array[1],$date_array[2]));
+			$sql_date = date('F d, Y',mktime(0,0,0,$date_array[0],$date_array[1],$date_array[2]));
 		}
 		else
 		{
@@ -1655,7 +1655,7 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 		// Convert to UTF-16LE and Prepend BOM
 		$string_to_export = "\xFF\xFE" .mb_convert_encoding($string_to_export, 'UTF-16LE', 'UTF-8');
 
-		$filename = "export-".date("Y-m-d_H:i:s").".xls";
+		$filename = "export-".date("F d, Y_H:i:s").".xls";
 
 		header('Content-type: application/vnd.ms-excel;charset=UTF-16LE');
 		header('Content-Disposition: attachment; filename='.$filename);

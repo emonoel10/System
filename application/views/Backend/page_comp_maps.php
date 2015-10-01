@@ -1,7 +1,37 @@
-<?php include 'assets/Backend/inc/config.php'; $template['header_link'] = 'MAP'; $template['title'] = 'BCGIS | MAP'; ?>
+<?php
+include 'assets/Backend/inc/config.php';
+$template['header_link'] = 'MAP';
+$template['title'] = 'BCGIS | MAP';
+?>
+
 <?php include 'assets/Backend/inc/template_start.php'; ?>
 <?php include 'assets/Backend/inc/page_head.php'; ?>
+<?php echo $map['js']; ?>
 
+<style type="text/css">
+    @media print {
+        /*        body * {
+                    visibility: hidden;
+                    display: none;
+                    overflow: hidden;
+                }*/
+        #searchBtn, #searchResult, #print, #searchDataToMarker, #sidebar, #sidebar-alt, #map-header, .content-header {
+            visibility: hidden;
+            display: none;
+            overflow: hidden;
+        }
+        #map-content, #directionsDiv {
+            visibility: visible;
+            overflow: hidden;
+        }
+        /*        #map-content {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    overflow: hidden;
+                }*/
+    }
+</style>
 <!-- Page content -->
 <div id="page-content">
     <!-- Google Maps Header -->
@@ -30,15 +60,15 @@
             <!-- Satellite Map Block -->
             <div class="block">
                 <!-- Satellite Map Title -->
-                <div class="block-title">
+                <div class="block-title" id="map-header">
                     <div class="block-options pull-right">
                         <div class="btn-group">
-                            <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Settings"><i class="fa fa-gear"></i></a>
+                            <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default dropdown-toggle" data-toggle="dropdown" title="Settings"><span class="btn-ripple animate" style="height: 34px; width: 34px; top: -13px; left: -3.92188px;"></span><i class="fa fa-gear"></i></a>
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <li>
-                                    <a href="javascript:void(0)">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                        Remove
+                                    <a href="javascript:void(0)" data-toggle="collapse" data-target="#map">
+                                        <i class="fa fa-minus-square-o pull-right"></i>
+                                        Collapse
                                     </a>
                                 </li>
                             </ul>
@@ -50,105 +80,33 @@
 
                 <!-- Satellite Map Content -->
                 <!-- Gmaps.js (initialized in js/pages/compMaps.js), for more examples you can check out http://hpneo.github.io/gmaps/examples.html -->
-                <div class="block-content-full">
-                    <div id="gmap-satellite" class="gmap" style="height: 360px;"></div>
+                <div class="row" id="map-container">
+                    <div class="col-sm-12 collapse in" id="map-content">
+                        <div class="col-sm-6 input-group">
+                            <input type="text" id="searchDataToMarker" name="example-input1-group2 searchDataToMarker" class="form-control" placeholder="Search Here...">
+                            <span class="input-group-btn">
+                                <button type="button" id="searchBtn" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                        <br>
+                        <div class="col-sm-1">
+                            <button type="button" id="print" onclick="window.print()" class="btn btn-effect-ripple btn-info" style="overflow: hidden; position: relative;"><i class="fa fa-print"> Print</i></button>
+                        </div>
+                        <br><br>
+                        <!--<div class="row-fluid" id="searchResult">-->
+                        <?php // echo $searchResults; ?>
+                        <!--</div>-->
+                        <div id="gmap-satellite" class="col-sm-12 gmap" style="height: 465px;">
+                            <?php echo $map['html']; ?>
+                            <br>
+                            <div id="map"></div>
+                        </div>
+                        <div id="directionsDiv"></div>
+                    </div>
                 </div>
                 <!-- END Satellite Map Content -->
             </div>
             <!-- END Satellite Map Block -->
-        </div>
-        <div class="col-sm-6">
-            <!-- Map with Markers Block -->
-            <div class="block">
-                <!-- Map with Markers Title -->
-                <div class="block-title">
-                    <div class="block-options pull-right">
-                        <div class="btn-group">
-                            <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Settings"><i class="fa fa-gear"></i></a>
-                            <ul class="dropdown-menu dropdown-menu-right">
-                                <li>
-                                    <a href="javascript:void(0)">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                        Remove
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <h2><i class="fa fa-map-marker"></i> Markers Map</h2>
-                </div>
-                <!-- END Map with Markers Title -->
-
-                <!-- Map with Markers Content -->
-                <!-- Gmaps.js (initialized in js/pages/compMaps.js), for more examples you can check out http://hpneo.github.io/gmaps/examples.html -->
-                <div class="block-content-full">
-                    <div id="gmap-markers" class="gmap" style="height: 360px;"></div>
-                </div>
-                <!-- END Map with Markers Content -->
-            </div>
-            <!-- END Map with Markers Block -->
-        </div>
-        <div class="col-sm-6">
-            <!-- Overlay Map Block -->
-            <div class="block">
-                <!-- Overlay Map Title -->
-                <div class="block-title">
-                    <div class="block-options pull-right">
-                        <div class="btn-group">
-                            <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Settings"><i class="fa fa-gear"></i></a>
-                            <ul class="dropdown-menu dropdown-menu-right">
-                                <li>
-                                    <a href="javascript:void(0)">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                        Remove
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <h2><i class="fa fa-info-circle"></i> Overlay Map</h2>
-                </div>
-                <!-- END Overlay Map Title -->
-
-                <!-- Overlay Map Content -->
-                <!-- Gmaps.js (initialized in js/pages/compMaps.js), for more examples you can check out http://hpneo.github.io/gmaps/examples.html -->
-                <div class="block-content-full">
-                    <div id="gmap-overlay" class="gmap" style="height: 360px;"></div>
-                </div>
-                <!-- END Overlay Map Content -->
-            </div>
-            <!-- END Overlay Map Block -->
-        </div>
-        <div class="col-sm-12">
-            <!-- Geolocation Block -->
-            <div class="block">
-                <!-- Geolocation Title -->
-                <div class="block-title">
-                    <div class="block-options pull-right">
-                        <div class="btn-group">
-                            <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Settings"><i class="fa fa-gear"></i></a>
-                            <ul class="dropdown-menu dropdown-menu-right">
-                                <li>
-                                    <a href="javascript:void(0)">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                        Remove
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <h2><i class="fa fa-map-marker"></i> Geolocation Map</h2>
-                </div>
-                <!-- END Geolocation Title -->
-
-                <!-- Geolocation Content -->
-                <!-- Gmaps.js (initialized in js/pages/compMaps.js), for more examples you can check out http://hpneo.github.io/gmaps/examples.html -->
-                <div class="block-content-full">
-                    <div id="gmap-geolocation" class="gmap" style="height: 360px;"></div>
-                </div>
-                <!-- END Geolocation Content -->
-            </div>
-            <!-- END Geolocation Block -->
         </div>
     </div>
     <!-- END Google Maps Content -->
@@ -159,15 +117,187 @@
 <?php include 'assets/Backend/inc/template_scripts.php'; ?>
 
 <!-- Google Maps API + Gmaps Plugin, must be loaded in the page you would like to use maps (Remove 'http:' if you have SSL) -->
-<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-<script src="<?=base_url()?>assets/Backend/js/plugins/gmaps.min.js"></script>
-
+<!--<script src="http://maps.google.com/maps/api/js?sensor=true"></script>-->
+<script src="<?= base_url() ?>assets/Backend/js/plugins/gmaps.min.js"></script>
+<script type="text/javascript">
+                                $(document).ready(function () {
+                                    $("#searchDataToMarker").keypress(function () {
+                                        var value = $(this).val();
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "<?php echo base_url('Maps/mapSearchDataInMarker') ?>",
+                                            data: {
+                                                'searchDataToMarker': value
+                                            },
+                                            dataType: "JSON",
+                                            success: function (searchMapDataResults) {
+                                                $.each(searchMapDataResults, function (searchMapDataResult) {
+                                                    console.log(searchMapDataResult.lname);
+                                                });
+//                                                if (searchMapDataResult.length !== null || $('searchDataToMarker').value !== '' || searchMapDataResult['latlong'] !== '') {
+//                                                    var name = searchMapDataResult['name'];
+//                                                    var mname = searchMapDataResult['mname'];
+//                                                    var lname = searchMapDataResult['lname'];
+//                                                    var gender = searchMapDataResult['gender'];
+//                                                    var bday = searchMapDataResult['bday'];
+//                                                    var age = searchMapDataResult['age'];
+//                                                    var citizenship = searchMapDataResult['citizenship'];
+//                                                    var occupation = searchMapDataResult['occupation'];
+//                                                    var status = searchMapDataResult['status'];
+//                                                    var purok = searchMapDataResult['purok'];
+//                                                    var resAddress = searchMapDataResult['resAddress'];
+//                                                    var perAddress = searchMapDataResult['perAddress'];
+//                                                    var email = searchMapDataResult['email'];
+//                                                    var telNum = searchMapDataResult['telNum'];
+//                                                    var cpNum = searchMapDataResult['cpNum'];
+//                                                    var latlong = searchMapDataResult['latlong'];
+//                                                    var latLngArray = latlong.split(',');
+//                                                    var latitude = parseFloat(latLngArray[0]);
+//                                                    var longitude = parseFloat(latLngArray[1]);
+//                                                    if (latLngArray !== '') {
+//                                                        $("#searchResult").html(searchMapDataResult['lname']);
+//                                                        document.getElementById("directionsDiv").innerHTML = "";
+//                                                        console.log(searchMapDataResult);
+//                                                        console.log(lname);
+//                                                        console.log(latlong);
+//                                                        var iw = new google.maps.InfoWindow();
+////                                                        for (var i = 0, length = searchMapDataResult.length; i < length; i++) {
+//                                                        var myLatLong = new google.maps.LatLng(latitude, longitude);
+//                                                        var directionsDisplay = new google.maps.DirectionsRenderer;
+//                                                        var directionsService = new google.maps.DirectionsService;
+//                                                        var myOptions = {
+//                                                            zoom: 15,
+//                                                            center: myLatLong,
+//                                                            mapTypeId: google.maps.MapTypeId.HYBRID
+//                                                        },
+//                                                        map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+//                                                        var markerOptions = {
+//                                                            map: map,
+//                                                            animation: google.maps.Animation.DROP,
+//                                                            position: myLatLong
+//                                                        },
+//                                                        marker = new google.maps.Marker(markerOptions);
+//                                                        google.maps.event.addListener(marker, "click", function () {
+//                                                            iw.setContent("<div class='row'><h4 class='text-center'><strong>Resident's Data</strong></h4><div class='col-sm-6'>"
+//                                                                    + "<b>First Name: </b>" + name + "<br>"
+//                                                                    + "<b>Middle Name: </b>" + mname + "<br>"
+//                                                                    + "<b>Last Name: </b>" + lname + "<br>"
+//                                                                    + "<b>Gender: </b>" + gender + "<br>"
+//                                                                    + "<b>Birthdate: </b>" + bday + "<br>"
+//                                                                    + "<b>Age: </b>" + age + "<br>"
+//                                                                    + "<b>Citizenship: </b>" + citizenship + "<br>"
+//                                                                    + "<b>Occupation: </b>" + occupation + "<br>"
+//                                                                    + "<b>Status: </b>" + status + "<br>"
+//                                                                    + "</div><div class='col-sm-6'><b>Purok: </b>" + purok + "<br>"
+//                                                                    + "<b>Residential Address: </b>" + resAddress + "<br>"
+//                                                                    + "<b>Permanent Address: </b>" + perAddress + "<br>"
+//                                                                    + "<b>Email: </b>" + email + "<br>"
+//                                                                    + "<b>Telephone #: </b>" + telNum + "<br>"
+//                                                                    + "<b>Cellphone #: </b>" + cpNum + "<br>"
+//                                                                    + "</div></div>");
+//                                                            iw.open(map, marker);
+//                                                            calculateAndDisplayRoute(directionsService, directionsDisplay);
+//                                                            directionsDisplay.setMap(map);
+//                                                            directionsDisplay.setPanel(document.getElementById('directionsDiv'));
+//                                                        });
+////                                                        }
+//                                                        function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+//                                                            var start = new google.maps.LatLng(7.282397, 125.683499);
+//                                                            var end = myLatLong;
+//                                                            directionsService.route({
+//                                                                origin: start,
+//                                                                destination: end,
+//                                                                travelMode: google.maps.TravelMode.DRIVING
+//                                                            }, function (response, status) {
+//                                                                if (status === google.maps.DirectionsStatus.OK) {
+//                                                                    directionsDisplay.setDirections(response);
+//                                                                } else {
+//                                                                    alertify.alert('Directions request failed due to ' + status + ',' + myLatLong).set('modal', false);
+//                                                                }
+//                                                            });
+//                                                        }
+//                                                        var flightPlanCoordinates = [{lat: 7.292363, lng: 125.667018},
+//                                                            {lat: 7.291958, lng: 125.671030},
+//                                                            {lat: 7.292022, lng: 125.673777},
+//                                                            {lat: 7.291532, lng: 125.675864},
+//                                                            {lat: 7.292884, lng: 125.676464},
+//                                                            {lat: 7.292809, lng: 125.677291},
+//                                                            {lat: 7.292682, lng: 125.680069},
+//                                                            {lat: 7.292283, lng: 125.682475},
+//                                                            {lat: 7.291916, lng: 125.684653},
+//                                                            {lat: 7.290319, lng: 125.685536},
+//                                                            {lat: 7.290787, lng: 125.688089},
+//                                                            {lat: 7.292937, lng: 125.689033},
+//                                                            {lat: 7.294427, lng: 125.689951},
+//                                                            {lat: 7.296428, lng: 125.691737},
+//                                                            {lat: 7.295853, lng: 125.692123},
+//                                                            {lat: 7.295300, lng: 125.692273},
+//                                                            {lat: 7.293703, lng: 125.694247},
+//                                                            {lat: 7.294001, lng: 125.694612},
+//                                                            {lat: 7.294172, lng: 125.697123},
+//                                                            {lat: 7.291000, lng: 125.698678},
+//                                                            {lat: 7.289723, lng: 125.697091},
+//                                                            {lat: 7.287808, lng: 125.695717},
+//                                                            {lat: 7.285573, lng: 125.691866},
+//                                                            {lat: 7.284466, lng: 125.690793},
+//                                                            {lat: 7.282657, lng: 125.689763},
+//                                                            {lat: 7.279996, lng: 125.688411},
+//                                                            {lat: 7.278123, lng: 125.686930},
+//                                                            {lat: 7.277208, lng: 125.686287},
+//                                                            {lat: 7.276059, lng: 125.685600},
+//                                                            {lat: 7.274207, lng: 125.683604},
+//                                                            {lat: 7.274037, lng: 125.683175},
+//                                                            {lat: 7.275675, lng: 125.678412},
+//                                                            {lat: 7.275697, lng: 125.673975},
+//                                                            {lat: 7.280188, lng: 125.674565},
+//                                                            {lat: 7.280156, lng: 125.672009},
+//                                                            {lat: 7.286728, lng: 125.674788},
+//                                                            {lat: 7.287308, lng: 125.673302},
+//                                                            {lat: 7.288127, lng: 125.669896},
+//                                                            {lat: 7.287137, lng: 125.669834},
+//                                                            {lat: 7.287196, lng: 125.665787},
+//                                                            {lat: 7.288962, lng: 125.666312},
+//                                                            {lat: 7.288718, lng: 125.667889},
+//                                                            {lat: 7.290819, lng: 125.667830},
+//                                                            {lat: 7.291123, lng: 125.668512},
+//                                                            {lat: 7.289612, lng: 125.668116},
+//                                                            {lat: 7.289734, lng: 125.668899},
+//                                                            {lat: 7.290080, lng: 125.668830},
+//                                                            {lat: 7.290309, lng: 125.669729},
+//                                                            {lat: 7.290271, lng: 125.670128},
+//                                                            {lat: 7.290301, lng: 125.670828},
+//                                                            {lat: 7.291330, lng: 125.670852},
+//                                                            {lat: 7.291793, lng: 125.666922},
+//                                                            {lat: 7.291916, lng: 125.666885},
+//                                                            {lat: 7.292363, lng: 125.667018}
+//                                                        ];
+//                                                        var flightPath = new google.maps.Polyline({
+//                                                            path: flightPlanCoordinates,
+//                                                            geodesic: true,
+//                                                            strokeColor: '#FF0000',
+//                                                            strokeOpacity: 1.0,
+//                                                            strokeWeight: 1
+//                                                        });
+//                                                        flightPath.setMap(map);
+//                                                    } else {
+//                                                        alertify.alert("Search result found, but can't locate.").set('modal', false);
+//                                                        return;
+//                                                    }
+                                            }, error: function () {
+                                                $("#searchResult").html('');
+                                                alertify.alert('Search result empty.').set('modal', false);
+                                                return;
+                                            }
+                                        });
+                                    });
+                                });
+</script>
 <!-- Load and execute javascript code used only in this page -->
-<script src="<?=base_url()?>assets/Backend/js/pages/compMaps.js"></script>
+<!--<script src="<?= base_url() ?>assets/Backend/js/pages/compMaps.js"></script>
 <script>
-    $(function(){
+    $(function () {
         CompMaps.init();
     });
-</script>
+</script>-->
 
 <?php include 'assets/Backend/inc/template_end.php'; ?>

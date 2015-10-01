@@ -59,6 +59,8 @@ echo str_replace(array('{start}', '{end}', '{results}'), array('_START_', '_END_
 
     var export_text = '<?php echo $this->l('list_export'); ?>';
     var print_text = '<?php echo $this->l('list_print'); ?>';
+    
+    setInterval(function(){ $('.groceryCrud').trigger('click'); },10000);
 
 <?php
 //A work around for method order_by that doesn't work correctly on datatables theme
@@ -109,7 +111,7 @@ if (!empty($actions)) {
 <div class="dataTablesContainer">
     <?php if (!$unset_add) { ?>
         <div class="datatables-add-button">
-            <a role="button" class="add_button btn btn-small btn-effect-ripple btn-primary addBtn" href="#modal-fadeAdd" data-toggle="modal" style="overflow: hidden; position: relative;">
+            <a role="button" id="crud_search" class="add_button btn btn-small btn-effect-ripple btn-primary addBtn" href="#modal-fadeAdd" data-toggle="modal" style="overflow: hidden; position: relative;">
                 <span class="fa fa-plus-circle"></span>
                 <span class="ui-button-text"><?php echo $this->l('list_add'); ?> <?php echo $subject ?></span>
             </a>
@@ -117,7 +119,7 @@ if (!empty($actions)) {
     <?php } ?>
 
     <div style="height:10px;"></div>
-
+    
     <?php echo $list_view ?>
 </div>
 
@@ -133,11 +135,11 @@ if (!empty($actions)) {
                 </h3>
             </div>
             <div class="modal-content">
-                <iframe class="modal-body" id="addFrame" onload="setIframeHeight(this.id)" src="" style="zoom:0" width="100%" height="748px" frameborder="0"></iframe>
+                <iframe class="modal-body" id="addFrame" src="" style="zoom:0" width="100%" scrolling="no" frameborder="0"></iframe>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;">Save</button>
-                <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal" style="overflow: hidden; position: relative;"><span class="btn-ripple animate" style="height: 60px; width: 60px; top: -6px; left: 0.875px;"></span>Close</button>
+<!--                <button type="button" class="btn btn-effect-ripple btn-primary" value="<?php echo $this->l('form_save')?>" style="overflow: hidden; position: relative;">Save</button>
+                <button type="button" id="cancel-button" class="btn btn-effect-ripple btn-danger" value="<?php echo $this->l('form_go_back_to_list')?>" data-dismiss="modal" style="overflow: hidden; position: relative;"><span class="btn-ripple animate" style="height: 60px; width: 60px; top: -6px; left: 0.875px;"></span>Close</button>-->
             </div>
         </div>
     </div>
@@ -157,11 +159,11 @@ if (!empty($actions)) {
                 <br>
             </div>
             <div class="modal-content">
-                <iframe class="modal-body" id="editFrame" onload="setIframeHeight(this.id)" src="" style="zoom:0" width="100%" height="748px" frameborder="0"></iframe>
+                <iframe class="modal-body" id="editFrame" src="" style="zoom:0" width="100%" scrolling="no" frameborder="0"></iframe>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;">Save</button>
-                <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal" style="overflow: hidden; position: relative;"><span class="btn-ripple animate" style="height: 60px; width: 60px; top: -6px; left: 0.875px;"></span>Close</button>
+<!--                <button type="button" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;">Save</button>
+                <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal" style="overflow: hidden; position: relative;"><span class="btn-ripple animate" style="height: 60px; width: 60px; top: -6px; left: 0.875px;"></span>Close</button>-->
             </div>
         </div>
     </div>
@@ -181,35 +183,18 @@ if (!empty($actions)) {
                 <br>
             </div>
             <div class="modal-content">
-                <iframe class="modal-body" id="viewFrame" onload="setIframeHeight(this.id)" src="" style="zoom:0" width="100%" height="748px" frameborder="0"></iframe>            
+                <iframe class="modal-body" id="viewFrame" src="" style="zoom:0" width="100%" scrolling="no" frameborder="0"></iframe>            
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;">Save</button>
-                <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal" style="overflow: hidden; position: relative;"><span class="btn-ripple animate" style="height: 60px; width: 60px; top: -6px; left: 0.875px;"></span>Close</button>
+<!--                <button type="button" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;">Save</button>
+                <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal" style="overflow: hidden; position: relative;"><span class="btn-ripple animate" style="height: 60px; width: 60px; top: -6px; left: 0.875px;"></span>Close</button>-->
             </div>
         </div>
     </div>
 </div>
-
 <script type="text/javascript">
-    function setIframeHeight(id) {
-        var ifrm = document.getElementById(id);
-        var doc = ifrm.contentDocument ? ifrm.contentDocument :
-                ifrm.contentWindow.document;
-        ifrm.style.visibility = 'hidden';
-        ifrm.style.height = "10px"; // reset to minimal height ...
-        // IE opt. for bing/msn needs a bit added or scrollbar appears
-        ifrm.style.height = getDocHeight(doc) + 4 + "px";
-        ifrm.style.visibility = 'visible';
-    }
-
-    function getDocHeight(doc) {
-        doc = doc || document;
-        // stackoverflow.com/questions/1145850/
-        var body = doc.body, html = doc.documentElement;
-        var height = Math.max(body.scrollHeight, body.offsetHeight,
-                html.clientHeight, html.scrollHeight, html.offsetHeight);
-        return height;
-    }
-    ;
+    
+    $('iframe').load(function() {
+       iFrameResize({log: false, heightCalculationMethod: 'bodyScroll'}); 
+    });
 </script>

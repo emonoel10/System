@@ -3,20 +3,29 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/System/application/models/grocery_crud_model.php</file>
+            <file>file:/C:/xampp/htdocs/System/assets/Backend/js/vendor/bootstrap.min.js</file>
             <file>file:/C:/xampp/htdocs/System/application/views/Backend/page_ui_tables.php</file>
             <file>file:/C:/xampp/htdocs/System/assets/grocery_crud/themes/datatables/views/add.php</file>
             <file>file:/C:/xampp/htdocs/System/assets/grocery_crud/themes/datatables/views/list_template.php</file>
             <file>file:/C:/xampp/htdocs/System/.htaccess</file>
             <file>file:/C:/xampp/htdocs/System/assets/Backend/inc/template_scripts.php</file>
+            <file>file:/C:/xampp/htdocs/System/application/controllers/Charts.php</file>
+            <file>file:/C:/xampp/htdocs/System/assets/Backend/js/plugins.js</file>
+            <file>file:/C:/xampp/htdocs/System/assets/Backend/js/pages/uiTables.js</file>
+            <file>file:/C:/xampp/htdocs/System/assets/Backend/inc/template_start.php</file>
+            <file>file:/C:/xampp/htdocs/System/assets/grocery_crud/themes/datatables/css/datatables.css</file>
+            <file>file:/C:/xampp/htdocs/System/assets/Backend/css/bootstrap.min.css</file>
             <file>file:/C:/xampp/htdocs/System/assets/grocery_crud/themes/datatables/views/edit.php</file>
+            <file>file:/C:/xampp/htdocs/System/application/views/Backend/page_ui_crudOp.php</file>
+            <file>file:/C:/xampp/htdocs/System/application/controllers/Maps.php</file>
+            <file>file:/C:/xampp/htdocs/System/assets/Backend/js/app.js</file>
+            <file>file:/C:/xampp/htdocs/System/assets/Backend/js/pages/compCharts.js</file>
             <file>file:/C:/xampp/htdocs/System/application/libraries/Grocery_CRUD.php</file>
+            <file>file:/C:/xampp/htdocs/System/application/views/Backend/page_comp_charts.php</file>
             <file>file:/C:/xampp/htdocs/System/application/config/routes.php</file>
             <file>file:/C:/xampp/htdocs/System/assets/grocery_crud/themes/datatables/views/read.php</file>
             <file>file:/C:/xampp/htdocs/System/application/controllers/InfoTable.php</file>
-            <file>file:/C:/xampp/htdocs/System/application/views/Frontend/index.php</file>
-            <file>file:/C:/xampp/htdocs/System/application/views/Backend/page_ready_error.php</file>
-            <file>file:/C:/xampp/htdocs/System/application/views/Backend/page_ready_login.php</file>
+            <file>file:/C:/xampp/htdocs/System/application/views/Backend/page_comp_maps.php</file>
             <file>file:/C:/xampp/htdocs/System/assets/grocery_crud/themes/datatables/views/list.php</file>
             <file>file:/C:/xampp/htdocs/System/assets/grocery_crud/themes/datatables/js/datatables.js</file>
         </group>

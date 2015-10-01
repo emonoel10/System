@@ -78,6 +78,17 @@ $primary_nav = array(
         )
     ),
     array(
+        'name'  => 'Statistics',
+        'icon'  => 'fa fa-pie-chart',
+        'sub'   => array(
+            array(
+                'name'  => 'Barangay Statistical Chart',
+                'url'   => 'Charts',
+                'class'   => 'nav'
+            )
+        )
+    ),
+    array(
         'url'   => 'separator',
     )
 );

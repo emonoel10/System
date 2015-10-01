@@ -25,14 +25,6 @@ $primary_nav = array(
         'url'   => 'Index'
     ),
     array(
-        'name'  => 'Features',
-        'url'   => 'features.php'
-    ),
-    array(
-        'name'  => 'Pricing',
-        'url'   => 'pricing.php'
-    ),
-    array(
         'name'  => 'Contact',
         'url'   => 'contact.php'
     ),
@@ -74,7 +66,7 @@ $primary_nav = array(
         )
     ),
     array(
-        'name'  => 'Get Started <i class="fa fa-arrow-right"></i>',
+        'name'  => 'Admin <i class="fa fa-arrow-right"></i>',
         'class' => 'featured',
         'url'   => 'Login'
     )

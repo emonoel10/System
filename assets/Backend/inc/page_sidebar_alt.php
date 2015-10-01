@@ -26,133 +26,133 @@
                     <div class="form-group remove-margin">
                         <ul class="sidebar-themes clearfix">
                             <li>
-                                <a href="javascript:void(0)" class="themed-background-default" title="Default" data-theme="<?php echo base_url('assets/Backend/css/themes/default');?>" data-theme-navbar="navbar-inverse" data-theme-sidebar="" style="width:57px; height:30px;">
+                                <a href="javascript:void(0)" class="themed-background-default"  title="Default" data-theme="assets/Backend/css/themes/default" data-theme-navbar="navbar-inverse" data-theme-sidebar="" style="width:57px; height:30px;">
                                     <span class="section-side themed-background-dark-default"></span>
                                     <span class="section-content"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="themed-background-classy"  title="Classy" data-theme="<?php echo base_url('assets/Backend/css/themes/classy.css');?>" data-theme-navbar="navbar-inverse" data-theme-sidebar="" style="width:57px; height:30px;">
+                                <a href="javascript:void(0)" class="themed-background-classy"  title="Classy" data-theme="assets/Backend/css/themes/classy.css" data-theme-navbar="navbar-inverse" data-theme-sidebar="" style="width:57px; height:30px;">
                                     <span class="section-side themed-background-dark-classy"></span>
                                     <span class="section-content"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="themed-background-social"  title="Social" data-theme="<?php echo base_url('assets/Backend/css/themes/social.css');?>" data-theme-navbar="navbar-inverse" data-theme-sidebar="" style="width:57px; height:30px;">
+                                <a href="javascript:void(0)" class="themed-background-social"  title="Social" data-theme="assets/Backend/css/themes/social.css" data-theme-navbar="navbar-inverse" data-theme-sidebar="" style="width:57px; height:30px;">
                                     <span class="section-side themed-background-dark-social"></span>
                                     <span class="section-content"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="themed-background-flat"  title="Flat" data-theme="<?php echo base_url('assets/Backend/css/themes/flat.css');?>" data-theme-navbar="navbar-inverse" data-theme-sidebar="" style="width:57px; height:30px;">
+                                <a href="javascript:void(0)" class="themed-background-flat"  title="Flat" data-theme="assets/Backend/css/themes/flat.css" data-theme-navbar="navbar-inverse" data-theme-sidebar="" style="width:57px; height:30px;">
                                     <span class="section-side themed-background-dark-flat"></span>
                                     <span class="section-content"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="themed-background-amethyst"  title="Amethyst" data-theme="<?php echo base_url('assets/Backend/css/themes/amethyst.css');?>" data-theme-navbar="navbar-inverse" data-theme-sidebar="" style="width:57px; height:30px;">
+                                <a href="javascript:void(0)" class="themed-background-amethyst"  title="Amethyst" data-theme="assets/Backend/css/themes/amethyst.css" data-theme-navbar="navbar-inverse" data-theme-sidebar="" style="width:57px; height:30px;">
                                     <span class="section-side themed-background-dark-amethyst"></span>
                                     <span class="section-content"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="themed-background-creme"  title="Creme" data-theme="<?php echo base_url('assets/Backend/css/themes/creme.css');?>" data-theme-navbar="navbar-inverse" data-theme-sidebar="" style="width:57px; height:30px;">
+                                <a href="javascript:void(0)" class="themed-background-creme"  title="Creme" data-theme="assets/Backend/css/themes/creme.css" data-theme-navbar="navbar-inverse" data-theme-sidebar="" style="width:57px; height:30px;">
                                     <span class="section-side themed-background-dark-creme"></span>
                                     <span class="section-content"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="themed-background-passion"  title="Passion" data-theme="<?php echo base_url('assets/Backend/css/themes/passion.css');?>" data-theme-navbar="navbar-inverse" data-theme-sidebar="" style="width:57px; height:30px;">
+                                <a href="javascript:void(0)" class="themed-background-passion"  title="Passion" data-theme="assets/Backend/css/themes/passion.css" data-theme-navbar="navbar-inverse" data-theme-sidebar="" style="width:57px; height:30px;">
                                     <span class="section-side themed-background-dark-passion"></span>
                                     <span class="section-content"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="themed-background-default"  title="Default + Light Sidebar" data-theme="<?php echo base_url('assets/Backend/css/themes/default');?>" data-theme-navbar="navbar-inverse" data-theme-sidebar="sidebar-light" style="width:57px; height:30px;">
+                                <a href="javascript:void(0)" class="themed-background-default"  title="Default + Light Sidebar" data-theme="assets/Backend/css/themes/default" data-theme-navbar="navbar-inverse" data-theme-sidebar="sidebar-light" style="width:57px; height:30px;">
                                     <span class="section-side"></span>
                                     <span class="section-content"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="themed-background-classy"  title="Classy + Light Sidebar" data-theme="<?php echo base_url('assets/Backend/css/themes/classy.css');?>" data-theme-navbar="navbar-inverse" data-theme-sidebar="sidebar-light" style="width:57px; height:30px;">
+                                <a href="javascript:void(0)" class="themed-background-classy"  title="Classy + Light Sidebar" data-theme="assets/Backend/css/themes/classy.css" data-theme-navbar="navbar-inverse" data-theme-sidebar="sidebar-light" style="width:57px; height:30px;">
                                     <span class="section-side"></span>
                                     <span class="section-content"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="themed-background-social"  title="Social + Light Sidebar" data-theme="<?php echo base_url('assets/Backend/css/themes/social.css');?>" data-theme-navbar="navbar-inverse" data-theme-sidebar="sidebar-light" style="width:57px; height:30px;">
+                                <a href="javascript:void(0)" class="themed-background-social"  title="Social + Light Sidebar" data-theme="assets/Backend/css/themes/social.css" data-theme-navbar="navbar-inverse" data-theme-sidebar="sidebar-light" style="width:57px; height:30px;">
                                     <span class="section-side"></span>
                                     <span class="section-content"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="themed-background-flat"  title="Flat + Light Sidebar" data-theme="<?php echo base_url('assets/Backend/css/themes/flat.css');?>" data-theme-navbar="navbar-inverse" data-theme-sidebar="sidebar-light" style="width:57px; height:30px;">
+                                <a href="javascript:void(0)" class="themed-background-flat"  title="Flat + Light Sidebar" data-theme="assets/Backend/css/themes/flat.css" data-theme-navbar="navbar-inverse" data-theme-sidebar="sidebar-light" style="width:57px; height:30px;">
                                     <span class="section-side"></span>
                                     <span class="section-content"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="themed-background-amethyst"  title="Amethyst + Light Sidebar" data-theme="<?php echo base_url('assets/Backend/css/themes/amethyst.css');?>" data-theme-navbar="navbar-inverse" data-theme-sidebar="sidebar-light" style="width:57px; height:30px;">
+                                <a href="javascript:void(0)" class="themed-background-amethyst"  title="Amethyst + Light Sidebar" data-theme="assets/Backend/css/themes/amethyst.css" data-theme-navbar="navbar-inverse" data-theme-sidebar="sidebar-light" style="width:57px; height:30px;">
                                     <span class="section-side"></span>
                                     <span class="section-content"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="themed-background-creme"  title="Creme + Light Sidebar" data-theme="<?php echo base_url('assets/Backend/css/themes/creme.css');?>" data-theme-navbar="navbar-inverse" data-theme-sidebar="sidebar-light" style="width:57px; height:30px;">
+                                <a href="javascript:void(0)" class="themed-background-creme"  title="Creme + Light Sidebar" data-theme="assets/Backend/css/themes/creme.css" data-theme-navbar="navbar-inverse" data-theme-sidebar="sidebar-light" style="width:57px; height:30px;">
                                     <span class="section-side"></span>
                                     <span class="section-content"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="themed-background-passion"  title="Passion + Light Sidebar" data-theme="<?php echo base_url('assets/Backend/css/themes/passion.css');?>" data-theme-navbar="navbar-inverse" data-theme-sidebar="sidebar-light" style="width:57px; height:30px;">
+                                <a href="javascript:void(0)" class="themed-background-passion"  title="Passion + Light Sidebar" data-theme="assets/Backend/css/themes/passion.css" data-theme-navbar="navbar-inverse" data-theme-sidebar="sidebar-light" style="width:57px; height:30px;">
                                     <span class="section-side"></span>
                                     <span class="section-content"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="themed-background-default"  title="Default + Light Header" data-theme="<?php echo base_url('assets/Backend/css/themes/default');?>" data-theme-navbar="navbar-default" data-theme-sidebar="" style="width:57px; height:30px;">
+                                <a href="javascript:void(0)" class="themed-background-default"  title="Default + Light Header" data-theme="assets/Backend/css/themes/default" data-theme-navbar="navbar-default" data-theme-sidebar="" style="width:57px; height:30px;">
                                     <span class="section-header"></span>
                                     <span class="section-side themed-background-dark-default"></span>
                                     <span class="section-content"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="themed-background-classy"  title="Classy + Light Header" data-theme="<?php echo base_url('assets/Backend/css/themes/classy.css');?>" data-theme-navbar="navbar-default" data-theme-sidebar="" style="width:57px; height:30px;">
+                                <a href="javascript:void(0)" class="themed-background-classy"  title="Classy + Light Header" data-theme="assets/Backend/css/themes/classy.css" data-theme-navbar="navbar-default" data-theme-sidebar="" style="width:57px; height:30px;">
                                     <span class="section-header"></span>
                                     <span class="section-side themed-background-dark-classy"></span>
                                     <span class="section-content"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="themed-background-social"  title="Social + Light Header" data-theme="<?php echo base_url('assets/Backend/css/themes/social.css');?>" data-theme-navbar="navbar-default" data-theme-sidebar="" style="width:57px; height:30px;">
+                                <a href="javascript:void(0)" class="themed-background-social"  title="Social + Light Header" data-theme="assets/Backend/css/themes/social.css" data-theme-navbar="navbar-default" data-theme-sidebar="" style="width:57px; height:30px;">
                                     <span class="section-header"></span>
                                     <span class="section-side themed-background-dark-social"></span>
                                     <span class="section-content"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="themed-background-flat"  title="Flat + Light Header" data-theme="<?php echo base_url('assets/Backend/css/themes/flat.css');?>" data-theme-navbar="navbar-default" data-theme-sidebar="" style="width:57px; height:30px;">
+                                <a href="javascript:void(0)" class="themed-background-flat"  title="Flat + Light Header" data-theme="assets/Backend/css/themes/flat.css" data-theme-navbar="navbar-default" data-theme-sidebar="" style="width:57px; height:30px;">
                                     <span class="section-header"></span>
                                     <span class="section-side themed-background-dark-flat"></span>
                                     <span class="section-content"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="themed-background-amethyst"  title="Amethyst + Light Header" data-theme="<?php echo base_url('assets/Backend/css/themes/amethyst.css');?>" data-theme-navbar="navbar-default" data-theme-sidebar="" style="width:57px; height:30px;">
+                                <a href="javascript:void(0)" class="themed-background-amethyst"  title="Amethyst + Light Header" data-theme="assets/Backend/css/themes/amethyst.css" data-theme-navbar="navbar-default" data-theme-sidebar="" style="width:57px; height:30px;">
                                     <span class="section-header"></span>
                                     <span class="section-side themed-background-dark-amethyst"></span>
                                     <span class="section-content"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="themed-background-creme"  title="Creme + Light Header" data-theme="<?php echo base_url('assets/Backend/css/themes/creme.css');?>" data-theme-navbar="navbar-default" data-theme-sidebar="" style="width:57px; height:30px;">
+                                <a href="javascript:void(0)" class="themed-background-creme"  title="Creme + Light Header" data-theme="assets/Backend/css/themes/creme.css" data-theme-navbar="navbar-default" data-theme-sidebar="" style="width:57px; height:30px;">
                                     <span class="section-header"></span>
                                     <span class="section-side themed-background-dark-creme"></span>
                                     <span class="section-content"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="themed-background-passion"  title="Passion + Light Header" data-theme="<?php echo base_url('assets/Backend/css/themes/passion.css');?>" data-theme-navbar="navbar-default" data-theme-sidebar="" style="width:57px; height:30px;">
+                                <a href="javascript:void(0)" class="themed-background-passion"  title="Passion + Light Header" data-theme="assets/Backend/css/themes/passion.css" data-theme-navbar="navbar-default" data-theme-sidebar="" style="width:57px; height:30px;">
                                     <span class="section-header"></span>
                                     <span class="section-side themed-background-dark-passion"></span>
                                     <span class="section-content"></span>

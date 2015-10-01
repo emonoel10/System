@@ -11,15 +11,17 @@
 
 
 <!-- Include Jquery library from Google's CDN but if something goes wrong get Jquery from local file (Remove 'http:' if you have SSL) -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script>!window.jQuery && document.write(decodeURI('%3Cscript src="<?php echo base_url('assets/Backend/js/vendor/jquery-2.1.1.min.js')?>"%3E%3C/script%3E'));</script>
-
-<!-- Bootstrap.js, Jquery plugins and Custom JS code -->
-<script src="<?php echo base_url('assets/Backend/js/vendor/bootstrap.min.js');?>"></script>
-<script src="<?php echo base_url('assets/Backend/js/plugins.js');?>"></script>
-<script src="<?php echo base_url('assets/Backend/js/app.js');?>"></script>
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<script>!window.jQuery && document.write(decodeURI('%3Cscript src="<?php echo base_url('assets/Backend/js/vendor/jquery-2.1.4.min.js')?>"%3E%3C/script%3E'));</script>
 
 <script type="text/javascript">
     var $ = jQuery.noConflict();
 </script>
+
+<!-- Bootstrap.js, Jquery plugins and Custom JS code -->
+<script src="<?php echo base_url('assets/Backend/js/vendor/bootstrap.min.js');?>"></script>
+<script src="<?php echo base_url('assets/Backend/js/vendor/alertify.min.js');?>"></script>
+<script src="<?php echo base_url('assets/Backend/js/plugins.js');?>"></script>
+<script src="<?php echo base_url('assets/Backend/js/app.js');?>"></script>
+
 

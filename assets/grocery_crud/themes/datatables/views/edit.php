@@ -21,14 +21,14 @@ $this->set_js_lib($this->default_javascript_path . '/jquery_plugins/config/jquer
                 ?>
                 <div class='form-field-box <?php echo $even_odd ?>' id="<?php echo $field->field_name; ?>_field_box">
                     <div class='form-display-as-box' id="<?php echo $field->field_name; ?>_display_as_box">
-    <?php echo $input_fields[$field->field_name]->display_as ?><?php echo ($input_fields[$field->field_name]->required) ? "<span class='required'>*</span> " : "" ?> :
+                        <?php echo $input_fields[$field->field_name]->display_as ?><?php echo ($input_fields[$field->field_name]->required) ? "<span class='required'>*</span> " : "" ?> :
                     </div>
                     <div class='form-input-box' id="<?php echo $field->field_name; ?>_input_box">
-    <?php echo $input_fields[$field->field_name]->input ?>
+                        <?php echo $input_fields[$field->field_name]->input ?>
                     </div>
                     <div class='clear'></div>
                 </div>
-<?php } ?>
+            <?php } ?>
             <!-- Start of hidden inputs -->
             <?php
             foreach ($hidden_fields as $hidden_field) {
@@ -43,16 +43,16 @@ $this->set_js_lib($this->default_javascript_path . '/jquery_plugins/config/jquer
         </div>
         <div class='buttons-box'>
             <div class='form-button-box'>
-                <input  id="form-button-save" type='submit' value='<?php echo $this->l('form_update_changes'); ?>' class='ui-input-button' />
+                <input  id="form-button-save" type='submit' value='<?php echo $this->l('form_update_changes'); ?>' onclick="$('#example-datatable').DataTable().ajax.reload();" class='btn btn-effect-ripple btn-primary' />
             </div>
-<?php if (!$this->unset_back_to_list) { ?>
-                <div class='form-button-box'>
+            <?php if (!$this->unset_back_to_list) { ?>
+<!--                <div class='form-button-box'>
                     <input type='button' value='<?php echo $this->l('form_update_and_go_back'); ?>' class='ui-input-button' id="save-and-go-back-button"/>
                 </div>
                 <div class='form-button-box'>
                     <input type='button' value='<?php echo $this->l('form_cancel'); ?>' class='ui-input-button' id="cancel-button" />
-                </div>
-<?php } ?>
+                </div>-->
+            <?php } ?>
             <div class='form-button-box loading-box'>
                 <div class='small-loading' id='FormLoading'><?php echo $this->l('form_update_loading'); ?></div>
             </div>
