@@ -67,7 +67,7 @@ div.form-button-box {
 }
 .form-field-box.odd
 {
-    background: #fff;
+    background: #fff;	
 }
 .form-field-box.even
 {
@@ -82,19 +82,15 @@ div.form-button-box {
 .form-input-box
 {
     float:left;
-    width: 55%;
+    width: 54%;
 }
 
 @media only screen and (max-width: 541px){
     .form-input-box
     {
         float:left;
-        width: 100%;
+        width: 39%;
     }
-}
-
-.form-input-box read {
-    width: 100%;
 }
 
 .line-1px
@@ -187,7 +183,7 @@ input.field_error
 }
 div.form-div input.datepicker-input
 {
-    width: 100px !important;	
+    width: 100% !important;	
 }
 div.form-div input.datetime-input
 {

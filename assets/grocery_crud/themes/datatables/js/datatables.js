@@ -103,7 +103,7 @@ $(document).ready(function () {
     loadListenersForDatatables();
 
     $('a[role=button],button[role=button]').live("mouseover mouseout", function (event) {
-        if (event.type === "mouseover") {
+        if (event.type == "mouseover") {
             $(this).addClass('ui-state-hover');
         } else {
             $(this).removeClass('ui-state-hover');

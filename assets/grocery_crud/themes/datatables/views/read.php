@@ -41,8 +41,11 @@ $this->set_js_lib($this->default_javascript_path . '/jquery_plugins/config/jquer
             <div id='report-success' class='report-div success'></div>
         </div>
         <div class='buttons-box'>
-            <div class='form-button-box'>
+<!--            <div class='form-button-box'>
                 <input type='button' value='<?php echo $this->l('form_back_to_list'); ?>' class='ui-input-button back-to-list' id="cancel-button" />
+            </div>-->
+            <div class="form-button-box">
+                <input id="print_button" class='btn btn-info btn-effect-ripple'type="button" value="Print" onclick="javascript:this.style.display='none';window.print();this.style.display='';" />
             </div>
             <div class='clear'></div>
         </div>

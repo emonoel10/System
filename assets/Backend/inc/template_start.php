@@ -1,7 +1,18 @@
+<?php
+/**
+ * template_start.php
+ *
+ * Author: pixelcave
+ *
+ * The first block of code used in every page of the template
+ *
+ */
+?>
 <!DOCTYPE html>
 <!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
 <!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
+
         <meta charset="utf-8">
 
         <title><?php echo $template['title'] ?></title>
@@ -43,9 +54,16 @@
 
         <!-- Animation Stylesheets -->
         <link rel="stylesheet" href="<?= base_url(); ?>assets/Backend/css/animate.min.css">
+
+        <!-- Alertify.js (themed alert interface) -->
+        <!-- include the style -->
+        <link rel="stylesheet" href="<?= base_url(); ?>assets/Backend/css/alertify/alertify.min.css" />
+        <!-- include a theme -->
+        <link rel="stylesheet" href="<?= base_url(); ?>assets/Backend/css/alertify/themes/bootstrap.min.css" />
+        
         <!-- END Stylesheets -->
 
         <!-- Modernizr (browser feature detection library) -->
-
+        <script type="text/javascript" src="<?= base_url(); ?>assets/Backend/js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body id="login-body">

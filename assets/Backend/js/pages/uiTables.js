@@ -76,7 +76,7 @@ var UiTables = function () {
                 }
             });
 
-            $('#style-hover').on('click', function() {
+            $('#style-hover').on('click', function () {
                 $(this).toggleClass('active');
 
                 if ($(this).hasClass('active')) {
@@ -90,14 +90,30 @@ var UiTables = function () {
                 $('#addFrame').attr('src', "/InfoTable/add");
             });
             
-            $(".editBtn").click(function (e) {
+            $(".editBtn").click(function () {
                 $('#editFrame').attr('src', editUrl);
-                e.preventDefault();
+//                e.preventDefault();
             });
             
-            $(".viewBtn").click(function (e) {
+            $(".viewBtn").click(function () {
                 $('#viewFrame').attr('src', readUrl);
+//                e.preventDefault();
             });
+
+//            $('#addFrame').load(function () {
+////                $('#addFrame').height($('#addFrame').contents().height());
+//                iFrameResize({log: false, heightCalculationMethod: 'bodyOffset'});
+//            });
+//
+//            $('#editFrame').load(function () {
+////                $('#editFrame').height($('#editFrame').contents().height());
+//                iFrameResize({log: false, heightCalculationMethod: 'bodyOffset'});
+//            });
+//
+//            $('#viewFrame').load(function () {
+////                $('#viewFrame').height($('#viewFrame').contents().height());
+//                iFrameResize({log: false, heightCalculationMethod: 'bodyOffset'});
+//            });
         }
     };
 }();

@@ -47,11 +47,11 @@
     <!-- Right Header Navigation -->
     <ul class="nav navbar-nav-custom pull-right">
         <!-- Search Form -->
-        <li>
+<!--        <li>
             <form action="page_ready_search_results.php" method="post" class="navbar-form-custom" role="search">
                 <input type="text" id="top-search" name="top-search" class="form-control" placeholder="Search..">
             </form>
-        </li>
+        </li>-->
         <!-- END Search Form -->
 
         <!-- Alternative Sidebar Toggle Button -->
