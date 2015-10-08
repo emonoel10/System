@@ -19,59 +19,8 @@ class Maps extends CI_Controller {
         $config['map_height'] = '450px';
         $config['map_type'] = 'HYBRID';
         $config['cluster'] = TRUE;
-//        $config['directions'] = TRUE;
-//        $config['directionsStart'] = '7.281300, 125.684750';
-//        $config['directionsEnd'] = '7.291546, 125.670983';
-//        $config['directionsDivID'] = 'directionsDiv';
-//        $config['places'] = TRUE;
-//        $config['placesAutocompleteInputID'] = 'searchDataToMarker';
-//        $config['placesAutocompleteBoundsMap'] = TRUE;
-//        $config['placesAutocompleteOnChange'] = "alertify.set('notifier','position', 'bottom-left');
-//                                                 alertify.success('' + alertify.get('notifier','position'))";
+        
         $this->googlemaps->initialize($config);
-
-//        $this->db->from("resident");
-//        $query = $this->db->get();
-//        $searchMarker = array();
-//        foreach ($query->result() as $row) {
-//            $nameMark = $row->name;
-//            $mnameMark = $row->mname;
-//            $lnameMark = $row->lname;
-//            $genderMark = $row->gender;
-//            $bdayMark = $row->bday;
-//            $searchResultgeMark = $row->age;
-//            $citizenshipMark = $row->citizenship;
-//            $occupationMark = $row->occupation;
-//            $statusMark = $row->status;
-//            $purokMark = $row->purok;
-//            $resAddressMark = $row->resAddress;
-//            $perAddressMark = $row->perAddress;
-//            $emailMark = $row->email;
-//            $telNumMark = $row->telNum;
-//            $cpNumMark = $row->cpNum;
-//            $latlongMark = $row->latlong;
-//            //$searchMarker['visible'] = FALSE;
-//            $searchMarker['position'] = $latlongMark;
-//            $searchMarker['infowindow_content'] = '<p>'
-//                    . '<b>First Name: </b>' . $nameMark . '<br>'
-//                    . '<b>Middle Name: </b>' . $mnameMark . '<br>'
-//                    . '<b>Last Name: </b>' . $lnameMark . '<br>'
-//                    . '<b>Gender: </b>' . $genderMark . '<br>'
-//                    . '<b>Birthdate: </b>' . date('F d, Y', strtotime($bdayMark)) . '<br>'
-//                    . '<b>Age: </b>' . $searchResultgeMark . '<br>'
-//                    . '<b>Citizenship: </b>' . $citizenshipMark . '<br>'
-//                    . '<b>Occupation: </b>' . $occupationMark . '<br>'
-//                    . '<b>Status: </b>' . $statusMark . '<br>'
-//                    . '<b>Purok: </b>' . $purokMark . '<br>'
-//                    . '<b>Residential Address: </b>' . $resAddressMark . '<br>'
-//                    . '<b>Permanent Address: </b>' . $perAddressMark . '<br>'
-//                    . '<b>Email: </b>' . $emailMark . '<br>'
-//                    . '<b>Telephone #: </b>' . $telNumMark . '<br>'
-//                    . '<b>Cellphone #: </b>' . $cpNumMark . '<br>'
-//                    . '</p>';
-//            $this->googlemaps->add_marker($searchMarker);
-//        }
-
 
         $polyline = array(); //cagangohan
         $polyline['strokeColor'] = 'red';
@@ -453,7 +402,7 @@ class Maps extends CI_Controller {
     }
 
     public function mapSearchDataInMarker() {
-//        $results = array();
+        $results = array();
         if (isset($_POST['searchDataToMarker'])) {
             $searchData = $_POST['searchDataToMarker'];
             $query = $this->db->query("
@@ -475,10 +424,10 @@ class Maps extends CI_Controller {
                 OR cpNum LIKE '%{$searchData}%'
             ");
             foreach ($query->result() as $searchResult) {
-//                $results[] = $searchResult;
-                $results = $searchResult;
+                $results[] = $searchResult;
             }
         }
+        header('Content-Type: application/json');
         echo json_encode($results);
     }
 
