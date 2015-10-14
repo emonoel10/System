@@ -18,8 +18,9 @@ class Login extends CI_Controller {
         $password = $this->input->post('login-password');
 
         if (!$this->Login_model->login($username, $password)) {
-            redirect(base_url().'Maps');
+            redirect(base_url().'Charts');
         } else {
+//            redirect(base_url().'Login');
         }
     }
 

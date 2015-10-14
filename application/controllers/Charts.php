@@ -83,9 +83,23 @@ class Charts extends CI_Controller {
     }
 
     public function getTotalPopulation() {
-        $query = $this->db->query("SELECT COUNT(*) FROM resident");
+        $query = $this->db->query("SELECT * FROM resident");
         foreach ($query->result() as $totalPopulation) {
             echo json_encode($totalPopulation);
+        }
+    }
+    
+    public function getTotalPopulationByMale() {
+        $query = $this->db->query("SELECT * FROM resident WHERE gender = 'Male' OR gender = 'male'");
+        foreach ($query->result() as $totalPopulationByMale) {
+            echo json_encode($totalPopulationByMale);
+        }
+    }
+    
+    public function getTotalPopulationByFemale() {
+        $query = $this->db->query("SELECT * FROM resident WHERE gender = 'Female' OR gender = 'female'");
+        foreach ($query->result() as $totalPopulationByFemale) {
+            echo json_encode($totalPopulationByFemale);
         }
     }
 
