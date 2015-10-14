@@ -6,9 +6,12 @@ class Charts extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->Model('Login_model');
+        $this->load->Model('Maps_model');
     }
 
     public function index() {
+        $this->Login_model->isLoggedIn();
         $this->load->view('Backend/page_comp_charts');
     }
 

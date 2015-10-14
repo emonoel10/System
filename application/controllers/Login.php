@@ -20,7 +20,7 @@ class Login extends CI_Controller {
         if (!$this->Login_model->login($username, $password)) {
             redirect(base_url().'Charts');
         } else {
-//            redirect(base_url().'Login');
+           // redirect(base_url().'Login');
         }
     }
 

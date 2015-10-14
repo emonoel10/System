@@ -9,8 +9,10 @@ class Infotable extends CI_Controller {
         $this->load->database();
         $this->load->helper('url');
         $this->load->library('grocery_CRUD');
-        $this->load->model('grocery_crud_model');
         $this->load->library('googlemaps');
+        $this->load->Model('grocery_crud_model');
+        $this->load->Model('Login_model');
+        $this->load->Model('Maps_model');
     }
 
     public function index() {
@@ -370,6 +372,7 @@ class Infotable extends CI_Controller {
     }
 
     function _example_output($output = null) {
+        $this->Login_model->isLoggedIn();
         $this->load->view('Backend/page_ui_tables', $output);
     }
 
