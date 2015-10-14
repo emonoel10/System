@@ -56,29 +56,7 @@ $primary_nav = array(
         'url'   => 'separator',
     ),
     array(
-        'name'  => 'Map',
-        'icon'  => 'fa fa-globe',
-        'sub'   => array(
-            array(
-                'name'  => 'Barangay Map',
-                'url'   => 'Maps',
-                'class'   => 'nav'
-            )
-        )
-    ),
-    array(
-        'name'  => 'Information Table',
-        'icon'  => 'fa fa-table',
-        'sub'   => array(
-            array(
-                'name'  => 'Barangay Residence Data',
-                'url'   => 'InfoTable',
-                'class'   => 'nav'
-            )
-        )
-    ),
-    array(
-        'name'  => 'Statistics',
+        'name'  => 'Dashboard',
         'icon'  => 'fa fa-pie-chart',
         'sub'   => array(
             array(
@@ -87,6 +65,32 @@ $primary_nav = array(
                 'class'   => 'nav'
             )
         )
+    ),
+    array(
+//        'name'  => 'Map',
+        'name'  => 'Barangay Map',
+        'icon'  => 'fa fa-globe',
+        'url'   => 'Maps'
+//        'sub'   => array(
+//            array(
+//                'name'  => 'Barangay Map',
+//                'url'   => 'Maps',
+//                'class'   => 'nav'
+//            )
+//        )
+    ),
+    array(
+//        'name'  => 'Information Table',
+        'name'  => 'Barangay Residence Data',
+        'icon'  => 'fa fa-table',
+        'url'   => 'InfoTable'
+//        'sub'   => array(
+//            array(
+//                'name'  => 'Barangay Residence Data',
+//                'url'   => 'InfoTable',
+//                'class'   => 'nav'
+//            )
+//        )
     ),
     array(
         'url'   => 'separator',

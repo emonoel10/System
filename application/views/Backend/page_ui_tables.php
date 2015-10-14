@@ -1,6 +1,6 @@
 <?php
 include 'assets/Backend/inc/config.php';
-$template['header_link'] = 'INFORMATION TABLE';
+$template['header_link'] = 'BARANGAY RESIDENCE DATA';
 $template['title'] = 'BCGIS | INFO. TABLE';
 ?>
 <?php include 'assets/Backend/inc/template_start.php'; ?>
@@ -28,7 +28,7 @@ $template['title'] = 'BCGIS | INFO. TABLE';
             <div class="col-sm-6 hidden-xs">
                 <div class="header-section">
                     <ul class="breadcrumb breadcrumb-top">
-                        <li>Information Table</li>
+                        <!--<li>Information Table</li>-->
                         <li><a href="">Barangay Residence Data</a></li>
                     </ul>
                 </div>

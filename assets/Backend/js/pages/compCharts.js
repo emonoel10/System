@@ -74,175 +74,6 @@ var CompCharts = function () {
              * Chart.js Pie Chart & Bar Graph
              */
 
-            /*
-             * (Chart.js) Male & Female Age Range Pie Chart
-             */
-            var totalPopulation;
-            var ageRangesByMale;
-            var ageRangesByFemale;
-
-            $.getJSON("Charts/getTotalPopulation", function (json) {
-                totalPopulation = json;
-            });
-
-            $.getJSON("Charts/getAgeRangeByMale", function (json) {
-                ageRangesByMale = json;
-                checkAgeRangeByMale();
-            });
-
-            $.getJSON("Charts/getAgeRangeByFemale", function (json) {
-                ageRangesByFemale = json;
-                checkAgeRangeByFemale();
-            });
-
-            function checkAgeRangeByMale() {
-                var pieData = [
-                    {
-                        value: ageRangesByMale['Under 20'],
-                        label: 'Under 20',
-                        title: 'Under 20',
-                        highlight: "#20B2AA",
-                        color: "#878BB6"
-                    },
-                    {
-                        value: ageRangesByMale['20 - 29'],
-                        label: '20 - 29',
-                        title: '20 - 29',
-                        highlight: "#20B2AA",
-                        color: "#4ACAB4"
-                    },
-                    {
-                        value: ageRangesByMale['30 - 39'],
-                        label: '30 - 39',
-                        title: '30 - 39',
-                        highlight: "#20B2AA",
-                        color: "#90EE90"
-                    },
-                    {
-                        value: ageRangesByMale['40 - 49'],
-                        label: '40 - 49',
-                        title: '40 - 49',
-                        highlight: "#20B2AA",
-                        color: "#66CD00"
-                    },
-                    {
-                        value: ageRangesByMale['50 - 59'],
-                        label: '50 - 59',
-                        title: '50 - 59',
-                        highlight: "#20B2AA",
-                        color: "#FFC125"
-                    },
-                    {
-                        value: ageRangesByMale['60 - 69'],
-                        label: '60 - 69',
-                        title: '60 - 69',
-                        highlight: "#20B2AA",
-                        color: "#EE6AA7"
-                    },
-                    {
-                        value: ageRangesByMale['70 - 79'],
-                        label: '70 - 79',
-                        title: '70 - 79',
-                        highlight: "#20B2AA",
-                        color: "#BA55D3"
-                    },
-                    {
-                        value: ageRangesByMale['Over 80'],
-                        label: 'Over 80',
-                        title: 'Over 80',
-                        highlight: "#20B2AA",
-                        color: "#FFEA88"
-                    }
-                ];
-
-                var pieOptions = {
-                    responsive: true,
-                    segmentShowStroke: false,
-                    animationEasing: "easeOutQuart",
-                    animateRotate: true,
-                    animateScale: true,
-                    labelAlign: 'center',
-                    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%>" + " - " + "<%=segments[i].value%>%</li><%}%></ul>"
-                };
-
-//                legend(document.getElementById("ageRangesPieMaleLegend"), pieData);
-                var ageRangePie = document.getElementById("ageRangesPieMale").getContext("2d");
-                var ageRangesPieMaleLegend = new Chart(ageRangePie).Pie(pieData, pieOptions);
-                document.getElementById('ageRangesPieMaleLegend').innerHTML = ageRangesPieMaleLegend.generateLegend();
-            }
-
-            function checkAgeRangeByFemale() {
-                var doughnutData = [
-                    {
-                        value: ageRangesByFemale['Under 20'],
-                        label: 'Under 20',
-                        title: "Under 20",
-                        highlight: "#20B2AA",
-                        color: "#878BB6"
-                    },
-                    {
-                        value: ageRangesByFemale['20 - 29'],
-                        label: '20 - 29',
-                        title: '20 - 29',
-                        highlight: "#20B2AA",
-                        color: "#4ACAB4"
-                    },
-                    {
-                        value: ageRangesByFemale['30 - 39'],
-                        label: '30-39',
-                        title: '30-39',
-                        highlight: "#20B2AA",
-                        color: "#90EE90"
-                    },
-                    {
-                        value: ageRangesByFemale['40 - 49'],
-                        label: '40 - 49',
-                        title: '40 - 49',
-                        highlight: "#20B2AA",
-                        color: "#66CD00"
-                    },
-                    {
-                        value: ageRangesByFemale['50 - 59'],
-                        label: '50 - 59',
-                        title: '50 - 59',
-                        highlight: "#20B2AA",
-                        color: "#FFC125"
-                    },
-                    {
-                        value: ageRangesByFemale['60 - 69'],
-                        label: '60 - 69',
-                        title: '60 - 69',
-                        highlight: "#20B2AA",
-                        color: "#EE6AA7"
-                    },
-                    {
-                        value: ageRangesByFemale['70 - 79'],
-                        label: '70 - 79',
-                        title: '70 - 79',
-                        highlight: "#20B2AA",
-                        color: "#BA55D3"
-                    },
-                    {
-                        value: ageRangesByFemale['Over 80'],
-                        label: 'Over 80',
-                        title: 'Over 80',
-                        highlight: "#20B2AA",
-                        color: "#FFEA88"
-                    }
-                ];
-
-                var doughnutOptions = {
-                    responsive: true,
-                    segmentShowStroke: true,
-                    animateRotate: true,
-                    animateScale: true,
-                    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%>" + " - " + "<%=segments[i].value%>%</li><%}%></ul>"
-                };
-
-                var ageRangePie = document.getElementById("ageRangesPieFemale").getContext("2d");
-                var ageRangesPieFemaleLegend = new Chart(ageRangePie).Doughnut(doughnutData, doughnutOptions);
-                document.getElementById('ageRangesPieFemaleLegend').innerHTML = ageRangesPieFemaleLegend.generateLegend();
-            }
 
             /*
              * (Chart.js) Total Population by Purok Bar Graph
@@ -279,19 +110,189 @@ var CompCharts = function () {
                     scaleShowGridLines: true,
                     scaleShowHorizontalLines: true,
                     scaleShowVerticalLines: true,
-                    segmentShowStroke: true,
                     animateRotate: true,
                     animateScale: true,
+                    maintainAspectRatio: true,
+                    percentageInnerCutout: 50,
 //                    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%>" + " - " + "<%=segments[i].value%>%</li><%}%></ul>"
                     legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
                 };
 
                 var puroksBarData = document.getElementById("totalPopulationByPurok").getContext("2d");
-                var totalPopulationByPurokLegend = new Chart(puroksBarData).Bar(barData, barDataOption);
-                document.getElementById('totalPopulationByPurokLegend').innerHTML = totalPopulationByPurokLegend.generateLegend();
-//                var legendHolder = totalPopulationByPurokLegend.generateLegend();
-//                document.getElementById('totalPopulationByPurokLegend').appendChild(legendHolder.firstChild);
+                var totalPopulationByPuroks = new Chart(puroksBarData).Bar(barData, barDataOption);
+                document.getElementById('totalPopulationByPurokLegend').innerHTML = totalPopulationByPuroks.generateLegend();
+//                totalPopulationByPuroks.resize();
             }
+
+            /*
+             * (Chart.js) Male & Female Age Range Pie Chart
+             */
+            var totalPopulation;
+            var totalPopulationByMale;
+            var totalPopulationByFemale;
+            var ageRangesByMale;
+            var ageRangesByFemale;
+
+            $.getJSON("Charts/getTotalPopulation", function (json) {
+                totalPopulation = json;
+            });
+
+            $.getJSON("Charts/getTotalPopulationByMale", function (json) {
+                totalPopulationByMale = json;
+                console.log(totalPopulationByMale);
+            });
+
+            $.getJSON("Charts/getTotalPopulationByFemale", function (json) {
+                totalPopulationByFemale = json;
+            });
+
+            $.getJSON("Charts/getAgeRangeByMale", function (json) {
+                ageRangesByMale = json;
+                checkAgeRangeByMale();
+            });
+
+            $.getJSON("Charts/getAgeRangeByFemale", function (json) {
+                ageRangesByFemale = json;
+                checkAgeRangeByFemale();
+            });
+
+            function checkAgeRangeByMale() {
+                var pieData = [
+                    {
+                        value: ageRangesByMale['Under 20'],
+                        label: 'Under 20',
+                        highlight: "#20B2AA",
+                        color: "#878BB6"
+                    },
+                    {
+                        value: ageRangesByMale['20 - 29'],
+                        label: '20 - 29',
+                        highlight: "#20B2AA",
+                        color: "#4ACAB4"
+                    },
+                    {
+                        value: ageRangesByMale['30 - 39'],
+                        label: '30 - 39',
+                        title: '30 - 39',
+                        highlight: "#20B2AA",
+                        color: "#90EE90"
+                    },
+                    {
+                        value: ageRangesByMale['40 - 49'],
+                        label: '40 - 49',
+                        highlight: "#20B2AA",
+                        color: "#66CD00"
+                    },
+                    {
+                        value: ageRangesByMale['50 - 59'],
+                        label: '50 - 59',
+                        highlight: "#20B2AA",
+                        color: "#FFC125"
+                    },
+                    {
+                        value: ageRangesByMale['60 - 69'],
+                        label: '60 - 69',
+                        highlight: "#20B2AA",
+                        color: "#EE6AA7"
+                    },
+                    {
+                        value: ageRangesByMale['70 - 79'],
+                        label: '70 - 79',
+                        labelColor: 'white',
+                        labelFontSize: '16',
+                        highlight: "#20B2AA",
+                        color: "#BA55D3"
+                    },
+                    {
+                        value: ageRangesByMale['Over 80'],
+                        label: 'Over 80',
+                        title: 'Over 80',
+                        highlight: "#20B2AA",
+                        color: "#FFEA88"
+                    }
+                ];
+
+                var pieOptions = {
+                    responsive: true,
+                    segmentShowStroke: false,
+                    animation: true,
+                    animationEasing: "easeOutQuart",
+                    animateRotate: true,
+                    animateScale: true,
+                    labelAlign: 'center',
+                    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%>" + ": " + "<%=segments[i].value%>%</li><br><%}%></ul>"
+                };
+
+                var ageRangePie = document.getElementById("ageRangesPieMale").getContext("2d");
+                var ageRangesPieMaleLegend = new Chart(ageRangePie).Pie(pieData, pieOptions);
+                document.getElementById('ageRangesPieMaleLegend').innerHTML = ageRangesPieMaleLegend.generateLegend();
+            }
+
+            function checkAgeRangeByFemale() {
+                var doughnutData = [
+                    {
+                        value: ageRangesByFemale['Under 20'],
+                        label: 'Under 20',
+                        highlight: "#20B2AA",
+                        color: "#878BB6"
+                    },
+                    {
+                        value: ageRangesByFemale['20 - 29'],
+                        label: '20 - 29',
+                        highlight: "#20B2AA",
+                        color: "#4ACAB4"
+                    },
+                    {
+                        value: ageRangesByFemale['30 - 39'],
+                        label: '30-39',
+                        highlight: "#20B2AA",
+                        color: "#90EE90"
+                    },
+                    {
+                        value: ageRangesByFemale['40 - 49'],
+                        label: '40 - 49',
+                        highlight: "#20B2AA",
+                        color: "#66CD00"
+                    },
+                    {
+                        value: ageRangesByFemale['50 - 59'],
+                        label: '50 - 59',
+                        highlight: "#20B2AA",
+                        color: "#FFC125"
+                    },
+                    {
+                        value: ageRangesByFemale['60 - 69'],
+                        label: '60 - 69',
+                        highlight: "#20B2AA",
+                        color: "#EE6AA7"
+                    },
+                    {
+                        value: ageRangesByFemale['70 - 79'],
+                        label: '70 - 79',
+                        highlight: "#20B2AA",
+                        color: "#BA55D3"
+                    },
+                    {
+                        value: ageRangesByFemale['Over 80'],
+                        label: 'Over 80',
+                        highlight: "#20B2AA",
+                        color: "#FFEA88"
+                    }
+                ];
+
+                var doughnutOptions = {
+                    responsive: true,
+                    segmentShowStroke: true,
+                    animateRotate: true,
+                    animateScale: true,
+                    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%>" + ": " + "<%=segments[i].value%>%</li><br><%}%></ul>"
+                };
+
+                var ageRangePie = document.getElementById("ageRangesPieFemale").getContext("2d");
+                var ageRangesPieFemaleLegend = new Chart(ageRangePie).Doughnut(doughnutData, doughnutOptions);
+                document.getElementById('ageRangesPieFemaleLegend').innerHTML = ageRangesPieFemaleLegend.generateLegend();
+            }
+
         }
     };
 }();

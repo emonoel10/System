@@ -1,6 +1,6 @@
 <?php
 include 'assets/Backend/inc/config.php';
-$template['header_link'] = 'MAP';
+$template['header_link'] = 'BARANGAY MAP';
 $template['title'] = 'BCGIS | MAP';
 ?>
 
@@ -45,7 +45,7 @@ $template['title'] = 'BCGIS | MAP';
             <div class="col-sm-6 hidden-xs">
                 <div class="header-section">
                     <ul class="breadcrumb breadcrumb-top">
-                        <li>Map</li>
+<!--                        <li>Map</li>-->
                         <li><a href="">Barangay Map</a></li>
                     </ul>
                 </div>
@@ -61,19 +61,19 @@ $template['title'] = 'BCGIS | MAP';
             <div class="block">
                 <!-- Satellite Map Title -->
                 <div class="block-title" id="map-header">
-                    <div class="block-options pull-right">
+<!--                    <div class="block-options pull-right">
                         <div class="btn-group">
                             <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default dropdown-toggle" data-toggle="dropdown" title="Settings"><span class="btn-ripple animate" style="height: 34px; width: 34px; top: -13px; left: -3.92188px;"></span><i class="fa fa-gear"></i></a>
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <li>
-                                    <a href="javascript:void(0)" data-toggle="collapse" data-target="#map">
+                                    <a href="javascript:void(0)" data-toggle="collapse" data-target="#map-container">
                                         <i class="fa fa-minus-square-o pull-right"></i>
                                         Collapse
                                     </a>
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div>-->
                     <h2><i class="fa fa-globe"></i> Satellite Map</h2>
                 </div>
                 <!-- END Satellite Map Title -->
