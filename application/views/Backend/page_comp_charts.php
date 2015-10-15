@@ -84,6 +84,6 @@ $template['title'] = 'BCGIS | CHARTS';
 <!-- Load and execute javascript code used only in this page -->
 <script src="<?php echo base_url(); ?>assets/Backend/js/pages/compCharts.js"></script>
 <script>$(function () {
-        CompCharts.init();
-    });</script>
+    CompCharts.init();
+});</script>
 <?php include 'assets/Backend/inc/template_end.php'; ?>

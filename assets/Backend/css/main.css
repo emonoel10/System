@@ -3883,3 +3883,114 @@ p, .table, .alert, .carousel {
         margin-right: 0;
     }
 }
+
+/*
+*   Chart.js legend stylelist
+*/
+
+.chart-legend {
+    margin-left: 25%;
+    margin-top: 20%;
+}
+
+.chart-legend li span{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+    border-radius: 3px;
+}
+
+.bar-legend li{
+    list-style-type: none;
+    display: inline;
+    padding-right: 1%;
+    border-radius: 3px;
+}
+
+.pie-legend li{
+    list-style-type: none;
+    display: inline;
+    padding-right: 1%;
+    border-radius: 3px;
+}
+
+.doughnut-legend li{
+    list-style-type: none;
+    display: inline;
+    padding-right: 1%;
+    border-radius: 3px;
+}
+
+canvas {
+    max-width: 1000px !important;
+    max-height: 1000px !important;
+}
+
+@media only screen and (max-width: 969px) {
+    #barCol {
+        margin-left: -10px;
+        margin-right: 20px;
+    }
+}
+
+/*
+*   Maps css stylelist
+*/
+
+.gmap {
+    height: 500px;
+    margin-bottom: 1%;
+}
+
+.adp {
+    text-align: center;
+}
+
+.adp > table, .adp-directions{
+    text-align: center;
+    margin: auto;
+}
+
+#searchBox {
+    width: 75%;
+    margin-bottom: 3%;
+}
+
+#directionsDiv {
+    margin-top: 15px;
+}
+
+@media only screen and (max-width: 991px) {
+    #print {
+        display: none;
+    }
+
+    #searchBox {
+        width: 100%;
+        margin-bottom: 3%;
+    }
+}
+
+@media print {
+    /*        body * {
+                visibility: hidden;
+                display: none;
+                overflow: hidden;
+            }*/
+    #searchBtn, #searchResult, #print, #searchDataToMarker, #sidebar, #sidebar-alt, #map-header, .content-header {
+        visibility: hidden;
+        display: none;
+        overflow: hidden;
+    }
+    #map-content, #directionsDiv {
+        visibility: visible;
+        overflow: hidden;
+    }
+    /*        #map-content {
+                position: absolute;
+                left: 0;
+                top: 0;
+                overflow: hidden;
+            }*/
+}
