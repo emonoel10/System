@@ -1,7 +1,7 @@
 <?php
 include 'assets/Backend/inc/config.php';
-$template['header_link'] = 'DASHBOARD';
-$template['title'] = 'BCGIS | CHARTS';
+$template['header_link'] = 'CHARTS';
+$template['title'] = 'BCGIS | DASHBOARD';
 ?>
 
 <?php include 'assets/Backend/inc/template_start.php'; ?>

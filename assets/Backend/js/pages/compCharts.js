@@ -79,11 +79,38 @@ var CompCharts = function () {
              * (Chart.js) Total Population by Purok Bar Graph
              */
 
-            var totalPopulationByPurok;
+            var totalPopulation,
+                    totalPopulationByPurok,
+                    totalPopulationByMale,
+                    totalPopulationByFemale,
+                    ageRangesByMale,
+                    ageRangesByFemale;
+
+            $.getJSON("Charts/getTotalPopulation", function (json) {
+                totalPopulation = json;
+            });
 
             $.getJSON("Charts/getPopulationByPurok", function (json) {
                 totalPopulationByPurok = json;
                 getPopulationByPurok();
+            });
+
+            $.getJSON("Charts/getTotalPopulationByMale", function (json) {
+                totalPopulationByMale = json;
+            });
+
+            $.getJSON("Charts/getTotalPopulationByFemale", function (json) {
+                totalPopulationByFemale = json;
+            });
+
+            $.getJSON("Charts/getAgeRangeByMale", function (json) {
+                ageRangesByMale = json;
+                checkAgeRangeByMale();
+            });
+
+            $.getJSON("Charts/getAgeRangeByFemale", function (json) {
+                ageRangesByFemale = json;
+                checkAgeRangeByFemale();
             });
 
             function getPopulationByPurok() {
@@ -91,14 +118,6 @@ var CompCharts = function () {
                     labels: ["Prk. Atis", "Prk. Avocado", "Prk. Bayabas", "Prk. Boongon", "Prk. Chico", "Prk. Durian", "Prk. Guyabano", "Prk. Kaimito", "Prk. Kasoy", "Prk. Lanzones", "Prk. Lomboy", "Prk. Mabolo", "Prk. Macopa", "Prk. Mangga", "Prk. Mangosteen", "Prk. Mansanas", "Prk. Marang", "Prk. Marang Joesil", "Prk. Melon", "Prk. Nangka", "Prk. Pomelo", "Prk. Rambutan", "Prk. Santol", "Prk. Sereguellas", "Prk. Sunkist", "Prk. Tambis", "Prk. Ubas", "Fishpond/Sea wall"],
                     datasets: [
                         {
-//                            fillColor: ["#A52A2A", "#FF7F50", "#E9967A", "#DAA520", "#6B8E23", "#ADFF2F", "#228B22", "#8FBC8F", "#2E8B57", "#2F4F4F", "#00CED1", "#48D1CC", "#4682B4", "#191970", "#4169E1", "#6A5ACD", "#BA55D3", "#DC143C", "yellow", "blue", "#A52A2A", "#DDA0DD", "#DB7093", "#FFC0CB", "#A0522D", "#DEB887", "#B0C4DE", "#696969"],
-//                            strokeColor: ["#8B0000", "#FF6347", "#FA8072", "#FFA500", "#008000", "#006400", "#00FF00", "#98FB98", "#66CDAA", "#008080", "#40E0D0", "#AFEEEE", "#5F9EA0", "#0000CD", "#0000FF", "#483D8B", "#800080", "#DC143C", "yellow", "blue", "#A52A2A", "#EE82EE", "#C71585", "#FFB6C1", "#8B4513", "#F4A460", "#708090", "#000000"],
-//                            highlightFill: ["#DC143C", "#F08080", "#FF4500", "#FFA500", "#7FFF00", "#008000", "#98FB98", "#00FF7F", "#3CB371", "#008B8B", "#00FFFF", "#7FFFD4", "#6495ED", "#1E90FF", "#8A2BE2", "#9370DB", "#9370DB", "#DC143C", "yellow", "blue", "#A52A2A", "#DA70D6", "#FF69B4", "#FFE4C4", "#CD853F", "#D2B48C", "#E6E6FA", "#C0C0C0"],
-//                            highlightStroke: ["#B22222", "#CD5C5C", "#FFA07A", "#FFD700", "#ADFF2F", "#228B22", "#8FBC8F", "#00FA9A", "#20B2AA", "#00FFFF", "#E0FFFF", "#B0E0E6", "#00BFFF", "#ADD8E6", "#4B0082", "#7B68EE", "#8B008B", "#DC143C", "yellow", "blue", "#A52A2A", "#FF00FF", "#FF1493", "#F5DEB3", "#D2691E", "#BC8F8F", "#778899", "#A9A9A9"],
-//                            fillColor: "#008080",
-//                            strokeColor: "#48A4D1",
-//                            highlightFill: "#20B2AA",
-//                            highlightStroke: "#00CED1",
                             data: [totalPopulationByPurok['Prk. Atis'], totalPopulationByPurok['Prk. Avocado'], totalPopulationByPurok['Prk. Bayabas'], totalPopulationByPurok['Prk. Boongon'], totalPopulationByPurok['Prk. Chico'], totalPopulationByPurok['Prk. Durian'], totalPopulationByPurok['Prk. Guyabano'], totalPopulationByPurok['Prk. Kaimito'], totalPopulationByPurok['Prk. Kasoy'], totalPopulationByPurok['Prk. Lanzones'], totalPopulationByPurok['Prk. Lomboy'], totalPopulationByPurok['Prk. Mabolo'], totalPopulationByPurok['Prk. Macopa'], totalPopulationByPurok['Prk. Mangga'], totalPopulationByPurok['Prk. Mangosteen'], totalPopulationByPurok['Prk. Mansanas'], totalPopulationByPurok['Prk. Marang'], totalPopulationByPurok['Prk. Marang Joesil'], totalPopulationByPurok['Prk. Melon'], totalPopulationByPurok['Prk. Nangka'], totalPopulationByPurok['Prk. Pomelo'], totalPopulationByPurok['Prk. Rambutan'], totalPopulationByPurok['Prk. Santol'], totalPopulationByPurok['Prk. Sereguellas'], totalPopulationByPurok['Prk. Sunkist'], totalPopulationByPurok['Prk. Tambis'], totalPopulationByPurok['Prk. Ubas'], totalPopulationByPurok['Fishpond/Sea wall']]
                         }
                     ]
@@ -115,46 +134,23 @@ var CompCharts = function () {
                     maintainAspectRatio: true,
                     percentageInnerCutout: 50,
 //                    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%>" + " - " + "<%=segments[i].value%>%</li><%}%></ul>"
-                    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
+                    // legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
                 };
 
                 var puroksBarData = document.getElementById("totalPopulationByPurok").getContext("2d");
                 var totalPopulationByPuroks = new Chart(puroksBarData).Bar(barData, barDataOption);
-                document.getElementById('totalPopulationByPurokLegend').innerHTML = totalPopulationByPuroks.generateLegend();
-//                totalPopulationByPuroks.resize();
+                var legendHTML = '';
+                barData.labels.forEach(function (label, i) {
+                    barData.datasets.forEach(function (value) {
+                        legendHTML += ('<li><span style="background: ' + getFillColor(i) + '"></span>' + label + ': </li>' + value['data'][i] + ' (' + Math.round(value['data'][i] / 100 * totalPopulation) + '%)<br>');
+                    });
+                });
+                document.getElementById("totalPopulationByPurokLegend").innerHTML = '<ul class="bar-legend">' + legendHTML + '</ul>';
             }
 
             /*
              * (Chart.js) Male & Female Age Range Pie Chart
              */
-            var totalPopulation;
-            var totalPopulationByMale;
-            var totalPopulationByFemale;
-            var ageRangesByMale;
-            var ageRangesByFemale;
-
-            $.getJSON("Charts/getTotalPopulation", function (json) {
-                totalPopulation = json;
-            });
-
-            $.getJSON("Charts/getTotalPopulationByMale", function (json) {
-                totalPopulationByMale = json;
-                console.log(totalPopulationByMale);
-            });
-
-            $.getJSON("Charts/getTotalPopulationByFemale", function (json) {
-                totalPopulationByFemale = json;
-            });
-
-            $.getJSON("Charts/getAgeRangeByMale", function (json) {
-                ageRangesByMale = json;
-                checkAgeRangeByMale();
-            });
-
-            $.getJSON("Charts/getAgeRangeByFemale", function (json) {
-                ageRangesByFemale = json;
-                checkAgeRangeByFemale();
-            });
 
             function checkAgeRangeByMale() {
                 var pieData = [
@@ -220,9 +216,8 @@ var CompCharts = function () {
                     animateRotate: true,
                     animateScale: true,
                     labelAlign: 'center',
-                    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%>" + ": " + "<%=segments[i].value%>%</li><br><%}%></ul>"
+                    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%>" + ": " + "<%=segments[i].value%> (<%=Math.round(segments[i].value / 100 * " + totalPopulationByMale + ")%> %)</li><br><%}%></ul>"
                 };
-
                 var ageRangePie = document.getElementById("ageRangesPieMale").getContext("2d");
                 var ageRangesPieMaleLegend = new Chart(ageRangePie).Pie(pieData, pieOptions);
                 document.getElementById('ageRangesPieMaleLegend').innerHTML = ageRangesPieMaleLegend.generateLegend();
@@ -285,9 +280,8 @@ var CompCharts = function () {
                     segmentShowStroke: true,
                     animateRotate: true,
                     animateScale: true,
-                    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%>" + ": " + "<%=segments[i].value%>%</li><br><%}%></ul>"
+                    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%>" + ": " + "<%=segments[i].value%> (<%=Math.round(segments[i].value / 100 * " + totalPopulationByMale + ")%> %)</li><br><%}%></ul>"
                 };
-
                 var ageRangePie = document.getElementById("ageRangesPieFemale").getContext("2d");
                 var ageRangesPieFemaleLegend = new Chart(ageRangePie).Doughnut(doughnutData, doughnutOptions);
                 document.getElementById('ageRangesPieFemaleLegend').innerHTML = ageRangesPieFemaleLegend.generateLegend();
