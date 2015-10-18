@@ -20,6 +20,7 @@ class Googlemaps {
 	var $adsenseFormat				= 'HALF_BANNER';			// The format of the AdUnit
 	var $adsensePosition			= 'TOP_CENTER';				// The position of the AdUnit
 	var $adsensePublisherID			= '';						// Your Google AdSense publisher ID
+	// var $apiKey						= 'AIzaSyCOEI2-8_3KLD-2ATEQc9bZVcQgiw52Z7g'; 
 	var $apiKey						= ''; 						// If you've got an API key you can use it by passing this parameter. Setup an API key here: https://code.google.com/apis/console
 	var $backgroundColor			= '';						// A hex color value shown as the map background when tiles have not yet loaded as the user pans
 	var $bicyclingOverlay			= FALSE;					// If set to TRUE will overlay bicycling information (ie. bike paths and suggested routes) onto the map by default 

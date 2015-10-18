@@ -79,7 +79,7 @@ class Charts extends CI_Controller {
         SUM(IF(purok = 'Tambis',1,0)) as 'Prk. Tambis',
         SUM(IF(purok = 'Ubas',1,0)) as 'Prk. Ubas',
         SUM(IF(purok = 'Fishpond/Sea wall',1,0)) as 'Fishpond/Sea wall'
-        FROM resident as derived");
+        FROM resident");
         foreach ($query->result() as $totalPopulationPurok) {
             echo json_encode($totalPopulationPurok);
         }
@@ -87,23 +87,20 @@ class Charts extends CI_Controller {
 
     public function getTotalPopulation() {
         $query = $this->db->query("SELECT * FROM resident");
-        foreach ($query->result() as $totalPopulation) {
-            echo json_encode($totalPopulation);
-        }
+        $totalPopulation = $query->num_rows();
+        echo json_encode($totalPopulation);
     }
     
     public function getTotalPopulationByMale() {
         $query = $this->db->query("SELECT * FROM resident WHERE gender = 'Male' OR gender = 'male'");
-        foreach ($query->result() as $totalPopulationByMale) {
-            echo json_encode($totalPopulationByMale);
-        }
+        $totalPopulationByMale = $query->num_rows();
+        echo json_encode($totalPopulationByMale);
     }
     
     public function getTotalPopulationByFemale() {
         $query = $this->db->query("SELECT * FROM resident WHERE gender = 'Female' OR gender = 'female'");
-        foreach ($query->result() as $totalPopulationByFemale) {
-            echo json_encode($totalPopulationByFemale);
-        }
+        $totalPopulationByFemale = $query->num_rows();
+        echo json_encode($totalPopulationByFemale);
     }
 
 }

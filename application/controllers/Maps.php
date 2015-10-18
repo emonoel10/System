@@ -11,12 +11,48 @@ class Maps extends CI_Controller {
     }
 
     public function index() {
+        $this->Login_model->isLoggedIn();
+        $this->load->view('Backend/page_comp_maps');
+    }
+
+    public function mapSearchDataInMarker() {
+        $results = array();
+        if (isset($_POST['searchDataToMarker'])) {
+            $searchData = $_POST['searchDataToMarker'];
+            $query = $this->db->query("
+                SELECT * FROM resident
+                WHERE name LIKE '%{$searchData}%'
+                OR mname LIKE '%{$searchData}%'
+                OR lname LIKE '%{$searchData}%'
+                OR gender LIKE '%{$searchData}%'
+                OR bday LIKE '%{$searchData}%'
+                OR age LIKE '%{$searchData}%'
+                OR citizenship LIKE '%{$searchData}%'
+                OR occupation LIKE '%{$searchData}%'
+                OR status LIKE '%{$searchData}%'
+                OR purok LIKE '%{$searchData}%'
+                OR resAddress LIKE '%{$searchData}%'
+                OR perAddress LIKE '%{$searchData}%'
+                OR email LIKE '%{$searchData}%'
+                OR telNum LIKE '%{$searchData}%'
+                OR cpNum LIKE '%{$searchData}%'
+            ");
+            foreach ($query->result() as $searchResult) {
+                $results[] = $searchResult;
+            }
+        }
+        header('Content-Type: application/json');
+        echo json_encode($results);
+    }
+
+    public function index_content() {
 
         $this->load->library('googlemaps');
         $config = array();
         $config['center'] = '7.282397, 125.683499';
         $config['zoom'] = 15;
-        $config['map_height'] = '450px';
+        $config['map_height'] = '100%';
+        $config['map_width'] = '100%';
         $config['map_type'] = 'HYBRID';
         $config['cluster'] = TRUE;
         
@@ -25,7 +61,7 @@ class Maps extends CI_Controller {
         $polyline = array(); //cagangohan
         $polyline['strokeColor'] = 'red';
         $polyline['points'] = array('7.292363, 125.667018', '7.291958, 125.671030', '7.292022, 125.673777', '7.291532, 125.675864', '7.292884, 125.676464', '7.292809, 125.677291', '7.292682, 125.680069', '7.292283, 125.682475', '7.291916, 125.684653', '7.290319, 125.685536', '7.290787, 125.688089', '7.292937, 125.689033', '7.294427, 125.689951', '7.296428, 125.691737', '7.295853, 125.692123', '7.295300, 125.692273', '7.293703, 125.694247', '7.294001, 125.694612', '7.294172, 125.697123', '7.291000, 125.698678', '7.289723, 125.697091', '7.287808, 125.695717', '7.285573, 125.691866', '7.284466, 125.690793', '7.282657, 125.689763', '7.279996, 125.688411', '7.278123, 125.686930', '7.277208, 125.686287', '7.276059, 125.685600', '7.274207, 125.683604', '7.274037, 125.683175', '7.275675, 125.678412', '7.275697, 125.673975', '7.280188, 125.674565', '7.280156, 125.672009', '7.286728, 125.674788', '7.287308, 125.673302', '7.288127, 125.669896', '7.287137, 125.669834', '7.287196, 125.665787', '7.288962, 125.666312', '7.288718, 125.667889', '7.290819, 125.667830', '7.291123, 125.668512', '7.289612, 125.668116', '7.289734, 125.668899', '7.290080, 125.668830', '7.290309, 125.669729', '7.290271, 125.670128', '7.290301, 125.670828', '7.291330, 125.670852', '7.291793, 125.666922', '7.291916, 125.666885', '7.292363, 125.667018');
-        $polyline['onmouseover'] = '(\'Barangay Cagangohan! \' );';
+        $polyline['onmouseover'] = '(\'Barangay Cagangohan! \');';
         $this->googlemaps->add_polyline($polyline);
 
         $polygon2 = array(); //Sunkist
@@ -398,37 +434,37 @@ class Maps extends CI_Controller {
         $data['map'] = $this->googlemaps->create_map();
 
         $this->Login_model->isLoggedIn();
-        $this->load->view('Backend/page_comp_maps', $data);
+        $this->load->view('Backend/page_comp_maps-content', $data);
     }
 
-    public function mapSearchDataInMarker() {
-        $results = array();
-        if (isset($_POST['searchDataToMarker'])) {
-            $searchData = $_POST['searchDataToMarker'];
-            $query = $this->db->query("
-                SELECT * FROM resident
-                WHERE name LIKE '%{$searchData}%'
-                OR mname LIKE '%{$searchData}%'
-                OR lname LIKE '%{$searchData}%'
-                OR gender LIKE '%{$searchData}%'
-                OR bday LIKE '%{$searchData}%'
-                OR age LIKE '%{$searchData}%'
-                OR citizenship LIKE '%{$searchData}%'
-                OR occupation LIKE '%{$searchData}%'
-                OR status LIKE '%{$searchData}%'
-                OR purok LIKE '%{$searchData}%'
-                OR resAddress LIKE '%{$searchData}%'
-                OR perAddress LIKE '%{$searchData}%'
-                OR email LIKE '%{$searchData}%'
-                OR telNum LIKE '%{$searchData}%'
-                OR cpNum LIKE '%{$searchData}%'
-            ");
-            foreach ($query->result() as $searchResult) {
-                $results[] = $searchResult;
-            }
-        }
-        header('Content-Type: application/json');
-        echo json_encode($results);
-    }
+    // public function mapSearchDataInMarker() {
+    //     $results = array();
+    //     if (isset($_POST['searchDataToMarker'])) {
+    //         $searchData = $_POST['searchDataToMarker'];
+    //         $query = $this->db->query("
+    //             SELECT * FROM resident
+    //             WHERE name LIKE '%{$searchData}%'
+    //             OR mname LIKE '%{$searchData}%'
+    //             OR lname LIKE '%{$searchData}%'
+    //             OR gender LIKE '%{$searchData}%'
+    //             OR bday LIKE '%{$searchData}%'
+    //             OR age LIKE '%{$searchData}%'
+    //             OR citizenship LIKE '%{$searchData}%'
+    //             OR occupation LIKE '%{$searchData}%'
+    //             OR status LIKE '%{$searchData}%'
+    //             OR purok LIKE '%{$searchData}%'
+    //             OR resAddress LIKE '%{$searchData}%'
+    //             OR perAddress LIKE '%{$searchData}%'
+    //             OR email LIKE '%{$searchData}%'
+    //             OR telNum LIKE '%{$searchData}%'
+    //             OR cpNum LIKE '%{$searchData}%'
+    //         ");
+    //         foreach ($query->result() as $searchResult) {
+    //             $results[] = $searchResult;
+    //         }
+    //     }
+    //     header('Content-Type: application/json');
+    //     echo json_encode($results);
+    // }
 
 }
