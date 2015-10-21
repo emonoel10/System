@@ -10,25 +10,6 @@ $template['title'] = 'BCGIS | MAP';
 
 <!-- Page content -->
 <div id="page-content">
-    <!-- Google Maps Header -->
-    <!-- <div class="content-header">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="header-section">
-                    <h1>Barangay Map</h1>
-                </div>
-            </div>
-            <div class="col-sm-6 hidden-xs">
-                <div class="header-section">
-                    <ul class="breadcrumb breadcrumb-top">
-                        <li><a href="">Barangay Map</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- END Google Maps Header -->
-
     <!-- Google Maps Content -->
     <div class="row">
         <div class="col-sm-12">
@@ -78,11 +59,11 @@ $template['title'] = 'BCGIS | MAP';
 <?php include 'assets/Backend/inc/template_scripts.php'; ?>
 
 <!-- Google Maps API + Gmaps Plugin, must be loaded in the page you would like to use maps (Remove 'http:' if you have SSL) -->
-<!--<script src="http://maps.google.com/maps/api/js?sensor=true"></script>-->
-<script src="<?= base_url() ?>assets/Backend/js/plugins/gmaps.min.js?key=AIzaSyCOEI2-8_3KLD-2ATEQc9bZVcQgiw52Z7g"></script>
+<!-- <script src="http://maps.google.com/maps/api/js?sensor=true&callback=initMap&key=AIzaSyAqDAnQp7hT_6HEnwQc8GgE7ApXHMpPny4"></script> -->
+<!--<script src="<?= base_url() ?>assets/Backend/js/plugins/gmaps.min.js?key=AIzaSyAqDAnQp7hT_6HEnwQc8GgE7ApXHMpPny4"></script>-->
 <script type="text/javascript">
                                     $(document).ready(function () {
-                                        $("#searchDataToMarker").keyup(function () {
+                                        $("#searchDataToMarker").on('keypress', function () {
                                             var value = $(this).val();
                                             $.ajax({
                                                 type: "POST",
@@ -105,7 +86,6 @@ $template['title'] = 'BCGIS | MAP';
                                                             mapTypeId: google.maps.MapTypeId.HYBRID
                                                         },
                                                         map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-
                                                         for (var i = 0, length = searchMapDataResults.length; i < length; i++) {
                                                             var iw = new google.maps.InfoWindow();
                                                             var data = searchMapDataResults[i],

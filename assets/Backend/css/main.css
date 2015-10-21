@@ -3992,10 +3992,6 @@ canvas {
         display: none;
     }
 
-    a[title="Term of Use"]{
-        display: none;
-    }
-
     #mapTitle {
         display: inline;
     }
