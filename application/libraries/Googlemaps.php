@@ -20,9 +20,8 @@ class Googlemaps {
 	var $adsenseFormat				= 'HALF_BANNER';			// The format of the AdUnit
 	var $adsensePosition			= 'TOP_CENTER';				// The position of the AdUnit
 	var $adsensePublisherID			= '';						// Your Google AdSense publisher ID
-	// var $apiKey						= 'AIzaSyCOEI2-8_3KLD-2ATEQc9bZVcQgiw52Z7g'; 
-	var $apiKey						= ''; 						// If you've got an API key you can use it by passing this parameter. Setup an API key here: https://code.google.com/apis/console
-	var $backgroundColor			= '';						// A hex color value shown as the map background when tiles have not yet loaded as the user pans
+	var $apiKey						= 'AIzaSyAqDAnQp7hT_6HEnwQc8GgE7ApXHMpPny4'; 						// If you've got an API key you can use it by passing this parameter. Setup an API key here: https://code.google.com/apis/console
+	var $backgroundColor			= 'transparent';						// A hex color value shown as the map background when tiles have not yet loaded as the user pans
 	var $bicyclingOverlay			= FALSE;					// If set to TRUE will overlay bicycling information (ie. bike paths and suggested routes) onto the map by default 
 	var $center						= "37.4419, -122.1419";		// Sets the default center location (lat/long co-ordinate or address) of the map. If defaulting to the users location set to "auto"
 	var $class 						= '';						// A class name if wishing to style the map further through CSS. Can also be useful if wanting it to be responsive etc.
