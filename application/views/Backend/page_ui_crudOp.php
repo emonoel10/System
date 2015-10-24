@@ -3,13 +3,13 @@
     <head>
         <meta charset="UTF-8">
         <?php foreach ($css_files as $file): ?>
-            <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
+            <link type="text/css" rel="stylesheet" href="<?php echo $file;?>" />
 
-        <?php endforeach; ?>
+        <?php endforeach;?>
         <?php foreach ($js_files as $file): ?>
 
-            <script src="<?php echo $file; ?>"></script>
-        <?php endforeach; ?>
+            <script src="<?php echo $file;?>"></script>
+        <?php endforeach;?>
         <script src="http://maps.googleapis.com/maps/api/js"></script>
         <script>
             var myCenter = new google.maps.LatLng(7.281300, 125.684750);
@@ -29,10 +29,10 @@
                 google.maps.event.addListener(marker, "drag", function() {
                     document.getElementById("grid").value = marker.getPosition().toUrlValue(); //set lat current longitude where the marker is plotted
                 });
-//        google.maps.event.addListener(marker, "ondragend", function() {       
+//        google.maps.event.addListener(marker, "ondragend", function() {
 //        var myLatlong =  document.getElementById("grid");
 //                    // document.getElementById("grid").value = marker.position.toUrlValue();
-//               
+//
 //    var directionsDisplay = new google.maps.DirectionsRenderer;
 //                var directionsService = new google.maps.DirectionsService;
 //                console.log(myLatlong);
@@ -726,7 +726,6 @@
                 }
             }
 
-
             function fillAddress() {
                 var purok = document.getElementById("purok").value;
                 if (purok === "") {
@@ -741,10 +740,10 @@
     </head>
     <body id="body" class="body">
         <div id="googleMap" style="width:560px;height:380px;"></div>
-        <div id="directionsDiv"></div>  
+        <!-- <div id="directionsDiv"></div>   -->
         <div class="block full" style="margin:0 0 0px;">
             <div class="block-content-full">
-                <?php echo $output; ?>
+                <?php echo $output;?>
             </div>
         </div>
         <div class="block footer"></div>
