@@ -4,9 +4,9 @@ $template['header_link'] = 'BARANGAY MAP';
 $template['title'] = 'BCGIS | MAP';
 ?>
 
-<?php include 'assets/Backend/inc/template_start.php'; ?>
-<?php /* include 'assets/Backend/inc/page_head.php'; */ ?>
-<?php echo $map['js']; ?>
+<?php include 'assets/Backend/inc/template_start.php';?>
+<?php /* include 'assets/Backend/inc/page_head.php'; */?>
+<?php echo $map['js'];?>
 
 <!-- Page content -->
 <div id="page-content">
@@ -36,11 +36,11 @@ $template['title'] = 'BCGIS | MAP';
                                 </div>
                             </div>
                             <div class="col-sm-0 col-md-5 col-lg-2">
-                                <button type="button" id="print" onclick="window.print()" class="btn btn-effect-ripple btn-info" style="overflow: hidden; position: relative; float: right;"><i class="fa fa-print"> Print</i></button>
+                                <button type="button" id="print" onclick="javascript:this.style.display='none';window.print();this.style.display='';" class="btn btn-effect-ripple btn-info" style="overflow: hidden; position: relative; float: right;"><i class="fa fa-print"> Print</i></button>
                             </div>
                         </div>
-                        <?php echo $map['html']; ?>
-                        <div id="map" style="width: 100%;"></div>
+                        <?php echo $map['html'];?>
+                        <div id="map"></div>
                     </div>
                     <div class="col-sm-2 col-md-4 col-lg-0"></div>
                     <div class="col-sm-8 col-md-4 col-lg-12" id="directionsDiv"></div>
@@ -55,19 +55,19 @@ $template['title'] = 'BCGIS | MAP';
 </div>
 <!-- END Page Content -->
 
-<?php include 'assets/Backend/inc/page_footer.php'; ?>
-<?php include 'assets/Backend/inc/template_scripts.php'; ?>
+<?php include 'assets/Backend/inc/page_footer.php';?>
+<?php include 'assets/Backend/inc/template_scripts.php';?>
 
 <!-- Google Maps API + Gmaps Plugin, must be loaded in the page you would like to use maps (Remove 'http:' if you have SSL) -->
 <!-- <script src="http://maps.google.com/maps/api/js?sensor=true&callback=initMap&key=AIzaSyAqDAnQp7hT_6HEnwQc8GgE7ApXHMpPny4"></script> -->
-<!--<script src="<?= base_url() ?>assets/Backend/js/plugins/gmaps.min.js?key=AIzaSyAqDAnQp7hT_6HEnwQc8GgE7ApXHMpPny4"></script>-->
+<!--<script src="<?=base_url()?>assets/Backend/js/plugins/gmaps.min.js?key=AIzaSyAqDAnQp7hT_6HEnwQc8GgE7ApXHMpPny4"></script>-->
 <script type="text/javascript">
                                     $(document).ready(function () {
                                         $("#searchDataToMarker").on('keypress', function () {
                                             var value = $(this).val();
                                             $.ajax({
                                                 type: "POST",
-                                                url: "<?php echo base_url('Maps/mapSearchDataInMarker') ?>",
+                                                url: "<?php echo base_url('Maps/mapSearchDataInMarker')?>",
                                                 data: {
                                                     'searchDataToMarker': value
                                                 },
@@ -88,12 +88,12 @@ $template['title'] = 'BCGIS | MAP';
                                                         map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
                                                         for (var i = 0, length = searchMapDataResults.length; i < length; i++) {
                                                             var iw = new google.maps.InfoWindow();
-                                                            var data = searchMapDataResults[i],
-                                                                    latlong = searchMapDataResults[i]['latlong'],
-                                                                    latLngArray = latlong.split(','),
-                                                                    latitude = parseFloat(latLngArray[0]),
-                                                                    longitude = parseFloat(latLngArray[1]),
-                                                                    myLatLong = new google.maps.LatLng(latitude, longitude);
+                                                            var data = searchMapDataResults[i];
+                                                            var latlong = searchMapDataResults[i]['latlong'],
+                                                                latLngArray = latlong.split(','),
+                                                                latitude = parseFloat(latLngArray[0]),
+                                                                longitude = parseFloat(latLngArray[1]),
+                                                                myLatLong = new google.maps.LatLng(latitude, longitude);
                                                             var markerOptions = {
                                                                 map: map,
                                                                 animation: google.maps.Animation.DROP,
@@ -103,33 +103,33 @@ $template['title'] = 'BCGIS | MAP';
                                                             marker = new google.maps.Marker(markerOptions);
                                                             (function (marker, data) {
                                                                 google.maps.event.addListener(marker, "click", function () {
-//                                                                    document.getElementById('directionsDiv').innerHTML = '';
-//                                                                    iw.setContent("<div class='row'><h4 class='text-center'><strong>Resident's Data</strong></h4><div class='col-sm-6'>"
-//                                                                            + "<b>First Name: </b>" + data.name + "<br>"
-//                                                                            + "<b>Middle Name: </b>" + data.mname + "<br>"
-//                                                                            + "<b>Last Name: </b>" + data.lname + "<br>"
-//                                                                            + "<b>Gender: </b>" + data.gender + "<br>"
-//                                                                            + "<b>Birthdate: </b>" + data.bday + "<br>"
-//                                                                            + "<b>Age: </b>" + data.age + "<br>"
-//                                                                            + "<b>Citizenship: </b>" + data.citizenship + "<br>"
-//                                                                            + "<b>Occupation: </b>" + data.occupation + "<br>"
-//                                                                            + "<b>Status: </b>" + data.status + "<br>"
-//                                                                            + "</div><div class='col-sm-6'><b>Purok: </b>" + data.purok + "<br>"
-//                                                                            + "<b>Residential Address: </b>" + data.resAddress + "<br>"
-//                                                                            + "<b>Permanent Address: </b>" + data.perAddress + "<br>"
-//                                                                            + "<b>Email: </b>" + data.email + "<br>"
-//                                                                            + "<b>Telephone #: </b>" + data.telNum + "<br>"
-//                                                                            + "<b>Cellphone #: </b>" + data.cpNum + "<br>"
-//                                                                            + "</div></div>");
-//                                                                    iw.open(map, marker);
-                                                                    calculateAndDisplayRoute(directionsService, directionsDisplay);
+                                                                   document.getElementById('directionsDiv').innerHTML = '';
+                                                                   // iw.setContent("<div class='row'><h4 class='text-center'><strong>Resident's Data</strong></h4><div class='col-sm-6'>"
+                                                                   //         + "<b>First Name: </b>" + data.name + "<br>"
+                                                                   //         + "<b>Middle Name: </b>" + data.mname + "<br>"
+                                                                   //         + "<b>Last Name: </b>" + data.lname + "<br>"
+                                                                   //         + "<b>Gender: </b>" + data.gender + "<br>"
+                                                                   //         + "<b>Birthdate: </b>" + data.bday + "<br>"
+                                                                   //         + "<b>Age: </b>" + data.age + "<br>"
+                                                                   //         + "<b>Citizenship: </b>" + data.citizenship + "<br>"
+                                                                   //         + "<b>Occupation: </b>" + data.occupation + "<br>"
+                                                                   //         + "<b>Status: </b>" + data.status + "<br>"
+                                                                   //         + "</div><div class='col-sm-6'><b>Purok: </b>" + data.purok + "<br>"
+                                                                   //         + "<b>Residential Address: </b>" + data.resAddress + "<br>"
+                                                                   //         + "<b>Permanent Address: </b>" + data.perAddress + "<br>"
+                                                                   //         + "<b>Email: </b>" + data.email + "<br>"
+                                                                   //         + "<b>Telephone #: </b>" + data.telNum + "<br>"
+                                                                   //         + "<b>Cellphone #: </b>" + data.cpNum + "<br>"
+                                                                   //         + "</div></div>");
+                                                                   // iw.open(map, marker);
                                                                     directionsDisplay.setMap(map);
+                                                                    calculateAndDisplayRoute(data.latlong);
                                                                     directionsDisplay.setPanel(document.getElementById('directionsDiv'));
                                                                 });
                                                             })(marker, data);
-                                                            function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+                                                            function calculateAndDisplayRoute(latLongDest) {
                                                                 var start = new google.maps.LatLng(7.282397, 125.683499);
-                                                                var end = myLatLong;
+                                                                var end = latLongDest;
                                                                 directionsService.route({
                                                                     origin: start,
                                                                     destination: end,
@@ -215,7 +215,8 @@ $template['title'] = 'BCGIS | MAP';
                                                 }
                                             });
                                         });
+
                                     });
 </script>
 
-<?php include 'assets/Backend/inc/template_end.php'; ?>
+<?php include 'assets/Backend/inc/template_end.php';?>
