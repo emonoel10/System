@@ -3,7 +3,7 @@ include 'assets/Backend/inc/config.php';
 $template['title'] = 'BCGIS | LOGIN';
 $template['page_preloader'] = true;
 ?>
-<?php include 'assets/Backend/inc/template_start.php'; ?>
+<?php include 'assets/Backend/inc/template_start.php';?>
 
 <!-- Login Container -->
 <div id="login-container" class="fadeIn animated">
@@ -11,7 +11,7 @@ $template['page_preloader'] = true;
     <h1 class="h3 text-light text-center push-top-bottom fadeIn animated">
         <div class="row">
             <div class="col-lg-3 fadeIn animated">
-                <img src="<?= base_url(); ?>assets/Backend/images/Ph_seal_davao_del_norte_panabo_city.png" style="width: 95px; height: 80px;"/>
+                <img src="<?=base_url();?>assets/Backend/images/CagangohanPics/logoCagangohan.png" style="width: 95px; height: 80px;"/>
             </div>
             <div class="col-lg-9 fadeIn animated">
                 <strong>Brgy. Cagangohan Geographical Information System</strong>
@@ -34,7 +34,7 @@ $template['page_preloader'] = true;
         <!-- END Login Title -->
 
         <!-- Login Form -->
-        <form id="form-login" action="<?= base_url(); ?>Login/login" method="post" class="form-horizontal">
+        <form id="form-login" action="<?=base_url();?>Login/login" method="post" class="form-horizontal">
             <br><br>
             <div class="alert alert-danger" id="response">
                 <center id="responseMsg">Invalid Username or Password.</center>
@@ -69,14 +69,14 @@ $template['page_preloader'] = true;
 </div>
 <!-- END Login Container -->
 
-<?php include 'assets/Backend/inc/template_scripts.php'; ?>
+<?php include 'assets/Backend/inc/template_scripts.php';?>
 
 <!-- Load and execute javascript code used only in this page -->
-<script src="<?= base_url(); ?>assets/Backend/js/pages/readyLogin.js"></script>
+<script src="<?=base_url();?>assets/Backend/js/pages/readyLogin.js"></script>
 <script>
     $(function () {
         ReadyLogin.init();
     });
 </script>
 
-<?php include 'assets/Backend/inc/template_end.php'; ?>
+<?php include 'assets/Backend/inc/template_end.php';?>

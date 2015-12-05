@@ -1,12 +1,12 @@
 <?php
 include 'assets/Backend/inc/config.php';
 $template['header_link'] = 'BARANGAY MAP';
-$template['title'] = 'BCGIS | MAP';
+$template['title'] = 'BCGIS | MAP(Admin)';
 ?>
 
-<?php include 'assets/Backend/inc/template_start.php'; ?>
-<?php include 'assets/Backend/inc/page_head.php'; ?>
-<?php /*echo $map['js'];*/ ?>
+<?php include 'assets/Backend/inc/template_start.php';?>
+<?php include 'assets/Backend/inc/page_head.php';?>
+<?php /*echo $map['js'];*/?>
 
 <!-- Page content -->
 <div id="page-content">
@@ -30,21 +30,21 @@ $template['title'] = 'BCGIS | MAP';
     </div>
     <!-- END Google Maps Header -->
 
-    <iframe src="<?php echo base_url('Maps/index_content')?>" style="zoom:0; height: 100%; width: 106%; margin-left: -3%;" scrolling="no" frameborder="0"></iframe>    
+    <iframe src="<?php echo base_url('Maps/index_content') ?>" style="zoom:0; height: 100%; width: 106%; margin-left: -3%;" scrolling="no" frameborder="0"></iframe>
 
 </div>
 <!-- END Page Content -->
 
-<?php include 'assets/Backend/inc/page_footer.php'; ?>
-<?php include 'assets/Backend/inc/template_scripts.php'; ?>
+<?php include 'assets/Backend/inc/page_footer.php';?>
+<?php include 'assets/Backend/inc/template_scripts.php';?>
 
 <!-- Google Maps API + Gmaps Plugin, must be loaded in the page you would like to use maps (Remove 'http:' if you have SSL) -->
 <!-- <script src="http://maps.google.com/maps/api/js?sensor=true"></script> -->
-<!--<script src="<?= base_url() ?>assets/Backend/js/plugins/gmaps.min.js?key=AIzaSyCOEI2-8_3KLD-2ATEQc9bZVcQgiw52Z7g"></script>-->
+<!--<script src="<?=base_url()?>assets/Backend/js/plugins/gmaps.min.js?key=AIzaSyCOEI2-8_3KLD-2ATEQc9bZVcQgiw52Z7g"></script>-->
 <script type="text/javascript">
 
     $('iframe').load(function() {
-       iFrameResize({log: false, heightCalculationMethod: 'bodyScroll'}); 
+       iFrameResize({log: false, heightCalculationMethod: 'bodyScroll'});
     });
 
                                     // $(document).ready(function () {
@@ -203,11 +203,11 @@ $template['title'] = 'BCGIS | MAP';
                                     // });
 </script>
 <!-- Load and execute javascript code used only in this page -->
-<!--<script src="<?= base_url() ?>assets/Backend/js/pages/compMaps.js"></script>
+<!--<script src="<?=base_url()?>assets/Backend/js/pages/compMaps.js"></script>
 <script>
     $(function () {
         CompMaps.init();
     });
 </script>-->
 
-<?php include 'assets/Backend/inc/template_end.php'; ?>
+<?php include 'assets/Backend/inc/template_end.php';?>

@@ -24,15 +24,15 @@
 
         <!-- Icons -->
         <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-        <link rel="shortcut icon" href="assets/Frontend/img/Ph_seal_davao_del_norte_panabo_city.png">
-        <link rel="apple-touch-icon" href="assets/Frontend/img/Ph_seal_davao_del_norte_panabo_city.png" sizes="57x57">
-        <link rel="apple-touch-icon" href="assets/Frontend/img/Ph_seal_davao_del_norte_panabo_city.png" sizes="72x72">
-        <link rel="apple-touch-icon" href="assets/Frontend/img/Ph_seal_davao_del_norte_panabo_city.png" sizes="76x76">
-        <link rel="apple-touch-icon" href="assets/Frontend/img/Ph_seal_davao_del_norte_panabo_city.png" sizes="114x114">
-        <link rel="apple-touch-icon" href="assets/Frontend/img/Ph_seal_davao_del_norte_panabo_city.png" sizes="120x120">
-        <link rel="apple-touch-icon" href="assets/Frontend/img/Ph_seal_davao_del_norte_panabo_city.png" sizes="144x144">
-        <link rel="apple-touch-icon" href="assets/Frontend/img/Ph_seal_davao_del_norte_panabo_city.png" sizes="152x152">
-        <link rel="apple-touch-icon" href="assets/Frontend/img/Ph_seal_davao_del_norte_panabo_city.png" sizes="180x180">
+        <link rel="shortcut icon" href="assets/Frontend/images/CagangohanPics/logoCagangohan.png">
+        <link rel="apple-touch-icon" href="assets/Frontend/images/CagangohanPics/logoCagangohan.png" sizes="57x57">
+        <link rel="apple-touch-icon" href="assets/Frontend/images/CagangohanPics/logoCagangohan.png" sizes="72x72">
+        <link rel="apple-touch-icon" href="assets/Frontend/images/CagangohanPics/logoCagangohan.png" sizes="76x76">
+        <link rel="apple-touch-icon" href="assets/Frontend/images/CagangohanPics/logoCagangohan.png" sizes="114x114">
+        <link rel="apple-touch-icon" href="assets/Frontend/images/CagangohanPics/logoCagangohan.png" sizes="120x120">
+        <link rel="apple-touch-icon" href="assets/Frontend/images/CagangohanPics/logoCagangohan.png" sizes="144x144">
+        <link rel="apple-touch-icon" href="assets/Frontend/images/CagangohanPics/logoCagangohan.png" sizes="152x152">
+        <link rel="apple-touch-icon" href="assets/Frontend/images/CagangohanPics/logoCagangohan.png" sizes="180x180">
         <!-- END Icons -->
 
         <!-- Stylesheets -->
@@ -47,6 +47,9 @@
 
         <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
         <link rel="stylesheet" href="assets/Frontend/css/themes.css">
+
+        <link rel="stylesheet" href="assets/Frontend/css/alertify/alertify.min.css">
+        <link rel="stylesheet" href="assets/Frontend/css/alertify/themes/bootstrap.min.css">
         <!-- END Stylesheets -->
 
         <!-- Modernizr (browser feature detection library) -->

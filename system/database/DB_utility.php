@@ -249,16 +249,17 @@ abstract class CI_DB_utility {
 			$out .= $enclosure.str_replace($enclosure, $enclosure.$enclosure, $name).$enclosure.$delim;
 		}
 
-		$out = substr(rtrim($out), 0, -strlen($delim)).$newline;
+		$out = substr($out, 0, -strlen($delim)).$newline;
 
 		// Next blast through the result array and build out the rows
 		while ($row = $query->unbuffered_row('array'))
 		{
+			$line = array();
 			foreach ($row as $item)
 			{
-				$out .= $enclosure.str_replace($enclosure, $enclosure.$enclosure, $item).$enclosure.$delim;
+				$line[] = $enclosure.str_replace($enclosure, $enclosure.$enclosure, $item).$enclosure;
 			}
-			$out = substr(rtrim($out), 0, -strlen($delim)).$newline;
+			$out .= implode($delim, $line).$newline;
 		}
 
 		return $out;
@@ -316,7 +317,7 @@ abstract class CI_DB_utility {
 	 * Database Backup
 	 *
 	 * @param	array	$params
-	 * @return	void
+	 * @return	string
 	 */
 	public function backup($params = array())
 	{
