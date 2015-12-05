@@ -14,13 +14,10 @@
             <!-- Footer Links -->
             <div class="row">
                 <div class="col-sm-4">
-                    <h4 class="footer-heading">Company</h4>
+                    <h4 class="footer-heading">Barangay</h4>
                     <ul class="footer-nav ul-breath list-unstyled">
-                        <li><a href="javascript:void(0)">About Us</a></li>
-                        <li><a href="javascript:void(0)">Our Team</a></li>
-                        <li><a href="javascript:void(0)">Memberships</a></li>
-                        <li><a href="javascript:void(0)">Terms &amp; Conditions</a></li>
-                        <li><a href="javascript:void(0)">Privacy Policy</a></li>
+                        <li><a href="<?php echo base_url(); ?>AboutBarangay">About Us</a></li>
+                        <li><a href="<?php echo base_url(); ?>AboutTeam">Dev Team</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-4">
@@ -63,4 +60,5 @@
 <!-- END Page Container -->
 
 <!-- Scroll to top link, initialized in js/app.js - scrollToTop() -->
+<!-- <a href="#" id="to-top" style="display: block;"><i class="fa fa-arrow-up"></i></a> -->
 <a href="#" id="to-top"><i class="fa fa-arrow-up"></i></a>

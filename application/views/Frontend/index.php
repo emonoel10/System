@@ -1,10 +1,10 @@
-<?php include 'assets/Frontend/inc/config.php'; ?>
-<?php include 'assets/Frontend/inc/template_start.php'; ?>
-<?php include 'assets/Frontend/inc/page_head.php'; ?>
+<?php include 'assets/Frontend/inc/config.php';?>
+<?php include 'assets/Frontend/inc/template_start.php';?>
+<?php include 'assets/Frontend/inc/page_head.php';?>
 
 <!-- Intro + Action -->
 <section class="site-section site-section-top site-section-light themed-background-dark-default">
-<!--    <div class="container">
+    <div class="container">
         <div class="push text-center">
             <h1 class="animation-fadeInQuick2Inv"><strong>A powerful template for your new project.</strong></h1>
             <h2 class="text-light-op animation-fadeInQuickInv push-bit"><strong>Build something amazing.</strong></h2>
@@ -14,13 +14,13 @@
         <div class="site-promo-img visibility-none" data-toggle="animation-appear" data-animation-class="animation-slideUpQuick" data-element-offset="0">
             <img src="assets/Frontend/img/placeholders/screenshots/promo_welcome.png" alt="">
         </div>
-    </div>-->
+    </div>
 </section>
 <!-- END Intro + Action -->
 
 <!-- Promo Features -->
 <section class="site-content site-section border-bottom">
-<!--    <div class="container">
+    <div class="container">
         <div class="row row-items">
             <div class="col-sm-4 text-center">
                 <a href="javascript:void(0)" class="feature visibility-none themed-background-muted" data-toggle="animation-appear" data-animation-class="animation-fadeInQuickInv" data-element-offset="-100">
@@ -47,13 +47,13 @@
                 </h2>
             </div>
         </div>
-    </div>-->
+    </div>
 </section>
 <!-- END Promo Features -->
 
 <!-- Promo #1 -->
 <section class="site-section site-content border-bottom overflow-hidden">
-<!--    <div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-sm-6 push">
                 <h2 class="site-heading"><strong>7 Colors Themes</strong></h2>
@@ -65,15 +65,15 @@
                 <img src="assets/Frontend/img/placeholders/screenshots/promo_1.png" alt="" class="img-responsive pull-right visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-200" style="max-width: 450px; margin-right: -130px;">
             </div>
         </div>
-    </div>-->
+    </div>
 </section>
 <!-- END Promo #1 -->
 
 <!-- Quick Stats -->
 <section class="site-content site-section themed-background-dark">
-<!--    <div class="container">
-         Stats Row 
-         CountTo (initialized in js/app.js), for more examples you can check out https://github.com/mhuggins/jquery-countTo 
+    <div class="container">
+         Stats Row
+         CountTo (initialized in js/app.js), for more examples you can check out https://github.com/mhuggins/jquery-countTo
         <div class="row">
             <div class="col-sm-4">
                 <div class="counter site-block">
@@ -94,14 +94,14 @@
                 </div>
             </div>
         </div>
-         END Stats Row 
-    </div>-->
+         END Stats Row
+    </div>
 </section>
 <!-- END Quick Stats -->
 
 <!-- Promo #2 -->
 <section class="site-section site-content border-bottom overflow-hidden">
-<!--    <div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-sm-6 col-sm-push-6 push">
                 <h2 class="site-heading"><strong>Flexible Layout</strong></h2>
@@ -113,13 +113,13 @@
                 <img src="assets/Frontend/img/placeholders/screenshots/promo_2.png" alt="" class="img-responsive pull-left visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-200" style="max-width: 450px; margin-left: -130px;">
             </div>
         </div>
-    </div>-->
+    </div>
 </section>
 <!-- END Promo #2 -->
 
 <!-- Sign Up Action -->
 <section class="site-content site-section themed-background-dark">
-<!--    <div class="container">
+    <div class="container">
         <h2 class="site-heading text-center text-light">Sign up today and receive <strong>30% discount</strong>!</h2>
         <div class="site-block text-center">
             <form action="features.php" method="post" class="form-inline" onsubmit="return false;">
@@ -136,13 +136,13 @@
                 </div>
             </form>
         </div>
-    </div>-->
+    </div>
 </section>
 <!-- END Sign Up Action -->
 
 <!-- Promo #3 -->
 <section class="site-section site-content border-bottom overflow-hidden">
-<!--    <div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-sm-6 push">
                 <h2 class="site-heading"><strong>Saves you time</strong></h2>
@@ -154,13 +154,13 @@
                 <img src="assets/Frontend/img/placeholders/screenshots/promo_3.png" alt="" class="img-responsive pull-right visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-200" style="max-width: 450px; margin-right: -130px;">
             </div>
         </div>
-    </div>-->
+    </div>
 </section>
 <!-- END Promo #3 -->
 
 <!-- Testimonials -->
 <section class="site-content site-section themed-background-muted">
-<!--    <div class="container">
+    <div class="container">
         <div id="testimonials-carousel" class="carousel slide carousel-html" data-ride="carousel" data-interval="4000">
             <div class="carousel-inner text-center">
                 <div class="active item">
@@ -193,10 +193,10 @@
                 </div>
             </div>
         </div>
-    </div>-->
+    </div>
 </section>
 <!-- END Testimonials -->
 
-<?php include 'assets/Frontend/inc/page_footer.php'; ?>
-<?php include 'assets/Frontend/inc/template_scripts.php'; ?>
-<?php include 'assets/Frontend/inc/template_end.php'; ?>
+<?php include 'assets/Frontend/inc/page_footer.php';?>
+<?php include 'assets/Frontend/inc/template_scripts.php';?>
+<?php include 'assets/Frontend/inc/template_end.php';?>

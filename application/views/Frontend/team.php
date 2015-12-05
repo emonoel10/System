@@ -1,6 +1,8 @@
-<?php include 'inc/config.php'; ?>
-<?php include 'inc/template_start.php'; ?>
-<?php include 'inc/page_head.php'; ?>
+<?php include 'assets/Frontend/inc/config.php';
+$template['title'] = 'BCGIS | ABOUT | TEAM';
+?>
+<?php include 'assets/Frontend/inc/template_start.php';?>
+<?php include 'assets/Frontend/inc/page_head.php';?>
 
 <!-- Intro -->
 <section class="site-section site-section-top site-section-light themed-background-dark">
@@ -15,7 +17,7 @@
     <div class="container">
         <div class="row row-items">
             <div class="col-md-2 col-md-offset-2 text-center visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-20">
-                <img src="img/placeholders/avatars/avatar7@2x.jpg" alt="" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
+                <img src="assets/Frontend/img/placeholders/avatars/avatar7@2x.jpg" alt="" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
             </div>
             <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-20">
                 <h4>
@@ -34,7 +36,7 @@
     <div class="container">
         <div class="row row-items">
             <div class="col-md-2 col-md-offset-2 text-center visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-20">
-                <img src="img/placeholders/avatars/avatar6@2x.jpg" alt="" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
+                <img src="assets/Frontend/img/placeholders/avatars/avatar6@2x.jpg" alt="" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
             </div>
             <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-20">
                 <h4>
@@ -53,7 +55,7 @@
     <div class="container">
         <div class="row row-items">
             <div class="col-md-2 col-md-offset-2 text-center visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-20">
-                <img src="img/placeholders/avatars/avatar15@2x.jpg" alt="" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
+                <img src="assets/Frontend/img/placeholders/avatars/avatar15@2x.jpg" alt="" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
             </div>
             <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-20">
                 <h4>
@@ -72,7 +74,7 @@
     <div class="container">
         <div class="row row-items">
             <div class="col-md-2 col-md-offset-2 text-center visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-20">
-                <img src="img/placeholders/avatars/avatar12@2x.jpg" alt="" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
+                <img src="assets/Frontend/img/placeholders/avatars/avatar12@2x.jpg" alt="" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
             </div>
             <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-20">
                 <h4>
@@ -91,7 +93,7 @@
     <div class="container">
         <div class="row row-items">
             <div class="col-md-2 col-md-offset-2 text-center visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-20">
-                <img src="img/placeholders/avatars/avatar4@2x.jpg" alt="" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
+                <img src="assets/Frontend/img/placeholders/avatars/avatar4@2x.jpg" alt="" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
             </div>
             <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-20">
                 <h4>
@@ -105,6 +107,6 @@
 </section>
 <!-- END Team Member 5 -->
 
-<?php include 'inc/page_footer.php'; ?>
-<?php include 'inc/template_scripts.php'; ?>
-<?php include 'inc/template_end.php'; ?>
+<?php include 'assets/Frontend/inc/page_footer.php';?>
+<?php include 'assets/Frontend/inc/template_scripts.php';?>
+<?php include 'assets/Frontend/inc/template_end.php';?>

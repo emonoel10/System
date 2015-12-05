@@ -191,7 +191,7 @@ class CI_Migration {
 	 * choice
 	 *
 	 * @param	string	$target_version	Target schema version
-	 * @return	mixed	TRUE if already latest, FALSE if failed, string if upgraded
+	 * @return	mixed	TRUE if no migrations are found, current version string on success, FALSE on failure
 	 */
 	public function version($target_version)
 	{
@@ -294,7 +294,7 @@ class CI_Migration {
 	/**
 	 * Sets the schema to the latest migration
 	 *
-	 * @return	mixed	TRUE if already latest, FALSE if failed, string if upgraded
+	 * @return	mixed	Current version string on success, FALSE on failure
 	 */
 	public function latest()
 	{
@@ -318,7 +318,7 @@ class CI_Migration {
 	/**
 	 * Sets the schema to the migration version set in config
 	 *
-	 * @return	mixed	TRUE if already current, FALSE if failed, string if upgraded
+	 * @return	mixed	TRUE if no migrations are found, current version string on success, FALSE on failure
 	 */
 	public function current()
 	{
@@ -421,11 +421,11 @@ class CI_Migration {
 	 * Stores the current schema version
 	 *
 	 * @param	string	$migration	Migration reached
-	 * @return	void	Outputs a report of the migration
+	 * @return	void
 	 */
 	protected function _update_version($migration)
 	{
-		return $this->db->update($this->_migration_table, array(
+		$this->db->update($this->_migration_table, array(
 			'version' => $migration
 		));
 	}

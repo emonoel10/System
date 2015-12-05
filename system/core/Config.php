@@ -88,11 +88,9 @@ class CI_Config {
 		// Set the base_url automatically if none was provided
 		if (empty($this->config['base_url']))
 		{
-			// The regular expression is only a basic validation for a valid "Host" header.
-			// It's not exhaustive, only checks for valid characters.
-			if (isset($_SERVER['HTTP_HOST']) && preg_match('/^((\[[0-9a-f:]+\])|(\d{1,3}(\.\d{1,3}){3})|[a-z0-9\-\.]+)(:\d+)?$/i', $_SERVER['HTTP_HOST']))
+			if (isset($_SERVER['SERVER_ADDR']))
 			{
-				$base_url = (is_https() ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST']
+				$base_url = (is_https() ? 'https' : 'http').'://'.$_SERVER['SERVER_ADDR']
 					.substr($_SERVER['SCRIPT_NAME'], 0, strpos($_SERVER['SCRIPT_NAME'], basename($_SERVER['SCRIPT_FILENAME'])));
 			}
 			else
@@ -123,10 +121,9 @@ class CI_Config {
 
 		foreach ($this->_config_paths as $path)
 		{
-			foreach (array($file, ENVIRONMENT.'/'.$file) as $location)
+			foreach (array($file, ENVIRONMENT.DIRECTORY_SEPARATOR.$file) as $location)
 			{
 				$file_path = $path.'config/'.$location.'.php';
-
 				if (in_array($file_path, $this->is_loaded, TRUE))
 				{
 					return TRUE;
@@ -165,14 +162,13 @@ class CI_Config {
 				$loaded = TRUE;
 				log_message('debug', 'Config file loaded: '.$file_path);
 			}
-
-			if ($loaded === TRUE)
-			{
-				return TRUE;
-			}
 		}
 
-		if ($fail_gracefully === TRUE)
+		if ($loaded === TRUE)
+		{
+			return TRUE;
+		}
+		elseif ($fail_gracefully === TRUE)
 		{
 			return FALSE;
 		}
@@ -240,7 +236,15 @@ class CI_Config {
 
 		if (isset($protocol))
 		{
-			$base_url = $protocol.substr($base_url, strpos($base_url, '://'));
+			// For protocol-relative links
+			if ($protocol === '')
+			{
+				$base_url = substr($base_url, strpos($base_url, '//'));
+			}
+			else
+			{
+				$base_url = $protocol.substr($base_url, strpos($base_url, '://'));
+			}
 		}
 
 		if (empty($uri))
@@ -295,7 +299,15 @@ class CI_Config {
 
 		if (isset($protocol))
 		{
-			$base_url = $protocol.substr($base_url, strpos($base_url, '://'));
+			// For protocol-relative links
+			if ($protocol === '')
+			{
+				$base_url = substr($base_url, strpos($base_url, '//'));
+			}
+			else
+			{
+				$base_url = $protocol.substr($base_url, strpos($base_url, '://'));
+			}
 		}
 
 		return $base_url.ltrim($this->_uri_string($uri), '/');

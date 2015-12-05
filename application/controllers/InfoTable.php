@@ -2,382 +2,231 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Infotable extends CI_Controller {
+class InfoTable extends CI_Controller {
 
-    function __construct() {
-        parent::__construct();
-        $this->load->database();
-        $this->load->helper('url');
-        $this->load->library('grocery_CRUD');
-        $this->load->library('googlemaps');
-        $this->load->Model('grocery_crud_model');
-        $this->load->Model('Login_model');
-        $this->load->Model('Maps_model');
-    }
+	function __construct() {
+		parent::__construct();
+		$this->load->database();
+		$this->load->helper('url');
+		$this->load->helper('inflector');
+		$this->load->helper('date');
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		$this->load->library('googlemaps');
+		// $this->load->model('InfoTable_model', 'resident');
+		$this->load->Model('Login_model');
+		$this->load->Model('Maps_model');
+		$this->load->model('InfoTable_model');
+	}
 
-    public function index() {
-        $crud = new grocery_CRUD();
+	public function index() {
+		$this->Login_model->isLoggedIn();
+		$this->load->view('Backend/page_ui_tables');
+	}
 
-        $crud->set_subject('Resident');
-        $crud->set_table('resident');
-        $crud->set_theme('datatables');
-        $crud->columns('name', 'mname', 'lname', 'gender', 'bday', 'age', 'citizenship', 'occupation', 'status', 'purok', 'resAddress', 'perAddress', 'email', 'telNum', 'cpNum');
-        $crud->required_fields('name', 'mname', 'lname', 'gender', 'bday', 'age', 'citizenship', 'occupation', 'status', 'purok', 'resAddress', 'cpNum', 'latlong');
-        
-        $crud->set_primary_key('resident_id');
-        $crud->unset_export();
-        $crud->unset_print();
+	public function ajax_list() {
+		$list = $this->InfoTable_model->get_datatables();
+		$data = array();
+		$no = $_POST['start'];
+		foreach ($list as $resident) {
+			$no++;
+			$row = array();
+			$row[] = $resident->name;
+			$row[] = $resident->mname;
+			$row[] = $resident->lname;
+			$row[] = $resident->gender;
+			$row[] = date('m/d/Y', strtotime($resident->bday));
+			// $row[] = $resident->bday;
+			$row[] = $resident->age;
+			$row[] = $resident->citizenship;
+			$row[] = $resident->occupation;
+			$row[] = $resident->status;
+			$row[] = $resident->purok;
+			$row[] = $resident->resAddress;
+			$row[] = $resident->perAddress;
+			$row[] = $resident->email;
+			$row[] = $resident->telNum;
+			$row[] = $resident->cpNum;
+//            $row[] = $resident->latlong;
 
-        $crud->set_crud_url_path('/InfoTable', '/InfoTable');
+			//add html for action
+			$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void()" title="Edit Resident" onclick="edit_resident(' . "'" . $resident->resident_id . "'" . ')"><i class="fa fa-pencil"></i></a>
+            <a class="btn btn-sm btn-danger" href="javascript:void()" title="Delete Resident" onclick="delete_resident(' . "'" . $resident->resident_id . "'" . ')"><i class="fa fa-times"></i></a>';
 
-        $crud->display_as('name', 'First Name')
-                ->display_as('mname', 'Middle Name')
-                ->display_as('lname', 'Last Name')
-                ->display_as('gender', 'Gender')
-                ->display_as('bday', 'Birthdate')
-                ->display_as('age', 'Age')
-                ->display_as('citizenship', 'Citizenship')
-                ->display_as('occupation', 'Occupation')
-                ->display_as('status', 'Status')
-                ->display_as('purok', 'Purok')
-                ->display_as('resAddress', 'Residential Address')
-                ->display_as('perAddress', 'Permanent Address')
-                ->display_as('email', 'Email Address')
-                ->display_as('telNum', 'Tel. #')
-                ->display_as('cpNum', 'Cellphone #')
-                ->display_as('latlong', 'Geolocation');
+			$data[] = $row;
+		}
 
-        $output = $crud->render();
+		$output = array(
+			"draw" => $_POST['draw'],
+			"recordsTotal" => $this->InfoTable_model->count_all(),
+			"recordsFiltered" => $this->InfoTable_model->count_filtered(),
+			"data" => $data,
+		);
+		//output to json format
+		echo json_encode($output);
+	}
 
-        $this->_example_output($output);
-    }
+	public function ajax_edit($id) {
+		$data = $this->InfoTable_model->get_by_id($id);
+		$data->bday = ($data->bday == '0000-00-00') ? '' : date('m/d/Y', strtotime($data->bday)); // if 0000-00-00 set to empty for datepicker compatibility
+		echo json_encode($data);
+	}
 
-    public function add() {
-        $crud = new grocery_CRUD();
-        
-        $crud->set_css('assets/Backend/css/animate.min.css');
-        $crud->set_css('assets/Backend/css/bootstrap.min.css');
-        $crud->set_css('assets/Backend/css/main.css');
-        $crud->set_css('assets/Backend/css/plugins.css');
-        $crud->set_css('assets/Backend/css/themes.css');
-        $crud->set_js('assets/Backend/js/vendor/jquery-2.1.4.min.js');
-        $crud->set_js('assets/Backend/js/vendor/bootstrap.min.js');
-        $crud->set_js('assets/Backend/js/vendor/alertify.min.js');
-        $crud->set_js('assets/Backend/js/plugins.js');
-        $crud->set_js('assets/Backend/js/app.js');
+	public function ajax_add() {
+		$this->_validate();
+		$bday = $this->input->post('bday');
+		$data = array(
+			'name' => humanize($this->input->post('name')),
+			'mname' => humanize($this->input->post('mname')),
+			'lname' => humanize($this->input->post('lname')),
+			'gender' => humanize($this->input->post('gender')),
+			'age' => humanize($this->input->post('age')),
+			'bday' => date('Y-m-d', strtotime($bday)),
+			'citizenship' => humanize($this->input->post('citizenship')),
+			'occupation' => humanize($this->input->post('occupation')),
+			'status' => humanize($this->input->post('status')),
+			'purok' => humanize($this->input->post('purok')),
+			'resAddress' => humanize($this->input->post('resAddress')),
+			'perAddress' => humanize($this->input->post('perAddress')),
+			'email' => $this->input->post('email'),
+			'telNum' => $this->input->post('telNum'),
+			'cpNum' => $this->input->post('cpNum'),
+			'latlong' => $this->input->post('latlong'),
+		);
+		$insert = $this->InfoTable_model->save($data);
+		echo json_encode(array("status" => TRUE));
+	}
 
-        $crud->set_subject('Resident');
-        $crud->set_table('resident');
-        $crud->set_theme('datatables');
-        $crud->set_primary_key('resident_id', 'resident');
+	public function ajax_update() {
+		$this->_validate();
+		$bday = $this->input->post('bday');
+		$data = array(
+			'name' => humanize($this->input->post('name')),
+			'mname' => humanize($this->input->post('mname')),
+			'lname' => humanize($this->input->post('lname')),
+			'gender' => humanize($this->input->post('gender')),
+			'age' => humanize($this->input->post('age')),
+			'bday' => date('Y-m-d', strtotime($bday)),
+			'citizenship' => humanize($this->input->post('citizenship')),
+			'occupation' => humanize($this->input->post('occupation')),
+			'status' => humanize($this->input->post('status')),
+			'purok' => humanize($this->input->post('purok')),
+			'resAddress' => humanize($this->input->post('resAddress')),
+			'perAddress' => humanize($this->input->post('perAddress')),
+			'email' => $this->input->post('email'),
+			'telNum' => $this->input->post('telNum'),
+			'cpNum' => $this->input->post('cpNum'),
+			'latlong' => $this->input->post('latlong'),
+		);
+		$this->InfoTable_model->update(array('resident_id' => $this->input->post('resident_id')), $data);
+		echo json_encode(array("status" => TRUE));
+	}
 
-        $crud->set_crud_url_path('/InfoTable/index', '/InfoTable');
+	public function ajax_delete($id) {
+		$this->InfoTable_model->delete_by_id($id);
+		echo json_encode(array("status" => TRUE));
+	}
 
-        $crud->required_fields('latlong', 'name', 'mname', 'lname', 'gender', 'bday', 'age', 'citizenship', 'occupation', 'status', 'purok', 'resAddress', 'perAddress', 'email', 'cpNum');
-        
-        $crud->add_fields('latlong', 'name', 'mname', 'lname', 'gender', 'bday', 'age', 'citizenship', 'occupation', 'status', 'purok', 'resAddress', 'perAddress', 'email', 'telNum', 'cpNum');
-        
-        $crud->callback_add_field('name', function () {
-            return '<input type="text" name="name" class="form-control"></input>';
-        });
-        $crud->callback_add_field('resAddress', function () {
-            return '<textarea name="resAddress" id="resAddress" rows="7" cols="50" class="form-control" placeholder="in Full Address Format..."></textarea>';
-        });
-        $crud->callback_add_field('perAddress', function () {
-            return '<textarea name="perAddress" id="perAddress" rows="7" cols="50" class="form-control" placeholder="in Full Address Format..."></textarea>';
-        });
-        $crud->callback_add_field('age', function () {
-            return '<input readonly type="text" id="age" name="age" class="form-control"></input>';
-        });
-        $crud->callback_add_field('bday', function () {
-            return '<input type="date" id="bday" name="bday" class="form-control" onchange="ageCount()">';
-        });
-        $crud->callback_add_field('email', function () {
-            return '<input type="email" name="email" class="form-control"></input>';
-        });
-        $crud->callback_add_field('gender', function () {
-            return '<input type="radio" name="gender" value="Male"> Male </input> <input type="radio" name="gender" value="Female"> Female </input>';
-        });
-        $crud->callback_add_field('purok', function () {
-            return '<select name="purok" id="purok" class="form-control select-select2" onchange="fillAddress()">
-                        <option></option>
-                        <option value="Atis">Atis</option>
-                        <option value="Avocado">Avocado</option>
-                        <option value="Bayabas">Bayabas</option>
-                        <option value="Boongon">Boongon</option>
-                        <option value="Chico">Chico</option>
-                        <option value="Durian">Durian</option>
-                        <option value="Guyabano">Guyabano</option>
-                        <option value="Kaimito">Kaimito</option>
-                        <option value="Kasoy">Kasoy</option>
-                        <option value="Lanzones">Lanzones</option>
-                        <option value="Lomboy">Lomboy</option>
-                        <option value="Mabolo">Mabolo</option>
-                        <option value="Macopa">Macopa</option>
-                        <option value="Mangga">Mangga</option>
-                        <option value="Mangosteen">Mangosteen</option>
-                        <option value="Mansanas">Mansanas</option>
-                        <option value="Marang">Marang</option>
-                        <option value="Marang Joesil">Marang Joesil</option>
-                        <option value="Melon">Melon</option>
-                        <option value="Nangka">Nangka</option>
-                        <option value="Pomelo">Pomelo</option>
-                        <option value="Rambutan">Rambutan</option>
-                        <option value="Santol">Santol</option>
-                        <option value="Sereguellas">Sereguellas</option>
-                        <option value="Sunkist">Sunkist</option>
-                        <option value="Tambis">Tambis</option>
-                        <option value="Ubas">Ubas</option>
-                        <option value="Fishpond/Sea wall">Fishpond/Sea wall</option>
-                    </select>';
-        });
-        $crud->callback_add_field('status', function () {
-            return '<select name="status" class="form-control select-select2">
-                        <option></option>
-                        <option value="Single">Single</option>
-                        <option value="Married">Married</option>
-                        <option value="Separated">Separated</option>
-                        <option value="Divorced">Divorced</option>
-                        <option value="Widowed">Widowed</option>
-                    </select>';
-        });
-        $crud->callback_add_field('telNum', function () {
-            return '<input type="tel" name="telNum" class="form-control"></input>';
-        });
-        $crud->callback_add_field('cpNum', function () {
-            return '<input type="tel" name="cpNum" class="form-control"></input>';
-        });
-        $crud->callback_add_field('latlong', function () {
-            return '<input readonly type="text" id="grid" name="latlong" class="form-control"></input>';
-        });
-//        $crud->field_type('age', 'invisible');
-//        $crud->field_type('latlong', 'invisible');
-//        $crud->change_field_type('Status', 'dropdown', array('1' => 'Single', '2' => 'Married', '3' => 'Separated', '4' => 'Widowed', '5' => 'Divorced'));
-//        $crud->field_type('Status','dropdown',array('1' => 'Single', '2' => 'Married', '3' => 'Separated', '4' => 'Widowed', '5' => 'Divorced'));
+	private function _validate() {
+		$data = array();
+		$data['error_string'] = array();
+		$data['inputerror'] = array();
+		$data['status'] = TRUE;
 
-        $crud->display_as('name', 'First Name')
-                ->display_as('mname', 'Middle Name')
-                ->display_as('lname', 'Last Name')
-                ->display_as('gender', 'Gender')
-                ->display_as('bday', 'Birthdate')
-                ->display_as('age', 'Age')
-                ->display_as('citizenship', 'Citizenship')
-                ->display_as('occupation', 'Occupation')
-                ->display_as('status', 'Status')
-                ->display_as('purok', 'Purok')
-                ->display_as('resAddress', 'Residential Address')
-                ->display_as('perAddress', 'Permanent Address')
-                ->display_as('email', 'Email Address')
-                ->display_as('telNum', 'Telephone #')
-                ->display_as('cpNum', 'Cellphone #')
-                ->display_as('latlong', 'Geolocation');
+		if ($this->input->post('name') == '') {
+			$data['inputerror'][] = 'name';
+			$data['error_string'][] = 'First Name is required';
+			$data['status'] = FALSE;
+		}
 
-        $output = $crud->render();
+		if ($this->input->post('mname') == '') {
+			$data['inputerror'][] = 'mname';
+			$data['error_string'][] = 'Middle Name is required';
+			$data['status'] = FALSE;
+		}
 
-        $this->_example_output_crud($output);
-    }
+		if ($this->input->post('lname') == '') {
+			$data['inputerror'][] = 'lname';
+			$data['error_string'][] = 'Last Name is required';
+			$data['status'] = FALSE;
+		}
 
-//    public function insert() {
-//        $crud = new grocery_CRUD();
-//
-//        $crud->set_js('assets/Backend/js/vendor/bootstrap.min.js');
-//        $crud->set_js('assets/Backend/js/plugins.js');
-//        $crud->set_js('assets/Backend/js/app.js');
-//        $crud->set_js('assets/Backend/js/vendor/jquery-2.1.1.min.js');
-//        $crud->set_css('assets/Backend/css/animate.min.css');
-//        $crud->set_css('assets/Backend/css/bootstrap.min.css');
-//        $crud->set_css('assets/Backend/css/main.css');
-//        $crud->set_css('assets/Backend/css/plugins.css');
-//        $crud->set_css('assets/Backend/css/themes.css');
-//
-//        $crud->set_subject('Resident');
-//        $crud->set_table('resident');
-//        $crud->set_theme('datatables');
-//
-//        $crud->set_crud_url_path('/InfoTable', '/InfoTable');
-//        
-//        $output = $crud->render();
-//
-//        $this->_example_output_crud($output);
-//    }
+		if ($this->input->post('gender') == '') {
+			$data['inputerror'][] = 'gender';
+			$data['error_string'][] = 'Please select Gender';
+			$data['status'] = FALSE;
+		}
 
-    public function edit() {
-        $crud = new grocery_CRUD();
+		if ($this->input->post('bday') == '') {
+			$data['inputerror'][] = 'bday';
+			$data['error_string'][] = 'Date of Birth is required';
+			$data['status'] = FALSE;
+		}
 
-        $crud->set_css('assets/Backend/css/animate.min.css');
-        $crud->set_css('assets/Backend/css/bootstrap.min.css');
-        $crud->set_css('assets/Backend/css/main.css');
-        $crud->set_css('assets/Backend/css/plugins.css');
-        $crud->set_css('assets/Backend/css/themes.css');
-        $crud->set_js('assets/Backend/js/vendor/jquery-2.1.4.min.js');
-        $crud->set_js('assets/Backend/js/vendor/bootstrap.min.js');
-        $crud->set_js('assets/Backend/js/vendor/alertify.min.js');
-        $crud->set_js('assets/Backend/js/plugins.js');
-        $crud->set_js('assets/Backend/js/app.js');
+		if ($this->input->post('age') == '') {
+			$data['inputerror'][] = 'age';
+			$data['error_string'][] = 'Age is required';
+			$data['status'] = FALSE;
+		}
 
-        $crud->set_subject('Resident');
-        $crud->set_table('resident');
-        $crud->set_theme('datatables');
-        $crud->set_primary_key('resident_id', 'resident');
-//        $crud->set_relation('resident_id','geoloc');
-//        $crud->set_relation('name','geoloc','First Name');
-//        $crud->set_relation('mname','geoloc','Middle Name');
-//        $crud->set_relation('lname','geoloc','Last Name');
+		if ($this->input->post('citizenship') == '') {
+			$data['inputerror'][] = 'citizenship';
+			$data['error_string'][] = 'Citizenship is required';
+			$data['status'] = FALSE;
+		}
 
-        $crud->set_crud_url_path('/InfoTable/index', '/InfoTable');
+		if ($this->input->post('occupation') == '') {
+			$data['inputerror'][] = 'occupation';
+			$data['error_string'][] = 'Occupation is required';
+			$data['status'] = FALSE;
+		}
 
-        $crud->required_fields('latlong', 'name', 'mname', 'lname', 'gender', 'bday', 'age', 'citizenship', 'occupation', 'status', 'purok', 'resAddress', 'perAddress', 'email', 'cpNum');
-        
-        $crud->edit_fields('latlong', 'name', 'mname', 'lname', 'gender', 'bday', 'age', 'citizenship', 'occupation', 'status', 'purok', 'resAddress', 'perAddress', 'email', 'telNum', 'cpNum');
-        
-        $crud->callback_edit_field('name', function () {
-            return '<input type="text" name="name" class="form-control"></input>';
-        });
-        $crud->callback_edit_field('resAddress', function () {
-            return '<textarea name="resAddress" id="resAddress" rows="7" cols="50" class="form-control" placeholder="in Full Address Format..."></textarea>';
-        });
-        $crud->callback_edit_field('perAddress', function () {
-            return '<textarea name="perAddress" id="perAddress" rows="7" cols="50" class="form-control" placeholder="in Full Address Format..."></textarea>';
-        });
-        $crud->callback_edit_field('age', function () {
-            return '<input readonly type="text" id="age" name="age" class="form-control"></input>';
-        });
-        $crud->callback_edit_field('bday', function () {
-            return '<input type="date" id="bday" name="bday" class="form-control" onchange="ageCount()">';
-        });
-        $crud->callback_edit_field('email', function () {
-            return '<input type="email" name="email" class="form-control"></input>';
-        });
-        $crud->callback_edit_field('gender', function () {
-            return '<input type="radio" name="gender" value="Male"> Male </input> <input type="radio" name="gender" value="Female"> Female </input>';
-        });
-        $crud->callback_edit_field('purok', function () {
-            return '<select name="purok" id="purok" class="form-control select-select2" onchange="fillAddress()">
-                        <option></option>
-                        <option value="Atis">Atis</option>
-                        <option value="Avocado">Avocado</option>
-                        <option value="Bayabas">Bayabas</option>
-                        <option value="Boongon">Boongon</option>
-                        <option value="Chico">Chico</option>
-                        <option value="Durian">Durian</option>
-                        <option value="Guyabano">Guyabano</option>
-                        <option value="Kaimito">Kaimito</option>
-                        <option value="Kasoy">Kasoy</option>
-                        <option value="Lanzones">Lanzones</option>
-                        <option value="Lomboy">Lomboy</option>
-                        <option value="Mabolo">Mabolo</option>
-                        <option value="Macopa">Macopa</option>
-                        <option value="Mangga">Mangga</option>
-                        <option value="Mangosteen">Mangosteen</option>
-                        <option value="Mansanas">Mansanas</option>
-                        <option value="Marang">Marang</option>
-                        <option value="Marang Joesil">Marang Joesil</option>
-                        <option value="Melon">Melon</option>
-                        <option value="Nangka">Nangka</option>
-                        <option value="Pomelo">Pomelo</option>
-                        <option value="Rambutan">Rambutan</option>
-                        <option value="Santol">Santol</option>
-                        <option value="Sereguellas">Sereguellas</option>
-                        <option value="Sunkist">Sunkist</option>
-                        <option value="Tambis">Tambis</option>
-                        <option value="Ubas">Ubas</option>
-                        <option value="Fishpond/Sea wall">Fishpond/Sea wall</option>
-                    </select>';
-        });
-        $crud->callback_edit_field('status', function () {
-            return '<select name="status" class="form-control select-select2">
-                        <option></option>
-                        <option value="Single">Single</option>
-                        <option value="Married">Married</option>
-                        <option value="Separated">Separated</option>
-                        <option value="Divorced">Divorced</option>
-                        <option value="Widowed">Widowed</option>
-                    </select>';
-        });
-        $crud->callback_edit_field('telNum', function () {
-            return '<input type="tel" name="telNum" class="form-control"></input>';
-        });
-        $crud->callback_edit_field('cpNum', function () {
-            return '<input type="tel" name="cpNum" class="form-control"></input>';
-        });
-        $crud->callback_edit_field('latlong', function () {
-            return '<input readonly type="text" id="grid" name="latlong" class="form-control"></input>';
-        });
-//        $crud->field_type('age', 'invisible');
-//        $crud->field_type('latlong', 'invisible');
-//        $crud->change_field_type('Status', 'dropdown', array('1' => 'Single', '2' => 'Married', '3' => 'Separated', '4' => 'Widowed', '5' => 'Divorced'));
-//        $crud->field_type('Status','dropdown',array('1' => 'Single', '2' => 'Married', '3' => 'Separated', '4' => 'Widowed', '5' => 'Divorced'));
+		if ($this->input->post('status') == '') {
+			$data['inputerror'][] = 'status';
+			$data['error_string'][] = 'Civil Status is required';
+			$data['status'] = FALSE;
+		}
 
-        $crud->display_as('name', 'First Name')
-                ->display_as('mname', 'Middle Name')
-                ->display_as('lname', 'Last Name')
-                ->display_as('gender', 'Gender')
-                ->display_as('bday', 'Birthdate')
-                ->display_as('age', 'Age')
-                ->display_as('citizenship', 'Citizenship')
-                ->display_as('occupation', 'Occupation')
-                ->display_as('status', 'Status')
-                ->display_as('purok', 'Purok')
-                ->display_as('resAddress', 'Residential Address')
-                ->display_as('perAddress', 'Permanent Address')
-                ->display_as('email', 'Email Address')
-                ->display_as('telNum', 'Telephone #')
-                ->display_as('cpNum', 'Cellphone #')
-                ->display_as('latlong', 'Geolocation');
+		if ($this->input->post('purok') == '') {
+			$data['inputerror'][] = 'purok';
+			$data['error_string'][] = 'Designated Purok is required';
+			$data['status'] = FALSE;
+		}
 
-        $output = $crud->render();
+		if ($this->input->post('resAddress') == '') {
+			$data['inputerror'][] = 'resAddress';
+			$data['error_string'][] = 'Residencial Addess is required';
+			$data['status'] = FALSE;
+		}
 
-        $this->_example_output_crud($output);
-    }
+		if ($this->input->post('perAddress') == '') {
+			$data['inputerror'][] = 'perAddress';
+			$data['error_string'][] = 'Permanent Address is required';
+			$data['status'] = FALSE;
+		}
 
-    public function read() {
-        $crud = new grocery_CRUD();
+		if ($this->input->post('email') == '') {
+			$data['inputerror'][] = 'email';
+			$data['error_string'][] = 'Email Address is required';
+			$data['status'] = FALSE;
+		}
 
-        $crud->set_css('assets/Backend/css/animate.min.css');
-        $crud->set_css('assets/Backend/css/bootstrap.min.css');
-        $crud->set_css('assets/Backend/css/main.css');
-        $crud->set_css('assets/Backend/css/plugins.css');
-        $crud->set_css('assets/Backend/css/themes.css');
-        $crud->set_js('assets/Backend/js/vendor/jquery-2.1.4.min.js');
-        $crud->set_js('assets/Backend/js/vendor/bootstrap.min.js');
-        $crud->set_js('assets/Backend/js/vendor/alertify.min.js');
-        $crud->set_js('assets/Backend/js/plugins.js');
-        $crud->set_js('assets/Backend/js/app.js');
+		if ($this->input->post('cpNum') == '') {
+			$data['inputerror'][] = 'cpNum';
+			$data['error_string'][] = 'Mobile # is required';
+			$data['status'] = FALSE;
+		}
 
-        $crud->set_subject('Resident');
-        $crud->set_table('resident');
-        $crud->set_theme('datatables');
-        $crud->set_primary_key('resident_id');
+		if ($this->input->post('latlong') == '') {
+			$data['inputerror'][] = 'latlong';
+			$data['error_string'][] = 'Geolocation is required';
+			$data['status'] = FALSE;
+		}
 
-        $crud->display_as('latlong', 'Geolocation')
-                ->display_as('name', 'First Name')
-                ->display_as('mname', 'Middle Name')
-                ->display_as('lname', 'Last Name')
-                ->display_as('gender', 'Gender')
-                ->display_as('bday', 'Birthdate')
-                ->display_as('age', 'Age')
-                ->display_as('citizenship', 'Citizenship')
-                ->display_as('occupation', 'Occupation')
-                ->display_as('status', 'Status')
-                ->display_as('purok', 'Purok')
-                ->display_as('resAddress', 'Residential Address')
-                ->display_as('perAddress', 'Permanent Address')
-                ->display_as('email', 'Email Address')
-                ->display_as('telNum', 'Telephone #')
-                ->display_as('cpNum', 'Cellphone #');
-
-        $output = $crud->render();
-
-        $this->_example_output_crud($output);
-    }
-
-    function _example_output($output = null) {
-        $this->Login_model->isLoggedIn();
-        $this->load->view('Backend/page_ui_tables', $output);
-    }
-
-    function _example_output_crud($output = null) {
-        $this->load->view('Backend/page_ui_crudOp', $output);
-    }
+		if ($data['status'] === FALSE) {
+			echo json_encode($data);
+			exit();
+		}
+	}
 
 }

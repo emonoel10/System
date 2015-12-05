@@ -5,5 +5,8 @@
         <data xmlns="http://www.netbeans.org/ns/php-project/1">
             <name>System</name>
         </data>
+        <formeditor xmlns="http://controlsjs.com/netbeans/tools/formeditor/">
+            <formeditor_sourcefilter>"system;custom;wineight%20skin;"</formeditor_sourcefilter>
+        </formeditor>
     </configuration>
 </project>

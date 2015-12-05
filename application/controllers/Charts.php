@@ -4,19 +4,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Charts extends CI_Controller {
 
-    public function __construct() {
-        parent::__construct();
-        $this->load->Model('Login_model');
-        $this->load->Model('Maps_model');
-    }
+	public function __construct() {
+		parent::__construct();
+		$this->load->Model('Login_model');
+		$this->load->Model('Maps_model');
+	}
 
-    public function index() {
-        $this->Login_model->isLoggedIn();
-        $this->load->view('Backend/page_comp_charts');
-    }
+	public function index() {
+		$this->Login_model->isLoggedIn();
+		$this->load->view('Backend/page_comp_charts');
+	}
 
-    public function getAgeRangeByMale() {
-        $query = $this->db->query("SELECT
+	public function getAgeRangeByMale() {
+		$query = $this->db->query("SELECT
         SUM(IF(age < 20,1,0)) as 'Under 20',
         SUM(IF(age BETWEEN 20 and 29,1,0)) as '20 - 29',
         SUM(IF(age BETWEEN 30 and 39,1,0)) as '30 - 39',
@@ -27,13 +27,13 @@ class Charts extends CI_Controller {
         SUM(IF(age >= 80, 1, 0)) as 'Over 80',
         SUM(IF(age IS NULL, 1, 0)) as 'Not Filled In (NULL)'
         FROM resident as derived WHERE gender LIKE 'Male'");
-        foreach ($query->result() as $totalAge) {
-            echo json_encode($totalAge);
-        }
-    }
-    
-    public function getAgeRangeByFemale() {
-        $query = $this->db->query("SELECT
+		foreach ($query->result() as $totalAge) {
+			echo json_encode($totalAge);
+		}
+	}
+
+	public function getAgeRangeByFemale() {
+		$query = $this->db->query("SELECT
         SUM(IF(age < 20,1,0)) as 'Under 20',
         SUM(IF(age BETWEEN 20 and 29,1,0)) as '20 - 29',
         SUM(IF(age BETWEEN 30 and 39,1,0)) as '30 - 39',
@@ -44,13 +44,13 @@ class Charts extends CI_Controller {
         SUM(IF(age >= 80, 1, 0)) as 'Over 80',
         SUM(IF(age IS NULL, 1, 0)) as 'Not Filled In (NULL)'
         FROM resident as derived WHERE gender LIKE 'Female'");
-        foreach ($query->result() as $totalAge) {
-            echo json_encode($totalAge);
-        }
-    }
-    
-    public function getPopulationByPurok() {
-        $query = $this->db->query("SELECT
+		foreach ($query->result() as $totalAge) {
+			echo json_encode($totalAge);
+		}
+	}
+
+	public function getPopulationByPurok() {
+		$query = $this->db->query("SELECT
         SUM(IF(purok = 'Atis',1,0)) as 'Prk. Atis',
         SUM(IF(purok = 'Avocado',1,0)) as 'Prk. Avocado',
         SUM(IF(purok = 'Bayabas',1,0)) as 'Prk. Bayabas',
@@ -80,27 +80,27 @@ class Charts extends CI_Controller {
         SUM(IF(purok = 'Ubas',1,0)) as 'Prk. Ubas',
         SUM(IF(purok = 'Fishpond/Sea wall',1,0)) as 'Fishpond/Sea wall'
         FROM resident");
-        foreach ($query->result() as $totalPopulationPurok) {
-            echo json_encode($totalPopulationPurok);
-        }
-    }
+		foreach ($query->result() as $totalPopulationPurok) {
+			echo json_encode($totalPopulationPurok);
+		}
+	}
 
-    public function getTotalPopulation() {
-        $query = $this->db->query("SELECT * FROM resident");
-        $totalPopulation = $query->num_rows();
-        echo json_encode($totalPopulation);
-    }
-    
-    public function getTotalPopulationByMale() {
-        $query = $this->db->query("SELECT * FROM resident WHERE gender = 'Male' OR gender = 'male'");
-        $totalPopulationByMale = $query->num_rows();
-        echo json_encode($totalPopulationByMale);
-    }
-    
-    public function getTotalPopulationByFemale() {
-        $query = $this->db->query("SELECT * FROM resident WHERE gender = 'Female' OR gender = 'female'");
-        $totalPopulationByFemale = $query->num_rows();
-        echo json_encode($totalPopulationByFemale);
-    }
+	public function getTotalPopulation() {
+		$query = $this->db->query("SELECT * FROM resident");
+		$totalPopulation = $query->num_rows();
+		echo json_encode($totalPopulation);
+	}
+
+	public function getTotalPopulationByMale() {
+		$query = $this->db->query("SELECT * FROM resident WHERE gender = 'Male' OR gender = 'male'");
+		$totalPopulationByMale = $query->num_rows();
+		echo json_encode($totalPopulationByMale);
+	}
+
+	public function getTotalPopulationByFemale() {
+		$query = $this->db->query("SELECT * FROM resident WHERE gender = 'Female' OR gender = 'female'");
+		$totalPopulationByFemale = $query->num_rows();
+		echo json_encode($totalPopulationByFemale);
+	}
 
 }
