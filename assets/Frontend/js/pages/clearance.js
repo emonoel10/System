@@ -1,7 +1,11 @@
 function activaTab(tab) {
     if (proceedStep() === true) {
+<<<<<<< HEAD
         alert(location.hash);
         $('.nav-tabs a[data-target="#' + tab + '"]').tab('show');
+=======
+        $('.nav-tabs a[href="#' + tab + '"]').tab('show');
+>>>>>>> bab0d9c06b21417e4ada15740958a5955c859021
     } else {
         if (!alertify.errorAlert) {
             alertify.dialog('errorAlert', function factory() {
@@ -18,7 +22,10 @@ function activaTab(tab) {
     }
 };
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> bab0d9c06b21417e4ada15740958a5955c859021
 function proceedStep() {
     if (document.getElementById('fname').value === "" || document.getElementById('nname').value === "" || $('#status :selected').text() === "" || document.getElementById('bday').value === "" || document.getElementById('bPlace').value === "" || document.getElementById('comAddress').value === "" || document.getElementById('yearPesentAddress').value === "" || document.getElementById('purpose').value === "") {
         $('.nav-tabs #step2 a').removeAttr("data-toggle").attr("data-toggle", "tab disabled");

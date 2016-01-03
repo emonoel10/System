@@ -20,10 +20,17 @@ $template = array(
 
 /* Primary navigation array (the primary navigation will be created automatically based on this array) */
 $primary_nav = array(
+<<<<<<< HEAD
 	// array(
 	// 	'name' => 'Home',
 	// 	'url' => 'Main',
 	// ),
+=======
+	array(
+		'name' => 'Home',
+		'url' => 'Main',
+	),
+>>>>>>> bab0d9c06b21417e4ada15740958a5955c859021
 	array(
 		'name' => 'Map',
 		'url' => 'FrontMap',
@@ -45,10 +52,13 @@ $primary_nav = array(
 				'url' => 'AboutBarangay',
 			),
 			array(
+<<<<<<< HEAD
 				'name' => 'Mission & Vision',
 				'url' => 'AboutBarangayMV',
 			),
 			array(
+=======
+>>>>>>> bab0d9c06b21417e4ada15740958a5955c859021
 				'name' => 'Dev Team',
 				'url' => 'AboutTeam',
 			),

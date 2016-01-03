@@ -4226,9 +4226,12 @@ canvas {
 }
 
 @media print {
+<<<<<<< HEAD
     img {
         max-width: none !important;
     }
+=======
+>>>>>>> bab0d9c06b21417e4ada15740958a5955c859021
     /*a[href^="http://maps.google.com/maps"]{display:none !important}
     a[href^="https://maps.google.com/maps"]{display:none !important}*/
     .gmnoprint a,
@@ -4279,6 +4282,7 @@ canvas {
         display: none;
     }
 }
+<<<<<<< HEAD
 
 
 /* 
@@ -4298,3 +4302,5 @@ canvas {
     color: #eeeeee;
     text-decoration: none;
 }
+=======
+>>>>>>> bab0d9c06b21417e4ada15740958a5955c859021
