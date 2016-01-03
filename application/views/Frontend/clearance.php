@@ -1,4 +1,10 @@
+<<<<<<< HEAD
+<?php include 'assets/Frontend/inc/config.php';
+$template['title'] = "BCGIS | CERT. OF CLEARANCE";
+?>
+=======
 <?php include 'assets/Frontend/inc/config.php';?>
+>>>>>>> bab0d9c06b21417e4ada15740958a5955c859021
 <?php include 'assets/Frontend/inc/template_start.php';?>
 <?php include 'assets/Frontend/inc/page_head.php';?>
 
@@ -15,8 +21,15 @@
     <div class="container text-center">
         <div class="row">
           <ul class="nav nav-tabs">
+<<<<<<< HEAD
+              <!-- <li class="active" id="step-li"><a id="stepBtn1" data-toggle="tab disable" href="#step1">Step 1</a></li>
+              <li><a id="stepBtn2" onclick="activaTab('step2')" data-toggle="tab disable" href="#step2">Step 2</a></li> -->
+              <li class="active" id="step-li"><a id="stepBtn1" data-toggle="tab disable" data-target="#step1">Step 1</a></li>
+              <li><a id="stepBtn2" onclick="activaTab('step2')" data-toggle="tab disable" data-target="#step2">Step 2</a></li>
+=======
               <li class="active" id="step-li"><a id="stepBtn1" data-toggle="tab disable" href="#step1">Step 1</a></li>
               <li><a id="stepBtn2" onclick="activaTab('step2')" data-toggle="tab disable" href="#step2">Step 2</a></li>
+>>>>>>> bab0d9c06b21417e4ada15740958a5955c859021
           </ul>
           <div class="tab-content">
             <div id="step1" class="tab-pane fade in active">
@@ -41,7 +54,11 @@
                         <div class="form-group">
                             <label class="control-label col-md-3">Civil Status:</label>
                             <div class="col-md-9">
+<<<<<<< HEAD
+                                <select id="status" name="status" id="status" class="form-control">
+=======
                             <select id="status" name="status" id="status" class="form-control">
+>>>>>>> bab0d9c06b21417e4ada15740958a5955c859021
                                     <option value="">---</option>
                                     <option value="Single">Single</option>
                                     <option value="Married">Married</option>

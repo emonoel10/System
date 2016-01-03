@@ -4226,6 +4226,12 @@ canvas {
 }
 
 @media print {
+<<<<<<< HEAD
+    img {
+        max-width: none !important;
+    }
+=======
+>>>>>>> bab0d9c06b21417e4ada15740958a5955c859021
     /*a[href^="http://maps.google.com/maps"]{display:none !important}
     a[href^="https://maps.google.com/maps"]{display:none !important}*/
     .gmnoprint a,
@@ -4276,3 +4282,25 @@ canvas {
         display: none;
     }
 }
+<<<<<<< HEAD
+
+
+/* 
+* Login custom layout
+*/
+
+#response {
+    display: none;
+    visibility: hidden;
+}
+
+.text-muted a {
+    color: #45a7b9;
+}
+
+.text-muted a:hover {
+    color: #eeeeee;
+    text-decoration: none;
+}
+=======
+>>>>>>> bab0d9c06b21417e4ada15740958a5955c859021

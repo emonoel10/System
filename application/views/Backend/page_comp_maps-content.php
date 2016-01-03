@@ -25,7 +25,11 @@ $template['title'] = 'BCGIS | MAP';
         <!-- Gmaps.js (initialized in js/pages/compMaps.js), for more examples you can check out http://hpneo.github.io/gmaps/examples.html -->
         <div class="row" id="map-container">
           <div id="mapTitle"><center><h2>Brgy. Cagangohan Residence Location</h2></center></div>
+<<<<<<< HEAD
+          <div id="gmap-satellite" class="col-sm-12 gmap" style="height: 450px;">
+=======
           <div id="gmap-satellite" class="col-sm-12 gmap">
+>>>>>>> bab0d9c06b21417e4ada15740958a5955c859021
             <div class="row">
               <div class="col-sm-12 col-md-7 col-lg-10">
                 <div class="input-group" id="searchBox">
@@ -36,7 +40,11 @@ $template['title'] = 'BCGIS | MAP';
                 </div>
               </div>
               <div class="col-sm-0 col-md-5 col-lg-2">
+<<<<<<< HEAD
+                <button type="button" id="print" onclick="javascript:this.style.display='none';window.print();this.style.display='';" class="btn btn-effect-ripple btn-info" style="overflow: hidden; position: relative; float: right;"><i class="fa fa-print"></i> Print</button>
+=======
                 <button type="button" id="print" onclick="javascript:this.style.display='none';window.print();this.style.display='';" class="btn btn-effect-ripple btn-info" style="overflow: hidden; position: relative; float: right;"><i class="fa fa-print"> Print</i></button>
+>>>>>>> bab0d9c06b21417e4ada15740958a5955c859021
               </div>
             </div>
             <?php echo $map['html']; ?>

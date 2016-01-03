@@ -15,7 +15,11 @@
     <header>
         <div class="container">
             <!-- Site Logo -->
+<<<<<<< HEAD
+            <a href="<?php echo base_url(); ?>" class="site-logo">
+=======
             <a href="index.php" class="site-logo">
+>>>>>>> bab0d9c06b21417e4ada15740958a5955c859021
                 <img src="assets/Frontend/images/CagangohanPics/logoCagangohan.png" style="height: 93%; margin-top: -2%; width: 13%;"/> Brgy. Cagangohan <strong>GIS</strong>
             </a>
             <!-- END Site Logo -->
