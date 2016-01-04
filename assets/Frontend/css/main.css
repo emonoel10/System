@@ -2606,7 +2606,6 @@ p,
     display: none;
 }
 
-<<<<<<< HEAD
 @media print {
     img {
         max-width: none !important;
@@ -2617,26 +2616,11 @@ p,
     .gmnoscreen,
     .gmnoscreen a,
     .gmnoscreen span {
-=======
-#map {
-    width: 100%;
-    height: 500px;
-    margin-bottom: 5%;
-}
-
-@media print {
-    /*a[href^="http://maps.google.com/maps"]{display:none !important}
-    a[href^="https://maps.google.com/maps"]{display:none !important}*/
-    .gmnoprint a,
-    .gmnoprint span,
-    .gm-style-cc {
->>>>>>> bab0d9c06b21417e4ada15740958a5955c859021
         display: none;
     }
     .gmnoprint div {
         background: none !important;
     }
-<<<<<<< HEAD
     a[target="_blank"] {
         display: none;
         pointer-events: none;
@@ -2654,11 +2638,6 @@ p,
     #map_canvas div:contains("©") {
         display: none;
     }
-=======
-    a[title="Report problems with Street View imagery to Google"] {
-        display: none;
-    }
->>>>>>> bab0d9c06b21417e4ada15740958a5955c859021
     #mapTitle {
         display: inline;
     }
@@ -2682,11 +2661,7 @@ p,
         margin-bottom: 3%;
     }
     #map-header {
-<<<<<<< HEAD
         margin: -20px -15px 20px;
-=======
-        /*margin: -20px -15px 20px;*/
->>>>>>> bab0d9c06b21417e4ada15740958a5955c859021
         border-left: transparent;
         border-right: transparent;
         border-bottom: 2px solid #dae0e8;
@@ -2749,7 +2724,6 @@ p,
 #clearanceBtnForm {
     margin-top: 5%;
 }
-<<<<<<< HEAD
 
 #fnamePrint,
 #nnamePrint,
@@ -2761,5 +2735,5 @@ p,
 #purposePrint {
     visibility: hidden;
 }
-=======
->>>>>>> bab0d9c06b21417e4ada15740958a5955c859021
+
+1
