@@ -1,29 +1,15 @@
 <?php include 'assets/Frontend/inc/config.php';
-<<<<<<< HEAD
 $template['title'] = 'BCGIS | MAP';
-=======
-$template['title'] = 'BCGIS | ABOUT | MAP';
->>>>>>> bab0d9c06b21417e4ada15740958a5955c859021
 ?>
 <?php include 'assets/Frontend/inc/template_start.php';?>
 <?php include 'assets/Frontend/inc/page_head.php';?>
 
-<<<<<<< HEAD
-=======
-<!-- Intro -->
->>>>>>> bab0d9c06b21417e4ada15740958a5955c859021
 <section class="site-section site-section-top site-section-light themed-background-dark">
     <div class="container">
         <h1 class="text-center animation-fadeInQuickInv"><strong>Barangay Map</strong></h1>
     </div>
 </section>
-<<<<<<< HEAD
 
-=======
-<!-- END Intro -->
-
-<!-- Plans -->
->>>>>>> bab0d9c06b21417e4ada15740958a5955c859021
 <section class="site-content site-section">
     <div class="container">
         <div class="site-block">
