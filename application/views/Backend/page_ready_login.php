@@ -28,13 +28,13 @@ $template['page_preloader'] = true;
                 <h2>Administration Login</h2>
             </div>
             <div class="col-xs-2 text-center">
-                <a href="<?=base_url()?>" title="Back to Main Page"><i class="fa fa-arrow-circle-o-left fa-align-center fa-adjust" id="loginBackArrow"></i></a>
+                <a href="<?=base_url()?>" data-toggle="tooltip" title="Back to Main Page"><i class="fa fa-arrow-circle-o-left fa-align-center fa-adjust" id="loginBackArrow"></i></a>
             </div>
         </div>
         <!-- END Login Title -->
 
         <!-- Login Form -->
-        <form id="form-login" action="<?=base_url();?>Login/login" method="post" class="form-horizontal">
+        <form id="form-login" action="<?=base_url();?>Login/login" method="POST" class="form-horizontal">
             <br><br>
             <div class="alert alert-danger" id="response">
                 <center id="responseMsg">Invalid Username or Password.</center>

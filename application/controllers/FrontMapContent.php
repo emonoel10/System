@@ -55,29 +55,30 @@ class FrontMapContent extends CI_Controller {
 		$config['cluster'] = TRUE;
 		$config['onboundschanged'] = "
 		var strictBounds = new google.maps.LatLngBounds(
- 		new google.maps.LatLng(7.274053,125.666105),
- 		new google.maps.LatLng(7.2967,125.730692));
-     		if (strictBounds.contains(map.getCenter())) return;
+			new google.maps.LatLng(7.274053, 125.666105),
+			new google.maps.LatLng(7.2967, 125.730692));
+if (strictBounds.contains(map.getCenter())) return;
 
-	     var c = map.getCenter(),
-	         x = c.lng(),
-	         y = c.lat(),
-	         maxX = strictBounds.getNorthEast().lng(),
-	         maxY = strictBounds.getNorthEast().lat(),
-	         minX = strictBounds.getSouthWest().lng(),
-	         minY = strictBounds.getSouthWest().lat();
+var c = map.getCenter(),
+x = c.lng(),
+y = c.lat(),
+maxX = strictBounds.getNorthEast().lng(),
+maxY = strictBounds.getNorthEast().lat(),
+minX = strictBounds.getSouthWest().lng(),
+minY = strictBounds.getSouthWest().lat();
 
-	     if (x < minX) x = minX;
-	     if (x > maxX) x = maxX;
-	     if (y < minY) y = minY;
-	     if (y > maxY) y = maxY;
+if (x < minX) x = minX;
+if (x > maxX) x = maxX;
+if (y < minY) y = minY;
+if (y > maxY) y = maxY;
 
-	     map.setCenter(new google.maps.LatLng(y, x));
-		";
+map.setCenter(new google.maps.LatLng(y, x));
+";
 		$this->googlemaps->initialize($config);
 
 		$polyline = array(); //cagangohan
 		$polyline['strokeColor'] = 'red';
+		$polyline['strokeWeight'] = '2';
 		$polyline['points'] = array('7.292363, 125.667018', '7.291958, 125.671030', '7.292022, 125.673777', '7.291532, 125.675864', '7.292884, 125.676464', '7.292809, 125.677291', '7.292682, 125.680069', '7.292283, 125.682475', '7.291916, 125.684653', '7.290319, 125.685536', '7.290787, 125.688089', '7.292937, 125.689033', '7.294427, 125.689951', '7.296428, 125.691737', '7.295853, 125.692123', '7.295300, 125.692273', '7.293703, 125.694247', '7.294001, 125.694612', '7.294172, 125.697123', '7.291000, 125.698678', '7.289723, 125.697091', '7.287808, 125.695717', '7.285573, 125.691866', '7.284466, 125.690793', '7.282657, 125.689763', '7.279996, 125.688411', '7.278123, 125.686930', '7.277208, 125.686287', '7.276059, 125.685600', '7.274207, 125.683604', '7.274037, 125.683175', '7.275675, 125.678412', '7.275697, 125.673975', '7.280188, 125.674565', '7.280156, 125.672009', '7.286728, 125.674788', '7.287308, 125.673302', '7.288127, 125.669896', '7.287137, 125.669834', '7.287196, 125.665787', '7.288962, 125.666312', '7.288718, 125.667889', '7.290819, 125.667830', '7.291123, 125.668512', '7.289612, 125.668116', '7.289734, 125.668899', '7.290080, 125.668830', '7.290309, 125.669729', '7.290271, 125.670128', '7.290301, 125.670828', '7.291330, 125.670852', '7.291793, 125.666922', '7.291916, 125.666885', '7.292363, 125.667018');
 		$polyline['onmouseover'] = '(\'Barangay Cagangohan! \');';
 		$this->googlemaps->add_polyline($polyline);
@@ -85,7 +86,7 @@ class FrontMapContent extends CI_Controller {
 		$polygon2 = array(); //Sunkist
 		$polygon2['points'] = array('7.286877, 125.674819', '7.286781, 125.674996', '7.286712, 125.675229', '7.286584, 125.675473', '7.286448, 125.675632', '7.284572, 125.676616', '7.289338, 125.678617', '7.289348, 125.675876', '7.286877, 125.674819');
 		$polygon2['fillColor'] = 'transparent';
-		$polygon2['onmouseover'] = 'this.setOptions({fillColor: "#f56c1a", strokeWeight: "1"});'
+		$polygon2['onmouseover'] = 'this.setOptions({fillColor: "#f56c1a", strokeWeight: "2"});'
 			. ' polygon_0.infoWindow = new google.maps.InfoWindow();
 		this.infoWindow.setContent("Purok Sunkist");
 		this.infoWindow.open(map);

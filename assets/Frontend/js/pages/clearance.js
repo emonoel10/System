@@ -1,6 +1,82 @@
+$('#clearanceForm').validate({
+    errorClass: 'help-block animation-slideDown', // You can change the animation class for a different entrance animation - check animations page
+    errorElement: 'div',
+    errorPlacement: function(error, e) {
+        // e.preventDefault();
+        e.parents('.form-group > div').append(error);
+    },
+    highlight: function(e) {
+        // e.preventDefault();
+        // $(e).closest('.form-group').removeClass('has-success has-error').addClass('has-error');
+        // $(e).closest('.help-block shake animated').remove();
+        $(e).closest('.form-group').removeClass('has-success has-error').addClass('has-error');
+        $(e).closest('.help-block').remove();
+        // $('.form-group').removeClass('has-success has-error').addClass('has-error');
+        // $('.help-block').remove();
+    },
+    success: function() {
+        // e.preventDefault();
+        // $(e).closest('.form-group').removeClass('has-success has-error');
+        // $(e).closest('.help-block').remove();
+        $('.form-group').removeClass('has-success has-error');
+        $('.help-block').remove();
+    },
+    rules: {
+        'fname': {
+            required: true
+        },
+        'nname': {
+            required: true
+        },
+        'status': {
+            required: true
+        },
+        'bday': {
+            required: true
+        },
+        'bPlace': {
+            required: true
+        },
+        'comAddress': {
+            required: true
+        },
+        'yearPresentAddress': {
+            required: true
+        },
+        'purpose': {
+            required: true
+        }
+    },
+    messages: {
+        'fname': {
+            required: "Please fill your full name."
+        },
+        'nname': {
+            required: "Please fill your nickname or alias."
+        },
+        'status': {
+            required: "Please fill your civil status."
+        },
+        'bday': {
+            required: "Please fill your birthdate."
+        },
+        'bPlace': {
+            required: "Please fill your birthplace."
+        },
+        'comAddress': {
+            required: "Please fill your complete present address."
+        },
+        'yearPresentAddress': {
+            required: "Please fill the no. of years of your present address."
+        },
+        'purpose': {
+            required: "Please fill your purpose of filing a certificate of clearance."
+        }
+    }
+});
+
 function activaTab(tab) {
     if (proceedStep() === true) {
-        alert(location.hash);
         $('.nav-tabs a[data-target="#' + tab + '"]').tab('show');
     } else {
         if (!alertify.errorAlert) {
@@ -13,13 +89,13 @@ function activaTab(tab) {
                 };
             }, true, 'alert');
         }
-        alertify.errorAlert("You missed something on the form.<br/><br/><br/>").set('modal', false);
+        alertify.errorAlert("You missed something on the form.<br/><br/><br/>").set('modal', true).set('movable', false);
         $('.nav-tabs #step2 a').removeAttr("data-toggle").attr("data-toggle", "tab disabled");
     }
 };
 
 function proceedStep() {
-    if (document.getElementById('fname').value === "" || document.getElementById('nname').value === "" || $('#status :selected').text() === "" || document.getElementById('bday').value === "" || document.getElementById('bPlace').value === "" || document.getElementById('comAddress').value === "" || document.getElementById('yearPesentAddress').value === "" || document.getElementById('purpose').value === "") {
+    if (document.getElementById('fname').value === "" || document.getElementById('nname').value === "" || $('#status :selected').text() === "" || document.getElementById('bday').value === "" || document.getElementById('bPlace').value === "" || document.getElementById('comAddress').value === "" || document.getElementById('yearPresentAddress').value === "" || document.getElementById('purpose').value === "") {
         $('.nav-tabs #step2 a').removeAttr("data-toggle").attr("data-toggle", "tab disabled");
         return false;
     } else {
@@ -138,3 +214,35 @@ $("#purpose").on("keyup", function() {
         document.getElementById('purposePrintLabel').innerHTML = document.getElementById('purpose').value;
     }
 });
+
+$('iframe').load(function() {
+    iFrameResize({
+        log: false,
+        heightCalculationMethod: 'bodyScroll'
+    });
+});
+
+if ('matchMedia' in window) {
+    // Chrome, Firefox, and IE 10 support mediaMatch listeners
+    window.matchMedia('print').addListener(function(media) {
+        if (media.matches) {
+            beforePrint();
+        } else {
+            // Fires immediately, so wait for the first mouse movement
+            $(document).one('mouseover', afterPrint);
+        }
+    });
+} else {
+    // IE and Firefox fire before/after events
+    $(window).on('beforeprint', beforePrint);
+    $(window).on('afterprint', afterPrint);
+}
+
+function beforePrint() {
+    $('#page-header').css('display: none;');
+    // $(this).style.display = 'none';
+}
+
+function afterPrint() {
+    // $(this).style.display = '';
+}

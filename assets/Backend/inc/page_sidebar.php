@@ -1,30 +1,14 @@
-<?php
-/**
- * page_sidebar.php
- *
- * Author: pixelcave
- *
- * The main sidebar of each page
- *
- */
-?>
-<!-- Main Sidebar -->
 <div id="sidebar">
-    <!-- Sidebar Brand -->
     <div id="sidebar-brand" class="themed-background">
         <a class="sidebar-title btn-effect-ripple" style="cursor: default;">
             <i><img src="<?=base_url();?>assets/Backend/images/CagangohanPics/logoCagangohan.png" style="width: 30px; height: 30px; margin-left: -5px;"/></i> <span class="sidebar-nav-mini-hide animation-fadeIn" style="font-size: 13px;">Brgy.Cagangohan <strong>GIS</strong></span>
         </a>
     </div>
-    <!-- END Sidebar Brand -->
 
-    <!-- Wrapper for scrolling functionality -->
     <div id="sidebar-scroll">
-        <!-- Sidebar Content -->
         <div class="sidebar-content">
             <?php if ($primary_nav) {
 	?>
-            <!-- Sidebar Navigation -->
             <ul class="sidebar-nav">
                 <?php foreach ($primary_nav as $key => $link) {
 		$link_class = '';
@@ -75,54 +59,55 @@
                 <li<?php echo $li_active; ?>>
                     <a href="<?php echo $url; ?>"<?php echo $link_class; ?>><?php if (isset($link['sub']) && $link['sub']) { // if the link has a submenu ?><i class="fa fa-chevron-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><?php }
 			echo $icon;?><span class="sidebar-nav-mini-hide"><?php echo $link['name']; ?></span></a>
-                    <?php if (isset($link['sub']) && $link['sub']) { // if the link has a submenu ?>
+                    <?php if (isset($link['sub']) && $link['sub']) {
+				// if the link has a submenu ?>
                     <ul class="fadeIn animated">
                         <?php foreach ($link['sub'] as $sub_link) {
-				$link_class = '';
-				$li_active = '';
-				$submenu_link = '';
+					$link_class = '';
+					$li_active = '';
+					$submenu_link = '';
 
-				// Get 2nd level link's vital info
-				$url = (isset($sub_link['url']) && $sub_link['url']) ? $sub_link['url'] : '#';
-				$active = (isset($sub_link['url']) && ($template['active_page'] == $sub_link['url'])) ? ' active' : '';
+					// Get 2nd level link's vital info
+					$url = (isset($sub_link['url']) && $sub_link['url']) ? $sub_link['url'] : '#';
+					$active = (isset($sub_link['url']) && ($template['active_page'] == $sub_link['url'])) ? ' active' : '';
 
-				// Check if the link has a submenu
-				if (isset($sub_link['sub']) && $sub_link['sub']) {
-					// Since it has a submenu, we need to check if we have to add the class active
-					// to its parent li element (only if a 3rd level link is active)
-					foreach ($sub_link['sub'] as $sub2_link) {
-						if (in_array($template['active_page'], $sub2_link)) {
-							$li_active = ' class="active"';
-							break;
+					// Check if the link has a submenu
+					if (isset($sub_link['sub']) && $sub_link['sub']) {
+						// Since it has a submenu, we need to check if we have to add the class active
+						// to its parent li element (only if a 3rd level link is active)
+						foreach ($sub_link['sub'] as $sub2_link) {
+							if (in_array($template['active_page'], $sub2_link)) {
+								$li_active = ' class="active"';
+								break;
+							}
 						}
+
+						$submenu_link = 'sidebar-nav-submenu';
 					}
 
-					$submenu_link = 'sidebar-nav-submenu';
-				}
-
-				if ($submenu_link || $active) {
-					$link_class = ' class="' . $submenu_link . $active . ' fadeIn animated"';
-				}
-				?>
+					if ($submenu_link || $active) {
+						$link_class = ' class="' . $submenu_link . $active . ' fadeIn animated"';
+					}
+					?>
                         <li<?php echo $li_active; ?> class="<?php echo $subAnimate; ?>">
                             <a href="<?php echo $url; ?>"<?php echo $link_class; ?>><?php if (isset($sub_link['sub']) && $sub_link['sub']) {?><i class="fa fa-chevron-left sidebar-nav-indicator"></i><?php }
-				echo $sub_link['name'];?></a>
+					echo $sub_link['name'];?></a>
                             <?php if (isset($sub_link['sub']) && $sub_link['sub']) {
-					?>
+						?>
                                 <ul>
                                     <?php foreach ($sub_link['sub'] as $sub2_link) {
-						// Get 3rd level link's vital info
-						$url = (isset($sub2_link['url']) && $sub2_link['url']) ? $sub2_link['url'] : '#';
-						$active = (isset($sub2_link['url']) && ($template['active_page'] == $sub2_link['url'])) ? ' class="active"' : '';
-						?>
+							// Get 3rd level link's vital info
+							$url = (isset($sub2_link['url']) && $sub2_link['url']) ? $sub2_link['url'] : '#';
+							$active = (isset($sub2_link['url']) && ($template['active_page'] == $sub2_link['url'])) ? ' class="active"' : '';
+							?>
                                     <li>
                                         <a href="<?php echo $url; ?>"<?php echo $active+" fadeInLeft animated" ?>><?php echo $sub2_link['name']; ?></a>
                                     </li>
                                     <?php }
-					?>
+						?>
                                 </ul>
                             <?php }
-				?>
+					?>
                         </li>
                         <?php }
 				?>
@@ -135,28 +120,19 @@
                 <?php }
 	?>
             </ul>
-            <!-- END Sidebar Navigation -->
             <?php }
 ?>
 
-            <!-- Color Themes -->
-            <!-- Preview a theme on a page functionality can be found in js/app.js - colorThemePreview() -->
             <div class="sidebar-section sidebar-nav-mini-hide">
 
             </div>
-            <!-- END Color Themes -->
         </div>
-        <!-- END Sidebar Content -->
     </div>
-    <!-- END Wrapper for scrolling functionality -->
 
-    <!-- Sidebar Extra Info -->
     <div id="sidebar-extra-info" class="sidebar-content sidebar-nav-mini-hide">
         <div class="text-center">
             <small>Crafted with <i class="fa fa-heart text-danger"></i> by <a href="http://goo.gl/vNS3I" target="_blank"><?php echo $template['author']; ?></a></small><br>
             <small><span id="year-copy"></span> &copy; <a href="http://goo.gl/RcsdAh" target="_blank"><?php echo $template['name'] . ' ' . $template['version']; ?></a></small>
         </div>
     </div>
-    <!-- END Sidebar Extra Info -->
 </div>
-<!-- END Main Sidebar -->

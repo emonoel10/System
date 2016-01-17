@@ -75,7 +75,7 @@ var App = function() {
         // Initialize Tooltips
         $('[data-toggle="tooltip"], .enable-tooltip').tooltip({
             container: 'body',
-            animation: false
+            animation: true
         });
 
         // Initialize Popovers

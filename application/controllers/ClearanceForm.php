@@ -16,14 +16,14 @@ class ClearanceForm extends CI_Controller {
 		$this->load->library('fpdf_gen');
 
 		$this->fpdf->SetFont('Arial', 'B', 16);
-		$this->fpdf->Cell(40, 10, $this->input->post("fnamePrint"));
-		$this->fpdf->Cell(40, 10, $this->input->post("nnamePrint"));
-		$this->fpdf->Cell(40, 10, $this->input->post("statusPrint"));
-		$this->fpdf->Cell(40, 10, $this->input->post("bdayPrint"));
-		$this->fpdf->Cell(40, 10, $this->input->post("bPlacePrint"));
-		$this->fpdf->Cell(40, 10, $this->input->post("comAddressPrint"));
-		$this->fpdf->Cell(40, 10, $this->input->post("yearPresentAddressPrint"));
-		$this->fpdf->Cell(40, 10, $this->input->post("purposePrint"));
+		$this->fpdf->Write(40, 10, $this->input->post("fnamePrint"), 0, 1, 'C');
+		$this->fpdf->Write(40, 10, $this->input->post("nnamePrint"), 0, 1, 'C');
+		$this->fpdf->Write(40, 10, $this->input->post("statusPrint"), 0, 1, 'C');
+		$this->fpdf->Cell(40, 10, $this->input->post("bdayPrint"), 0, 1, 'C');
+		$this->fpdf->Cell(40, 10, $this->input->post("bPlacePrint"), 0, 1, 'C');
+		$this->fpdf->Cell(40, 10, $this->input->post("comAddressPrint"), 0, 1, 'C');
+		$this->fpdf->Cell(40, 10, $this->input->post("yearPresentAddressPrint"), 0, 1, 'C');
+		$this->fpdf->Cell(40, 10, $this->input->post("purposePrint"), 0, 1, 'C');
 		$this->fpdf->Cell(40, 10, 'Hello World!');
 
 		echo $this->fpdf->Output();

@@ -25,8 +25,8 @@ $template['title'] = 'BCGIS | MAP';
 
 <script type="text/javascript">
     $('iframe').load(function() {
-     iFrameResize({log: false, heightCalculationMethod: 'bodyScroll'});
- });
+       iFrameResize({log: false, heightCalculationMethod: 'bodyScroll'});
+    });
 </script>
 
 
