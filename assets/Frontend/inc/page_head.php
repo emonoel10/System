@@ -1,22 +1,8 @@
-<?php
-/**
- * page_head.php
- *
- * Author: pixelcave
- *
- * Header of each page
- *
- */
-?>
-
-<!-- Page Container -->
 <div id="page-container">
-	<!-- Site Header -->
 	<header>
 		<div class="container">
-			<!-- Site Logo -->
-			<a href="<?php echo base_url(); ?>" class="site-logo">
-				<img src="assets/Frontend/images/CagangohanPics/logoCagangohan.png" style="height: 93%; margin-top: -2%; width: 13%;"/> Brgy. Cagangohan <strong>GIS</strong>
+			<a href="<?php echo base_url(); ?>" class="site-logo text-center">
+				<img src="assets/Frontend/images/CagangohanPics/logoCagangohan.png" style="height: 93%; margin-top: -1.5%; width: 15%;"/> Brgy. Cagangohan <strong>GIS</strong>
 			</a>
 
 			<nav>
@@ -95,9 +81,6 @@
 	</ul>
 	<?php }
 ?>
-	<!-- END Main Menu -->
 </nav>
-<!-- END Site Navigation -->
 </div>
 </header>
-<!-- END Site Header -->

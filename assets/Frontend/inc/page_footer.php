@@ -34,29 +34,12 @@
                     </ul>
                 </div>
                 <div class="col-sm-4">
-                    <h4 class="footer-heading">Newsletter</h4>
-                    <form action="index.php" method="post" class="form-inline" onsubmit="return false;">
-                        <div class="form-group">
-                            <label class="sr-only" for="register-email">Your Email</label>
-                            <div class="input-group">
-                                <input type="email" id="register-email" name="register-email" class="form-control" placeholder="Your Email..">
-                                <span class="input-group-btn">
-                                    <button type="submit" class="btn btn-primary">Subscribe</button>
-                                </span>
-                            </div>
-                        </div>
-                    </form>
                     <h4 class="footer-heading"><a href="http://goo.gl/RcsdAh"><?php echo $template['name']; ?></a></h4>
-                    <em><span id="year-copy"></span></em> &copy; Crafted with <i class="fa fa-heart text-danger"></i> by <a href="http://goo.gl/WCS84b">CMBTC from DNSC</a>
+                    <em><span id="year-copy"></span></em> &copy; Crafted <!-- with <i class="fa fa-heart text-danger"></i> --> by <a href="http://goo.gl/WCS84b">CMBTC from DNSC</a>
                 </div>
             </div>
-            <!-- END Footer Links -->
         </div>
     </footer>
-    <!-- END Footer -->
 </div>
-<!-- END Page Container -->
 
-<!-- Scroll to top link, initialized in js/app.js - scrollToTop() -->
-<!-- <a href="#" id="to-top" style="display: block;"><i class="fa fa-arrow-up"></i></a> -->
 <a href="#" id="to-top"><i class="fa fa-arrow-up"></i></a>

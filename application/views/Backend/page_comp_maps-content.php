@@ -10,48 +10,69 @@ $template['title'] = 'BCGIS | MAP';
 
 <!-- Page content -->
 <div id="page-content">
-  <!-- Google Maps Content -->
-  <div class="row">
-    <div class="col-sm-12">
-      <!-- Satellite Map Block -->
-      <div class="block" id="block">
-        <!-- Satellite Map Title -->
-        <div class="block-title" id="map-header">
-          <h2><i class="fa fa-globe"></i> Satellite Map</h2>
-        </div>
-        <!-- END Satellite Map Title -->
-
-        <!-- Satellite Map Content -->
-        <!-- Gmaps.js (initialized in js/pages/compMaps.js), for more examples you can check out http://hpneo.github.io/gmaps/examples.html -->
-        <div class="row" id="map-container">
-          <div id="mapTitle"><center><h2>Brgy. Cagangohan Residence Location</h2></center></div>
-          <div id="gmap-satellite" class="col-sm-12 gmap" style="height: 450px;">
-            <div class="row">
-              <div class="col-sm-12 col-md-7 col-lg-10">
-                <div class="input-group" id="searchBox">
-                  <input type="text" id="searchDataToMarker" name="example-input1-group2 searchDataToMarker" class="form-control" placeholder="Search Here..." style="overflow: hidden; position: relative;">
-                  <span class="input-group-btn">
-                    <button type="button" id="searchBtn" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;"><i class="fa fa-search"></i></button>
-                  </span>
+    <!-- Google Maps Content -->
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- Satellite Map Block -->
+            <div class="block" id="block">
+                <!-- Satellite Map Title -->
+                <div class="block-title" id="map-header">
+                    <h2><i class="fa fa-globe"></i> Satellite Map</h2>
                 </div>
+                <!-- END Satellite Map Title -->
+
+                <!-- Satellite Map Content -->
+                <!-- Gmaps.js (initialized in js/pages/compMaps.js), for more examples you can check out http://hpneo.github.io/gmaps/examples.html -->
+                <div class="row" id="map-container">
+                    <div id="mapTitle">
+                        <div class="row" id="mapTitleHeader">
+                            <div class="col-sm-6 text-center" style="float: left">
+                                <img src="<?=base_url();?>assets/Backend/images/CagangohanPics/logoCagangohan.png" style="width: 110px; height: 110px;"/>
+                            </div>
+                            <div class="col-sm-6 text-center" style="float: left">
+                                <b>REPUBLIC OF THE PHILIPPINES</b><br/>
+                                <b>PROVINCE OF DAVAO DEL NORTE</b><br/>
+                                <b>CITY OF PANABO</b><br/>
+                                <b>BARANGAY CAGANGOHAN</b><br/>
+                                <b>-oOo-</b><br/><br/><br/>
+                                <b>OFFICE OF THE BARANGAY COUNCIL</b><br/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <br/><br/><br/>
+                        <div class="text-center">
+                            <h1><b>Brgy. Cagangohan Residence Location</b></h1>
+                        </div>
+                        <br/><br/><br/><br/><br/><br/>
+                    </div>
+                    <div id="gmap-satellite" class="col-sm-12 gmap">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-7 col-lg-10">
+                                <div class="input-group" id="searchBox">
+                                    <input type="text" id="searchDataToMarker" name="example-input1-group2 searchDataToMarker" class="form-control" placeholder="Search Here..." style="overflow: hidden; position: relative;">
+                                    <span class="input-group-btn">
+                                        <button type="button" id="searchBtn" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;"><i class="fa fa-search"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-sm-0 col-md-5 col-lg-2">
+                              <!-- <button type="button" id="print" onclick="javascript:this.style.display='none';window.print();this.style.display='';" class="btn btn-effect-ripple btn-info" style="overflow: hidden; position: relative; float: right;"><i class="fa fa-print"></i> Print</button> -->
+                          </div>
+                      </div>
+                      <?php echo $map['html']; ?>
+                      <!-- <div id="map"></div> -->
+                  </div>
+                  <!-- <div class="col-sm-2 col-md-4 col-lg-0"></div> -->
+                  <div class="col-sm-12 col-md-12 col-lg-12" id="dataTitle"></div>
+                  <div class="col-sm-12 col-md-6 col-lg-6" id="residentInfoDiv"></div>
+                  <div class="col-sm-12 col-md-6 col-lg-6" id="directionsDiv"></div>
+                  <button type="button" id="print" onclick="window.print();" class="btn btn-effect-ripple btn-info" style="overflow: hidden; position: relative; float: right;"><i class="fa fa-print"></i> Print</button>
+                  <!-- <div class="col-sm-2 col-md-4 col-lg-0"></div> -->
               </div>
-              <div class="col-sm-0 col-md-5 col-lg-2">
-                <button type="button" id="print" onclick="javascript:this.style.display='none';window.print();this.style.display='';" class="btn btn-effect-ripple btn-info" style="overflow: hidden; position: relative; float: right;"><i class="fa fa-print"></i> Print</button>
-              </div>
-            </div>
-            <?php echo $map['html']; ?>
-            <!-- <div id="map"></div> -->
           </div>
-          <!-- <div class="col-sm-2 col-md-4 col-lg-0"></div> -->
-          <div class="col-sm-12 col-md-12 col-lg-12" id="dataDiv"></div>
-          <div class="col-sm-12 col-md-6 col-lg-6" id="residentInfoDiv"></div>
-          <div class="col-sm-12 col-md-6 col-lg-6" id="directionsDiv"></div>
-          <!-- <div class="col-sm-2 col-md-4 col-lg-0"></div> -->
-        </div>
-        <!-- END Satellite Map Content -->
+          <!-- END Satellite Map Content -->
       </div>
       <!-- END Satellite Map Block -->
-    </div>
   </div>
   <!-- END Google Maps Content -->
 </div>
@@ -64,112 +85,163 @@ $template['title'] = 'BCGIS | MAP';
 <!-- <script src="http://maps.google.com/maps/api/js?sensor=true&callback=initMap&key=AIzaSyAqDAnQp7hT_6HEnwQc8GgE7ApXHMpPny4"></script> -->
 <!--<script src="<?=base_url()?>assets/Backend/js/plugins/gmaps.min.js?key=AIzaSyAqDAnQp7hT_6HEnwQc8GgE7ApXHMpPny4"></script>-->
 <script type="text/javascript">
-  $(document).ready(function () {
-    checkMapConnection();
-    $("#searchDataToMarker").on('keydown', function () {
-      document.getElementById('directionsDiv').innerHTML = '';
-      document.getElementById('residentInfoDiv').innerHTML = '';
-      document.getElementById('dataDiv').innerHTML = "";
-      var value = $(this).val();
-      $.ajax({
-        type: "POST",
-        url: "<?php echo base_url('Maps/mapSearchDataInMarker') ?>",
-        data: {
-          'searchDataToMarker': value
-        },
-        dataType: "JSON",
-        success: function (searchMapDataResults) {
-          if (searchMapDataResults.length === 0 || $("#searchDataToMarker").val() === null) {
+    $(document).ready(function () {
+        // checkMapConnection();
+        $("#searchDataToMarker").on('keydown', function () {
             document.getElementById('directionsDiv').innerHTML = '';
             document.getElementById('residentInfoDiv').innerHTML = '';
-            document.getElementById('dataDiv').innerHTML = "";
-            alertify.set('notifier', 'position', 'top-right');
-            alertify.error('Search result empty!');
-            return;
-          } else {
-            var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
-            var directionsService = new google.maps.DirectionsService;
-            var myOptions = {
-              zoom: 15,
-              center: new google.maps.LatLng(7.285764, 125.680568),
-              mapTypeId: google.maps.MapTypeId.HYBRID
-            },
-            map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-            for (var i = 0, length = searchMapDataResults.length; i < length; i++) {
-              var iw = new google.maps.InfoWindow();
-              var data = searchMapDataResults[i];
-              var latlong = searchMapDataResults[i]['latlong'],
-              latLngArray = latlong.split(','),
-              latitude = parseFloat(latLngArray[0]),
-              longitude = parseFloat(latLngArray[1]),
-              myLatLong = new google.maps.LatLng(latitude, longitude);
-              var markerOptions = {
-                map: map,
-                animation: google.maps.Animation.DROP,
-                position: myLatLong,
-                zoom: 15
-              },
-              marker = new google.maps.Marker(markerOptions);
-              (function (marker, data) {
-                google.maps.event.addListener(marker, "click", function () {
-                 document.getElementById('directionsDiv').innerHTML = '';
-                 document.getElementById('residentInfoDiv').innerHTML = '';
-                 document.getElementById('dataDiv').innerHTML = "<h3 class='text-center'><strong>Resident's Data</strong></h3>";
-                 document.getElementById('residentInfoDiv').innerHTML = "<div class='row'><h4 class='text-center'><strong>Information</strong></h4><div class='col-sm-6' id='resInfoTitleDist'>"
-                 + "<b>First Name: </b>" + data.name + "<br><br>"
-                 + "<b>Middle Name: </b>" + data.mname + "<br><br>"
-                 + "<b>Last Name: </b>" + data.lname + "<br><br>"
-                 + "<b>Gender: </b>" + data.gender + "<br><br>"
-                 + "<b>Birthdate: </b>" + data.bday + "<br><br>"
-                 + "<b>Age: </b>" + data.age + "<br><br>"
-                 + "<b>Citizenship: </b>" + data.citizenship + "<br><br>"
-                 + "<b>Occupation: </b>" + data.occupation + "<br><br>"
-                 + "<b>Status: </b>" + data.status + "<br><br>"
-                 + "</div><div class='col-sm-6' id='resInfoTitleDist'><b>Purok: </b>" + data.purok + "<br><br>"
-                 + "<b>Residential Address: </b>" + data.resAddress + "<br><br>"
-                 + "<b>Permanent Address: </b>" + data.perAddress + "<br><br>"
-                 + "<b>Email: </b>" + data.email + "<br><br>"
-                 + "<b>Telephone #: </b>" + data.telNum + "<br><br>"
-                 + "<b>Cellphone #: </b>" + data.cpNum + "<br><br>"
-                 + "</div></div>";
-                                                                   // iw.setContent("<div class='row'><h4 class='text-center'><strong>Resident's Data</strong></h4><div class='col-sm-6'>"
-                                                                   //         + "<b>First Name: </b>" + data.name + "<br>"
-                                                                   //         + "<b>Middle Name: </b>" + data.mname + "<br>"
-                                                                   //         + "<b>Last Name: </b>" + data.lname + "<br>"
-                                                                   //         + "<b>Gender: </b>" + data.gender + "<br>"
-                                                                   //         + "<b>Birthdate: </b>" + data.bday + "<br>"
-                                                                   //         + "<b>Age: </b>" + data.age + "<br>"
-                                                                   //         + "<b>Citizenship: </b>" + data.citizenship + "<br>"
-                                                                   //         + "<b>Occupation: </b>" + data.occupation + "<br>"
-                                                                   //         + "<b>Status: </b>" + data.status + "<br>"
-                                                                   //         + "</div><div class='col-sm-6'><b>Purok: </b>" + data.purok + "<br>"
-                                                                   //         + "<b>Residential Address: </b>" + data.resAddress + "<br>"
-                                                                   //         + "<b>Permanent Address: </b>" + data.perAddress + "<br>"
-                                                                   //         + "<b>Email: </b>" + data.email + "<br>"
-                                                                   //         + "<b>Telephone #: </b>" + data.telNum + "<br>"
-                                                                   //         + "<b>Cellphone #: </b>" + data.cpNum + "<br>"
-                                                                   //         + "</div></div>");
-                                                                   // iw.open(map, marker);
-                                                                   directionsDisplay.setMap(map);
-                                                                   calculateAndDisplayRoute(data.latlong);
-                                                                   document.getElementById('directionsDiv').innerHTML = "<h4 class='text-center'><strong>Location</strong></h4>";
-                                                                   directionsDisplay.setPanel(document.getElementById('directionsDiv'));
-                                                                 });
+            document.getElementById('dataTitle').innerHTML = "";
+            var value = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url('Maps/mapSearchDataInMarker') ?>",
+                data: {
+                    'searchDataToMarker': value
+                },
+                dataType: "JSON",
+                success: function (searchMapDataResults) {
+                    if (searchMapDataResults.length === 0 || $("#searchDataToMarker").val() === null) {
+                        document.getElementById('directionsDiv').innerHTML = '';
+                        document.getElementById('residentInfoDiv').innerHTML = '';
+                        document.getElementById('dataTitle').innerHTML = "";
+                        $.bootstrapGrowl("<h4><strong>Resident not found!</strong></h4> <p>Search result empty!</p>", {
+                            type: "warning",
+                            delay: 2500,
+                            width: "auto",
+                            allow_dismiss: true,
+                            offset: {from: 'top', amount: 20}
+                        });
+                        return;
+                    } else {
+                        var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
+                        var directionsService = new google.maps.DirectionsService;
+                        var myCenter = new google.maps.LatLng(7.285764, 125.680568)
+                        var myOptions = {
+                            zoom: 15,
+                            streetViewControl: false,
+                            center: myCenter,
+                            mapTypeId: google.maps.MapTypeId.HYBRID
+                        },
+                        map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+                        for (var i = 0, length = searchMapDataResults.length; i < length; i++) {
+                            var iw = new google.maps.InfoWindow();
+                            var data = searchMapDataResults[i];
+                            var latlong = searchMapDataResults[i]['latlong'],
+                            latLngArray = latlong.split(','),
+                            latitude = parseFloat(latLngArray[0]),
+                            longitude = parseFloat(latLngArray[1]),
+                            myLatLong = new google.maps.LatLng(latitude, longitude);
+                            var markerOptions = {
+                                map: map,
+                                animation: google.maps.Animation.DROP,
+                                position: myLatLong,
+                                zoom: 14
+                            },
+                            marker = new google.maps.Marker(markerOptions);
+                            (function (marker, data) {
+                                google.maps.event.addListener(marker, "click", function () {
+                                    document.getElementById('directionsDiv').innerHTML = '';
+                                    document.getElementById('residentInfoDiv').innerHTML = '';
+                                    document.getElementById('dataTitle').innerHTML = "<h2 class='text-center'><strong>Resident's Data</strong><br></h2>";
+                                    document.getElementById('residentInfoDiv').innerHTML = "<div class='row text-center'><h4 class='text-center' style='text-decoration: underline;'><strong>Information</strong></h4><div class='col-sm-6' id='resInfoTitleDist'>"
+                                    + "<b>First Name: </b>" + data.name + "<br><br>"
+                                    + "<b>Middle Name: </b>" + data.mname + "<br><br>"
+                                    + "<b>Last Name: </b>" + data.lname + "<br><br>"
+                                    + "<b>Gender: </b>" + data.gender + "<br><br>"
+                                    + "<b>Birthdate: </b>" + data.bday + "<br><br>"
+                                    + "<b>Age: </b>" + data.age + "<br><br>"
+                                    + "<b>Citizenship: </b>" + data.citizenship + "<br><br>"
+                                    + "<b>Occupation: </b>" + data.occupation + "<br><br>"
+                                    + "</div><div class='col-sm-6' id='resInfoTitleDist'><b>Status: </b>" + data.status + "<br><br>"
+                                    + "<b>Purok: </b>" + data.purok + "<br><br>"
+                                    + "<b>Residential Address: </b>" + data.resAddress + "<br><br>"
+                                    + "<b>Permanent Address: </b>" + data.perAddress + "<br><br>"
+                                    + "<b>Email: </b>" + data.email + "<br><br>"
+                                    + "<b>Telephone #: </b>" + data.telNum + "<br><br>"
+                                    + "<b>Cellphone #: </b>" + data.cpNum + "<br><br>"
+                                    + "</div></div>";
+                                    directionsDisplay.setMap(map);
+                                    calculateAndDisplayRoute(data.latlong);
+                                    document.getElementById('directionsDiv').innerHTML = "<h4 class='text-center' style='text-decoration: underline;'><strong>Location</strong><br><br></h4>";
+                                    directionsDisplay.setPanel(document.getElementById('directionsDiv'));
+                                    var bounds = new google.maps.LatLngBounds(myLatLong, myCenter);
+
+                                    google.maps.event.addListener(map, 'bounds_changed', function () {
+                                        if (bounds.contains(map.getCenter()))
+                                            return;
+                                        var c = map.getCenter(),
+                                        x = c.lng(),
+                                        y = c.lat(),
+                                        maxX = bounds.getNorthEast().lng(),
+                                        maxY = bounds.getNorthEast().lat(),
+                                        minX = bounds.getSouthWest().lng(),
+                                        minY = bounds.getSouthWest().lat();
+                                        if (x < minX) {
+                                            x = minX
+                                        }
+                                        ;
+                                        if (x > maxX) {
+                                            x = maxX
+                                        }
+                                        ;
+                                        if (y < minY) {
+                                            y = minY
+                                        }
+                                        ;
+                                        if (y > maxY) {
+                                            y = maxY
+                                        }
+                                        ;
+                                        map.setCenter(new google.maps.LatLng(y, x));
+                                    });
+
+                                    //  marker.set("myZIndex", marker.getZIndex());
+
+                                    //  google.maps.event.addListener(marker, "mouseover", function() {
+                                    //   getHighestZIndex();
+                                    //   this.setOptions({zIndex:highestZIndex+1});
+                                    // });
+
+                                    //  google.maps.event.addListener(marker, "mouseout", function() {
+                                    //   this.setOptions({zIndex:this.get("myZIndex")});
+                                    // });
+
+                                    //  function getHighestZIndex() {
+                                    //   if (highestZIndex==0) {
+                                    //     if (markers.length>0) {
+                                    //       for (var i=0; i<markers.length; i++) {
+                                    //         tempZIndex = markers[i].getZIndex();
+                                    //         if (tempZIndex>highestZIndex) {
+                                    //           highestZIndex = tempZIndex;
+                                    //         }
+                                    //       }
+                                    //     }
+                                    //   }
+                                    //   return highestZIndex;
+                                    // }
+                                });
 })(marker, data);
 function calculateAndDisplayRoute(latLongDest) {
-  var start = new google.maps.LatLng(7.282397, 125.683499);
-  var end = latLongDest;
-  directionsService.route({
-    origin: start,
-    destination: end,
-    travelMode: google.maps.TravelMode.DRIVING
-  }, function (response, status) {
-    if (status === google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(response);
-    } else {
-      alertify.alert('Directions request failed due to ' + status + ',' + myLatLong).set('modal', false);
-    }
-  });
+    var start = new google.maps.LatLng(7.282397, 125.683499);
+    var end = latLongDest;
+    directionsService.route({
+        origin: start,
+        destination: end,
+        travelMode: google.maps.TravelMode.DRIVING
+    }, function (response, status) {
+        if (status === google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(response);
+        } else {
+                                        // alertify.alert('Directions request failed due to ' + status + ',' + myLatLong).set('modal', false, 'movable', false);
+                                        $.bootstrapGrowl('<h4><strong>Error!</strong></h4> <p>Directions request failed due to ' + status + ',' + myLatLong + '!</p>', {
+                                            type: "danger",
+                                            delay: 2500,
+                                            width: "auto",
+                                            allow_dismiss: true,
+                                            offset: {from: 'top', amount: 20}
+                                        });
+                                    }
+                                });
 }
 }
 var flightPlanCoordinates = [{lat: 7.292363, lng: 125.667018},
@@ -228,38 +300,100 @@ var flightPlanCoordinates = [{lat: 7.292363, lng: 125.667018},
 {lat: 7.292363, lng: 125.667018}
 ];
 var flightPath = new google.maps.Polyline({
-  path: flightPlanCoordinates,
-  geodesic: true,
-  strokeColor: '#FF0000',
-  strokeOpacity: 1.0,
-  strokeWeight: 1
+    path: flightPlanCoordinates,
+    geodesic: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 2
 });
 flightPath.setMap(map);
+
+var strictBounds = new google.maps.LatLngBounds(new google.maps.LatLng(7.274053, 125.666105), new google.maps.LatLng(7.296828, 125.698691));
+
+google.maps.event.addListener(map, 'bounds_changed', function () {
+    if (strictBounds.contains(map.getCenter()))
+        return;
+    var c = map.getCenter(),
+    x = c.lng(),
+    y = c.lat(),
+    maxX = strictBounds.getNorthEast().lng(),
+    maxY = strictBounds.getNorthEast().lat(),
+    minX = strictBounds.getSouthWest().lng(),
+    minY = strictBounds.getSouthWest().lat();
+    if (x < minX) {
+        x = minX
+    }
+    ;
+    if (x > maxX) {
+        x = maxX
+    }
+    ;
+    if (y < minY) {
+        y = minY
+    }
+    ;
+    if (y > maxY) {
+        y = maxY
+    }
+    ;
+    map.setCenter(new google.maps.LatLng(y, x));
+});
 }
 }, error: function () {
-  $("#searchResult").html('');
-  alertify.set('notifier', 'position', 'top-right');
-  alertify.error('Search result empty!');
-  return;
+    $("#searchResult").html('');
+    $.bootstrapGrowl("<h4><strong>Resident not found!</strong></h4> <p>Search result empty!</p>", {
+        type: "warning",
+        delay: 2500,
+        width: "auto",
+        allow_dismiss: true,
+        offset: {from: 'top', amount: 20}
+    });
+    return;
 }
 });
 });
 
-function checkMapConnection() {
-  $.getScript( "http://maps.googleapis.com/maps/api/js?key=AIzaSyAqDAnQp7hT_6HEnwQc8GgE7ApXHMpPny4" )
-  .done(function( script, textStatus ) {
-    // console.log('Google maps is online!');
-    return true;
-  })
-  .fail(function( jqxhr, settings, exception ) {
-    // console.log('Google maps is offline!');
-    // $('#map-container').remove();
-    document.getElementById('block').innerHTML = '<div class="row text-center"><div class="col-sm-12"><image src="<?php echo base_url() ?>assets/Backend/images/noConnection.png"/><br/><br/><h3>It seems you dont have a internet connection, please connect to the internet.</h3></div></div>';
-    return false;
-  });
-}
+        // function checkMapConnection() {
+        //     setTimeout(function () {
+        //         $.getScript("http://maps.googleapis.com/maps/api/js?key=AIzaSyAqDAnQp7hT_6HEnwQc8GgE7ApXHMpPny4")
+        //                 .done(function (script, textStatus) {
+        //                     console.log('Google maps is online!');
+        //                     return true;
+        //                 })
+        //                 .fail(function (jqxhr, settings, exception) {
+        //                     console.log('Google maps is offline!');
+        //                     // alertify.alert('Google maps is offline!');
+        //                     $('#map-container').remove();
+        //                     document.getElementById('site-block').innerHTML = '<div class="row text-center"><div class="col-sm-12"><image src="<?php echo base_url() ?>assets/Frontend/images/noConnection.png"/><br/><br/><h3>It seems you dont have a internet connection, please connect to the internet.</h3></div></div>';
+        //                     return false;
+        //                 });
+        //     }, 1000);
+        // }
 
-});
+        if ('matchMedia' in window) {
+            // Chrome, Firefox, and IE 10 support mediaMatch listeners
+            window.matchMedia('print').addListener(function (media) {
+                if (media.matches) {
+                    beforePrint();
+                } else {
+                    // Fires immediately, so wait for the first mouse movement
+                    $(document).one('mouseover', afterPrint);
+                }
+            });
+        } else {
+            // IE and Firefox fire before/after events
+            $(window).on('beforeprint', beforePrint);
+            $(window).on('afterprint', afterPrint);
+        }
+
+        function beforePrint() {
+            $(this).style.display = 'none';
+        }
+
+        function afterPrint() {
+            $(this).style.display = '';
+        }
+    });
 </script>
 
 <?php include 'assets/Backend/inc/template_end.php';?>

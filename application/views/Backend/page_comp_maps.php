@@ -21,8 +21,7 @@ $template['title'] = 'BCGIS | MAP(Admin)';
             <div class="col-sm-6 hidden-xs">
                 <div class="header-section">
                     <ul class="breadcrumb breadcrumb-top">
-                        <!--                        <li>Map</li>-->
-                        <li><a href="">Barangay Map</a></li>
+                        <li><a href="javascript:void(0)">Barangay Map</a></li>
                     </ul>
                 </div>
             </div>

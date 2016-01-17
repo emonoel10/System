@@ -50,8 +50,8 @@ class InfoTable extends CI_Controller {
 //            $row[] = $resident->latlong;
 
 			//add html for action
-			$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void()" title="Edit Resident" onclick="edit_resident(' . "'" . $resident->resident_id . "'" . ')"><i class="fa fa-pencil"></i></a>
-            <a class="btn btn-sm btn-danger" href="javascript:void()" title="Delete Resident" onclick="delete_resident(' . "'" . $resident->resident_id . "'" . ')"><i class="fa fa-times"></i></a>';
+			$row[] = '<a class="btn btn-sm btn-primary enable-tooltip" data-toggle="tooltip" href="javascript:void(0)" title="Edit Resident" onclick="edit_resident(' . "'" . $resident->resident_id . "'" . ')"><i class="fa fa-pencil"></i></a>
+            <a class="btn btn-sm btn-danger enable-tooltip" data-toggle="tooltip" href="javascript:void(0)" title="Delete Resident" onclick="delete_resident(' . "'" . $resident->resident_id . "'" . ')"><i class="fa fa-times"></i></a>';
 
 			$data[] = $row;
 		}

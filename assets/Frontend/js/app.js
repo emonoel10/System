@@ -15,37 +15,58 @@ var App = function() {
         scrollToTop();
 
         // Add the correct copyright year at the footer
-        var yearCopy = $('#year-copy'), d = new Date();
-        if (d.getFullYear() === 2014) { yearCopy.html('2014'); } else { yearCopy.html('2014-' + d.getFullYear().toString().substr(2,2)); }
+        var yearCopy = $('#year-copy'),
+            d = new Date();
+        if (d.getFullYear() === 2014) {
+            yearCopy.html('2014');
+        } else {
+            yearCopy.html('2014-' + d.getFullYear().toString().substr(2, 2));
+        }
 
         // Initialize tabs
-        $('[data-toggle="tabs"] a, .enable-tabs a').click(function(e){ e.preventDefault(); $(this).tab('show'); });
+        $('[data-toggle="tabs"] a, .enable-tabs a').click(function(e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
 
         // Initialize Tooltips
-        $('[data-toggle="tooltip"], .enable-tooltip').tooltip({container: 'body', animation: false});
+        $('[data-toggle="tooltip"], .enable-tooltip').tooltip({
+            container: 'body',
+            animation: true
+        });
 
         // Initialize Popovers
-        $('[data-toggle="popover"], .enable-popover').popover({container: 'body', animation: true});
+        $('[data-toggle="popover"], .enable-popover').popover({
+            container: 'body',
+            animation: true
+        });
 
         // Initialize Placeholder (for IE9)
         $('input, textarea').placeholder();
 
         // Initialize Image Lightbox
-        $('[data-toggle="lightbox-image"]').magnificPopup({type: 'image', image: {titleSrc: 'title'}});
+        $('[data-toggle="lightbox-image"]').magnificPopup({
+            type: 'image',
+            image: {
+                titleSrc: 'title'
+            }
+        });
 
         // Toggle animation class when an element appears with Jquery Appear plugin
-        $('[data-toggle="animation-appear"]').each(function(){
-            var $this       = $(this);
-            var $animClass  = $this.data('animation-class');
-            var $elemOff    = $this.data('element-offset');
+        $('[data-toggle="animation-appear"]').each(function() {
+            var $this = $(this);
+            var $animClass = $this.data('animation-class');
+            var $elemOff = $this.data('element-offset');
 
             $this.appear(function() {
                 $this.removeClass('visibility-none').addClass($animClass);
-            },{accY: $elemOff});
+            }, {
+                accY: $elemOff
+            });
         });
 
         // With CountTo (+ help of Jquery Appear plugin), Check out examples and documentation at https://github.com/mhuggins/jquery-countTo
-        $('[data-toggle="countTo"]').each(function(){
+        $('[data-toggle="countTo"]').each(function() {
             var $this = $(this);
 
             $this.appear(function() {
@@ -53,7 +74,7 @@ var App = function() {
                     speed: 2000,
                     refreshInterval: 20,
                     onComplete: function() {
-                        if($this.data('after')) {
+                        if ($this.data('after')) {
                             $this.html($this.html() + $this.data('after'));
                         }
                     }
@@ -63,7 +84,7 @@ var App = function() {
     };
 
     /* Handles Header */
-    var handleHeader = function(){
+    var handleHeader = function() {
         var header = $('header');
 
         $(window).scroll(function() {
@@ -77,14 +98,14 @@ var App = function() {
     };
 
     /* Handles Main Menu */
-    var handleMenu = function(){
+    var handleMenu = function() {
         var sideNav = $('.site-nav');
 
-        $('.site-menu-toggle').on('click', function(){
+        $('.site-menu-toggle').on('click', function() {
             sideNav.toggleClass('site-nav-visible');
         });
 
-        sideNav.on('mouseleave', function(){
+        sideNav.on('mouseleave', function() {
             $(this).removeClass('site-nav-visible');
         });
     };
@@ -93,9 +114,7 @@ var App = function() {
     var scrollToTop = function() {
         // Get link
         var link = $('#to-top');
-        var windowW = window.innerWidth
-                        || document.documentElement.clientWidth
-                        || document.body.clientWidth;
+        var windowW = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
         $(window).scroll(function() {
             // If the user scrolled a bit (150 pixels) show the link in large resolutions
@@ -108,7 +127,9 @@ var App = function() {
 
         // On click get to top
         link.click(function() {
-            $('html, body').animate({scrollTop: 0}, 400);
+            $('html, body').animate({
+                scrollTop: 0
+            }, 400);
             return false;
         });
     };
@@ -121,4 +142,6 @@ var App = function() {
 }();
 
 /* Initialize app when page loads */
-$(function(){ App.init(); });
+$(function() {
+    App.init();
+});

@@ -1,23 +1,8 @@
-<?php
-/**
- * page_sidebar_alt.php
- *
- * Author: pixelcave
- *
- * The alternative sidebar of each page
- *
- */
-?>
-<!-- Alternative Sidebar -->
 <div id="sidebar-alt" tabindex="-1" aria-hidden="true">
-    <!-- Toggle Alternative Sidebar Button (visible only in static layout) -->
     <a href="javascript:void(0)" id="sidebar-alt-close" onclick="App.sidebar('toggle-sidebar-alt');"><i class="fa fa-times"></i></a>
 
-    <!-- Wrapper for scrolling functionality -->
     <div id="sidebar-scroll-alt">
-        <!-- Sidebar Content -->
         <div class="sidebar-content">
-            <!-- Settings -->
             <div class="sidebar-section">
                 <center>
                 <h2 class="text-light">UI Themes</h2>
@@ -165,11 +150,6 @@
                 </form>
                 </center>
             </div>
-            <!-- END Settings -->
         </div>
-        <!-- END Sidebar Content -->
     </div>
-    <!-- END Wrapper for scrolling functionality -->
 </div>
-<!-- END Alternative Sidebar -->
-

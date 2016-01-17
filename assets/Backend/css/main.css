@@ -2811,7 +2811,7 @@ li.dropdown-header {
 /* Tooltip */
 
 .tooltip {
-    z-index: 1051;
+    z-index: 1070;
 }
 
 .tooltip.in {
@@ -4185,17 +4185,16 @@ canvas {
     margin-bottom: 3%;
 }
 
-
-/*#directionsDiv {
-    margin-top: 50px;
-    margin-bottom: 25px;
+#directionsDiv {
+    /*margin-top: 50px;
+    margin-bottom: 25px;*/
 }
 
-#residentInfoDiv {
+
+/*#residentInfoDiv {
     margin-top: 50px;
     margin-bottom: 25px;
-}
-*/
+    }*/
 
 #resInfoTitleDist {
     margin-top: 5%;
@@ -4217,6 +4216,10 @@ canvas {
 
 #mapTitle {
     display: none;
+}
+
+#mapTitleHeader {
+    margin-left: 15%;
 }
 
 #map {
@@ -4245,15 +4248,15 @@ canvas {
     #mapTitle {
         display: inline;
     }
-    #map-header > text {
-        display: none;
-    }
-    #print {
-        display: none;
-    }
+    #map-header > text,
+    #print,
     #searchBox {
         display: none;
     }
+    #residentInfoTitleDist {
+        text-align: justify;
+    }
+    #residentInfoDiv,
     #directionsDiv {
         margin-top: 50px;
         margin-bottom: 25px;
@@ -4278,6 +4281,11 @@ canvas {
     #map-header > h2 {
         display: none;
     }
+    hr {
+        /*background-color: black;
+        height: 3px;*/
+        border: 2px solid #000;
+    }
 }
 
 
@@ -4287,7 +4295,6 @@ canvas {
 
 #response {
     display: none;
-    visibility: hidden;
 }
 
 .text-muted a {

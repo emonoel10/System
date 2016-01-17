@@ -9,18 +9,22 @@ class InfoTable_model extends CI_Model {
 		$this->load->database();
 	}
 
-	var $table = 'resident';
-	var $column = array('name', 'mname', 'lname', 'gender', 'bday', 'age', 'citizenship', 'occupation', 'status', 'purok', 'resAddress', 'perAddress', 'email', 'telNum', 'cpNum', 'latlong');
+	var $residentTable = 'resident';
+	var $residentColumn = array('name', 'mname', 'lname', 'gender', 'bday', 'age', 'citizenship', 'occupation', 'status', 'purok', 'resAddress', 'perAddress', 'email', 'telNum', 'cpNum', 'latlong');
+	var $geolocTable = 'geoloc';
+	var $geolocColumn = array('resident_latlong');
+	// var $memberTable = 'member';
+	// var $memberColumn = array('resident_latlong');
 	var $order = array('resident_id' => 'desc');
 
 	public function _get_datatables_query() {
 
-		$this->db->from($this->table);
+		$this->db->from($this->residentTable);
 
 		$i = 0;
 
-		foreach ($this->column as $item) {
-			// loop column
+		foreach ($this->residentColumn as $item) {
+			// loop residentColumn
 			if ($_POST['search']['value']) {
 				// if datatable send POST for search
 
@@ -32,19 +36,19 @@ class InfoTable_model extends CI_Model {
 					$this->db->or_like($item, $_POST['search']['value']);
 				}
 
-				if (count($this->column) - 1 == $i) {
+				if (count($this->residentColumn) - 1 == $i) {
 					//last loop
 					$this->db->group_end();
 				}
 				//close bracket
 			}
-			$column[$i] = $item; // set column array variable to order processing
+			$residentColumn[$i] = $item; // set residentColumn array variable to order processing
 			$i++;
 		}
 
 		if (isset($_POST['order'])) {
 			// here order processing
-			$this->db->order_by($column[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
+			$this->db->order_by($residentColumn[$_POST['order']['0']['residentColumn']], $_POST['order']['0']['dir']);
 		} else if (isset($this->order)) {
 			$order = $this->order;
 			$this->db->order_by(key($order), $order[key($order)]);
@@ -68,12 +72,12 @@ class InfoTable_model extends CI_Model {
 	}
 
 	public function count_all() {
-		$this->db->from($this->table);
+		$this->db->from($this->residentTable);
 		return $this->db->count_all_results();
 	}
 
 	public function get_by_id($id) {
-		$this->db->from($this->table);
+		$this->db->from($this->residentTable);
 		$this->db->where('resident_id', $id);
 		$query = $this->db->get();
 
@@ -81,18 +85,19 @@ class InfoTable_model extends CI_Model {
 	}
 
 	public function save($data) {
-		$this->db->insert($this->table, $data);
+		$this->db->insert($this->residentTable, $data);
+		// $this->db->insert($this->geolocTable, $data['resident_id'], $data['latlong']);
 		return $this->db->insert_id();
 	}
 
 	public function update($where, $data) {
-		$this->db->update($this->table, $data, $where);
+		$this->db->update($this->residentTable, $data, $where);
 		return $this->db->affected_rows();
 	}
 
 	public function delete_by_id($id) {
 		$this->db->where('resident_id', $id);
-		$this->db->delete($this->table);
+		$this->db->delete($this->residentTable);
 	}
 
 }
