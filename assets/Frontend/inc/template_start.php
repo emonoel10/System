@@ -29,9 +29,6 @@
 
         <link rel="stylesheet" href="assets/Frontend/css/themes.css">
 
-        <link rel="stylesheet" href="assets/Frontend/css/alertify/alertify.min.css">
-        <link rel="stylesheet" href="assets/Frontend/css/alertify/themes/bootstrap.min.css">
-
         <link rel="stylesheet" href="<?=base_url();?>assets/Frontend/css/sweet-alert/sweetalert.css">
 
         <script src="assets/Frontend/js/vendor/modernizr-2.8.3.min.js"></script>
