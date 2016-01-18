@@ -131,7 +131,7 @@ var CompCharts = function() {
                     animateScale: true,
                     maintainAspectRatio: true,
                     percentageInnerCutout: 50
-                        //                    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%>" + " - " + "<%=segments[i].value%>%</li><%}%></ul>"
+                        // legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%>" + " - " + "<%=segments[i].value%>%</li><%}%></ul>"
                         // legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
                 };
 
@@ -206,6 +206,7 @@ var CompCharts = function() {
                     animateScale: true,
                     labelAlign: 'center',
                     legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%>" + ": " + "<%=segments[i].value%> (<%=Math.round(segments[i].value / 100 * " + totalPopulationByMale + ")%> %)</li><br><%}%></ul>"
+                        // legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
                 };
                 var ageRangePie = document.getElementById("ageRangesPieMale").getContext("2d");
                 var ageRangesPieMaleLegend = new Chart(ageRangePie).Pie(pieData, pieOptions);
@@ -261,6 +262,7 @@ var CompCharts = function() {
                     animateRotate: true,
                     animateScale: true,
                     legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%>" + ": " + "<%=segments[i].value%> (<%=Math.round(segments[i].value / 100 * " + totalPopulationByMale + ")%> %)</li><br><%}%></ul>"
+                        // legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
                 };
                 var ageRangePie = document.getElementById("ageRangesPieFemale").getContext("2d");
                 var ageRangesPieFemaleLegend = new Chart(ageRangePie).Doughnut(doughnutData, doughnutOptions);
