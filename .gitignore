@@ -25,3 +25,14 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.stTheme.cache
 *.sublime-workspace
 *.sublime-project
+node_modules/gulp-jshint/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/path-type/node_modules/pinkie-promise/readme.md
+*.md
+*.json
+*.js
+*.yml
+*.npmignore
+node_modules/jshint/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/README.markdown
+*.txt
+*.html
+*.jshintrc
+*.coffee

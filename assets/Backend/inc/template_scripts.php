@@ -5,7 +5,6 @@
 <!-- <script>!window.jQuery && document.write(decodeURI('%3Cscript src="<?php echo base_url('assets/Backend/js/vendor/jquery-ui-1.11.1/jquery.min.js') ?>"%3E%3C/script%3E'));</script> -->
 
 <script type="text/javascript" src="<?php echo base_url('assets/Backend/js/vendor/bootstrap.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/Backend/js/vendor/alertify.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/Backend/js/plugins.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/Backend/js/app.js'); ?>"></script>
 

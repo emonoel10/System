@@ -37,9 +37,6 @@
 
         <link rel="stylesheet" href="<?=base_url();?>assets/Backend/css/animate.min.css">
 
-        <link rel="stylesheet" href="<?=base_url();?>assets/Backend/css/alertify/alertify.min.css" />
-        <link rel="stylesheet" href="<?=base_url();?>assets/Backend/css/alertify/themes/bootstrap.min.css" />
-
         <link rel="stylesheet" href="<?=base_url();?>assets/Backend/css/sweet-alert/sweetalert.css">
 
     </head>
