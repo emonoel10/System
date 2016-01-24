@@ -36,3 +36,4 @@ node_modules/jshint/node_modules/minimatch/node_modules/brace-expansion/node_mod
 *.html
 *.jshintrc
 *.coffee
+node_modules/**
