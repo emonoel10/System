@@ -2,7 +2,7 @@
 	<header>
 		<div class="container">
 			<a href="<?php echo base_url(); ?>" class="site-logo text-center">
-				<img src="assets/Frontend/images/CagangohanPics/logoCagangohan.png" style="height: 93%; margin-top: -1.5%; width: 15%;"/> Brgy. Cagangohan <strong>GIS</strong>
+				<img src="<?=base_url()?>assets/Frontend/images/CagangohanPics/logoCagangohan.png" style="height: 93%; margin-top: -1.5%; width: 15%;"/> Brgy. Cagangohan <strong>GIS</strong>
 			</a>
 
 			<nav>

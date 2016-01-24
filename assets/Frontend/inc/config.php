@@ -17,8 +17,8 @@ $primary_nav = array(
 	// 	'url' => 'Main',
 	// ),
 	array(
-		'name' => 'Map',
-		'url' => 'FrontMap',
+		'name' => 'Barangay Map',
+		'url' => 'Map',
 	),
 	array(
 		'name' => 'Fill-Up',

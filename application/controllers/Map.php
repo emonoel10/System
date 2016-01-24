@@ -2,11 +2,15 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class FrontMapContent extends CI_Controller {
+class Map extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
 		$this->load->Model('Maps_model');
+	}
+
+	public function index() {
+		$this->load->view('Frontend/map');
 	}
 
 	public function mapSearchDataInMarker() {
@@ -39,7 +43,7 @@ class FrontMapContent extends CI_Controller {
 		echo json_encode($results);
 	}
 
-	public function index() {
+	public function index_content() {
 		//Brgy. Cagangohan Bounds:
 		// SW: 7.274053,125.666105
 		// NE: 7.2967,125.730692
@@ -55,25 +59,34 @@ class FrontMapContent extends CI_Controller {
 		$config['cluster'] = TRUE;
 		$config['onboundschanged'] = "
 		var strictBounds = new google.maps.LatLngBounds(
-			new google.maps.LatLng(7.274053, 125.666105),
-			new google.maps.LatLng(7.2967, 125.730692));
-if (strictBounds.contains(map.getCenter())) return;
+ 		new google.maps.LatLng(7.274053, 125.666105),
+ 		new google.maps.LatLng(7.2967, 125.730692));
+     		if (strictBounds.contains(map.getCenter())) return;
 
-var c = map.getCenter(),
-x = c.lng(),
-y = c.lat(),
-maxX = strictBounds.getNorthEast().lng(),
-maxY = strictBounds.getNorthEast().lat(),
-minX = strictBounds.getSouthWest().lng(),
-minY = strictBounds.getSouthWest().lat();
+	     var c = map.getCenter(),
+	         x = c.lng(),
+	         y = c.lat(),
+	         maxX = strictBounds.getNorthEast().lng(),
+	         maxY = strictBounds.getNorthEast().lat(),
+	         minX = strictBounds.getSouthWest().lng(),
+	         minY = strictBounds.getSouthWest().lat();
 
-if (x < minX) x = minX;
-if (x > maxX) x = maxX;
-if (y < minY) y = minY;
-if (y > maxY) y = maxY;
+	     if (x < minX) {
+	     	x = minX;
+	     }
+	     if (x > maxX) {
+	     	x = maxX;
+	     }
+	     if (y < minY) {
+	     	y = minY;
+	     }
+	     if (y > maxY) {
+	     	y = maxY;
+	     }
 
-map.setCenter(new google.maps.LatLng(y, x));
-";
+	     map.setCenter(new google.maps.LatLng(y, x));
+		";
+
 		$this->googlemaps->initialize($config);
 
 		$polyline = array(); //cagangohan

@@ -1,11 +1,11 @@
 <?php
 include 'assets/Backend/inc/config.php';
 $template['header_link'] = 'CHARTS';
-$template['title'] = 'BCGIS | DASHBOARD';
+$template['title'] = 'CHART | DASHBOARD | BCGIS';
 ?>
 
-<?php include 'assets/Backend/inc/template_start.php'; ?>
-<?php include 'assets/Backend/inc/page_head.php'; ?>
+<?php include 'assets/Backend/inc/template_start.php';?>
+<?php include 'assets/Backend/inc/page_head.php';?>
 
 <!-- Page content -->
 <div id="page-content">
@@ -28,7 +28,7 @@ $template['title'] = 'BCGIS | DASHBOARD';
         </div>
     </div>
     <!-- END Charts Header -->
-    
+
     <div class="block full">
         <!--<div class="block-title"><h2 class="center-block">Total Population by Purok</h2></div>-->
         <div class="row">
@@ -79,11 +79,11 @@ $template['title'] = 'BCGIS | DASHBOARD';
 </style>
 
 <!-- Include Jquery library from Google's CDN but if something goes wrong get Jquery from local file (Remove 'http:' if you have SSL) -->
-<?php include 'assets/Backend/inc/page_footer.php'; ?>
-<?php include 'assets/Backend/inc/template_scripts.php'; ?>
+<?php include 'assets/Backend/inc/page_footer.php';?>
+<?php include 'assets/Backend/inc/template_scripts.php';?>
 <!-- Load and execute javascript code used only in this page -->
 <script src="<?php echo base_url(); ?>assets/Backend/js/pages/compCharts.js"></script>
 <script>$(function () {
     CompCharts.init();
 });</script>
-<?php include 'assets/Backend/inc/template_end.php'; ?>
+<?php include 'assets/Backend/inc/template_end.php';?>
