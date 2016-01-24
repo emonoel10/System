@@ -46,7 +46,6 @@ class Maps extends CI_Controller {
 	}
 
 	public function index_content() {
-
 		$this->load->library('googlemaps');
 		$config = array();
 		$config['center'] = '7.282397, 125.683499';
@@ -464,34 +463,4 @@ class Maps extends CI_Controller {
 		$this->Login_model->isLoggedIn();
 		$this->load->view('Backend/page_comp_maps-content', $data);
 	}
-
-	// public function mapSearchDataInMarker() {
-	//     $results = array();
-	//     if (isset($_POST['searchDataToMarker'])) {
-	//         $searchData = $_POST['searchDataToMarker'];
-	//         $query = $this->db->query("
-	//             SELECT * FROM resident
-	//             WHERE name LIKE '%{$searchData}%'
-	//             OR mname LIKE '%{$searchData}%'
-	//             OR lname LIKE '%{$searchData}%'
-	//             OR gender LIKE '%{$searchData}%'
-	//             OR bday LIKE '%{$searchData}%'
-	//             OR age LIKE '%{$searchData}%'
-	//             OR citizenship LIKE '%{$searchData}%'
-	//             OR occupation LIKE '%{$searchData}%'
-	//             OR status LIKE '%{$searchData}%'
-	//             OR purok LIKE '%{$searchData}%'
-	//             OR resAddress LIKE '%{$searchData}%'
-	//             OR perAddress LIKE '%{$searchData}%'
-	//             OR email LIKE '%{$searchData}%'
-	//             OR telNum LIKE '%{$searchData}%'
-	//             OR cpNum LIKE '%{$searchData}%'
-	//         ");
-	//         foreach ($query->result() as $searchResult) {
-	//             $results[] = $searchResult;
-	//         }
-	//     }
-	//     header('Content-Type: application/json');
-	//     echo json_encode($results);
-	// }
 }

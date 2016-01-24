@@ -1,6 +1,5 @@
-<?php include 'assets/Frontend/inc/config.php';
-$template['title'] = 'BCGIS | MAP';
-?>
+<?php include 'assets/Frontend/inc/config.php';?>
+<?php $template['title'] = 'BCGIS | MAP';?>
 <?php include 'assets/Frontend/inc/template_start.php';?>
 <?php include 'assets/Frontend/inc/page_head.php';?>
 
@@ -10,24 +9,18 @@ $template['title'] = 'BCGIS | MAP';
     </div>
 </section>
 
-<section class="site-content site-section">
-    <div class="container">
-        <div class="site-block">
-            <div class="row">
-                <iframe src="<?php echo base_url('FrontMapContent') ?>" id="frontMapContent" scrolling="no" frameborder="0"></iframe>
-            </div>
-        </div>
-    </div>
+<section>
+    <iframe src="<?php echo base_url('Map/index_content') ?>" id="frontMapContent" scrolling="no" frameborder="0"></iframe>
 </section>
 
 <?php include 'assets/Frontend/inc/page_footer.php';?>
 <?php include 'assets/Frontend/inc/template_scripts.php';?>
 
-<script type="text/javascript">
-    $('iframe').load(function() {
-       iFrameResize({log: false, heightCalculationMethod: 'bodyScroll'});
+<script src="<?=base_url();?>assets/Frontend/js/pages/map.js"></script>
+<script>
+    $(function () {
+        Map.init();
     });
 </script>
-
 
 <?php include 'assets/Frontend/inc/template_end.php';?>

@@ -48,7 +48,7 @@ class InfoTable_model extends CI_Model {
 
 		if (isset($_POST['order'])) {
 			// here order processing
-			$this->db->order_by($residentColumn[$_POST['order']['0']['residentColumn']], $_POST['order']['0']['dir']);
+			$this->db->order_by($residentColumn[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
 		} else if (isset($this->order)) {
 			$order = $this->order;
 			$this->db->order_by(key($order), $order[key($order)]);
