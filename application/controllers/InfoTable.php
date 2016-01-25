@@ -75,6 +75,18 @@ class InfoTable extends CI_Controller {
 	public function ajax_add() {
 		$this->_validate();
 		$bday = $this->input->post('bday');
+		$email = $this->input->post('email');
+		$telNum = $this->input->post('telNum');
+		$cpNum = $this->input->post('cpNum');
+		if ($email == "" || $email == null) {
+			$email = "N/A";
+		}
+		if ($telNum == "" || $telNum == null) {
+			$telNum = "N/A";
+		}
+		if ($cpNum == "" || $cpNum == null) {
+			$cpNum = "N/A";
+		}
 		$data = array(
 			'name' => humanize($this->input->post('name')),
 			'mname' => humanize($this->input->post('mname')),
@@ -151,11 +163,11 @@ class InfoTable extends CI_Controller {
 			$data['status'] = FALSE;
 		}
 
-		if ($this->input->post('gender') == '') {
-			$data['inputerror'][] = 'gender';
-			$data['error_string'][] = 'Please select Gender';
-			$data['status'] = FALSE;
-		}
+		// if ($this->input->post('gender') == '') {
+		// 	$data['inputerror'][] = 'gender';
+		// 	$data['error_string'][] = 'Please select Gender';
+		// 	$data['status'] = FALSE;
+		// }
 
 		if ($this->input->post('bday') == '') {
 			$data['inputerror'][] = 'bday';
