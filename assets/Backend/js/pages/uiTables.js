@@ -294,12 +294,14 @@ function save() {
                         text: "Resident data successfully added!",
                         type: "success"
                     });
+                    reload_table();
                 } else if (save_method == 'update') {
                     swal({
                         title: "Success!",
                         text: "Resident data successfully updated!",
                         type: "success"
                     });
+                    reload_table();
                 }
             } else {
                 for (var i = 0; i < data.inputerror.length; i++) {
@@ -381,6 +383,7 @@ function delete_resident(id) {
                             text: "Resident data succesfully deleted!",
                             type: "success"
                         });
+                        reload_table();
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         $.bootstrapGrowl("<h4><strong>Error!</strong></h4> <p>Problem deleting resident's data!</p>", {
