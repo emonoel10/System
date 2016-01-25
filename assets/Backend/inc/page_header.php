@@ -41,7 +41,8 @@
 
         <li class="dropdown">
             <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="<?=base_url();?>assets/Backend/img/placeholders/avatars/avatar9.jpg" alt="avatar">
+                <!-- <img src="<?=base_url();?>assets/Backend/img/placeholders/avatars/avatar9.jpg" alt="avatar"> -->
+                <img src="<?=base_url();?>assets/Backend/images/CagangohanPics/logoCagangohan.png" alt="avatar">
             </a>
             <ul class="dropdown-menu dropdown-menu-right">
                 <li class="dropdown-header">

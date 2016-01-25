@@ -770,8 +770,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
                                                         <input type="radio" id="genderFemale" name="gender" value="Female" /><i class="gi gi-woman"></i> Female
                                                     </label>
                                                 </div>
-                                                <span class="help-block"></span>
                                             </div>
+                                            <span class="help-block"></span>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Date of Birth</label>

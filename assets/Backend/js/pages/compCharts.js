@@ -140,7 +140,10 @@ var CompCharts = function() {
                 var legendHTML = '';
                 barData.labels.forEach(function(label, i) {
                     barData.datasets.forEach(function(value) {
-                        legendHTML += ('<li><span style="background: ' + getFillColor(i) + '"></span>' + label + ': </li>' + value['data'][i] + ' (' + Math.round(value['data'][i] / 100 * totalPopulation) + '%)<br>');
+                        console.log(value['data'][i] + " / 100 * " + totalPopulation);
+                        var populationPercent = value['data'][i] / 100 * totalPopulation;
+                        var totalPopulationPercent = Math.round(parseFloat(populationPercent));
+                        legendHTML += ('<li><span style="background: ' + getFillColor(i) + '"></span>' + label + ': </li>' + value['data'][i] + ' (' + totalPopulationPercent + '%)<br>');
                     });
                 });
                 document.getElementById("totalPopulationByPurokLegend").innerHTML = '<ul class="bar-legend">' + legendHTML + '</ul>';
