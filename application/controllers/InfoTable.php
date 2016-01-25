@@ -100,9 +100,9 @@ class InfoTable extends CI_Controller {
 			'purok' => humanize($this->input->post('purok')),
 			'resAddress' => humanize($this->input->post('resAddress')),
 			'perAddress' => humanize($this->input->post('perAddress')),
-			'email' => $this->input->post('email'),
-			'telNum' => $this->input->post('telNum'),
-			'cpNum' => $this->input->post('cpNum'),
+			'email' => $email,
+			'telNum' => $telNum,
+			'cpNum' => $cpNum,
 			'latlong' => $this->input->post('latlong'),
 		);
 		$insert = $this->InfoTable_model->save($data);
@@ -217,11 +217,11 @@ class InfoTable extends CI_Controller {
 			$data['status'] = FALSE;
 		}
 
-		if ($this->input->post('email') == '') {
-			$data['inputerror'][] = 'email';
-			$data['error_string'][] = 'Email Address is required';
-			$data['status'] = FALSE;
-		}
+		// if ($this->input->post('email') == '') {
+		// 	$data['inputerror'][] = 'email';
+		// 	$data['error_string'][] = 'Email Address is required';
+		// 	$data['status'] = FALSE;
+		// }
 
 		if ($this->input->post('cpNum') == '') {
 			$data['inputerror'][] = 'cpNum';
