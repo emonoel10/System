@@ -9,7 +9,7 @@ class AboutBarangay extends CI_Controller {
 	}
 
 	public function index() {
-		$this->load->view('Frontend/barangay');
+		$this->load->view('Frontend/history');
 	}
 
 }

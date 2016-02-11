@@ -131,8 +131,8 @@
 
     <div id="sidebar-extra-info" class="sidebar-content sidebar-nav-mini-hide">
         <div class="text-center">
-            <small>Crafted with <i class="fa fa-heart text-danger"></i> by <a href="http://goo.gl/vNS3I" target="_blank"><?php echo $template['author']; ?></a></small><br>
-            <small><span id="year-copy"></span> &copy; <a href="http://goo.gl/RcsdAh" target="_blank"><?php echo $template['name'] . ' ' . $template['version']; ?></a></small>
+            <small>Crafted by <a href="javascript:void(0)" target="_blank"><?php echo $template['author']; ?></a></small><br>
+            <small><span id="year-copy"></span> &copy; <a href="javascript:void(0)" target="_blank"><?php echo $template['name'] . ' ' . $template['version']; ?></a></small>
         </div>
     </div>
 </div>

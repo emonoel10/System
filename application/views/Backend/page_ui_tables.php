@@ -11,6 +11,7 @@ $template['title'] = 'RESIDENT TABLE | BCGIS';
 <script>
     function initialize() {
         var myCenter = new google.maps.LatLng(7.282397, 125.683499);
+        var markers = [];
         var marker;
 
         var mapProp = {
@@ -21,84 +22,127 @@ $template['title'] = 'RESIDENT TABLE | BCGIS';
             mapTypeId: google.maps.MapTypeId.HYBRID
         };
         var map = new google.maps.Map(document.getElementById("map"), mapProp);
-        // google.maps.event.addDomListener(window, "resize", function() {
-        //    google.maps.event.trigger(map, "resize");
-        //    map.setCenter(myCenter);
-        // });
-marker = new google.maps.Marker({
-    position: myCenter,
-    draggable: true
-});
-marker.setMap(map);
-$("#map").on("click", function () {
-    google.maps.event.trigger(map, 'resize');
-            // map.setCenter(myCenter);
+
+        google.maps.event.addListener(map, 'click', function(event) {
+            document.getElementById('latlong').value = event.latLng.toUrlValue();
+            addMarker(event.latLng);
         });
-google.maps.event.addListener(marker, "drag", function () {
-            document.getElementById("latlong").value = marker.getPosition().toUrlValue(); //set lat current longitude where the marker is plotted
+
+
+
+        addMarker(myCenter);
+
+        function addMarker(location) {
+            clearMarkers();
+            marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                draggable:true
+            });
+
+            google.maps.event.addListener(marker, 'drag', function (event) {
+                document.getElementById("latlong").value = marker.getPosition().toUrlValue();
+            });
+
+            markers.push(marker);
+        }
+
+        function setAllMap(map) {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(map);
+            }
+        }
+
+        function clearMarkers() {
+            setAllMap(null);
+        }
+
+        function showMarkers() {
+            setAllMap(map);
+        }
+
+        function deleteMarkers() {
+            clearMarkers();
+            markers = [];
+        }
+
+        // var worldCoords = [
+        // new google.maps.LatLng(-85.1054596961173, -180),
+        // new google.maps.LatLng(85.1054596961173, -180),
+        // new google.maps.LatLng(85.1054596961173, 180),
+        // new google.maps.LatLng(-85.1054596961173, 180),
+        // new google.maps.LatLng(-85.1054596961173, 0)];
+
+        var worldCoords = [
+        {lat: -85.1054596961173, lng: -180},
+        {lat: 85.1054596961173, lng: -180},
+        {lat: 85.1054596961173, lng: 180},
+        {lat: -85.1054596961173, lng: 180},
+        {lat: -85.1054596961173, lng: 0}
+        ];
+
+        var flightPlanCoordinates = [{lat: 7.292363, lng: 125.667018},
+        {lat: 7.291958, lng: 125.671030},
+        {lat: 7.292022, lng: 125.673777},
+        {lat: 7.291532, lng: 125.675864},
+        {lat: 7.292884, lng: 125.676464},
+        {lat: 7.292809, lng: 125.677291},
+        {lat: 7.292682, lng: 125.680069},
+        {lat: 7.292283, lng: 125.682475},
+        {lat: 7.291916, lng: 125.684653},
+        {lat: 7.290319, lng: 125.685536},
+        {lat: 7.290787, lng: 125.688089},
+        {lat: 7.292937, lng: 125.689033},
+        {lat: 7.294427, lng: 125.689951},
+        {lat: 7.296428, lng: 125.691737},
+        {lat: 7.295853, lng: 125.692123},
+        {lat: 7.295300, lng: 125.692273},
+        {lat: 7.293703, lng: 125.694247},
+        {lat: 7.294001, lng: 125.694612},
+        {lat: 7.294172, lng: 125.697123},
+        {lat: 7.291000, lng: 125.698678},
+        {lat: 7.289723, lng: 125.697091},
+        {lat: 7.287808, lng: 125.695717},
+        {lat: 7.285573, lng: 125.691866},
+        {lat: 7.284466, lng: 125.690793},
+        {lat: 7.282657, lng: 125.689763},
+        {lat: 7.279996, lng: 125.688411},
+        {lat: 7.278123, lng: 125.686930},
+        {lat: 7.277208, lng: 125.686287},
+        {lat: 7.276059, lng: 125.685600},
+        {lat: 7.274207, lng: 125.683604},
+        {lat: 7.274037, lng: 125.683175},
+        {lat: 7.275675, lng: 125.678412},
+        {lat: 7.275697, lng: 125.673975},
+        {lat: 7.280188, lng: 125.674565},
+        {lat: 7.280156, lng: 125.672009},
+        {lat: 7.286728, lng: 125.674788},
+        {lat: 7.287308, lng: 125.673302},
+        {lat: 7.288127, lng: 125.669896},
+        {lat: 7.287137, lng: 125.669834},
+        {lat: 7.287196, lng: 125.665787},
+        {lat: 7.288962, lng: 125.666312},
+        {lat: 7.288718, lng: 125.667889},
+        {lat: 7.290819, lng: 125.667830},
+        {lat: 7.291123, lng: 125.668512},
+        {lat: 7.289612, lng: 125.668116},
+        {lat: 7.289734, lng: 125.668899},
+        {lat: 7.290080, lng: 125.668830},
+        {lat: 7.290309, lng: 125.669729},
+        {lat: 7.290271, lng: 125.670128},
+        {lat: 7.290301, lng: 125.670828},
+        {lat: 7.291330, lng: 125.670852},
+        {lat: 7.291793, lng: 125.666922},
+        {lat: 7.291916, lng: 125.666885},
+        {lat: 7.292363, lng: 125.667018}
+        ];
+        var flightPath = new google.maps.Polyline({
+            path: flightPlanCoordinates,
+            geodesic: true,
+            strokeColor: '#FF0000',
+            strokeOpacity: 1.0,
+            strokeWeight: 2
         });
-var flightPlanCoordinates = [{lat: 7.292363, lng: 125.667018},
-{lat: 7.291958, lng: 125.671030},
-{lat: 7.292022, lng: 125.673777},
-{lat: 7.291532, lng: 125.675864},
-{lat: 7.292884, lng: 125.676464},
-{lat: 7.292809, lng: 125.677291},
-{lat: 7.292682, lng: 125.680069},
-{lat: 7.292283, lng: 125.682475},
-{lat: 7.291916, lng: 125.684653},
-{lat: 7.290319, lng: 125.685536},
-{lat: 7.290787, lng: 125.688089},
-{lat: 7.292937, lng: 125.689033},
-{lat: 7.294427, lng: 125.689951},
-{lat: 7.296428, lng: 125.691737},
-{lat: 7.295853, lng: 125.692123},
-{lat: 7.295300, lng: 125.692273},
-{lat: 7.293703, lng: 125.694247},
-{lat: 7.294001, lng: 125.694612},
-{lat: 7.294172, lng: 125.697123},
-{lat: 7.291000, lng: 125.698678},
-{lat: 7.289723, lng: 125.697091},
-{lat: 7.287808, lng: 125.695717},
-{lat: 7.285573, lng: 125.691866},
-{lat: 7.284466, lng: 125.690793},
-{lat: 7.282657, lng: 125.689763},
-{lat: 7.279996, lng: 125.688411},
-{lat: 7.278123, lng: 125.686930},
-{lat: 7.277208, lng: 125.686287},
-{lat: 7.276059, lng: 125.685600},
-{lat: 7.274207, lng: 125.683604},
-{lat: 7.274037, lng: 125.683175},
-{lat: 7.275675, lng: 125.678412},
-{lat: 7.275697, lng: 125.673975},
-{lat: 7.280188, lng: 125.674565},
-{lat: 7.280156, lng: 125.672009},
-{lat: 7.286728, lng: 125.674788},
-{lat: 7.287308, lng: 125.673302},
-{lat: 7.288127, lng: 125.669896},
-{lat: 7.287137, lng: 125.669834},
-{lat: 7.287196, lng: 125.665787},
-{lat: 7.288962, lng: 125.666312},
-{lat: 7.288718, lng: 125.667889},
-{lat: 7.290819, lng: 125.667830},
-{lat: 7.291123, lng: 125.668512},
-{lat: 7.289612, lng: 125.668116},
-{lat: 7.289734, lng: 125.668899},
-{lat: 7.290080, lng: 125.668830},
-{lat: 7.290309, lng: 125.669729},
-{lat: 7.290271, lng: 125.670128},
-{lat: 7.290301, lng: 125.670828},
-{lat: 7.291330, lng: 125.670852},
-{lat: 7.291793, lng: 125.666922},
-{lat: 7.291916, lng: 125.666885},
-{lat: 7.292363, lng: 125.667018}
-];
-var flightPath = new google.maps.Polyline({
-    path: flightPlanCoordinates,
-    geodesic: true,
-    strokeColor: '#FF0000',
-    strokeOpacity: 1.0,
-    strokeWeight: 2
-});
         //sunkist
         var PurokSunkist = [{lat: 7.286877, lng: 125.674819},
         {lat: 7.286781, lng: 125.674996},
@@ -283,13 +327,13 @@ var flightPath11 = new google.maps.Polyline({
 });
 //atis
 var PurokAtis = [{lat: 7.292778, lng: 125.678237},
-{lat: 7.292510, lng: 125.681394},
-{lat: 7.291156, lng: 125.680874},
 {lat: 7.292177, lng: 125.677985},
+{lat: 7.291156, lng: 125.680874},
+{lat: 7.292510, lng: 125.681394},
 {lat: 7.292778, lng: 125.678237}];
 var flightPath12 = new google.maps.Polyline({
     path: PurokAtis,
-    geodesic: true,
+    // geodesic: true,
     strokeColor: '#FF0000',
     strokeOpacity: 1.0,
     strokeWeight: 2
@@ -643,11 +687,289 @@ flightPath27.setMap(map);
 flightPath28.setMap(map);
 flightPath29.setMap(map);
 
+$('#purok').on('change', function() {
+
+    var purok = document.getElementById("purok").value;
+    if (purok === "") {
+        document.getElementById("resAddress").value = "";
+        document.getElementById("perAddress").value = "";
+    } else {
+        document.getElementById("resAddress").value = "Prk. " + purok + ", Panabo City, Davao del Norte, Philippines 8105";
+        document.getElementById("perAddress").value = "Prk. " + purok + ", Panabo City, Davao del Norte, Philippines 8105";
+    }
+
+    var EuropeCoords = [{lat: 7.292778, lng: 125.678237},
+    {lat: 7.292177, lng: 125.677985},
+    {lat: 7.291156, lng: 125.680874},
+    {lat: 7.292510, lng: 125.681394},
+    {lat: 7.292778, lng: 125.678237}];
+
+    switch (purok) {
+        case "Atis":
+        flightPath.setMap(map);
+        flightPath12.setMap(map);
+        atis = new google.maps.LatLng(7.292316, 125.679508);
+        map.setCenter(atis);
+        map.setZoom(17);
+        marker.setPosition(atis);
+        break;
+
+        case "Avocado":
+        flightPath.setMap(map);
+        flightPath9.setMap(map);
+        avocado = new google.maps.LatLng(7.291124, 125.677019);
+        map.setCenter(avocado);
+        map.setZoom(17);
+        marker.setPosition(avocado);
+        break;
+
+        case "Bayabas":
+        flightPath.setMap(map);
+        flightPath19.setMap(map);
+        bayabas = new google.maps.LatLng(7.289592, 125.681268);
+        map.setCenter(bayabas);
+        map.setZoom(17);
+        marker.setPosition(bayabas);
+        break;
+
+        case "Boongon":
+        flightPath.setMap(map);
+        flightPath21.setMap(map);
+        bayabas = new google.maps.LatLng(7.281333,125.685859);
+        map.setCenter(bayabas);
+        map.setZoom(17);
+        marker.setPosition(bayabas);
+        break;
+
+        case "Chico":
+        flightPath.setMap(map);
+        flightPath8.setMap(map);
+        chico = new google.maps.LatLng(7.290102,125.671225);
+        map.setCenter(chico);
+        map.setZoom(17);
+        marker.setPosition(chico);
+        break;
+
+        case "Durian":
+        flightPath.setMap(map);
+        flightPath22.setMap(map);
+        durian = new google.maps.LatLng(7.283334,125.685902);
+        map.setCenter(durian);
+        map.setZoom(17);
+        marker.setPosition(durian);
+        break;
+
+        case "Guyabano":
+        flightPath.setMap(map);
+        flightPath26.setMap(map);
+        guyabano = new google.maps.LatLng(7.285207,125.681353);
+        map.setCenter(guyabano);
+        map.setZoom(17);
+        marker.setPosition(guyabano);
+        break;
+
+        case "Kaimito":
+        flightPath.setMap(map);
+        flightPath10.setMap(map);
+        kaimito = new google.maps.LatLng(7.290613,125.673972);
+        map.setCenter(kaimito);
+        map.setZoom(17);
+        marker.setPosition(kaimito);
+        break;
+
+        case "Kasoy":
+        flightPath.setMap(map);
+        flightPath20.setMap(map);
+        kasoy = new google.maps.LatLng(7.2904,125.679722);
+        map.setCenter(kasoy);
+        map.setZoom(17);
+        marker.setPosition(kasoy);
+        break;
+
+        case "Lanzones":
+        flightPath.setMap(map);
+        flightPath4.setMap(map);
+        lanzones = new google.maps.LatLng(7.288442,125.668393);
+        map.setCenter(lanzones);
+        map.setZoom(17);
+        marker.setPosition(lanzones);
+        break;
+
+        case "Lomboy":
+        flightPath.setMap(map);
+        flightPath25.setMap(map);
+        lomboy = new google.maps.LatLng(7.282312,125.682254);
+        map.setCenter(lomboy);
+        map.setZoom(17);
+        marker.setPosition(lomboy);
+        break;
+
+        case "Mabolo":
+        flightPath.setMap(map);
+        flightPath25.setMap(map);
+        mabolo = new google.maps.LatLng(7.282312,125.679379);
+        map.setCenter(mabolo);
+        map.setZoom(17);
+        marker.setPosition(mabolo);
+        break;
+
+        case "Macopa":
+        flightPath.setMap(map);
+        flightPath7.setMap(map);
+        macopa = new google.maps.LatLng(7.275292,125.68243);
+        map.setCenter(macopa);
+        map.setZoom(17);
+        marker.setPosition(macopa);
+        break;
+
+        case "Mangga":
+        flightPath.setMap(map);
+        flightPath23.setMap(map);
+        mangga = new google.maps.LatLng(7.279417,125.677705);
+        map.setCenter(mangga);
+        map.setZoom(17);
+        marker.setPosition(mangga);
+        break;
+
+        case "Mangosteen":
+        flightPath.setMap(map);
+        flightPath6.setMap(map);
+        mangosteen = new google.maps.LatLng(7.291852,125.669107);
+        map.setCenter(mangosteen);
+        map.setZoom(17);
+        marker.setPosition(mangosteen);
+        break;
+
+        case "Mansanas":
+        flightPath.setMap(map);
+        flightPath3.setMap(map);
+        mansanas = new google.maps.LatLng(7.284338,125.67769);
+        map.setCenter(mansanas);
+        map.setZoom(17);
+        marker.setPosition(mansanas);
+        break;
+
+        case "Marang":
+        flightPath.setMap(map);
+        flightPath28.setMap(map);
+        marang = new google.maps.LatLng(7.28536,125.685801);
+        map.setCenter(marang);
+        map.setZoom(17);
+        marker.setPosition(marang);
+        break;
+
+        case "Marang Joesil":
+        flightPath.setMap(map);
+        flightPath27.setMap(map);
+        marangJoesil = new google.maps.LatLng(7.281401,125.683999);
+        map.setCenter(marangJoesil);
+        map.setZoom(17);
+        marker.setPosition(marangJoesil);
+        break;
+
+        case "Melon":
+        flightPath.setMap(map);
+        flightPath14.setMap(map);
+        melon = new google.maps.LatLng(7.291447,125.682733);
+        map.setCenter(melon);
+        map.setZoom(17);
+        marker.setPosition(melon);
+        break;
+
+        case "Nangka":
+        flightPath.setMap(map);
+        flightPath29.setMap(map);
+        nangka = new google.maps.LatLng(7.288276,125.686102);
+        map.setCenter(nangka);
+        map.setZoom(17);
+        marker.setPosition(nangka);
+        break;
+
+        case "Pomelo":
+        flightPath.setMap(map);
+        flightPath11.setMap(map);
+        pomelo = new google.maps.LatLng(7.290681,125.678227);
+        map.setCenter(pomelo);
+        map.setZoom(17);
+        marker.setPosition(pomelo);
+        break;
+
+        case "Rambutan":
+        flightPath.setMap(map);
+        flightPath13.setMap(map);
+        rambutan = new google.maps.LatLng(7.291596,125.681681);
+        map.setCenter(rambutan);
+        map.setZoom(17);
+        marker.setPosition(rambutan);
+        break;
+
+        case "Santol":
+        flightPath.setMap(map);
+        flightPath15.setMap(map);
+        santol = new google.maps.LatLng(7.283466,125.689234);
+        map.setCenter(santol);
+        map.setZoom(17);
+        marker.setPosition(santol);
+        break;
+
+        case "Sereguellas":
+        flightPath.setMap(map);
+        flightPath16.setMap(map);
+        sereguellas = new google.maps.LatLng(7.290511,125.683956);
+        map.setCenter(sereguellas);
+        map.setZoom(17);
+        marker.setPosition(sereguellas);
+        break;
+
+        case "Sunkist":
+        flightPath.setMap(map);
+        flightPath2.setMap(map);
+        sunkist = new google.maps.LatLng(7.287297,125.676489);
+        map.setCenter(sunkist);
+        map.setZoom(17);
+        marker.setPosition(sunkist);
+        break;
+
+        case "Tambis":
+        flightPath.setMap(map);
+        flightPath5.setMap(map);
+        tambis = new google.maps.LatLng(7.288255,125.672927);
+        map.setCenter(tambis);
+        map.setZoom(17);
+        marker.setPosition(tambis);
+        break;
+
+        case "Ubas":
+        flightPath.setMap(map);
+        flightPath18.setMap(map);
+        ubas = new google.maps.LatLng(7.287276,125.67887);
+        map.setCenter(ubas);
+        map.setZoom(17);
+        marker.setPosition(ubas);
+        break;
+
+        case "Fishpond/Sea wall":
+        flightPath.setMap(map);
+        flightPath17.setMap(map);
+        fishpond = new google.maps.LatLng(7.29049,125.692367);
+        map.setCenter(fishpond);
+        marker.setPosition(fishpond);
+        break;
+
+        default:
+        map.setCenter(myCenter);
+        map.setZoom(14);
+        marker.setPosition(myCenter);
+        break;
+    }
+});
+
 $('#modal_form').on('shown.bs.modal', function () {
     initialize();
 });
 
 }
+
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
@@ -702,8 +1024,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
             <table id="table" class="table table-striped table-bordered table-center table-condensed" cellspacing="0" width="100%">
                 <thead>
                     <tr>
+                        <!-- <th></th> -->
                         <th>First Name</th>
-                        <th>Middle Name</th>
                         <th>Last Name</th>
                         <th>Gender</th>
                         <th>Date of Birth</th>
@@ -714,7 +1036,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
                         <th>Purok</th>
                         <th>Residencial Address</th>
                         <th>Permanent Address</th>
-                        <th>Email</th>
                         <th>Tel. #</th>
                         <th>Mobile. #</th>
                         <th style="width:125px;">Action</th>
@@ -734,21 +1055,51 @@ google.maps.event.addDomListener(window, 'load', initialize);
                         </div>
                         <div id="map"></div>
                         <div class="modal-body form">
-                            <form action="#" class="form-horizontal form-control-borderless" id="form">
+                            <form action="javascript:void(0)" class="form-horizontal form-control-borderless" id="form">
                                 <div class="form-body">
                                     <div class="col-lg-6">
                                         <input type="hidden" value="" name="resident_id" id="resident_id"/>
                                         <div class="form-group">
-                                            <label class="control-label col-md-3">First Name</label>
+                                            <label class="control-label col-md-3">Purok Designated</label>
                                             <div class="col-md-9">
-                                                <input name="name" id="name" placeholder="First Name" class="form-control" type="text">
+                                                <select id="purok" name="purok" class="form-control">
+                                                    <option value=""></option>
+                                                    <option value="Atis">Atis</option>
+                                                    <option value="Avocado">Avocado</option>
+                                                    <option value="Bayabas">Bayabas</option>
+                                                    <option value="Boongon">Boongon</option>
+                                                    <option value="Chico">Chico</option>
+                                                    <option value="Durian">Durian</option>
+                                                    <option value="Guyabano">Guyabano</option>
+                                                    <option value="Kaimito">Kaimito</option>
+                                                    <option value="Kasoy">Kasoy</option>
+                                                    <option value="Lanzones">Lanzones</option>
+                                                    <option value="Lomboy">Lomboy</option>
+                                                    <option value="Mabolo">Mabolo</option>
+                                                    <option value="Macopa">Macopa</option>
+                                                    <option value="Mangga">Manga</option>
+                                                    <option value="Mangosteen">Mangosteen</option>
+                                                    <option value="Mansanas">Mansanas</option>
+                                                    <option value="Marang">Marang</option>
+                                                    <option value="Marang Joesil">Marang Joesil</option>
+                                                    <option value="Melon">Melon</option>
+                                                    <option value="Nangka">Nangka</option>
+                                                    <option value="Pomelo">Pomelo</option>
+                                                    <option value="Rambutan">Rambutan</option>
+                                                    <option value="Santol">Santol</option>
+                                                    <option value="Sereguellas">Sereguellas</option>
+                                                    <option value="Sunkist">Sunkist</option>
+                                                    <option value="Tambis">Tambis</option>
+                                                    <option value="Ubas">Ubas</option>
+                                                    <option value="Fishpond/Sea wall">Fishpond/Sea wall</option>
+                                                </select>
                                                 <span class="help-block"></span>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-md-3">Middle Name</label>
+                                            <label class="control-label col-md-3">First Name</label>
                                             <div class="col-md-9">
-                                                <input name="mname" id="mname" placeholder="Middle Name" class="form-control" type="text">
+                                                <input name="name" id="name" placeholder="First Name" class="form-control" type="text">
                                                 <span class="help-block"></span>
                                             </div>
                                         </div>
@@ -762,7 +1113,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Gender</label>
                                             <div class="col-md-9">
-                                                <div class="btn-group" data-toggle="buttons">
+                                                <div class="btn-group" id="genderChoice" name="genderChoice" data-toggle="buttons">
                                                     <label class="btn btn-info" id="labelGenderMale" for="genderMale">
                                                         <input type="radio" id="genderMale" name="gender" value="Male" /><i class="gi gi-old_man"></i> Male
                                                     </label>
@@ -770,17 +1121,13 @@ google.maps.event.addDomListener(window, 'load', initialize);
                                                         <input type="radio" id="genderFemale" name="gender" value="Female" /><i class="gi gi-woman"></i> Female
                                                     </label>
                                                 </div>
+                                                <span class="help-block"></span>
                                             </div>
-                                            <span class="help-block"></span>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Date of Birth</label>
                                             <div class="col-md-9">
                                                 <input type="date" name="bday" id="bday" placeholder="dd MM yyyy" onchange="ageCount()" class="form-control bday-datepicker" max="2005-12-31">
-                                                <!-- <div id="datetimepicker1" class="input-append date">
-                                                  <input id="bday" class="form-control bday-datepicker" data-date-format="dd/MM/yyyy" format="mm/dd/yyyy" onchange="ageCount()"></input>
-                                                  <span class="add-on fa fa-calendar"><i data-time-icon="icon-time" data-date-icon="fa fa-calendar"></i></span>
-                                              </div> -->
                                               <span class="help-block"><span/>
                                               </div>
                                           </div>
@@ -810,43 +1157,12 @@ google.maps.event.addDomListener(window, 'load', initialize);
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Civil Status</label>
                                             <div class="col-md-9">
-                                                <input name="status" id="status" placeholder="Civil Status" class="form-control" type="text">
-                                                <span class="help-block"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Purok Designated</label>
-                                            <div class="col-md-9">
-                                                <select id="purok" name="purok" class="form-control" onchange="fillAddress()">
-                                                    <option value=""></option>
-                                                    <option value="Atis">Atis</option>
-                                                    <option value="Avocado">Avocado</option>
-                                                    <option value="Bayabas">Bayabas</option>
-                                                    <option value="Boongon">Boongon</option>
-                                                    <option value="Chico">Chico</option>
-                                                    <option value="Durian">Durian</option>
-                                                    <option value="Guyabano">Guyabano</option>
-                                                    <option value="Kaimito">Kaimito</option>
-                                                    <option value="Kasoy">Kasoy</option>
-                                                    <option value="Lanzones">Lanzones</option>
-                                                    <option value="Lomboy">Lomboy</option>
-                                                    <option value="Mabolo">Mabolo</option>
-                                                    <option value="Macopa">Macopa</option>
-                                                    <option value="Mangga">Mangga</option>
-                                                    <option value="Mangosteen">Mangosteen</option>
-                                                    <option value="Mansanas">Mansanas</option>
-                                                    <option value="Marang">Marang</option>
-                                                    <option value="Marang Joesil">Marang Joesil</option>
-                                                    <option value="Melon">Melon</option>
-                                                    <option value="Nangka">Nangka</option>
-                                                    <option value="Pomelo">Pomelo</option>
-                                                    <option value="Rambutan">Rambutan</option>
-                                                    <option value="Santol">Santol</option>
-                                                    <option value="Sereguellas">Sereguellas</option>
-                                                    <option value="Sunkist">Sunkist</option>
-                                                    <option value="Tambis">Tambis</option>
-                                                    <option value="Ubas">Ubas</option>
-                                                    <option value="Fishpond/Sea wall">Fishpond/Sea wall</option>
+                                                <select id="status" name="status" class="form-control">
+                                                    <option value="">~ Please select your Status ~</option>
+                                                    <option value="Single">Single</option>
+                                                    <option value="Married">Married</option>
+                                                    <option value="Widowed">Widowed</option>
+                                                    <option value="Separated">Separated</option>
                                                 </select>
                                                 <span class="help-block"></span>
                                             </div>
@@ -862,13 +1178,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
                                             <label class="control-label col-md-3">Permanent Address</label>
                                             <div class="col-md-9">
                                                 <textarea name="perAddress" id="perAddress" placeholder="Permanent Address" class="form-control"></textarea>
-                                                <span class="help-block"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Email</label>
-                                            <div class="col-md-9">
-                                                <input name="email" id="email" placeholder="Email" class="form-control"></input>
                                                 <span class="help-block"></span>
                                             </div>
                                         </div>

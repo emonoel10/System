@@ -512,8 +512,8 @@ $config['rewrite_short_tags'] = FALSE;
  */
 $config['proxy_ips'] = '';
 
-$allowed_domains = array('localhost', 'dev.bcgis-panabocity.com');
-$default_domain = 'localhost';
+$allowed_domains = array('localhost', 'dev.bcgis-panabocity.com', 'bcgis.panabocity.xyz', 'bcgis.panabocity.hol.es');
+$default_domain = $_SERVER['HTTP_HOST'];
 
 if (in_array($_SERVER['HTTP_HOST'], $allowed_domains, TRUE)) {
 	$domain = $_SERVER['HTTP_HOST'];

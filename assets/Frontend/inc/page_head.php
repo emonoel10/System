@@ -1,8 +1,10 @@
 <div id="page-container">
 	<header>
 		<div class="container">
-			<a href="<?php echo base_url(); ?>" class="site-logo text-center">
-				<img src="<?=base_url()?>assets/Frontend/images/CagangohanPics/logoCagangohan.png" style="height: 93%; margin-top: -1.5%; width: 15%;"/> Brgy. Cagangohan <strong>GIS</strong>
+			<a href="<?php echo base_url(); ?>" class="site-logo">
+				<!-- <div style="float: left" class="col-sm-12 col-md-6 col-lg-3"> -->
+					<img src="<?=base_url()?>assets/Frontend/images/CagangohanPics/logoCagangohan.png"<img src="<?=base_url()?>assets/Frontend/images/CagangohanPics/logoCagangohan.png" style="height: 93%; margin-top: -1.5%; width: 18%;"/> Brgy. Cagangohan <strong>GIS</strong>
+				<!-- </div> -->
 			</a>
 
 			<nav>
