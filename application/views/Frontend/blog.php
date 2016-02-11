@@ -1,6 +1,6 @@
-<?php include 'inc/config.php'; ?>
-<?php include 'inc/template_start.php'; ?>
-<?php include 'inc/page_head.php'; ?>
+<?php include 'assets/Frontend/inc/config.php'; ?>
+<?php include 'assets/Frontend/inc/template_start.php'; ?>
+<?php include 'assets/Frontend/inc/page_head.php'; ?>
 
 <!-- Intro -->
 <section class="site-section site-section-top site-section-light themed-background-dark">
@@ -17,7 +17,7 @@
             <div class="col-md-6">
                 <a href="blog_post.php" class="post">
                     <div class="post-image">
-                        <img src="img/placeholders/photos/photo4.jpg" alt="" class="img-responsive">
+                        <img src="assets/Frontend/img/placeholders/photos/photo4.jpg" alt="" class="img-responsive">
                     </div>
                     <div class="text-muted pull-right">2 days ago</div>
                     <h2 class="h4">
@@ -29,7 +29,7 @@
             <div class="col-md-6">
                 <a href="blog_post.php" class="post">
                     <div class="post-image">
-                        <img src="img/placeholders/photos/photo11.jpg" alt="" class="img-responsive">
+                        <img src="assets/Frontend/img/placeholders/photos/photo11.jpg" alt="" class="img-responsive">
                     </div>
                     <div class="text-muted pull-right">5 days ago</div>
                     <h2 class="h4">
@@ -43,7 +43,7 @@
             <div class="col-md-6">
                 <a href="blog_post.php" class="post">
                     <div class="post-image">
-                        <img src="img/placeholders/photos/photo14.jpg" alt="" class="img-responsive">
+                        <img src="assets/Frontend/img/placeholders/photos/photo14.jpg" alt="" class="img-responsive">
                     </div>
                     <div class="text-muted pull-right">1 week ago</div>
                     <h2 class="h4">
@@ -55,7 +55,7 @@
             <div class="col-md-6">
                 <a href="blog_post.php" class="post">
                     <div class="post-image">
-                        <img src="img/placeholders/photos/photo20.jpg" alt="" class="img-responsive">
+                        <img src="assets/Frontend/img/placeholders/photos/photo20.jpg" alt="" class="img-responsive">
                     </div>
                     <div class="text-muted pull-right">2 weeks ago</div>
                     <h2 class="h4">
@@ -69,7 +69,7 @@
             <div class="col-md-6">
                 <a href="blog_post.php" class="post">
                     <div class="post-image">
-                        <img src="img/placeholders/photos/photo22.jpg" alt="" class="img-responsive">
+                        <img src="assets/Frontend/img/placeholders/photos/photo22.jpg" alt="" class="img-responsive">
                     </div>
                     <div class="text-muted pull-right">3 weeks ago</div>
                     <h2 class="h4">
@@ -81,7 +81,7 @@
             <div class="col-md-6">
                 <a href="blog_post.php" class="post">
                     <div class="post-image">
-                        <img src="img/placeholders/photos/photo21.jpg" alt="" class="img-responsive">
+                        <img src="assets/Frontend/img/placeholders/photos/photo21.jpg" alt="" class="img-responsive">
                     </div>
                     <div class="text-muted pull-right">1 month ago</div>
                     <h2 class="h4">
@@ -95,7 +95,7 @@
             <div class="col-md-6">
                 <a href="blog_post.php" class="post">
                     <div class="post-image">
-                        <img src="img/placeholders/photos/photo13.jpg" alt="" class="img-responsive">
+                        <img src="assets/Frontend/img/placeholders/photos/photo13.jpg" alt="" class="img-responsive">
                     </div>
                     <div class="text-muted pull-right">2 months ago</div>
                     <h2 class="h4">
@@ -107,7 +107,7 @@
             <div class="col-md-6">
                 <a href="blog_post.php" class="post">
                     <div class="post-image">
-                        <img src="img/placeholders/photos/photo12.jpg" alt="" class="img-responsive">
+                        <img src="assets/Frontend/img/placeholders/photos/photo12.jpg" alt="" class="img-responsive">
                     </div>
                     <div class="text-muted pull-right">2 months ago</div>
                     <h2 class="h4">
@@ -131,6 +131,6 @@
 </section>
 <!-- END Latest Posts -->
 
-<?php include 'inc/page_footer.php'; ?>
-<?php include 'inc/template_scripts.php'; ?>
-<?php include 'inc/template_end.php'; ?>
+<?php include 'assets/Frontend/inc/page_footer.php'; ?>
+<?php include 'assets/Frontend/inc/template_scripts.php'; ?>
+<?php include 'assets/Frontend/inc/template_end.php'; ?>

@@ -20,15 +20,15 @@ $primary_nav = array(
 		'name' => 'Barangay Map',
 		'url' => 'Map',
 	),
-	array(
-		'name' => 'Fill-Up',
-		'sub' => array(
-			array(
-				'name' => 'Certificate of Clearance',
-				'url' => 'ClearanceForm',
-			),
-		),
-	),
+	// array(
+	// 	'name' => 'Fill-Up',
+	// 	'sub' => array(
+	// 		array(
+	// 			'name' => 'Certificate of Clearance',
+	// 			'url' => 'ClearanceForm',
+	// 		),
+	// 	),
+	// ),
 	array(
 		'name' => 'About',
 		'sub' => array(
@@ -41,8 +41,12 @@ $primary_nav = array(
 				'url' => 'AboutBarangayMV',
 			),
 			array(
-				'name' => 'Dev Team',
-				'url' => 'AboutTeam',
+				'name' => 'Barangay Officials',
+				'url' => 'AboutBarangayOfficials',
+			),
+			array(
+				'name' => 'Developers',
+				'url' => 'AboutDevelopers',
 			),
 		),
 	),

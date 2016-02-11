@@ -13,7 +13,7 @@ class InfoTable extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		$this->load->library('googlemaps');
-		// $this->load->model('InfoTable_model', 'resident');
+		$this->load->library('my_table');
 		$this->load->Model('Login_model');
 		$this->load->Model('Maps_model');
 		$this->load->model('InfoTable_model');
@@ -31,12 +31,12 @@ class InfoTable extends CI_Controller {
 		foreach ($list as $resident) {
 			$no++;
 			$row = array();
+			// $row[] = '';
+			// $row[] = array('data' => '','class' => 'details-control');
 			$row[] = $resident->name;
-			$row[] = $resident->mname;
 			$row[] = $resident->lname;
 			$row[] = $resident->gender;
 			$row[] = date('m/d/Y', strtotime($resident->bday));
-			// $row[] = $resident->bday;
 			$row[] = $resident->age;
 			$row[] = $resident->citizenship;
 			$row[] = $resident->occupation;
@@ -44,10 +44,8 @@ class InfoTable extends CI_Controller {
 			$row[] = $resident->purok;
 			$row[] = $resident->resAddress;
 			$row[] = $resident->perAddress;
-			$row[] = $resident->email;
 			$row[] = $resident->telNum;
 			$row[] = $resident->cpNum;
-//            $row[] = $resident->latlong;
 
 			//add html for action
 			$row[] = '<a class="btn btn-sm btn-primary enable-tooltip" data-toggle="tooltip" href="javascript:void(0)" title="Edit Resident" onclick="edit_resident(' . "'" . $resident->resident_id . "'" . ')"><i class="fa fa-pencil"></i></a>
@@ -75,21 +73,17 @@ class InfoTable extends CI_Controller {
 	public function ajax_add() {
 		$this->_validate();
 		$bday = $this->input->post('bday');
-		$email = $this->input->post('email');
 		$telNum = $this->input->post('telNum');
 		$cpNum = $this->input->post('cpNum');
-		if ($email == "" || $email == null) {
-			$email = "N/A";
-		}
+
 		if ($telNum == "" || $telNum == null) {
 			$telNum = "N/A";
-		}
-		if ($cpNum == "" || $cpNum == null) {
+		} else if ($cpNum == "" || $cpNum == null) {
 			$cpNum = "N/A";
 		}
+
 		$data = array(
 			'name' => humanize($this->input->post('name')),
-			'mname' => humanize($this->input->post('mname')),
 			'lname' => humanize($this->input->post('lname')),
 			'gender' => humanize($this->input->post('gender')),
 			'age' => humanize($this->input->post('age')),
@@ -100,7 +94,6 @@ class InfoTable extends CI_Controller {
 			'purok' => humanize($this->input->post('purok')),
 			'resAddress' => humanize($this->input->post('resAddress')),
 			'perAddress' => humanize($this->input->post('perAddress')),
-			'email' => $email,
 			'telNum' => $telNum,
 			'cpNum' => $cpNum,
 			'latlong' => $this->input->post('latlong'),
@@ -112,9 +105,16 @@ class InfoTable extends CI_Controller {
 	public function ajax_update() {
 		$this->_validate();
 		$bday = $this->input->post('bday');
+		$telNum = $this->input->post('telNum');
+		$cpNum = $this->input->post('cpNum');
+		if ($telNum == "" || $telNum == null) {
+			$telNum = "N/A";
+		}
+		if ($cpNum == "" || $cpNum == null) {
+			$cpNum = "N/A";
+		}
 		$data = array(
 			'name' => humanize($this->input->post('name')),
-			'mname' => humanize($this->input->post('mname')),
 			'lname' => humanize($this->input->post('lname')),
 			'gender' => humanize($this->input->post('gender')),
 			'age' => humanize($this->input->post('age')),
@@ -125,9 +125,8 @@ class InfoTable extends CI_Controller {
 			'purok' => humanize($this->input->post('purok')),
 			'resAddress' => humanize($this->input->post('resAddress')),
 			'perAddress' => humanize($this->input->post('perAddress')),
-			'email' => $this->input->post('email'),
-			'telNum' => $this->input->post('telNum'),
-			'cpNum' => $this->input->post('cpNum'),
+			'telNum' => $telNum,
+			'cpNum' => $cpNum,
 			'latlong' => $this->input->post('latlong'),
 		);
 		$this->InfoTable_model->update(array('resident_id' => $this->input->post('resident_id')), $data);
@@ -151,23 +150,21 @@ class InfoTable extends CI_Controller {
 			$data['status'] = FALSE;
 		}
 
-		if ($this->input->post('mname') == '') {
-			$data['inputerror'][] = 'mname';
-			$data['error_string'][] = 'Middle Name is required';
-			$data['status'] = FALSE;
-		}
-
 		if ($this->input->post('lname') == '') {
 			$data['inputerror'][] = 'lname';
 			$data['error_string'][] = 'Last Name is required';
 			$data['status'] = FALSE;
 		}
 
-		// if ($this->input->post('gender') == '') {
-		// 	$data['inputerror'][] = 'gender';
-		// 	$data['error_string'][] = 'Please select Gender';
-		// 	$data['status'] = FALSE;
-		// }
+		if ($this->input->post('gender') == "") {
+			$data['inputerror'][] = 'genderChoice';
+			$data['error_string'][] = 'Gender is required';
+			$data['status'] = FALSE;
+		} else {
+			$data['inputerror'][] = '';
+			$data['error_string'][] = '';
+			$data['status'] = TRUE;
+		}
 
 		if ($this->input->post('bday') == '') {
 			$data['inputerror'][] = 'bday';
@@ -175,11 +172,11 @@ class InfoTable extends CI_Controller {
 			$data['status'] = FALSE;
 		}
 
-		if ($this->input->post('age') == '') {
-			$data['inputerror'][] = 'age';
-			$data['error_string'][] = 'Age is required';
-			$data['status'] = FALSE;
-		}
+		// if ($this->input->post('age') == null) {
+		// 	$data['inputerror'][] = 'age';
+		// 	$data['error_string'][] = 'Age is required';
+		// 	$data['status'] = FALSE;
+		// }
 
 		if ($this->input->post('citizenship') == '') {
 			$data['inputerror'][] = 'citizenship';
@@ -217,17 +214,11 @@ class InfoTable extends CI_Controller {
 			$data['status'] = FALSE;
 		}
 
-		// if ($this->input->post('email') == '') {
-		// 	$data['inputerror'][] = 'email';
-		// 	$data['error_string'][] = 'Email Address is required';
+		// if ($this->input->post('cpNum') == '') {
+		// 	$data['inputerror'][] = 'cpNum';
+		// 	$data['error_string'][] = 'Mobile # is required';
 		// 	$data['status'] = FALSE;
 		// }
-
-		if ($this->input->post('cpNum') == '') {
-			$data['inputerror'][] = 'cpNum';
-			$data['error_string'][] = 'Mobile # is required';
-			$data['status'] = FALSE;
-		}
 
 		if ($this->input->post('latlong') == '') {
 			$data['inputerror'][] = 'latlong';
@@ -240,5 +231,14 @@ class InfoTable extends CI_Controller {
 			exit();
 		}
 	}
+
+	// public function checkRes() {             
+	// 	if(isset($_POST)) {
+ //            $name = $this->input->post('name');
+ //            $lname = $this->input->post('lname');
+ //            $purok = $this->input->post('purok');
+ //            $this->InfoTable_model->resCheck($name, $lname, $purok); 
+ //        }
+	// }
 
 }
