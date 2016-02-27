@@ -27,12 +27,12 @@ Contacts
 *******************
 If you have a suggestions, additional ideas and help, you can use the links below to contact me.
 
-Facebook: <http://facebook.com/emonoel09>
+Facebook: http://facebook.com/emonoel09
 
-Gmail: <emonoel10@gmail.com>
+Gmail: emonoel10@gmail.com
 
-Yahoo: <emo_noel10@yahoo.com>
+Yahoo: emo_noel10@yahoo.com
 
-LinkedIn: <https://www.linkedin.com/in/noelcalonia>
+LinkedIn: https://www.linkedin.com/in/noelcalonia
 
-Twitter: <http://twitter.com/emo_noel10>
+Twitter: http://twitter.com/emo_noel10
