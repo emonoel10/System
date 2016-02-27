@@ -18,9 +18,9 @@ issues, as well as missing features.
 Server Requirements
 *******************
 
-Website link: [http://bcgis-panabocity.xyz/](http://bcgis-panabocity.xyz/)
+Website link: http://bcgis-panabocity.xyz/
 
-Mirror site: [http://bcgis-panabocity.hol.es/](http://bcgis-panabocity.hol.es/)
+Mirror site: http://bcgis-panabocity.hol.es/
 
 *******************
 Contacts
