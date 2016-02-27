@@ -15,7 +15,7 @@ such old versions of PHP, because of potential security and performance
 issues, as well as missing features.
 
 *******************
-Server Requirements
+Website Links
 *******************
 
 Website link: http://bcgis-panabocity.xyz/
