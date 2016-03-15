@@ -33,11 +33,11 @@
     </ul>
 
     <ul class="nav navbar-nav-custom pull-right">
-        <li>
+        <!-- <li>
             <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar-alt');">
                 <i class="gi gi-settings"></i>
             </a>
-        </li>
+        </li> -->
 
         <li class="dropdown">
             <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">

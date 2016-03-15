@@ -28,8 +28,6 @@ $template['title'] = 'RESIDENT TABLE | BCGIS';
             addMarker(event.latLng);
         });
 
-
-
         addMarker(myCenter);
 
         function addMarker(location) {
@@ -1044,183 +1042,183 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 <tbody>
                 </tbody>
             </table>
-
-            <!-- Bootstrap modal -->
-            <div class="modal fade" id="modal_form" role="dialog">
-                <div class="modal-dialog" style="width: 75%; z-index: 1151;">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h3 class="modal-title text-center">Resident Form</h3>
-                        </div>
-                        <div id="map"></div>
-                        <div class="modal-body form">
-                            <form action="javascript:void(0)" class="form-horizontal form-control-borderless" id="form">
-                                <div class="form-body">
-                                    <div class="col-lg-6">
-                                        <input type="hidden" value="" name="resident_id" id="resident_id"/>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Purok Designated</label>
-                                            <div class="col-md-9">
-                                                <select id="purok" name="purok" class="form-control">
-                                                    <option value=""></option>
-                                                    <option value="Atis">Atis</option>
-                                                    <option value="Avocado">Avocado</option>
-                                                    <option value="Bayabas">Bayabas</option>
-                                                    <option value="Boongon">Boongon</option>
-                                                    <option value="Chico">Chico</option>
-                                                    <option value="Durian">Durian</option>
-                                                    <option value="Guyabano">Guyabano</option>
-                                                    <option value="Kaimito">Kaimito</option>
-                                                    <option value="Kasoy">Kasoy</option>
-                                                    <option value="Lanzones">Lanzones</option>
-                                                    <option value="Lomboy">Lomboy</option>
-                                                    <option value="Mabolo">Mabolo</option>
-                                                    <option value="Macopa">Macopa</option>
-                                                    <option value="Mangga">Manga</option>
-                                                    <option value="Mangosteen">Mangosteen</option>
-                                                    <option value="Mansanas">Mansanas</option>
-                                                    <option value="Marang">Marang</option>
-                                                    <option value="Marang Joesil">Marang Joesil</option>
-                                                    <option value="Melon">Melon</option>
-                                                    <option value="Nangka">Nangka</option>
-                                                    <option value="Pomelo">Pomelo</option>
-                                                    <option value="Rambutan">Rambutan</option>
-                                                    <option value="Santol">Santol</option>
-                                                    <option value="Sereguellas">Sereguellas</option>
-                                                    <option value="Sunkist">Sunkist</option>
-                                                    <option value="Tambis">Tambis</option>
-                                                    <option value="Ubas">Ubas</option>
-                                                    <option value="Fishpond/Sea wall">Fishpond/Sea wall</option>
-                                                </select>
-                                                <span class="help-block"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">First Name</label>
-                                            <div class="col-md-9">
-                                                <input name="name" id="name" placeholder="First Name" class="form-control" type="text">
-                                                <span class="help-block"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Last Name</label>
-                                            <div class="col-md-9">
-                                                <input name="lname" id="lname" placeholder="Last Name" class="form-control" type="text">
-                                                <span class="help-block"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Gender</label>
-                                            <div class="col-md-9">
-                                                <div class="btn-group" id="genderChoice" name="genderChoice" data-toggle="buttons">
-                                                    <label class="btn btn-info" id="labelGenderMale" for="genderMale">
-                                                        <input type="radio" id="genderMale" name="gender" value="Male" /><i class="gi gi-old_man"></i> Male
-                                                    </label>
-                                                    <label class="btn btn-danger" id="labelGenderFemale" for="genderFemale">
-                                                        <input type="radio" id="genderFemale" name="gender" value="Female" /><i class="gi gi-woman"></i> Female
-                                                    </label>
-                                                </div>
-                                                <span class="help-block"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Date of Birth</label>
-                                            <div class="col-md-9">
-                                                <input type="date" name="bday" id="bday" placeholder="dd MM yyyy" onchange="ageCount()" class="form-control bday-datepicker" max="2005-12-31">
-                                              <span class="help-block"><span/>
-                                              </div>
-                                          </div>
-                                          <div class="form-group">
-                                            <label class="control-label col-md-3">Age</label>
-                                            <div class="col-md-9">
-                                                <input readonly name="age" id="age" placeholder="Age" class="form-control" type="text">
-                                                <span class="help-block"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Citizenship</label>
-                                            <div class="col-md-9">
-                                                <input name="citizenship" id="citizenship" placeholder="Citizenship" class="form-control" type="text">
-                                                <span class="help-block"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Occupation</label>
-                                            <div class="col-md-9">
-                                                <input name="occupation" id="occupation" placeholder="Occupation" class="form-control" type="text">
-                                                <span class="help-block"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Civil Status</label>
-                                            <div class="col-md-9">
-                                                <select id="status" name="status" class="form-control">
-                                                    <option value="">~ Please select your Status ~</option>
-                                                    <option value="Single">Single</option>
-                                                    <option value="Married">Married</option>
-                                                    <option value="Widowed">Widowed</option>
-                                                    <option value="Separated">Separated</option>
-                                                </select>
-                                                <span class="help-block"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Residencial Address</label>
-                                            <div class="col-md-9">
-                                                <textarea name="resAddress" id="resAddress" placeholder="Residencial Address" class="form-control"></textarea>
-                                                <span class="help-block"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Permanent Address</label>
-                                            <div class="col-md-9">
-                                                <textarea name="perAddress" id="perAddress" placeholder="Permanent Address" class="form-control"></textarea>
-                                                <span class="help-block"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Telephone #</label>
-                                            <div class="col-md-9">
-                                                <input name="telNum" id="telNum" placeholder="Telephone #" class="form-control"></input>
-                                                <span class="help-block"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Mobile #</label>
-                                            <div class="col-md-9">
-                                                <input name="cpNum" id="cpNum" placeholder="Mobile #" class="form-control"></input>
-                                                <span class="help-block"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Geolocation</label>
-                                            <div class="col-md-9">
-                                                <input readonly name="latlong" id="latlong" placeholder="Geolocation" class="form-control"></input>
-                                                <span class="help-block"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <center>
-                                <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
-                                <button type="button" id="btnCancel" onclick="cancel()" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                            </center>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
-            <!-- End Bootstrap modal -->
         </div>
     </div>
     <!-- END Datatables Block -->
 </div>
 <!-- END Page Content -->
+
+<!-- Bootstrap modal -->
+<div class="modal fade" id="modal_form" role="dialog">
+    <div class="modal-dialog" style="width: 75%; z-index: 1151;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title text-center">Resident Form</h3>
+            </div>
+            <div id="map"></div>
+            <div class="modal-body form">
+                <form action="javascript:void(0)" class="form-horizontal form-control-borderless" id="form">
+                    <div class="form-body">
+                        <div class="col-lg-6">
+                            <input type="hidden" value="" name="resident_id" id="resident_id"/>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Purok Designated</label>
+                                <div class="col-md-9">
+                                    <select id="purok" name="purok" class="form-control">
+                                        <option value=""></option>
+                                        <option value="Atis">Atis</option>
+                                        <option value="Avocado">Avocado</option>
+                                        <option value="Bayabas">Bayabas</option>
+                                        <option value="Boongon">Boongon</option>
+                                        <option value="Chico">Chico</option>
+                                        <option value="Durian">Durian</option>
+                                        <option value="Guyabano">Guyabano</option>
+                                        <option value="Kaimito">Kaimito</option>
+                                        <option value="Kasoy">Kasoy</option>
+                                        <option value="Lanzones">Lanzones</option>
+                                        <option value="Lomboy">Lomboy</option>
+                                        <option value="Mabolo">Mabolo</option>
+                                        <option value="Macopa">Macopa</option>
+                                        <option value="Mangga">Manga</option>
+                                        <option value="Mangosteen">Mangosteen</option>
+                                        <option value="Mansanas">Mansanas</option>
+                                        <option value="Marang">Marang</option>
+                                        <option value="Marang Joesil">Marang Joesil</option>
+                                        <option value="Melon">Melon</option>
+                                        <option value="Nangka">Nangka</option>
+                                        <option value="Pomelo">Pomelo</option>
+                                        <option value="Rambutan">Rambutan</option>
+                                        <option value="Santol">Santol</option>
+                                        <option value="Sereguellas">Sereguellas</option>
+                                        <option value="Sunkist">Sunkist</option>
+                                        <option value="Tambis">Tambis</option>
+                                        <option value="Ubas">Ubas</option>
+                                        <option value="Fishpond/Sea wall">Fishpond/Sea wall</option>
+                                    </select>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">First Name</label>
+                                <div class="col-md-9">
+                                    <input name="name" id="name" placeholder="First Name" class="form-control" type="text">
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Last Name</label>
+                                <div class="col-md-9">
+                                    <input name="lname" id="lname" placeholder="Last Name" class="form-control" type="text">
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Gender</label>
+                                <div class="col-md-9">
+                                    <div class="btn-group" id="genderChoice" name="genderChoice" data-toggle="buttons">
+                                        <label class="btn btn-info" id="labelGenderMale" for="genderMale">
+                                            <input type="radio" id="genderMale" name="gender" value="Male" /><i class="gi gi-old_man"></i> Male
+                                        </label>
+                                        <label class="btn btn-danger" id="labelGenderFemale" for="genderFemale">
+                                            <input type="radio" id="genderFemale" name="gender" value="Female" /><i class="gi gi-woman"></i> Female
+                                        </label>
+                                    </div>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Date of Birth</label>
+                                <div class="col-md-9">
+                                    <input type="date" name="bday" id="bday" placeholder="dd MM yyyy" onchange="ageCount()" class="form-control bday-datepicker" max="2005-12-31">
+                                  <span class="help-block"><span/>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="control-label col-md-3">Age</label>
+                                <div class="col-md-9">
+                                    <input readonly name="age" id="age" placeholder="Age" class="form-control" type="text">
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Citizenship</label>
+                                <div class="col-md-9">
+                                    <input name="citizenship" id="citizenship" placeholder="Citizenship" class="form-control" type="text">
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Occupation</label>
+                                <div class="col-md-9">
+                                    <input name="occupation" id="occupation" placeholder="Occupation" class="form-control" type="text">
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Civil Status</label>
+                                <div class="col-md-9">
+                                    <select id="status" name="status" class="form-control">
+                                        <option value="">~ Please select your Status ~</option>
+                                        <option value="Single">Single</option>
+                                        <option value="Married">Married</option>
+                                        <option value="Widowed">Widowed</option>
+                                        <option value="Separated">Separated</option>
+                                    </select>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Residencial Address</label>
+                                <div class="col-md-9">
+                                    <textarea name="resAddress" id="resAddress" placeholder="Residencial Address" class="form-control"></textarea>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Permanent Address</label>
+                                <div class="col-md-9">
+                                    <textarea name="perAddress" id="perAddress" placeholder="Permanent Address" class="form-control"></textarea>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Telephone #</label>
+                                <div class="col-md-9">
+                                    <input name="telNum" id="telNum" placeholder="Telephone #" class="form-control"></input>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Mobile #</label>
+                                <div class="col-md-9">
+                                    <input name="cpNum" id="cpNum" placeholder="Mobile #" class="form-control"></input>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Geolocation</label>
+                                <div class="col-md-9">
+                                    <input readonly name="latlong" id="latlong" placeholder="Geolocation" class="form-control"></input>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <center>
+                    <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
+                    <button type="button" id="btnCancel" onclick="cancel()" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                </center>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- End Bootstrap modal -->
 
 <?php include 'assets/Backend/inc/page_footer.php';?>
 <?php include 'assets/Backend/inc/template_scripts.php';?>

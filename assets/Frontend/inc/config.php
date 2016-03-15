@@ -3,10 +3,11 @@
 /* Template variables */
 $template = array(
 	'name' => 'Brgy. Cagangohan Geographical Information System',
-	'author' => 'CMBTC from DNSC',
+	'author' => 'Team Season from DNSC',
 	'robots' => 'noindex, nofollow',
 	'title' => 'Brgy. Cagangohan GIS',
-	'description' => 'Barangay Cagangohan Geographical Information System is a Web App created by CMBTC from DNSC for Residencial Mapping to Brgy.Cagangohan',
+	'description' => 'Barangay Cagangohan Geographical Information System is a Web App created by Team Season from DNSC for Residencial Mapping and Population Statistical Reviewer to Brgy.Cagangohan',
+	'keywords' => 'barangay cagangohan geographical information system, barangay cagangohan gis, bcgis, gis, panabo, panabo city, dnsc, davao del norte state college, barangay cagangohan, noel calonia',
 	'active_page' => basename($_SERVER['PHP_SELF']),
 );
 

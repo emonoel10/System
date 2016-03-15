@@ -1,7 +1,7 @@
 <div id="sidebar">
     <div id="sidebar-brand" class="themed-background">
         <a class="sidebar-title btn-effect-ripple" style="cursor: default;">
-            <i><img src="<?=base_url();?>assets/Backend/images/CagangohanPics/logoCagangohan.png" style="width: 30px; height: 30px; margin-left: -5px;"/></i> <span class="sidebar-nav-mini-hide animation-fadeIn" style="font-size: 13px;">Brgy.Cagangohan <strong>GIS</strong></span>
+            <i><img src="<?=base_url();?>assets/Backend/images/CagangohanPics/logoCagangohan.png" style="width: 40px; height: 40px; margin-left: -10px;"/></i> <span class="sidebar-nav-mini-hide animation-fadeIn" style="font-size: 13px;">Brgy.Cagangohan <strong>GIS</strong></span>
         </a>
     </div>
 
