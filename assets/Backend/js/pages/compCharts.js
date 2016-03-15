@@ -209,7 +209,6 @@ var CompCharts = function() {
                     legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%>" + ": " + "<%=segments[i].value%> (<%=Math.max(Math.round(segments[i].value * 100) / " + totalPopulationByMale + ").toFixed(2)%> %)</li><br><%}%></ul>"
                         // legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
                 };
-                console.log(totalPopulationByMale);
                 var ageRangePie = document.getElementById("ageRangesPieMale").getContext("2d");
                 var ageRangesPieMaleLegend = new Chart(ageRangePie).Pie(pieData, pieOptions);
                 document.getElementById('ageRangesPieMaleLegend').innerHTML = ageRangesPieMaleLegend.generateLegend();

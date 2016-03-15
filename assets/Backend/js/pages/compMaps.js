@@ -1,8 +1,9 @@
+var marker;
+var markers = [];
+
 var CompMaps = function() {
     return {
         init: function() {
-            var marker;
-            var markers = [];
             $("#searchDataToMarker").on('keydown', function() {
                 document.getElementById('directionsDiv').innerHTML = "";
                 document.getElementById('residentInfoDiv').innerHTML = "";
@@ -179,6 +180,7 @@ var CompMaps = function() {
                             //             });
                             //         })(marker, data);
                             // }
+<<<<<<< HEAD
                             function setMapOnAll(map) {
                                 for (var i = 0; i < markers.length; i++) {
                                     markers[i].setMap(map);
@@ -209,6 +211,8 @@ var CompMaps = function() {
 =======
 >>>>>>> 2a322e5146fb2ebc69ce889511b8ef355f100d61
                             }
+=======
+>>>>>>> 4d63e62e400e8c626eb5c1faad0fa08070d40c43
 
                             function calculateAndDisplayRoute(latLongDest) {
                                 var start = new google.maps.LatLng(7.282397, 125.683499);
@@ -450,7 +454,11 @@ var CompMaps = function() {
                     }
                 });
             });
+        }
+    };
+}();
 
+<<<<<<< HEAD
             $('iframe').load(function() {
                 iFrameResize({
                     log: false,
@@ -475,14 +483,63 @@ var CompMaps = function() {
             //     $(window).on('beforeprint', beforePrint);
             //     $(window).on('afterprint', afterPrint);
             // }
+=======
+function setMapOnAll(map) {
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+    }
+}
+>>>>>>> 4d63e62e400e8c626eb5c1faad0fa08070d40c43
 
-            function beforePrint() {
-                $(this).style.display = 'none';
-            }
+function showMarkers() {
+    setMapOnAll(map);
+}
 
-            function afterPrint() {
-                $(this).style.display = '';
-            }
-        }
-    };
-}();
+function removeMarkers() {
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+}
+
+function clearMarkers() {
+    setMapOnAll(null);
+}
+
+function deleteMarkers() {
+    clearMarkers();
+    markers = [];
+}
+
+$('iframe').load(function() {
+    iFrameResize({
+        log: false,
+        enablePublicMethods: true,
+        heightCalculationMethod: 'bodyScroll'
+    });
+});
+
+// if ('matchMedia' in window) {
+//     // Chrome, Firefox, and IE 10 support mediaMatch listeners
+//     window.matchMedia('print').addListener(function(media) {
+//         if (media.matches) {
+//             map.panToBound(myLatLong, myCenter);
+//             beforePrint();
+//         } else {
+//             // Fires immediately, so wait for the first mouse movement
+//             $(document).one('mouseover', afterPrint);
+//         }
+//     });
+// } else {
+//     // IE and Firefox fire before/after events
+//     $(window).on('beforeprint', beforePrint);
+//     $(window).on('afterprint', afterPrint);
+// }
+
+function beforePrint() {
+    $(this).style.display = 'none';
+}
+
+function afterPrint() {
+    $(this).style.display = '';
+}
+

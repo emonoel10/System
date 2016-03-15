@@ -2,7 +2,6 @@
 <?php include 'assets/Frontend/inc/template_start.php';?>
 <?php include 'assets/Frontend/inc/page_head.php';?>
 
-<!-- Intro + Action -->
 <section class="site-section site-section-top site-section-light themed-background-dark-default" id="cagangohan-background">
     <div class="container" id="container">
         <div class="push text-center">
