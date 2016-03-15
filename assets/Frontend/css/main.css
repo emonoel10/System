@@ -38,11 +38,12 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    /*background-color: #454e59;*/
+    background-color: #454e59;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -ms-background-size: cover;
     -o-background-size: cover;
+    background-size: cover;
     z-index: 1050;
 }
 
@@ -2609,7 +2610,6 @@ p,
     margin-top: 12%;
     margin-bottom: 25%;
 }
-
 
 /*
 *   Maps css stylelist

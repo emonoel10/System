@@ -33,6 +33,7 @@
                         <li><a href="google.com/bcgis" class="social-google-plus" title="Like our Google+ page">&nbsp<i class="fa fa-fw fa-google-plus"></i>&nbsp</a></li>
                     </ul>
                 </div>
+                
                 <div class="col-sm-3">
                     <h4 class="footer-heading"><a href="<?=base_url();?>"><?php echo $template['name']; ?></a></h4>
                     <em><span id="year-copy"></span></em> &copy; Crafted by <a href="facebook.com/team_season">Team Season from DNSC</a>

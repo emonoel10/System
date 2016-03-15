@@ -38,6 +38,7 @@ var CompMaps = function() {
                             return;
                         } else {
                             deleteMarkers();
+<<<<<<< HEAD
                             // var directionsDisplay = new google.maps.DirectionsRenderer({
                             //     suppressMarkers: true
                             // });
@@ -48,6 +49,18 @@ var CompMaps = function() {
                                     opacity: 1
                                 });
                             });
+=======
+                            var directionsDisplay = new google.maps.DirectionsRenderer({
+                                suppressMarkers: true
+                            });
+                            var directionsService = new google.maps.DirectionsService;
+                            var myCenter = new google.maps.LatLng(7.285764, 125.680568);
+                            google.maps.event.addListenerOnce(map, 'tilesloaded', function() {
+                                $(this.getDiv()).animate({
+                                    opacity: 1
+                                });
+                            });
+>>>>>>> 2a322e5146fb2ebc69ce889511b8ef355f100d61
                             for (var i = 0, length = searchMapDataResults.length; i < length; i++) {
                                 var iw = new google.maps.InfoWindow();
                                 var data = searchMapDataResults[i];
@@ -189,9 +202,12 @@ var CompMaps = function() {
                             function deleteMarkers() {
                                 clearMarkers();
                                 markers = [];
+<<<<<<< HEAD
                                 // directionsDisplay.setDirections({
                                 //     routes: []
                                 // });
+=======
+>>>>>>> 2a322e5146fb2ebc69ce889511b8ef355f100d61
                             }
 
                             function calculateAndDisplayRoute(latLongDest) {
@@ -443,22 +459,22 @@ var CompMaps = function() {
                 });
             });
 
-            if ('matchMedia' in window) {
-                // Chrome, Firefox, and IE 10 support mediaMatch listeners
-                window.matchMedia('print').addListener(function(media) {
-                    if (media.matches) {
-                        map.panToBound(myLatLong, myCenter);
-                        beforePrint();
-                    } else {
-                        // Fires immediately, so wait for the first mouse movement
-                        $(document).one('mouseover', afterPrint);
-                    }
-                });
-            } else {
-                // IE and Firefox fire before/after events
-                $(window).on('beforeprint', beforePrint);
-                $(window).on('afterprint', afterPrint);
-            }
+            // if ('matchMedia' in window) {
+            //     // Chrome, Firefox, and IE 10 support mediaMatch listeners
+            //     window.matchMedia('print').addListener(function(media) {
+            //         if (media.matches) {
+            //             map.panToBound(myLatLong, myCenter);
+            //             beforePrint();
+            //         } else {
+            //             // Fires immediately, so wait for the first mouse movement
+            //             $(document).one('mouseover', afterPrint);
+            //         }
+            //     });
+            // } else {
+            //     // IE and Firefox fire before/after events
+            //     $(window).on('beforeprint', beforePrint);
+            //     $(window).on('afterprint', afterPrint);
+            // }
 
             function beforePrint() {
                 $(this).style.display = 'none';

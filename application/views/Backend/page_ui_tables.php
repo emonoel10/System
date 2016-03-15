@@ -1019,6 +1019,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
             <table class="table table-responsive table-striped table-bordered table-hover" id="table" cellspacing="0" width="100%" style="width: 100%;">
                 <thead>
                     <tr>
+                        <!-- <th></th> -->
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Gender</th>

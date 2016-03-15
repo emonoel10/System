@@ -10,11 +10,9 @@
             <h2 class="text-light-op animation-PullUp push-bit"><strong>Make your neighborhood easy to locate.</strong></h2>
         </div>
         <div class="site-promo-img visibility-none" data-toggle="animation-appear" data-animation-class="animation-slideUpQuick" data-element-offset="0">
-            <!-- <img src="assets/Frontend/img/placeholders/screenshots/promo_welcome.png" alt="" style="visibility: invisible;"> -->
         </div>
     </div>
 </section>
-<!-- END Intro + Action -->
 
 <section class="site-section site-content border-bottom overflow-hidden">
     <div class="container">

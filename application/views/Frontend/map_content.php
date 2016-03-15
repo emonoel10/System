@@ -21,11 +21,11 @@
                         </div>
                     </div>
                     <hr/>
-                    <!-- <div id="mapLocationTitle" class="text-center">
+                    <div id="mapLocationTitle" class="text-center">
                     <br/><br/>
                         <h1><b>Brgy. Cagangohan Residence Location</b></h1>
                     <br/><br/><br/><br/><br/>
-                    </div> -->
+                    </div>
                 </div>
                 <!-- <div class="col-sm-12 text-center" id="print">
                     <button type="button" id="print" onclick="clearMarkers()" class="btn btn-effect-ripple btn-info text-center"><i class="fa fa-print"></i> Print</button>
@@ -98,6 +98,7 @@
                             </div>
                         </div>
                         <div class="col-sm-0 col-md-5 col-lg-2"></div>
+<<<<<<< HEAD
                     </div>
                     <div id="map" style="width:118%; margin-left: -5%;">
                         <?php // echo $map['html']; ?>
@@ -109,6 +110,19 @@
                 <div class="col-sm-12">
                     <button type="button" id="print" onclick="window.print();" class="btn btn-effect-ripple btn-info" style="overflow: hidden; position: relative; float: center;"><i class="fa fa-print"></i> Print</button>
                 </div>
+=======
+                    </div>
+                    <div id="map" style="width:118%; margin-left: -5%;">
+                        <?php // echo $map['html']; ?>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-12" id="dataTitle"></div>
+                <div class="col-sm-12 col-md-6 col-lg-6" id="residentInfoDiv"></div>
+                <div class="col-sm-12 col-md-6 col-lg-6" id="directionsDiv"></div>
+                <div class="col-sm-12">
+                    <button type="button" id="print" onclick="window.print();" class="btn btn-effect-ripple btn-info" style="overflow: hidden; position: relative; float: center;"><i class="fa fa-print"></i> Print</button>
+                </div>
+>>>>>>> 2a322e5146fb2ebc69ce889511b8ef355f100d61
             </div>
         </div>
     </div>

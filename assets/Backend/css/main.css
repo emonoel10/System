@@ -4318,9 +4318,10 @@ canvas {
     transition: all .5s ease-in-out;
 }
 
-#map-header {
-    margin-bottom: 0px;
-}
+/*#directionsDiv {
+    margin-top: 50px;
+    margin-bottom: 25px;
+}*/
 
 /*#directionsDiv {
     margin-top: 50px;

@@ -46,6 +46,10 @@ class InfoTable extends CI_Controller {
 			// $row[] = $resident->perAddress;
 			// $row[] = $resident->telNum;
 			// $row[] = $resident->cpNum;
+			$row[] = $resident->resAddress;
+			$row[] = $resident->perAddress;
+			$row[] = $resident->telNum;
+			$row[] = $resident->cpNum;
 
 			//add html for action
 			$row[] = '<div class="text-center"><a class="btn btn-sm btn-primary enable-tooltip" data-toggle="tooltip" href="javascript:void(0)" title="Edit Resident" onclick="edit_resident(' . "'" . $resident->resident_id . "'" . ')"><i class="fa fa-pencil"></i></a>
@@ -81,8 +85,7 @@ class InfoTable extends CI_Controller {
 
 		if ($telNum == "" || $telNum == null) {
 			$telNum = "N/A";
-		}
-		if ($cpNum == "" || $cpNum == null) {
+		} else if ($cpNum == "" || $cpNum == null) {
 			$cpNum = "N/A";
 		}
 
@@ -179,11 +182,19 @@ class InfoTable extends CI_Controller {
 			$data['status'] = FALSE;
 		}
 
+<<<<<<< HEAD
 		if ($this->input->post('age') == null) {
 			$data['inputerror'][] = 'age';
 			$data['error_string'][] = 'Age is required';
 			$data['status'] = FALSE;
 		}
+=======
+		// if ($this->input->post('age') == null) {
+		// 	$data['inputerror'][] = 'age';
+		// 	$data['error_string'][] = 'Age is required';
+		// 	$data['status'] = FALSE;
+		// }
+>>>>>>> 2a322e5146fb2ebc69ce889511b8ef355f100d61
 
 		if ($this->input->post('citizenship') == '') {
 			$data['inputerror'][] = 'citizenship';
@@ -221,6 +232,15 @@ class InfoTable extends CI_Controller {
 			$data['status'] = FALSE;
 		}
 
+<<<<<<< HEAD
+=======
+		// if ($this->input->post('cpNum') == '') {
+		// 	$data['inputerror'][] = 'cpNum';
+		// 	$data['error_string'][] = 'Mobile # is required';
+		// 	$data['status'] = FALSE;
+		// }
+
+>>>>>>> 2a322e5146fb2ebc69ce889511b8ef355f100d61
 		if ($this->input->post('latlong') == '') {
 			$data['inputerror'][] = 'latlong';
 			$data['error_string'][] = 'Geolocation is required';
@@ -233,6 +253,7 @@ class InfoTable extends CI_Controller {
 		}
 	}
 
+<<<<<<< HEAD
 	public function checkRes() {             
 		if(isset($_POST)) {
             $name = $this->input->post('name');
@@ -241,5 +262,15 @@ class InfoTable extends CI_Controller {
             $this->InfoTable_model->resCheck($name, $lname, $purok); 
         }
 	}
+=======
+	// public function checkRes() {             
+	// 	if(isset($_POST)) {
+ //            $name = $this->input->post('name');
+ //            $lname = $this->input->post('lname');
+ //            $purok = $this->input->post('purok');
+ //            $this->InfoTable_model->resCheck($name, $lname, $purok); 
+ //        }
+	// }
+>>>>>>> 2a322e5146fb2ebc69ce889511b8ef355f100d61
 
 }

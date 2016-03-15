@@ -48,7 +48,17 @@ var UiTables = function() {
             $('#table').on('process', function() {
                 $(this).addClass();
             });
-            
+            // $('#example-datatable').dataTable({
+            //     columnDefs: [{
+            //         orderable: false,
+            //         targets: [4]
+            //     }],
+            //     pageLength: 10,
+            //     lengthMenu: [
+            //         [5, 10, 15, 20],
+            //         [5, 10, 15, 20]
+            //     ]
+            // });
             /* Add placeholder attribute to the search input */
             $('.dataTables_filter input').attr('placeholder', 'Search');
             /* Select/Deselect all checkboxes in tables */
@@ -218,9 +228,10 @@ function add_resident() {
 
 function edit_resident(id) {
     save_method = 'update';
-    $('#form')[0].reset();
-    $('.form-group').removeClass('has-error');
-    $('.help-block').empty();
+    $('#form')[0].reset(); // reset form on modals
+    $('.form-group').removeClass('has-error'); // clear error class
+    $('.help-block').empty(); // clear error string
+    //Ajax Load data from ajax
     $.ajax({
         url: window.location.origin + "/InfoTable/ajax_edit/" + id,
         type: "GET",
@@ -295,13 +306,14 @@ function save() {
     } else {
         url = window.location.origin + "/InfoTable/ajax_update";
     }
+    // ajax adding data to database
     $.ajax({
         url: url,
         type: "POST",
         data: $('#form').serialize(),
         dataType: "JSON",
         success: function(data) {
-            if (data.status) {
+            if (data.status) { //if success close modal and reload ajax table
                 $('#modal_form').modal('hide');
                 reload_table();
                 if (save_method == 'add') {
@@ -325,10 +337,11 @@ function save() {
                     $('[name="' + data.inputerror[i] + '"]').next().text(data.error_string[i]); //select span help-block class set text error string
                 }
             }
-            $('#btnSave').text('Save');
-            $('#btnSave').attr('disabled', false);
+            $('#btnSave').text('Save'); //change button text
+            $('#btnSave').attr('disabled', false); //set button enable
         },
         error: function(jqXHR, textStatus, errorThrown) {
+            // alert('Error adding / update data');
             $.bootstrapGrowl("<h4><strong>Error!</strong></h4> <p>Problem adding/updating resident's data!</p>", {
                 type: "danger",
                 delay: 2500,
@@ -339,8 +352,8 @@ function save() {
                     amount: 20
                 }
             });
-            $('#btnSave').text('Retry');
-            $('#btnSave').attr('disabled', false);
+            $('#btnSave').text('Retry'); //change button text
+            $('#btnSave').attr('disabled', false); //set button enable
         }
     });
 }
