@@ -1,8 +1,9 @@
+var marker;
+var markers = [];
+
 var CompMaps = function() {
     return {
         init: function() {
-            var marker;
-            var markers = [];
             $("#searchDataToMarker").on('keydown', function() {
                 document.getElementById('directionsDiv').innerHTML = "";
                 document.getElementById('residentInfoDiv').innerHTML = "";
@@ -162,30 +163,6 @@ var CompMaps = function() {
                             //             });
                             //         })(marker, data);
                             // }
-                            function setMapOnAll(map) {
-                                for (var i = 0; i < markers.length; i++) {
-                                    markers[i].setMap(map);
-                                }
-                            }
-
-                            function showMarkers() {
-                                setMapOnAll(map);
-                            }
-
-                            function removeMarkers() {
-                                for (var i = 0; i < markers.length; i++) {
-                                    markers[i].setMap(null);
-                                }
-                            }
-
-                            function clearMarkers() {
-                                setMapOnAll(null);
-                            }
-
-                            function deleteMarkers() {
-                                clearMarkers();
-                                markers = [];
-                            }
 
                             function calculateAndDisplayRoute(latLongDest) {
                                 var start = new google.maps.LatLng(7.282397, 125.683499);
@@ -427,38 +404,65 @@ var CompMaps = function() {
                     }
                 });
             });
-
-            $('iframe').load(function() {
-                iFrameResize({
-                    log: false,
-                    enablePublicMethods: true,
-                    heightCalculationMethod: 'bodyScroll'
-                });
-            });
-            // if ('matchMedia' in window) {
-            //     // Chrome, Firefox, and IE 10 support mediaMatch listeners
-            //     window.matchMedia('print').addListener(function(media) {
-            //         if (media.matches) {
-            //             map.panToBound(myLatLong, myCenter);
-            //             beforePrint();
-            //         } else {
-            //             // Fires immediately, so wait for the first mouse movement
-            //             $(document).one('mouseover', afterPrint);
-            //         }
-            //     });
-            // } else {
-            //     // IE and Firefox fire before/after events
-            //     $(window).on('beforeprint', beforePrint);
-            //     $(window).on('afterprint', afterPrint);
-            // }
-
-            function beforePrint() {
-                $(this).style.display = 'none';
-            }
-
-            function afterPrint() {
-                $(this).style.display = '';
-            }
         }
     };
 }();
+
+function setMapOnAll(map) {
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+    }
+}
+
+function showMarkers() {
+    setMapOnAll(map);
+}
+
+function removeMarkers() {
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+}
+
+function clearMarkers() {
+    setMapOnAll(null);
+}
+
+function deleteMarkers() {
+    clearMarkers();
+    markers = [];
+}
+
+$('iframe').load(function() {
+    iFrameResize({
+        log: false,
+        enablePublicMethods: true,
+        heightCalculationMethod: 'bodyScroll'
+    });
+});
+
+// if ('matchMedia' in window) {
+//     // Chrome, Firefox, and IE 10 support mediaMatch listeners
+//     window.matchMedia('print').addListener(function(media) {
+//         if (media.matches) {
+//             map.panToBound(myLatLong, myCenter);
+//             beforePrint();
+//         } else {
+//             // Fires immediately, so wait for the first mouse movement
+//             $(document).one('mouseover', afterPrint);
+//         }
+//     });
+// } else {
+//     // IE and Firefox fire before/after events
+//     $(window).on('beforeprint', beforePrint);
+//     $(window).on('afterprint', afterPrint);
+// }
+
+function beforePrint() {
+    $(this).style.display = 'none';
+}
+
+function afterPrint() {
+    $(this).style.display = '';
+}
+
