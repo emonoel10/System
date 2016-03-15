@@ -17,12 +17,12 @@ $template['title'] = 'BCGIS | ABOUT | TEAM';
     <div class="container">
         <div class="row row-items">
             <div class="col-md-2 col-md-offset-2 text-center visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-20">
-                <img src="assets/Frontend/img/placeholders/avatars/avatar7@2x.jpg" alt="" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
+                <img src="<?=base_url();?>/assets/Frontend/images/Developers/archie.jpg" alt="" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
             </div>
             <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-20">
                 <h4>
-                    <span class="text-muted text-uppercase pull-right">ceo</span>
-                    <strong>Harry Scott</strong>
+                    <span class="text-muted text-uppercase pull-right">Head</span>
+                    <strong>Archie Bajeyo</strong>
                 </h4>
                 <p>Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Donec lacinia venenatis metus at bibendum? In hac habitasse platea dictumst. Proin ac nibh rutrum lectus rhoncus eleifend. Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum.</p>
             </div>
@@ -36,12 +36,12 @@ $template['title'] = 'BCGIS | ABOUT | TEAM';
     <div class="container">
         <div class="row row-items">
             <div class="col-md-2 col-md-offset-2 text-center visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-20">
-                <img src="assets/Frontend/img/placeholders/avatars/avatar6@2x.jpg" alt="" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
+                <img src="<?=base_url();?>/assets/Frontend/images/Developers/noel.jpg" alt="" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
             </div>
             <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-20">
                 <h4>
-                    <span class="text-muted text-uppercase pull-right">Office</span>
-                    <strong>Judy Rogers</strong>
+                    <span class="text-muted text-uppercase pull-right">Programmer</span>
+                    <strong>Noel Calonia</strong>
                 </h4>
                 <p>Proin ac nibh rutrum lectus rhoncus eleifend. Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Donec lacinia venenatis metus at bibendum? In hac habitasse platea dictumst. Proin ac nibh rutrum lectus rhoncus eleifend. Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum.</p>
             </div>
@@ -55,12 +55,12 @@ $template['title'] = 'BCGIS | ABOUT | TEAM';
     <div class="container">
         <div class="row row-items">
             <div class="col-md-2 col-md-offset-2 text-center visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-20">
-                <img src="assets/Frontend/img/placeholders/avatars/avatar15@2x.jpg" alt="" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
+                <img src="<?=base_url();?>/assets/Frontend/images/Developers/jocel.jpg" alt="" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
             </div>
             <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-20">
                 <h4>
-                    <span class="text-muted text-uppercase pull-right">Developer</span>
-                    <strong>Phillip Cox</strong>
+                    <span class="text-muted text-uppercase pull-right">Designer</span>
+                    <strong>Jocel Malo</strong>
                 </h4>
                 <p>Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Donec lacinia venenatis metus at bibendum? In hac habitasse platea dictumst. Proin ac nibh rutrum lectus rhoncus eleifend. Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum.</p>
             </div>
@@ -74,12 +74,12 @@ $template['title'] = 'BCGIS | ABOUT | TEAM';
     <div class="container">
         <div class="row row-items">
             <div class="col-md-2 col-md-offset-2 text-center visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-20">
-                <img src="assets/Frontend/img/placeholders/avatars/avatar12@2x.jpg" alt="" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
+            <img src="<?=base_url();?>/assets/Frontend/images/Developers/danilo.jpg" alt="" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
             </div>
             <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-20">
                 <h4>
-                    <span class="text-muted text-uppercase pull-right">Designer</span>
-                    <strong>Carol Dunn</strong>
+                    <span class="text-muted text-uppercase pull-right">Researcher</span>
+                    <strong>Danilo Terse</strong>
                 </h4>
                 <p>Donec lacinia venenatis metus at bibendum? In hac habitasse platea dictumst. Proin ac nibh rutrum lectus rhoncus eleifend. Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum.</p>
             </div>
@@ -93,12 +93,12 @@ $template['title'] = 'BCGIS | ABOUT | TEAM';
     <div class="container">
         <div class="row row-items">
             <div class="col-md-2 col-md-offset-2 text-center visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-20">
-                <img src="assets/Frontend/img/placeholders/avatars/avatar4@2x.jpg" alt="" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
+            <img src="<?=base_url();?>/assets/Frontend/images/Developers/marvin.jpg" alt="" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
             </div>
             <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-20">
                 <h4>
                     <span class="text-muted text-uppercase pull-right">Support</span>
-                    <strong>Brian Jenkins</strong>
+                    <strong>Marvin Caitom</strong>
                 </h4>
                 <p>In hac habitasse platea dictumst. Proin ac nibh rutrum lectus rhoncus eleifend. Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Donec lacinia venenatis metus at bibendum? In hac habitasse platea dictumst. Proin ac nibh rutrum lectus rhoncus eleifend. Sed porttitor pretium venenatis.</p>
             </div>

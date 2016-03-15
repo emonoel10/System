@@ -22,7 +22,8 @@ class Maps extends CI_Controller {
 			$query = $this->db->query("
 				SELECT * FROM resident
 				WHERE name LIKE '%{$searchData}%'
-				OR mname LIKE '%{$searchData}%'
+				AND lname LIKE '%{$searchData}%'
+				OR name LIKE '%{$searchData}%'
 				OR lname LIKE '%{$searchData}%'
 				OR gender LIKE '%{$searchData}%'
 				OR bday LIKE '%{$searchData}%'
@@ -33,7 +34,6 @@ class Maps extends CI_Controller {
 				OR purok LIKE '%{$searchData}%'
 				OR resAddress LIKE '%{$searchData}%'
 				OR perAddress LIKE '%{$searchData}%'
-				OR email LIKE '%{$searchData}%'
 				OR telNum LIKE '%{$searchData}%'
 				OR cpNum LIKE '%{$searchData}%'
 				");
@@ -56,8 +56,8 @@ class Maps extends CI_Controller {
 		$config['cluster'] = TRUE;
 		$config['onboundschanged'] = "
 		var strictBounds = new google.maps.LatLngBounds(
- 		new google.maps.LatLng(7.274053, 125.666105),
- 		new google.maps.LatLng(7.2967, 125.730692));
+ 		new google.maps.LatLng(7.272249, 125.666181),
+ 		new google.maps.LatLng(7.293767, 125.702713));
      		if (strictBounds.contains(map.getCenter())) return;
 
 	     var c = map.getCenter(),

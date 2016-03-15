@@ -4,10 +4,11 @@
 $template = array(
 	'name' => 'Barangay Cagangohan Geographical Information System',
 	'version' => '1.0',
-	'author' => 'CMBTC from DNSC',
+	'author' => 'Team Season from DNSC',
 	'robots' => 'noindex, nofollow',
 	'title' => 'Barangay Cagangohan GIS',
-	'description' => 'Barangay Cagangohan Geographical Information System is a Web App created by CMBTC from DNSC for Residencial Mapping to Brgy.Cagangohan',
+	'description' => 'Barangay Cagangohan Geographical Information System is a Web App created by Team Season from DNSC for Residencial Mapping and Locator to Brgy.Cagangohan, Panabo City',
+	'keywords' => 'bcgis, barangay cagangohan geographical Information system, barangay cagangohan, panabo city, gis, geographical information system, dnsc, barangay cagangohan gis',
 	// true                         enable page preloader
 	// false                        disable page preloader
 	'page_preloader' => false,

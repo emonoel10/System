@@ -36,4 +36,25 @@ node_modules/jshint/node_modules/minimatch/node_modules/brace-expansion/node_mod
 *.html
 *.jshintrc
 *.coffee
+
+## Build Modules
 node_modules/**
+node_modules/
+bower_components/
+build/
+dist/
+
+#SQL Files
+*.log
+*.sql
+*.sqlite
+
+#Packages
+*.7z
+*.dmg
+*.gz
+*.tar
+*.iso
+*.jar
+*.zip
+*.rar

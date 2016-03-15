@@ -1,7 +1,7 @@
 <div id="sidebar">
     <div id="sidebar-brand" class="themed-background">
         <a class="sidebar-title btn-effect-ripple" style="cursor: default;">
-            <i><img src="<?=base_url();?>assets/Backend/images/CagangohanPics/logoCagangohan.png" style="width: 30px; height: 30px; margin-left: -5px;"/></i> <span class="sidebar-nav-mini-hide animation-fadeIn" style="font-size: 13px;">Brgy.Cagangohan <strong>GIS</strong></span>
+            <i><img src="<?=base_url();?>assets/Backend/images/CagangohanPics/logoCagangohan.png" style="width: 40px; height: 40px; margin-left: -10px;"/></i> <span class="sidebar-nav-mini-hide animation-fadeIn" style="font-size: 13px;">Brgy.Cagangohan <strong>GIS</strong></span>
         </a>
     </div>
 
@@ -131,8 +131,8 @@
 
     <div id="sidebar-extra-info" class="sidebar-content sidebar-nav-mini-hide">
         <div class="text-center">
-            <small>Crafted with <i class="fa fa-heart text-danger"></i> by <a href="http://goo.gl/vNS3I" target="_blank"><?php echo $template['author']; ?></a></small><br>
-            <small><span id="year-copy"></span> &copy; <a href="http://goo.gl/RcsdAh" target="_blank"><?php echo $template['name'] . ' ' . $template['version']; ?></a></small>
+            <small>Crafted by <a href="javascript:void(0)" target="_blank"><?php echo $template['author']; ?></a></small><br>
+            <small><span id="year-copy"></span> &copy; <a href="javascript:void(0)" target="_blank"><?php echo $template['name'] . ' ' . $template['version']; ?></a></small>
         </div>
     </div>
 </div>

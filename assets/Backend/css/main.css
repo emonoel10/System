@@ -109,13 +109,14 @@ body {
     background-color: #454e59;
 }
 
-::-webkit-scrollbar-track {
+
+/*::-webkit-scrollbar-track {
     background-color: #ebeff2;
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 12px;
+    height: 10px;
 }
 
 ::-webkit-scrollbar * {
@@ -127,6 +128,26 @@ body {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #555;
+}*/
+
+::-webkit-scrollbar-track {
+    /*background-color: #454E59;*/
+    background-color: #ebeff2;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 10px;
+}
+
+::-webkit-scrollbar * {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+    background-color: #999999;
 }
 
 #login-body {
@@ -197,8 +218,11 @@ body {
 #main-container,
 header.navbar.navbar-fixed-top,
 header.navbar.navbar-fixed-bottom {
-    -webkit-transition: all .5s ease-out;
-    transition: all .5s ease-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
 }
 
 #sidebar,
@@ -280,11 +304,11 @@ header.navbar.navbar-fixed-bottom {
 /* Sidebar + Fixed Layout */
 
 #page-container.header-fixed-top #page-content {
-    padding-top: 60px;
+    padding-top: 30px;
 }
 
 #page-container.header-fixed-bottom #page-content {
-    padding-bottom: 60px;
+    padding-bottom: 30px;
 }
 
 #page-container.header-fixed-top #sidebar {
@@ -1045,6 +1069,54 @@ a.sidebar-title:focus {
     border-top-right-radius: 2px;
     background: rgba(218, 224, 232, .15);
 }
+
+
+/* Map Blocks */
+
+.map-block {
+    margin: 0 0 0px;
+    padding: 20px 15px 1px;
+    background-color: #ffffff;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    -webkit-box-shadow: 0 2px 0 rgba(218, 224, 232, .5);
+    box-shadow: 0 2px 0 rgba(218, 224, 232, .5);
+}
+
+.map-block .map-block {
+    border: 1px solid #dae0e8;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.map-block.full {
+    padding: 20px 15px;
+}
+
+.map-block .map-block-content-full {
+    margin: -20px -15px -1px;
+}
+
+.map-block .map-block-content-mini-padding {
+    padding: 8px;
+}
+
+.map-block.full .map-block-content-full {
+    margin: -20px -15px;
+}
+
+.map-block-title {
+    margin: -20px -15px 20px;
+    border-bottom: 2px solid #dae0e8;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    background: rgba(218, 224, 232, .15);
+}
+
+
+/*
+ *  Login Custom Style
+ */
 
 #loginBackArrow {
     margin-top: 8px;
@@ -3770,9 +3842,11 @@ p,
     }
     #page-container.header-fixed-top #page-content {
         padding-top: 70px;
+        /*padding-top: 0px;*/
     }
     #page-container.header-fixed-bottom #page-content {
         padding-bottom: 70px;
+        /*padding-bottom: 0px;*/
     }
     #page-content.inner-sidebar-left,
     #page-content.inner-sidebar-right {
@@ -4168,22 +4242,33 @@ canvas {
 */
 
 #map_canvas {
+    background: url("../images/markerLoading2.gif") center center no-repeat;
     z-index: 0;
     margin: 0;
     padding: 0;
     position: absolute;
     left: 0;
     top: 0;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
 }
 
 .gmap {
     /*height: 500px;
     margin-bottom: 1%;*/
-    height: 500px;
+    height: 520px;
     width: 98%;
     margin-left: 1%;
     margin-right: 1%;
     margin-bottom: -1%;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
 }
 
 .adp {
@@ -4199,32 +4284,48 @@ canvas {
 #searchBoxContent {
     z-index: 2000;
     margin-top: 0.7%;
-    position: fixed;
+    /*position: fixed;*/
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
 }
 
 #searchBox {
     z-index: 2000;
     width: 75%;
-    margin-bottom: 2%;
+    margin-top: 1%;
+    /*margin-bottom: 2%;*/
     padding-left: 120px;
-    padding-right: 2%;
+    padding-right: 4%;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
 }
-
-
-/*#searchBox {
-    width: 75%;
-    margin-bottom: 2%;
-    margin-left: 2%;
-}*/
 
 #print {
-    margin-left: 2%;
+    /*display: none;*/
+    margin-top: 2%;
+    margin-right: 4%;
+    margin-bottom: 4%;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
 }
 
-#directionsDiv {
-    /*margin-top: 50px;
-    margin-bottom: 25px;*/
+#map-header {
+    margin-bottom: 0px;
 }
+
+/*#directionsDiv {
+    margin-top: 50px;
+    margin-bottom: 25px;
+}*/
 
 
 /*#residentInfoDiv {
@@ -4240,13 +4341,21 @@ canvas {
     margin-top: 5%;
 }
 
-@media only screen and (max-width: 991px) {
+
+/*@media only screen and (max-width: 670px) {
     #print {
         display: none;
+        -webkit-transition: all .5s ease-in-out;
+        -moz-transition: all .5s ease-in-out;
+        -ms-transition: all .5s ease-in-out;
+        -o-transition: all .5s ease-in-out;
+        transition: all .5s ease-in-out;
     }
+}*/
+
+@media only screen and (max-width: 991px) {
     #searchBox {
         width: 100%;
-        margin-bottom: 3%;
     }
 }
 
@@ -4347,6 +4456,9 @@ canvas {
     #map-header > h2 {
         display: none;
     }
+    #print {
+        display: none;
+    }
     hr {
         /*background-color: black;
         height: 3px;*/
@@ -4354,10 +4466,26 @@ canvas {
     }
 }
 
+/*
+ * Datatable custom layout
+ */
+
+td.details-control {
+    background: url('https://raw.githubusercontent.com/DataTables/DataTables/1.10.7/examples/resources/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+
+tr.shown td.details-control {
+    background: url('https://raw.githubusercontent.com/DataTables/DataTables/1.10.7/examples/resources/details_close.png') no-repeat center center;
+}
+
+.extraPersonTemplate {
+  display: none;
+}
 
 /* 
-* Login custom layout
-*/
+ * Login custom layout
+ */
 
 #response {
     display: none;

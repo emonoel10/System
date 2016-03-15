@@ -7,6 +7,7 @@
 
         <title><?php echo $template['title'] ?></title>
 
+        <meta name="keywords" content="<?php echo $template['keywords'] ?>">
         <meta name="description" content="<?php echo $template['description'] ?>">
         <meta name="author" content="<?php echo $template['author'] ?>">
         <meta name="robots" content="<?php echo $template['robots'] ?>">
@@ -32,6 +33,6 @@
 
         <link rel="stylesheet" href="<?=base_url();?>assets/Frontend/css/sweet-alert/sweetalert.css">
 
-        <script src="<?=base_url();?>assets/Frontend/js/vendor/modernizr-2.8.3.min.js"></script>
+        <script type="text/javascript" src="<?=base_url();?>assets/Frontend/js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>

@@ -1,6 +1,6 @@
-<?php include 'inc/config.php'; ?>
-<?php include 'inc/template_start.php'; ?>
-<?php include 'inc/page_head.php'; ?>
+<?php include 'assets/Frontend/inc/config.php'; ?>
+<?php include 'assets/Frontend/inc/template_start.php'; ?>
+<?php include 'assets/Frontend/inc/page_head.php'; ?>
 
 <!-- Intro -->
 <section class="site-section site-section-top site-section-light themed-background-dark">
@@ -235,6 +235,6 @@
 </section>
 <!-- END Search Results -->
 
-<?php include 'inc/page_footer.php'; ?>
-<?php include 'inc/template_scripts.php'; ?>
-<?php include 'inc/template_end.php'; ?>
+<?php include 'assets/Frontend/inc/page_footer.php'; ?>
+<?php include 'assets/Frontend/inc/template_scripts.php'; ?>
+<?php include 'assets/Frontend/inc/template_end.php'; ?>

@@ -10,7 +10,7 @@ class InfoTable_model extends CI_Model {
 	}
 
 	var $residentTable = 'resident';
-	var $residentColumn = array('name', 'mname', 'lname', 'gender', 'bday', 'age', 'citizenship', 'occupation', 'status', 'purok', 'resAddress', 'perAddress', 'email', 'telNum', 'cpNum', 'latlong');
+	var $residentColumn = array('name', 'lname', 'gender', 'bday', 'age', 'citizenship', 'occupation', 'status', 'purok', 'resAddress', 'perAddress', 'telNum', 'cpNum', 'latlong');
 	var $geolocTable = 'geoloc';
 	var $geolocColumn = array('resident_latlong');
 	// var $memberTable = 'member';
@@ -86,7 +86,6 @@ class InfoTable_model extends CI_Model {
 
 	public function save($data) {
 		$this->db->insert($this->residentTable, $data);
-		// $this->db->insert($this->geolocTable, $data['resident_id'], $data['latlong']);
 		return $this->db->insert_id();
 	}
 
@@ -100,4 +99,14 @@ class InfoTable_model extends CI_Model {
 		$this->db->delete($this->residentTable);
 	}
 
+	public function resCheck($name, $lname, $purok) {
+        $qry = "SELECT count(*) as cnt from resident where name = " + $name + " AND lname = " + $lname + " AND purok = " + $purok + "";
+        if ($qry > 0) {
+            // echo '1';
+            return true;
+        } else {
+            // echo '0';
+            return false;
+        }
+    }
 }

@@ -140,10 +140,8 @@ var CompCharts = function() {
                 var legendHTML = '';
                 barData.labels.forEach(function(label, i) {
                     barData.datasets.forEach(function(value) {
-                        console.log(value['data'][i] + " / 100 * " + totalPopulation);
-                        var populationPercent = value['data'][i] / 100 * totalPopulation;
-                        var totalPopulationPercent = Math.round(parseFloat(populationPercent));
-                        legendHTML += ('<li><span style="background: ' + getFillColor(i) + '"></span>' + label + ': </li>' + value['data'][i] + ' (' + totalPopulationPercent + '%)<br>');
+                        var totalPopulationPercent = Math.max(Math.round(value['data'][i] * 100) / totalPopulation).toFixed(2);
+                        legendHTML += ('<li><span style="background: ' + getFillColor(i) + '"></span>' + label + ': </li>' + value['data'][i] + ' (' + totalPopulationPercent + ' %)<br>');
                     });
                 });
                 document.getElementById("totalPopulationByPurokLegend").innerHTML = '<ul class="bar-legend">' + legendHTML + '</ul>';
@@ -208,7 +206,7 @@ var CompCharts = function() {
                     animateRotate: true,
                     animateScale: true,
                     labelAlign: 'center',
-                    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%>" + ": " + "<%=segments[i].value%> (<%=Math.round(segments[i].value / 100 * " + totalPopulationByMale + ")%> %)</li><br><%}%></ul>"
+                    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%>" + ": " + "<%=segments[i].value%> (<%=Math.max(Math.round(segments[i].value * 100) / " + totalPopulationByMale + ").toFixed(2)%> %)</li><br><%}%></ul>"
                         // legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
                 };
                 var ageRangePie = document.getElementById("ageRangesPieMale").getContext("2d");
@@ -264,7 +262,7 @@ var CompCharts = function() {
                     segmentShowStroke: true,
                     animateRotate: true,
                     animateScale: true,
-                    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%>" + ": " + "<%=segments[i].value%> (<%=Math.round(segments[i].value / 100 * " + totalPopulationByMale + ")%> %)</li><br><%}%></ul>"
+                    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%>" + ": " + "<%=segments[i].value%> (<%=Math.max(Math.round(segments[i].value * 100) / " + totalPopulationByFemale + ").toFixed(2)%> %)</li><br><%}%></ul>"
                         // legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
                 };
                 var ageRangePie = document.getElementById("ageRangesPieFemale").getContext("2d");
