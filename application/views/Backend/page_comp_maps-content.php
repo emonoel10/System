@@ -9,7 +9,7 @@ $template['title'] = 'BCGIS | MAP';
 
 <div class="row">
   <div class="col-sm-12">
-    <div class="map-block full">
+    <div class="map-block">
       <div class="row" id="map-container">
         <div id="mapTitle">
           <div class="row" id="mapTitleHeader">

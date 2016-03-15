@@ -8,6 +8,7 @@
         <title><?php echo $template['title'] ?></title>
 
         <meta name="description" content="<?php echo $template['description'] ?>">
+        <meta name="keywords" content="<?php echo $template['keywords'] ?>">
         <meta name="author" content="<?php echo $template['author'] ?>">
         <meta name="robots" content="<?php echo $template['robots'] ?>">
 

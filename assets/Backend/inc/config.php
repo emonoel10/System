@@ -4,10 +4,11 @@
 $template = array(
 	'name' => 'Barangay Cagangohan Geographical Information System',
 	'version' => '1.0',
-	'author' => 'CMBTC from DNSC',
+	'author' => 'Team Season from DNSC',
 	'robots' => 'noindex, nofollow',
 	'title' => 'Barangay Cagangohan GIS',
-	'description' => 'Barangay Cagangohan Geographical Information System is a Web App created by CMBTC from DNSC for Residencial Mapping to Brgy.Cagangohan',
+	'description' => 'Barangay Cagangohan Geographical Information System is a Web App created by Team Season from DNSC for Residencial Mapping and Population Statistical Reviewer to Brgy.Cagangohan',
+	'keywords' => 'barangay cagangohan geographical information system, barangay cagangohan gis, bcgis, gis, panabo, panabo city, dnsc, davao del norte state college, barangay cagangohan, noel calonia',
 	// true                         enable page preloader
 	// false                        disable page preloader
 	'page_preloader' => false,

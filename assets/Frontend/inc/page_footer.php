@@ -23,23 +23,21 @@
                 <div class="col-sm-4">
                     <h4 class="footer-heading">Need support?</h4>
                     <ul class="footer-nav footer-nav-links list-inline">
-                        <!-- <li><a href="javascript:void(0)"><i class="fa fa-fw fa-book"></i> Knowledge Base</a></li> -->
                         <li><a href="javascript:void(0)"><i class="fa fa-fw fa-support"></i> FAQ</a></li>
                     </ul>
                     <h4 class="footer-heading">We are social!</h4>
                     <ul class="footer-nav footer-nav-links list-inline">
-                        <li><a href="javascript:void(0)" class="social-facebook" data-toggle="tooltip" title="Like our Facebook page"><i class="fa fa-fw fa-facebook"></i></a></li>
-                        <!-- <li><a href="javascript:void(0)" class="social-twitter" data-toggle="tooltip" title="Follow us on Twitter"><i class="fa fa-fw fa-twitter"></i></a></li> -->
-                        <li><a href="javascript:void(0)" class="social-google-plus" data-toggle="tooltip" title="Like our Google+ page"><i class="fa fa-fw fa-google-plus"></i></a></li>
+                        <li><a href="javascript:void(0)" class="social-facebook" data-toggle="tooltip" title="Like our Facebook page">&nbsp;<i class="fa fa-fw fa-facebook"></i>&nbsp;</a></li>
+                        <li><a href="javascript:void(0)" class="social-google-plus" data-toggle="tooltip" title="Like our Google+ page">&nbsp;<i class="fa fa-fw fa-google-plus"></i>&nbsp;</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-4">
                     <h4 class="footer-heading"><a href="<?=base_url();?>"><?php echo $template['name']; ?></a></h4>
-                    <em><span id="year-copy"></span></em> &copy; Crafted <!-- with <i class="fa fa-heart text-danger"></i> --> by <a href="facebook.com/emo_noel09">CMBTC from DNSC</a>
+                    <em><span id="year-copy"></span></em> &copy; Crafted by <a href="facebook.com/teamSeason">Team Season from DNSC</a>
                 </div>
             </div>
         </div>
     </footer>
 </div>
 
-<a href="#" id="to-top"><i class="fa fa-arrow-up"></i></a>
+<a href="#" id="to-top">&nbsp;<i class="fa fa-arrow-up">&nbsp;</i></a>
