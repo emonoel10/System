@@ -2,9 +2,15 @@
 Barangay Cagangohan Geographical Information System
 ###################
 
+<<<<<<< HEAD
 The Brgy. Cagangohan Geographic Information System is designed to provide qualified professionals with instant access to Barangay�s Map office data. On the other hand, the site also allows users to query residence data in designated Puroks and view the maps with different Puroks and Barangay landmarks in the system.
 =======
 The Brgy. Cagangohan Geographic Information System is designed to provide qualified professionals with instant access to Barangay’s Map office data. On the other hand, the site also allows users to query residence data in designated Puroks and view the maps with different Puroks and Barangay landmarks in the system.
+=======
+The Brgy. Cagangohan Geographic Information System is designed to provide qualified professionals with instant access to Barangay’s
+Map office data. On the other hand, the site also allows users to query residence data in designated Puroks and view the maps with
+different Puroks and Barangay landmarks in the system.
+>>>>>>> cc78b381c756da0a63c8ae114c13c21368d7d464
 
 *******************
 Server Requirements
