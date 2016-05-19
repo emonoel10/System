@@ -42,18 +42,14 @@ class InfoTable extends CI_Controller {
 			$row[] = $resident->occupation;
 			$row[] = $resident->status;
 			$row[] = $resident->purok;
-			// $row[] = $resident->resAddress;
-			// $row[] = $resident->perAddress;
-			// $row[] = $resident->telNum;
-			// $row[] = $resident->cpNum;
 			$row[] = $resident->resAddress;
 			$row[] = $resident->perAddress;
 			$row[] = $resident->telNum;
 			$row[] = $resident->cpNum;
 
 			//add html for action
-			$row[] = '<div class="text-center"><a class="btn btn-sm btn-primary enable-tooltip" data-toggle="tooltip" href="javascript:void(0)" title="Edit Resident" onclick="edit_resident(' . "'" . $resident->resident_id . "'" . ')"><i class="fa fa-pencil"></i></a>
-            <a class="btn btn-sm btn-danger enable-tooltip" data-toggle="tooltip" href="javascript:void(0)" title="Delete Resident" onclick="delete_resident(' . "'" . $resident->resident_id . "'" . ')"><i class="fa fa-times"></i></a></div>';
+			$row[] = '<a class="btn btn-sm btn-primary enable-tooltip" data-toggle="tooltip" href="javascript:void(0)" title="Edit Resident" onclick="edit_resident(' . "'" . $resident->resident_id . "'" . ')"><i class="fa fa-pencil"></i></a>
+            <a class="btn btn-sm btn-danger enable-tooltip" data-toggle="tooltip" href="javascript:void(0)" title="Delete Resident" onclick="delete_resident(' . "'" . $resident->resident_id . "'" . ')"><i class="fa fa-times"></i></a>';
 
 			$data[] = $row;
 		}
@@ -75,10 +71,7 @@ class InfoTable extends CI_Controller {
 	}
 
 	public function ajax_add() {
-		if (checkRes() == true) {
-			echo json_encode("Resident already exist!");
-		} else {
-			$this->_validate();
+		$this->_validate();
 		$bday = $this->input->post('bday');
 		$telNum = $this->input->post('telNum');
 		$cpNum = $this->input->post('cpNum');
@@ -104,11 +97,9 @@ class InfoTable extends CI_Controller {
 			'telNum' => $telNum,
 			'cpNum' => $cpNum,
 			'latlong' => $this->input->post('latlong'),
-			'dateAdded' => date('Y-m-d H:i:s')
 		);
 		$insert = $this->InfoTable_model->save($data);
 		echo json_encode(array("status" => TRUE));
-		}
 	}
 
 	public function ajax_update() {
@@ -137,7 +128,6 @@ class InfoTable extends CI_Controller {
 			'telNum' => $telNum,
 			'cpNum' => $cpNum,
 			'latlong' => $this->input->post('latlong'),
-			'dateUpdated' => date('Y-m-d H:i:s')
 		);
 		$this->InfoTable_model->update(array('resident_id' => $this->input->post('resident_id')), $data);
 		echo json_encode(array("status" => TRUE));
@@ -182,19 +172,11 @@ class InfoTable extends CI_Controller {
 			$data['status'] = FALSE;
 		}
 
-<<<<<<< HEAD
-		if ($this->input->post('age') == null) {
-			$data['inputerror'][] = 'age';
-			$data['error_string'][] = 'Age is required';
-			$data['status'] = FALSE;
-		}
-=======
 		// if ($this->input->post('age') == null) {
 		// 	$data['inputerror'][] = 'age';
 		// 	$data['error_string'][] = 'Age is required';
 		// 	$data['status'] = FALSE;
 		// }
->>>>>>> 2a322e5146fb2ebc69ce889511b8ef355f100d61
 
 		if ($this->input->post('citizenship') == '') {
 			$data['inputerror'][] = 'citizenship';
@@ -232,15 +214,12 @@ class InfoTable extends CI_Controller {
 			$data['status'] = FALSE;
 		}
 
-<<<<<<< HEAD
-=======
 		// if ($this->input->post('cpNum') == '') {
 		// 	$data['inputerror'][] = 'cpNum';
 		// 	$data['error_string'][] = 'Mobile # is required';
 		// 	$data['status'] = FALSE;
 		// }
 
->>>>>>> 2a322e5146fb2ebc69ce889511b8ef355f100d61
 		if ($this->input->post('latlong') == '') {
 			$data['inputerror'][] = 'latlong';
 			$data['error_string'][] = 'Geolocation is required';
@@ -253,16 +232,6 @@ class InfoTable extends CI_Controller {
 		}
 	}
 
-<<<<<<< HEAD
-	public function checkRes() {             
-		if(isset($_POST)) {
-            $name = $this->input->post('name');
-            $lname = $this->input->post('lname');
-            $purok = $this->input->post('purok');
-            $this->InfoTable_model->resCheck($name, $lname, $purok); 
-        }
-	}
-=======
 	// public function checkRes() {             
 	// 	if(isset($_POST)) {
  //            $name = $this->input->post('name');
@@ -271,6 +240,5 @@ class InfoTable extends CI_Controller {
  //            $this->InfoTable_model->resCheck($name, $lname, $purok); 
  //        }
 	// }
->>>>>>> 2a322e5146fb2ebc69ce889511b8ef355f100d61
 
 }
