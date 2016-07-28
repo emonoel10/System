@@ -155,7 +155,7 @@ class Googlemaps {
 	var $placesAutocompleteBoundsMap = FALSE; // An alternative to setting the SW and NE bounds is to use the bounds of the current viewport. If set to TRUE, the bounds will be set to the viewport of the visible map, even if dragged or zoomed
 	var $placesAutocompleteOnChange = ''; // The JavaScript action to perform when a place is selected
 
-	function Googlemaps($config = array()) {
+	function __construct($config = array()) {
 		if (count($config) > 0) {
 			$this->initialize($config);
 		}
@@ -1104,12 +1104,12 @@ class Googlemaps {
 		if ($this->maps_loaded == 0) {
 			if ($this->apiKey != "") {
 				if ($this->https) {$apiLocation = 'https';} else { $apiLocation = 'http';}
-				$apiLocation .= '://maps.googleapis.com/maps/api/js?key=' . $this->apiKey . '&';
+				$apiLocation .= '://maps.googleapis.com/maps/api/js?key=' . $this->apiKey . '';
 			} else {
 				if ($this->https) {$apiLocation = 'https://maps-api-ssl';} else { $apiLocation = 'http://maps';}
 				$apiLocation .= '.google.com/maps/api/js?';
 			}
-			$apiLocation .= 'sensor=' . $this->sensor;
+			// $apiLocation .= 'sensor=' . $this->sensor;
 			if ($this->region != "" && strlen($this->region) == 2) {$apiLocation .= '&region=' . strtoupper($this->region);}
 			if ($this->language != "") {$apiLocation .= '&language=' . $this->language;}
 			$libraries = array();

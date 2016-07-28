@@ -24,7 +24,7 @@ var UiTables = function() {
                 },
                 //Set column definition initialisation properties.
                 "columnDefs": [{
-                    "targets": [-1, 0], //last column
+                    "targets": [-1], //last column
                     "orderable": false //set not orderable
                 }],
                 "lengthMenu": [
@@ -48,17 +48,7 @@ var UiTables = function() {
             $('#table').on('process', function() {
                 $(this).addClass();
             });
-            // $('#example-datatable').dataTable({
-            //     columnDefs: [{
-            //         orderable: false,
-            //         targets: [4]
-            //     }],
-            //     pageLength: 10,
-            //     lengthMenu: [
-            //         [5, 10, 15, 20],
-            //         [5, 10, 15, 20]
-            //     ]
-            // });
+            
             /* Add placeholder attribute to the search input */
             $('.dataTables_filter input').attr('placeholder', 'Search');
             /* Select/Deselect all checkboxes in tables */

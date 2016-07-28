@@ -1,4 +1,3 @@
-<?php echo $map['js']; ?>
 <?php include 'assets/Frontend/inc/config.php';?>
 <?php include 'assets/Frontend/inc/template_start.php';?>
 
@@ -52,7 +51,8 @@
                 <div class="col-sm-12 col-md-6 col-lg-6" id="residentInfoDiv"></div>
                 <div class="col-sm-12 col-md-6 col-lg-6" id="directionsDiv"></div>
                 <div class="col-sm-12 text-center" id="print">
-                    <button type="button" id="print" onclick="window.print();" class="btn btn-effect-ripple btn-info text-center"><i class="fa fa-print"></i> Print</button>
+                    <button type="button" id="print" onclick="window.print();" class="btn btn-effect-ripple btn-info text-center"><i class="fa fa-print"></i> Print
+                    </button>
                 </div>
             </div>
         </div>
@@ -115,6 +115,7 @@
 </section> -->
 
 <?php include 'assets/Frontend/inc/template_scripts.php';?>
+<?php echo $map['js']; ?>
 
 <script type="text/javascript" src="<?=base_url();?>assets/Frontend/js/pages/map.js"></script>
 <!-- <script>

@@ -2992,6 +2992,16 @@ p,
     }
 }
 
+/*
+ *  Landing Page custom stylesheet
+ */
+
+@media screen and (max-width: 350px) {
+    #site-logo {
+        margin: 1% 0% 0% 0%;
+        font-size: 100%;
+    }
+} 
 
 /*
  *  Barangay Mission & Vision custom stylesheet

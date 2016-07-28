@@ -457,12 +457,12 @@ $('iframe').load(function() {
 //     $(window).on('beforeprint', beforePrint);
 //     $(window).on('afterprint', afterPrint);
 // }
+// 
+// function beforePrint() {
+//     $(this).style.display = 'none';
+// }
 
-function beforePrint() {
-    $(this).style.display = 'none';
-}
-
-function afterPrint() {
-    $(this).style.display = '';
-}
+// function afterPrint() {
+//     $(this).style.display = '';
+// }
 

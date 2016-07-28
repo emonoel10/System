@@ -10,7 +10,16 @@ $template['title'] = 'RESIDENT TABLE | BCGIS';
 <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAqDAnQp7hT_6HEnwQc8GgE7ApXHMpPny4"></script>
 <script>
     function initialize() {
-        var myCenter = new google.maps.LatLng(7.282397, 125.683499);
+        var latlongVal = document.getElementById('latlong').value,
+            latlongArray = latlongVal.split(','),
+            lat = parseFloat(latlongArray[0]),
+            long = parseFloat(latlongArray[1]);
+
+        if (latlongVal == null || latlongVal == "") {
+            var myCenter = new google.maps.LatLng(7.282397, 125.683499);
+        } else {
+            var myCenter = new google.maps.LatLng(lat, long);
+        }
         var markers = [];
         var marker;
 
@@ -696,12 +705,6 @@ $('#purok').on('change', function() {
         document.getElementById("perAddress").value = "Prk. " + purok + ", Panabo City, Davao del Norte, Philippines 8105";
     }
 
-    var EuropeCoords = [{lat: 7.292778, lng: 125.678237},
-    {lat: 7.292177, lng: 125.677985},
-    {lat: 7.291156, lng: 125.680874},
-    {lat: 7.292510, lng: 125.681394},
-    {lat: 7.292778, lng: 125.678237}];
-
     switch (purok) {
         case "Atis":
         flightPath.setMap(map);
@@ -964,6 +967,267 @@ $('#purok').on('change', function() {
 
 $('#modal_form').on('shown.bs.modal', function () {
     initialize();
+
+    var initializePurok = $("#purok").val().split('#')[0];
+
+    switch (initializePurok) {
+        case "Atis":
+        flightPath.setMap(map);
+        flightPath12.setMap(map);
+        atis = new google.maps.LatLng(7.292316, 125.679508);
+        map.setCenter(atis);
+        map.setZoom(17);
+        marker.setPosition(atis);
+        break;
+
+        case "Avocado":
+        flightPath.setMap(map);
+        flightPath9.setMap(map);
+        avocado = new google.maps.LatLng(7.291124, 125.677019);
+        map.setCenter(avocado);
+        map.setZoom(17);
+        marker.setPosition(avocado);
+        break;
+
+        case "Bayabas":
+        flightPath.setMap(map);
+        flightPath19.setMap(map);
+        bayabas = new google.maps.LatLng(7.289592, 125.681268);
+        map.setCenter(bayabas);
+        map.setZoom(17);
+        marker.setPosition(bayabas);
+        break;
+
+        case "Boongon":
+        flightPath.setMap(map);
+        flightPath21.setMap(map);
+        bayabas = new google.maps.LatLng(7.281333,125.685859);
+        map.setCenter(bayabas);
+        map.setZoom(17);
+        marker.setPosition(bayabas);
+        break;
+
+        case "Chico":
+        flightPath.setMap(map);
+        flightPath8.setMap(map);
+        chico = new google.maps.LatLng(7.290102,125.671225);
+        map.setCenter(chico);
+        map.setZoom(17);
+        marker.setPosition(chico);
+        break;
+
+        case "Durian":
+        flightPath.setMap(map);
+        flightPath22.setMap(map);
+        durian = new google.maps.LatLng(7.283334,125.685902);
+        map.setCenter(durian);
+        map.setZoom(17);
+        marker.setPosition(durian);
+        break;
+
+        case "Guyabano":
+        flightPath.setMap(map);
+        flightPath26.setMap(map);
+        guyabano = new google.maps.LatLng(7.285207,125.681353);
+        map.setCenter(guyabano);
+        map.setZoom(17);
+        marker.setPosition(guyabano);
+        break;
+
+        case "Kaimito":
+        flightPath.setMap(map);
+        flightPath10.setMap(map);
+        kaimito = new google.maps.LatLng(7.290613,125.673972);
+        map.setCenter(kaimito);
+        map.setZoom(17);
+        marker.setPosition(kaimito);
+        break;
+
+        case "Kasoy":
+        flightPath.setMap(map);
+        flightPath20.setMap(map);
+        kasoy = new google.maps.LatLng(7.2904,125.679722);
+        map.setCenter(kasoy);
+        map.setZoom(17);
+        marker.setPosition(kasoy);
+        break;
+
+        case "Lanzones":
+        flightPath.setMap(map);
+        flightPath4.setMap(map);
+        lanzones = new google.maps.LatLng(7.288442,125.668393);
+        map.setCenter(lanzones);
+        map.setZoom(17);
+        marker.setPosition(lanzones);
+        break;
+
+        case "Lomboy":
+        flightPath.setMap(map);
+        flightPath25.setMap(map);
+        lomboy = new google.maps.LatLng(7.282312,125.682254);
+        map.setCenter(lomboy);
+        map.setZoom(17);
+        marker.setPosition(lomboy);
+        break;
+
+        case "Mabolo":
+        flightPath.setMap(map);
+        flightPath25.setMap(map);
+        mabolo = new google.maps.LatLng(7.282312,125.679379);
+        map.setCenter(mabolo);
+        map.setZoom(17);
+        marker.setPosition(mabolo);
+        break;
+
+        case "Macopa":
+        flightPath.setMap(map);
+        flightPath7.setMap(map);
+        macopa = new google.maps.LatLng(7.275292,125.68243);
+        map.setCenter(macopa);
+        map.setZoom(17);
+        marker.setPosition(macopa);
+        break;
+
+        case "Mangga":
+        flightPath.setMap(map);
+        flightPath23.setMap(map);
+        mangga = new google.maps.LatLng(7.279417,125.677705);
+        map.setCenter(mangga);
+        map.setZoom(17);
+        marker.setPosition(mangga);
+        break;
+
+        case "Mangosteen":
+        flightPath.setMap(map);
+        flightPath6.setMap(map);
+        mangosteen = new google.maps.LatLng(7.291852,125.669107);
+        map.setCenter(mangosteen);
+        map.setZoom(17);
+        marker.setPosition(mangosteen);
+        break;
+
+        case "Mansanas":
+        flightPath.setMap(map);
+        flightPath3.setMap(map);
+        mansanas = new google.maps.LatLng(7.284338,125.67769);
+        map.setCenter(mansanas);
+        map.setZoom(17);
+        marker.setPosition(mansanas);
+        break;
+
+        case "Marang":
+        flightPath.setMap(map);
+        flightPath28.setMap(map);
+        marang = new google.maps.LatLng(7.28536,125.685801);
+        map.setCenter(marang);
+        map.setZoom(17);
+        marker.setPosition(marang);
+        break;
+
+        case "Marang Joesil":
+        flightPath.setMap(map);
+        flightPath27.setMap(map);
+        marangJoesil = new google.maps.LatLng(7.281401,125.683999);
+        map.setCenter(marangJoesil);
+        map.setZoom(17);
+        marker.setPosition(marangJoesil);
+        break;
+
+        case "Melon":
+        flightPath.setMap(map);
+        flightPath14.setMap(map);
+        melon = new google.maps.LatLng(7.291447,125.682733);
+        map.setCenter(melon);
+        map.setZoom(17);
+        marker.setPosition(melon);
+        break;
+
+        case "Nangka":
+        flightPath.setMap(map);
+        flightPath29.setMap(map);
+        nangka = new google.maps.LatLng(7.288276,125.686102);
+        map.setCenter(nangka);
+        map.setZoom(17);
+        marker.setPosition(nangka);
+        break;
+
+        case "Pomelo":
+        flightPath.setMap(map);
+        flightPath11.setMap(map);
+        pomelo = new google.maps.LatLng(7.290681,125.678227);
+        map.setCenter(pomelo);
+        map.setZoom(17);
+        marker.setPosition(pomelo);
+        break;
+
+        case "Rambutan":
+        flightPath.setMap(map);
+        flightPath13.setMap(map);
+        rambutan = new google.maps.LatLng(7.291596,125.681681);
+        map.setCenter(rambutan);
+        map.setZoom(17);
+        marker.setPosition(rambutan);
+        break;
+
+        case "Santol":
+        flightPath.setMap(map);
+        flightPath15.setMap(map);
+        santol = new google.maps.LatLng(7.283466,125.689234);
+        map.setCenter(santol);
+        map.setZoom(17);
+        marker.setPosition(santol);
+        break;
+
+        case "Sereguellas":
+        flightPath.setMap(map);
+        flightPath16.setMap(map);
+        sereguellas = new google.maps.LatLng(7.290511,125.683956);
+        map.setCenter(sereguellas);
+        map.setZoom(17);
+        marker.setPosition(sereguellas);
+        break;
+
+        case "Sunkist":
+        flightPath.setMap(map);
+        flightPath2.setMap(map);
+        sunkist = new google.maps.LatLng(7.287297,125.676489);
+        map.setCenter(sunkist);
+        map.setZoom(17);
+        marker.setPosition(sunkist);
+        break;
+
+        case "Tambis":
+        flightPath.setMap(map);
+        flightPath5.setMap(map);
+        tambis = new google.maps.LatLng(7.288255,125.672927);
+        map.setCenter(tambis);
+        map.setZoom(17);
+        marker.setPosition(tambis);
+        break;
+
+        case "Ubas":
+        flightPath.setMap(map);
+        flightPath18.setMap(map);
+        ubas = new google.maps.LatLng(7.287276,125.67887);
+        map.setCenter(ubas);
+        map.setZoom(17);
+        marker.setPosition(ubas);
+        break;
+
+        case "Fishpond/Sea wall":
+        flightPath.setMap(map);
+        flightPath17.setMap(map);
+        fishpond = new google.maps.LatLng(7.29049,125.692367);
+        map.setCenter(fishpond);
+        marker.setPosition(fishpond);
+        break;
+
+        default:
+        map.setCenter(myCenter);
+        map.setZoom(14);
+        marker.setPosition(myCenter);
+        break;
+    }
 });
 
 }

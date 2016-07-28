@@ -13,7 +13,7 @@ class InfoTable extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		$this->load->library('googlemaps');
-		$this->load->library('my_table');
+		$this->load->library('MY_Table');
 		$this->load->Model('Login_model');
 		$this->load->Model('Maps_model');
 		$this->load->model('InfoTable_model');
@@ -72,9 +72,14 @@ class InfoTable extends CI_Controller {
 
 	public function ajax_add() {
 		$this->_validate();
+		$mname = $this->input->post('mname');
 		$bday = $this->input->post('bday');
 		$telNum = $this->input->post('telNum');
 		$cpNum = $this->input->post('cpNum');
+
+		if ($mname == "" || $telNum == null) {
+			$mname = "N/A";
+		}
 
 		if ($telNum == "" || $telNum == null) {
 			$telNum = "N/A";
@@ -84,6 +89,7 @@ class InfoTable extends CI_Controller {
 
 		$data = array(
 			'name' => humanize($this->input->post('name')),
+			'mname' => humanize('N/A'),
 			'lname' => humanize($this->input->post('lname')),
 			'gender' => humanize($this->input->post('gender')),
 			'age' => humanize($this->input->post('age')),
@@ -232,13 +238,13 @@ class InfoTable extends CI_Controller {
 		}
 	}
 
-	// public function checkRes() {             
+	// public function checkRes() {
 	// 	if(isset($_POST)) {
- //            $name = $this->input->post('name');
- //            $lname = $this->input->post('lname');
- //            $purok = $this->input->post('purok');
- //            $this->InfoTable_model->resCheck($name, $lname, $purok); 
- //        }
+	//            $name = $this->input->post('name');
+	//            $lname = $this->input->post('lname');
+	//            $purok = $this->input->post('purok');
+	//            $this->InfoTable_model->resCheck($name, $lname, $purok);
+	//        }
 	// }
 
 }

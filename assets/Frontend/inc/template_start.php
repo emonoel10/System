@@ -13,15 +13,15 @@
         <meta name="robots" content="<?php echo $template['robots'] ?>">
 
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
-        <link rel="shortcut icon" href="<?=base_url();?>assets/Frontend/images/CagangohanPics/logoCagangohan.png">
-        <link rel="apple-touch-icon" href="<?=base_url();?>assets/Frontend/images/CagangohanPics/logoCagangohan.png" sizes="57x57">
-        <link rel="apple-touch-icon" href="<?=base_url();?>assets/Frontend/images/CagangohanPics/logoCagangohan.png" sizes="72x72">
-        <link rel="apple-touch-icon" href="<?=base_url();?>assets/Frontend/images/CagangohanPics/logoCagangohan.png" sizes="76x76">
-        <link rel="apple-touch-icon" href="<?=base_url();?>assets/Frontend/images/CagangohanPics/logoCagangohan.png" sizes="114x114">
-        <link rel="apple-touch-icon" href="<?=base_url();?>assets/Frontend/images/CagangohanPics/logoCagangohan.png" sizes="120x120">
-        <link rel="apple-touch-icon" href="<?=base_url();?>assets/Frontend/images/CagangohanPics/logoCagangohan.png" sizes="144x144">
-        <link rel="apple-touch-icon" href="<?=base_url();?>assets/Frontend/images/CagangohanPics/logoCagangohan.png" sizes="152x152">
-        <link rel="apple-touch-icon" href="<?=base_url();?>assets/Frontend/images/CagangohanPics/logoCagangohan.png" sizes="180x180">
+        <link rel="shortcut icon" href="<?=base_url();?>assets/Frontend/images/CagangohanPics/brgyCagangohan180.png">
+        <link rel="apple-touch-icon" href="<?=base_url();?>assets/Frontend/images/CagangohanPics/brgyCagangohan180.png" sizes="57x57">
+        <link rel="apple-touch-icon" href="<?=base_url();?>assets/Frontend/images/CagangohanPics/brgyCagangohan180.png" sizes="72x72">
+        <link rel="apple-touch-icon" href="<?=base_url();?>assets/Frontend/images/CagangohanPics/brgyCagangohan180.png" sizes="76x76">
+        <link rel="apple-touch-icon" href="<?=base_url();?>assets/Frontend/images/CagangohanPics/brgyCagangohan180.png" sizes="114x114">
+        <link rel="apple-touch-icon" href="<?=base_url();?>assets/Frontend/images/CagangohanPics/brgyCagangohan180.png" sizes="120x120">
+        <link rel="apple-touch-icon" href="<?=base_url();?>assets/Frontend/images/CagangohanPics/brgyCagangohan180.png" sizes="144x144">
+        <link rel="apple-touch-icon" href="<?=base_url();?>assets/Frontend/images/CagangohanPics/brgyCagangohan180.png" sizes="152x152">
+        <link rel="apple-touch-icon" href="<?=base_url();?>assets/Frontend/images/CagangohanPics/brgyCagangohan180.png" sizes="180x180">
 
         <link rel="stylesheet" href="<?=base_url();?>assets/Frontend/css/bootstrap.min.css">
 
