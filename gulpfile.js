@@ -14,11 +14,14 @@ gulp.task('jshint', function() {
   gulp.src('/assets/Backend/js/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
+  gulp.src('/assets/Frontend/js/*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
 });
 
 // JS concat, strip debugging and minify
 gulp.task('scripts', function() {
-  gulp.src(['./assets/Backend/lib.js','./src/scripts/*.js'])
+  gulp.src(['./assets/Backend/*.js','./src/scripts/*.js'])
     .pipe(concat('script.js'))
     .pipe(stripDebug())
     .pipe(uglify())

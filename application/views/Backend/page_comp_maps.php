@@ -25,15 +25,14 @@ $template['title'] = 'MAP(Admin) | BCGIS';
         </div>
     </div>
 
-    <div id="block full">
+    <div id="page-content">
         <div class="row">
             <div class="col-sm-12">
                 <div class="block" id="block">
                     <div class="block-title" id="map-header">
                         <h2><i class="fa fa-globe"></i> Satellite Map</h2>
                     </div>
-                    <iframe src="<?php echo base_url(); ?>/Maps/index_content" id="frontMapContent" style="zoom:0; height: 100%; width: 103.8%; margin-left: -1.9%;" scrolling="no" frameborder="0">
-                    </iframe>
+                    <iframe src="<?php echo base_url(); ?>/Maps/index_content" id="frontMapContent" style="zoom:0; height: 100%; width: 104%; margin-left: -2%;" scrolling="no" frameborder="0"></iframe>
                 </div>
             </div>
         </div>

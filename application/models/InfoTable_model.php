@@ -10,16 +10,16 @@ class InfoTable_model extends CI_Model {
 	}
 
 	var $residentTable = 'resident';
-	var $residentColumn = array('name', 'lname', 'gender', 'bday', 'age', 'citizenship', 'occupation', 'status', 'purok', 'resAddress', 'perAddress', 'telNum', 'cpNum', 'latlong');
+	var $residentColumn = array('name', 'lname', 'gender', 'bday', 'age', 'citizenship', 'occupation', 'status', 'purok', 'resAddress', 'perAddress', 'telNum', 'cpNum', 'geoloc.geoloc_latlong');
 	var $geolocTable = 'geoloc';
 	var $geolocColumn = array('resident_latlong');
 	// var $memberTable = 'member';
 	// var $memberColumn = array('resident_latlong');
-	var $order = array('resident_id' => 'desc');
+	var $order = array('resident_id' => 'asc');
 
 	public function _get_datatables_query() {
 
-		$this->db->from($this->residentTable);
+		$this->db->from($this->residentTable)->join($this->geolocTable . ' geoloc', 'geoloc.resident_id = ' . $this->residentTable . '.resident_id');
 
 		$i = 0;
 
@@ -100,13 +100,11 @@ class InfoTable_model extends CI_Model {
 	}
 
 	public function resCheck($name, $lname, $purok) {
-        $qry = "SELECT count(*) as cnt from resident where name = " + $name + " AND lname = " + $lname + " AND purok = " + $purok + "";
-        if ($qry > 0) {
-            // echo '1';
-            return true;
-        } else {
-            // echo '0';
-            return false;
-        }
-    }
+		$qry = "SELECT count(*) as cnt from resident where name = "+$name+" AND lname = "+$lname+"";
+		if ($qry > 0) {
+			echo '1';
+		} else {
+			echo '0';
+		}
+	}
 }

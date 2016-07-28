@@ -1,4 +1,3 @@
-<?php echo $map['js']; ?>
 <?php include 'assets/Frontend/inc/config.php';?>
 <?php include 'assets/Frontend/inc/template_start.php';?>
 
@@ -52,7 +51,8 @@
                 <div class="col-sm-12 col-md-6 col-lg-6" id="residentInfoDiv"></div>
                 <div class="col-sm-12 col-md-6 col-lg-6" id="directionsDiv"></div>
                 <div class="col-sm-12 text-center" id="print">
-                    <button type="button" id="print" onclick="window.print();" class="btn btn-effect-ripple btn-info text-center"><i class="fa fa-print"></i> Print</button>
+                    <button type="button" id="print" onclick="window.print();" class="btn btn-effect-ripple btn-info text-center"><i class="fa fa-print"></i> Print
+                    </button>
                 </div>
             </div>
         </div>
@@ -98,7 +98,6 @@
                             </div>
                         </div>
                         <div class="col-sm-0 col-md-5 col-lg-2"></div>
-<<<<<<< HEAD
                     </div>
                     <div id="map" style="width:118%; margin-left: -5%;">
                         <?php // echo $map['html']; ?>
@@ -110,25 +109,13 @@
                 <div class="col-sm-12">
                     <button type="button" id="print" onclick="window.print();" class="btn btn-effect-ripple btn-info" style="overflow: hidden; position: relative; float: center;"><i class="fa fa-print"></i> Print</button>
                 </div>
-=======
-                    </div>
-                    <div id="map" style="width:118%; margin-left: -5%;">
-                        <?php // echo $map['html']; ?>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-12 col-lg-12" id="dataTitle"></div>
-                <div class="col-sm-12 col-md-6 col-lg-6" id="residentInfoDiv"></div>
-                <div class="col-sm-12 col-md-6 col-lg-6" id="directionsDiv"></div>
-                <div class="col-sm-12">
-                    <button type="button" id="print" onclick="window.print();" class="btn btn-effect-ripple btn-info" style="overflow: hidden; position: relative; float: center;"><i class="fa fa-print"></i> Print</button>
-                </div>
->>>>>>> 2a322e5146fb2ebc69ce889511b8ef355f100d61
             </div>
         </div>
     </div>
 </section> -->
 
 <?php include 'assets/Frontend/inc/template_scripts.php';?>
+<?php echo $map['js']; ?>
 
 <script type="text/javascript" src="<?=base_url();?>assets/Frontend/js/pages/map.js"></script>
 <!-- <script>

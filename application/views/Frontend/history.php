@@ -7,7 +7,7 @@ $template['title'] = "BCGIS | BARANGAY HISTORY";
 <!-- Intro -->
 <section class="site-section site-section-top site-section-light themed-background-dark">
     <div class="container">
-        <h1 class="text-center animation-fadeInQuickInv"><strong>All your questions answered.</strong></h1>
+        <h1 class="text-center animation-fadeInQuickInv"><strong>The Barangay Untold</strong></h1>
     </div>
 </section>
 <!-- END Intro -->

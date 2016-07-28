@@ -287,7 +287,7 @@ header nav {
 /* Main Structure */
 
 .site-section {
-    padding: 95px 0;
+    padding: 50px 0;
 }
 
 .site-section-mini {
@@ -312,7 +312,7 @@ header nav {
 }
 
 .site-section-top {
-    padding-top: 95px;
+    padding-top: 124px;
     overflow: hidden;
 }
 
@@ -427,7 +427,6 @@ header nav {
 
 .footer-nav-links a.social-facebook:hover {
     background-color: #3b5998;
-    text-align: center;
     -webkit-transition: all .5s ease-in-out;
     -moz-transition: all .5s ease-in-out;
     -ms-transition: all .5s ease-in-out;
@@ -2607,9 +2606,11 @@ p,
  */
 
 #container {
+    /*text-align: center;*/
     margin-top: 12%;
     margin-bottom: 25%;
 }
+
 
 /*
 *   Maps css stylelist
@@ -2991,6 +2992,16 @@ p,
     }
 }
 
+/*
+ *  Landing Page custom stylesheet
+ */
+
+@media screen and (max-width: 350px) {
+    #site-logo {
+        margin: 1% 0% 0% 0%;
+        font-size: 100%;
+    }
+} 
 
 /*
  *  Barangay Mission & Vision custom stylesheet

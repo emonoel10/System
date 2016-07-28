@@ -11,7 +11,7 @@ $template['page_preloader'] = true;
     <h1 class="h3 text-light text-center push-top-bottom fadeIn animated">
         <div class="row">
             <div class="col-lg-3 fadeIn animated">
-                <img src="<?=base_url();?>assets/Backend/images/CagangohanPics/logoCagangohan.png" style="width: 95px; height: 80px;"/>
+                <img src="<?=base_url();?>assets/Backend/images/CagangohanPics/brgyCagangohan180.png" style="width: 125px; height: 90px;"/>
             </div>
             <div class="col-lg-9 fadeIn animated">
                 <strong>Brgy. Cagangohan Geographical Information System</strong>
