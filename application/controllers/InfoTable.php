@@ -77,19 +77,19 @@ class InfoTable extends CI_Controller {
 		$telNum = $this->input->post('telNum');
 		$cpNum = $this->input->post('cpNum');
 
-		if ($mname == "" || $telNum == null) {
-			$mname = "N/A";
+		if ($mname == "" || $mname == null) {
+			$mname = "N/a";
 		}
 
 		if ($telNum == "" || $telNum == null) {
-			$telNum = "N/A";
+			$telNum = "N/a";
 		} else if ($cpNum == "" || $cpNum == null) {
-			$cpNum = "N/A";
+			$cpNum = "N/a";
 		}
 
 		$data = array(
 			'name' => humanize($this->input->post('name')),
-			'mname' => humanize('N/A'),
+			'mname' => humanize('N/a'),
 			'lname' => humanize($this->input->post('lname')),
 			'gender' => humanize($this->input->post('gender')),
 			'age' => humanize($this->input->post('age')),
@@ -114,10 +114,10 @@ class InfoTable extends CI_Controller {
 		$telNum = $this->input->post('telNum');
 		$cpNum = $this->input->post('cpNum');
 		if ($telNum == "" || $telNum == null) {
-			$telNum = "N/A";
+			$telNum = "N/a";
 		}
 		if ($cpNum == "" || $cpNum == null) {
-			$cpNum = "N/A";
+			$cpNum = "N/a";
 		}
 		$data = array(
 			'name' => humanize($this->input->post('name')),
@@ -135,12 +135,12 @@ class InfoTable extends CI_Controller {
 			'cpNum' => $cpNum,
 			'latlong' => $this->input->post('latlong'),
 		);
-		$this->InfoTable_model->update(array('resident_id' => $this->input->post('resident_id')), $data);
+		$this->InfoTable_model->update('resident_id = ' . $this->input->post('resident_id'), $data);
 		echo json_encode(array("status" => TRUE));
 	}
 
 	public function ajax_delete($id) {
-		$this->InfoTable_model->delete_by_id($id);
+		$this->InfoTable_model->delete_by_id('resident_id', $id);
 		echo json_encode(array("status" => TRUE));
 	}
 

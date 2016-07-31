@@ -12,8 +12,8 @@ var UiTables = function() {
                 "oLanguage": {
                     "sProcessing": '<center><i class="fa fa-asterisk fa-2x fa-spin text-info"></i></center>'
                 },
-                "processing": true, //Feature control the processing indicator.
-                "serverSide": true, //Feature control DataTables' server-side processing mode.
+                "bProcessing": true, //Feature control the processing indicator.
+                "bServerSide": true, //Feature control DataTables' server-side processing mode.
                 "order": [
                     [0, 'asc']
                 ], //Initial no order.
@@ -271,8 +271,9 @@ function edit_resident(id) {
             $('#modal_form').modal('show');
             $('.modal-title').text('Edit Resident');
         },
-        error: function(jqXHR, textStatus, errorThrown) {
+        error: function(jqXHR, status, errorThrown) {
             // alert('Error get data from ajax');
+            reload_table();
             $.bootstrapGrowl("<h4><strong>Error!</strong></h4> <p>Problem retrieving resident's data!</p>", {
                 type: "danger",
                 delay: 2500,
@@ -336,22 +337,38 @@ function save() {
                             $('[name="' + data.inputerror[i] + '"]').parent().parent().addClass('has-error'); //select parent twice to select div form-group class and add has-error class
                             $('[name="' + data.inputerror[i] + '"]').next().text(data.error_string[i]); //select span help-block class set text error string
                         }
+                        reload_table();
                     }
                     $('#btnSave').text('Save'); //change button text
                     $('#btnSave').attr('disabled', false); //set button enable
                 },
-                error: function(jqXHR, textStatus, errorThrown) {
+                error: function(jqXHR, status, errorThrown) {
                     // alert('Error adding / update data');
-                    $.bootstrapGrowl("<h4><strong>Error!</strong></h4> <p>Problem adding/updating resident's data!</p>", {
-                        type: "danger",
-                        delay: 2500,
-                        width: "auto",
-                        allow_dismiss: true,
-                        offset: {
-                            from: 'top',
-                            amount: 20
-                        }
-                    });
+                    if (save_method == 'add') {
+                        reload_table();
+                        $.bootstrapGrowl("<h4><strong>Error!</strong></h4> <p>Problem inserting resident's data!</p>", {
+                            type: "danger",
+                            delay: 2500,
+                            width: "auto",
+                            allow_dismiss: true,
+                            offset: {
+                                from: 'top',
+                                amount: 20
+                            }
+                        });
+                    } else {
+                        reload_table();
+                        $.bootstrapGrowl("<h4><strong>Error!</strong></h4> <p>Problem updating resident's data!</p>", {
+                            type: "danger",
+                            delay: 2500,
+                            width: "auto",
+                            allow_dismiss: true,
+                            offset: {
+                                from: 'top',
+                                amount: 20
+                            }
+                        });
+                    }
                     $('#btnSave').text('Retry'); //change button text
                     $('#btnSave').attr('disabled', false); //set button enable
                 }
@@ -360,6 +377,7 @@ function save() {
 
 function cancel() {
     if (save_method == 'add') {
+        reload_table();
         $.bootstrapGrowl("<h4><strong>Aw Snap!</strong></h4> <p>You cancelled adding resident data!</p>", {
             type: "warning",
             delay: 2500,
@@ -371,6 +389,7 @@ function cancel() {
             }
         });
     } else if (save_method == 'update') {
+        reload_table();
         $.bootstrapGrowl("<h4><strong>Jeez!</strong></h4> <p>You cancelled updating resident data!</p>", {
             type: "warning",
             delay: 2500,
@@ -410,9 +429,10 @@ function delete_resident(id) {
                         text: "Resident data succesfully deleted!",
                         type: "success"
                     });
-                    reload_table();
                 },
-                error: function(jqXHR, textStatus, errorThrown) {
+                error: function(jqXHR, status, errorThrown) {
+                    reload_table();
+                    $('#modal_form').modal('hide');
                     $.bootstrapGrowl("<h4><strong>Error!</strong></h4> <p>Problem deleting resident's data!</p>", {
                         type: "danger",
                         delay: 2500,
@@ -424,10 +444,15 @@ function delete_resident(id) {
                             amount: 20
                         }
                     });
+                    swal({
+                        title: "Error!",
+                        text: "Resident data deletion failed!",
+                        type: "error"
+                    });
                 }
             });
-            swal("Deleted!", "Resident's data succesfully deleted!", "success");
         } else {
+            reload_table();
             $.bootstrapGrowl("<h4><strong>Cancelled!</strong></h4> <p>Resident's data deletion cancelled!</p>", {
                 type: "warning",
                 delay: 2500,
