@@ -10,10 +10,10 @@ var UiTables = function() {
             App.datatables();
             var table = $('#table').DataTable({
                 "oLanguage": {
-                    "sProcessing": '<center><i class="fa fa-asterisk fa-2x fa-spin text-primary"></i></center>'
+                    "sProcessing": '<center><i class="fa fa-asterisk fa-2x fa-spin text-info"></i></center>'
                 },
-                "processing": true, //Feature control the processing indicator.
-                "serverSide": true, //Feature control DataTables' server-side processing mode.
+                "bProcessing": true, //Feature control the processing indicator.
+                "bServerSide": true, //Feature control DataTables' server-side processing mode.
                 "order": [
                     [0, 'asc']
                 ], //Initial no order.
@@ -24,7 +24,7 @@ var UiTables = function() {
                 },
                 //Set column definition initialisation properties.
                 "columnDefs": [{
-                    "targets": [-1, 0], //last column
+                    "targets": [-1], //last column
                     "orderable": false //set not orderable
                 }],
                 "lengthMenu": [
@@ -48,17 +48,7 @@ var UiTables = function() {
             $('#table').on('process', function() {
                 $(this).addClass();
             });
-            // $('#example-datatable').dataTable({
-            //     columnDefs: [{
-            //         orderable: false,
-            //         targets: [4]
-            //     }],
-            //     pageLength: 10,
-            //     lengthMenu: [
-            //         [5, 10, 15, 20],
-            //         [5, 10, 15, 20]
-            //     ]
-            // });
+            
             /* Add placeholder attribute to the search input */
             $('.dataTables_filter input').attr('placeholder', 'Search');
             /* Select/Deselect all checkboxes in tables */
@@ -186,6 +176,8 @@ function format(d) {
 //     return $html.html();
 // }
 function reload_table() {
+    // table.ajax.reload(null, false); //reload datatable ajax
+    // table.fnDraw();
     $('#table').dataTable().fnDraw();
 }
 
@@ -194,12 +186,14 @@ function ageCount() {
     var bday = document.getElementById("bday").value;
     var date2 = new Date(bday);
     var pattern = /^\d{4}-\d{2}-\d{2}$/; // yyyy-MM-dd
+    // var pattern = /(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d$/;
     if (pattern.test(bday)) {
         var y1 = date1.getFullYear();
         var y2 = date2.getFullYear();
         var age = y1 - y2;
         document.getElementById("age").value = age;
     } else {
+        // alertify.alert("Invalid Date format!!! Please fill in (MM/DD/YYYY) format").set('modal', false);
         $.bootstrapGrowl("<h4><strong>Error!</strong></h4> <p>Please fill in (MM/DD/YYYY) format!</p>", {
             type: "danger",
             delay: 2500,
@@ -217,13 +211,18 @@ function ageCount() {
 
 function add_resident() {
     save_method = 'add';
-    $('#form')[0].reset();
-    $('.form-group').removeClass('has-error');
+    $('#form')[0].reset(); // reset form on modals
+    $('.form-group').removeClass('has-error'); // clear error class
     $('label[class="btn btn-info active"]').removeClass('active');
     $('label[class="btn btn-danger active"]').removeClass('active');
-    $('.help-block').empty();
-    $('#modal_form').modal('show');
-    $('.modal-title').text('Add Resident');
+    $('.help-block').empty(); // clear error string
+    $('#modal_form').modal('show'); // show bootstrap modal
+    $('.modal-title').text('Add Resident'); // Set Title to Bootstrap modal title
+    // $('#modal_form').on('shown', function () {
+    //     google.maps.event.trigger(map, "resize");
+    //     map.setCenter(myCenter);
+    // });
+    // google.maps.event.trigger(map, "resize");
 }
 
 function edit_resident(id) {
@@ -272,7 +271,9 @@ function edit_resident(id) {
             $('#modal_form').modal('show');
             $('.modal-title').text('Edit Resident');
         },
-        error: function(jqXHR, textStatus, errorThrown) {
+        error: function(jqXHR, status, errorThrown) {
+            // alert('Error get data from ajax');
+            reload_table();
             $.bootstrapGrowl("<h4><strong>Error!</strong></h4> <p>Problem retrieving resident's data!</p>", {
                 type: "danger",
                 delay: 2500,
@@ -298,68 +299,85 @@ function edit_resident(id) {
 // }
 
 function save() {
-    $('#btnSave').text('Saving...');
-    $('#btnSave').attr('disabled', true);
+    $('#btnSave').text('Saving...'); //change button text
+    $('#btnSave').attr('disabled', true); //set button disable
     var url;
-    if (save_method == 'add') {
-        url = window.location.origin + "/InfoTable/ajax_add";
-    } else {
-        url = window.location.origin + "/InfoTable/ajax_update";
-    }
-    // ajax adding data to database
-    $.ajax({
-        url: url,
-        type: "POST",
-        data: $('#form').serialize(),
-        dataType: "JSON",
-        success: function(data) {
-            if (data.status) { //if success close modal and reload ajax table
-                $('#modal_form').modal('hide');
-                reload_table();
-                if (save_method == 'add') {
-                    swal({
-                        title: "Success!",
-                        text: "Resident data successfully added!",
-                        type: "success"
-                    });
-                    reload_table();
-                } else if (save_method == 'update') {
-                    swal({
-                        title: "Success!",
-                        text: "Resident data successfully updated!",
-                        type: "success"
-                    });
-                    reload_table();
-                }
+            if (save_method == 'add') {
+                url = window.location.origin + "/InfoTable/ajax_add";
             } else {
-                for (var i = 0; i < data.inputerror.length; i++) {
-                    $('[name="' + data.inputerror[i] + '"]').parent().parent().addClass('has-error'); //select parent twice to select div form-group class and add has-error class
-                    $('[name="' + data.inputerror[i] + '"]').next().text(data.error_string[i]); //select span help-block class set text error string
-                }
+                url = window.location.origin + "/InfoTable/ajax_update";
             }
-            $('#btnSave').text('Save'); //change button text
-            $('#btnSave').attr('disabled', false); //set button enable
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            // alert('Error adding / update data');
-            $.bootstrapGrowl("<h4><strong>Error!</strong></h4> <p>Problem adding/updating resident's data!</p>", {
-                type: "danger",
-                delay: 2500,
-                width: "auto",
-                allow_dismiss: true,
-                offset: {
-                    from: 'top',
-                    amount: 20
+            // ajax adding data to database
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: $('#form').serialize(),
+                dataType: "JSON",
+                success: function(data) {
+                    if (data.status) { //if success close modal and reload ajax table
+                        $('#modal_form').modal('hide');
+                        reload_table();
+                        if (save_method == 'add') {
+                            swal({
+                                title: "Success!",
+                                text: "Resident data successfully added!",
+                                type: "success"
+                            });
+                            reload_table();
+                        } else if (save_method == 'update') {
+                            swal({
+                                title: "Success!",
+                                text: "Resident data successfully updated!",
+                                type: "success"
+                            });
+                            reload_table();
+                        }
+                    } else {
+                        for (var i = 0; i < data.inputerror.length; i++) {
+                            $('[name="' + data.inputerror[i] + '"]').parent().parent().addClass('has-error'); //select parent twice to select div form-group class and add has-error class
+                            $('[name="' + data.inputerror[i] + '"]').next().text(data.error_string[i]); //select span help-block class set text error string
+                        }
+                        reload_table();
+                    }
+                    $('#btnSave').text('Save'); //change button text
+                    $('#btnSave').attr('disabled', false); //set button enable
+                },
+                error: function(jqXHR, status, errorThrown) {
+                    // alert('Error adding / update data');
+                    if (save_method == 'add') {
+                        reload_table();
+                        $.bootstrapGrowl("<h4><strong>Error!</strong></h4> <p>Problem inserting resident's data!</p>", {
+                            type: "danger",
+                            delay: 2500,
+                            width: "auto",
+                            allow_dismiss: true,
+                            offset: {
+                                from: 'top',
+                                amount: 20
+                            }
+                        });
+                    } else {
+                        reload_table();
+                        $.bootstrapGrowl("<h4><strong>Error!</strong></h4> <p>Problem updating resident's data!</p>", {
+                            type: "danger",
+                            delay: 2500,
+                            width: "auto",
+                            allow_dismiss: true,
+                            offset: {
+                                from: 'top',
+                                amount: 20
+                            }
+                        });
+                    }
+                    $('#btnSave').text('Retry'); //change button text
+                    $('#btnSave').attr('disabled', false); //set button enable
                 }
             });
-            $('#btnSave').text('Retry'); //change button text
-            $('#btnSave').attr('disabled', false); //set button enable
-        }
-    });
 }
 
 function cancel() {
     if (save_method == 'add') {
+        reload_table();
         $.bootstrapGrowl("<h4><strong>Aw Snap!</strong></h4> <p>You cancelled adding resident data!</p>", {
             type: "warning",
             delay: 2500,
@@ -371,6 +389,7 @@ function cancel() {
             }
         });
     } else if (save_method == 'update') {
+        reload_table();
         $.bootstrapGrowl("<h4><strong>Jeez!</strong></h4> <p>You cancelled updating resident data!</p>", {
             type: "warning",
             delay: 2500,
@@ -410,9 +429,10 @@ function delete_resident(id) {
                         text: "Resident data succesfully deleted!",
                         type: "success"
                     });
-                    reload_table();
                 },
-                error: function(jqXHR, textStatus, errorThrown) {
+                error: function(jqXHR, status, errorThrown) {
+                    reload_table();
+                    $('#modal_form').modal('hide');
                     $.bootstrapGrowl("<h4><strong>Error!</strong></h4> <p>Problem deleting resident's data!</p>", {
                         type: "danger",
                         delay: 2500,
@@ -424,10 +444,15 @@ function delete_resident(id) {
                             amount: 20
                         }
                     });
+                    swal({
+                        title: "Error!",
+                        text: "Resident data deletion failed!",
+                        type: "error"
+                    });
                 }
             });
-            swal("Deleted!", "Resident's data succesfully deleted!", "success");
         } else {
+            reload_table();
             $.bootstrapGrowl("<h4><strong>Cancelled!</strong></h4> <p>Resident's data deletion cancelled!</p>", {
                 type: "warning",
                 delay: 2500,

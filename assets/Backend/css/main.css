@@ -3841,19 +3841,10 @@ p,
         padding: 20px 20px 1px;
     }
     #page-container.header-fixed-top #page-content {
-<<<<<<< HEAD
-        padding-top: 70px;
-        /*padding-top: 0px;*/
-    }
-    #page-container.header-fixed-bottom #page-content {
-        padding-bottom: 70px;
-        /*padding-bottom: 0px;*/
-=======
         padding-top: 0px;
     }
     #page-container.header-fixed-bottom #page-content {
         padding-bottom: 0px;
->>>>>>> 4d63e62e400e8c626eb5c1faad0fa08070d40c43
     }
     #page-content.inner-sidebar-left,
     #page-content.inner-sidebar-right {
@@ -4249,7 +4240,6 @@ canvas {
 */
 
 #map_canvas {
-    background: url("../images/markerLoading2.gif") center center no-repeat;
     z-index: 0;
     margin: 0;
     padding: 0;
@@ -4325,10 +4315,6 @@ canvas {
     transition: all .5s ease-in-out;
 }
 
-/*#directionsDiv {
-    margin-top: 50px;
-    margin-bottom: 25px;
-}*/
 
 /*#directionsDiv {
     margin-top: 50px;
